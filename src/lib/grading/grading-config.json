@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "_comment": "ZZZ disc-grading config for the Soundsystem dashboard. OUR OWN archetype weights (not interknot's). Edit freely — the engine is data-driven and re-grades live. Scale mirrors interknot's SSS…E for vanity.",
+
+  "rollModel": {
+    "_comment": "S-rank disc: 4 base substats, +1 upgrade roll every 3 levels to +15 = 5 upgrades. One substat caps at 6 rolls (PropertyLevel). Total rolls on a maxed disc = 9.",
+    "maxLevel": 15,
+    "baseSubs": 4,
+    "maxRollsPerSub": 6,
+    "totalRollsAtMax": 9
+  },
+
+  "mainWeightMultiplier": 2.5,
+  "partnerBoost": 4.25,
+
+  "scale": [
+    { "letter": "SSS", "min": 92.5, "color": "#ffe08a" },
+    { "letter": "SS",  "min": 85.0, "color": "#ffd84a" },
+    { "letter": "S",   "min": 77.5, "color": "#ffb43c" },
+    { "letter": "A",   "min": 67.5, "color": "#b06bff" },
+    { "letter": "B",   "min": 55.0, "color": "#6aa6ff" },
+    { "letter": "C",   "min": 42.5, "color": "#d8d8de" },
+    { "letter": "D",   "min": 27.5, "color": "#9a9aa6" },
+    { "letter": "E",   "min": 0.0,  "color": "#ff4d52" }
+  ],
+
+  "sectionToArchetype": {
+    "ATTACK": "attack",
+    "ANOMALY": "anomaly",
+    "STUN": "stun",
+    "SUPPORT": "support",
+    "RAPTURE": "attack"
+  },
+
+  "archetypes": {
+    "anomaly": {
+      "label": "Anomaly DPS",
+      "pairs": ["ATK%", "Anomaly Proficiency"],
+      "weights": {
+        "Anomaly Proficiency": 3.5, "ATK%": 3.5,
+        "PEN Ratio": 1.0, "ATK": 0.5, "Flat PEN": 0.5,
+        "CRIT Rate": 0, "CRIT DMG": 0, "HP%": 0, "DEF%": 0, "HP": 0, "DEF": 0
+      },
+      "mainStatPoints": {
+        "4": { "Anomaly Proficiency": 3, "ATK%": 2 },
+        "5": { "Attribute DMG": 3, "PEN Ratio": 3, "ATK%": 2 },
+        "6": { "Anomaly Proficiency": 3, "ATK%": 2.5, "Anomaly Mastery": 2 }
+      }
+    },
+
+    "attack": {
+      "label": "Crit DPS",
+      "pairs": ["CRIT Rate", "CRIT DMG"],
+      "weights": {
+        "CRIT DMG": 3.5, "CRIT Rate": 3.0, "ATK%": 3.0,
+        "PEN Ratio": 1.0, "ATK": 0.5, "Flat PEN": 0.5,
+        "Anomaly Proficiency": 0, "HP%": 0, "DEF%": 0, "HP": 0, "DEF": 0
+      },
+      "mainStatPoints": {
+        "4": { "CRIT DMG": 3, "CRIT Rate": 3, "ATK%": 2 },
+        "5": { "Attribute DMG": 3, "ATK%": 2, "PEN Ratio": 2 },
+        "6": { "ATK%": 3, "PEN Ratio": 2 }
+      }
+    },
+
+    "stun": {
+      "label": "Stun / Impact",
+      "pairs": ["CRIT Rate", "CRIT DMG"],
+      "weights": {
+        "CRIT DMG": 3.0, "CRIT Rate": 3.0, "ATK%": 3.0,
+        "PEN Ratio": 1.0, "ATK": 0.5, "Flat PEN": 0.5,
+        "Anomaly Proficiency": 0, "HP%": 0, "DEF%": 0, "HP": 0, "DEF": 0
+      },
+      "mainStatPoints": {
+        "4": { "CRIT DMG": 3, "CRIT Rate": 3, "ATK%": 2.5 },
+        "5": { "ATK%": 2.5, "Attribute DMG": 2.5, "PEN Ratio": 2 },
+        "6": { "Impact": 3, "ATK%": 2.5, "Energy Regen": 2 }
+      }
+    },
+
+    "support": {
+      "label": "Support",
+      "pairs": ["ATK%", "CRIT DMG"],
+      "weights": {
+        "ATK%": 3.0, "CRIT DMG": 2.0, "CRIT Rate": 2.0,
+        "Anomaly Proficiency": 1.5, "PEN Ratio": 1.0, "ATK": 0.5, "Flat PEN": 0.5,
+        "HP%": 0.5, "DEF%": 0.5, "HP": 0, "DEF": 0
+      },
+      "mainStatPoints": {
+        "4": { "CRIT DMG": 2.5, "ATK%": 2.5, "Anomaly Proficiency": 2 },
+        "5": { "ATK%": 2.5, "Attribute DMG": 2.5 },
+        "6": { "Energy Regen": 3, "ATK%": 2.5, "Anomaly Proficiency": 2 }
+      }
+    }
+  },
+
+  "agentOverrides": {
+    "_comment": "Per-agent tweaks. archetype overrides section mapping; weights merge over the archetype's weights.",
+    "Alice":  { "archetype": "anomaly" },
+    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT DMG": 2.5, "CRIT Rate": 2.0, "Anomaly Proficiency": 3.5, "ATK%": 3.0 } },
+    "Yixuan": { "archetype": "attack",  "weights": { "HP%": 3.0 } }
+  },
+
+  "rollValues": {
+    "_comment": "Approx per-roll value for an S-rank disc substat (one PropertyLevel). Used to turn rolls → stat values for the Sheet/Effective stat sheet. Illustrative — refine to exact ZZZ tuning later.",
+    "ATK%": 3.0, "ATK": 19, "HP%": 3.0, "HP": 112, "DEF%": 4.8, "DEF": 15,
+    "CRIT Rate": 2.4, "CRIT DMG": 4.8, "Flat PEN": 9, "Anomaly Proficiency": 9
+  },
+
+  "setEffects": {
+    "_comment": "Per-set bonus effects. kind 'stat' feeds the Sheet/Effective stat sheet (scope sheet|combat); kind 'dmg'/'buildup' are combat multipliers shown as buff chips (never touch the sheet). value/unit for display.",
+    "Fanged Metal": {
+      "2pc": [{ "label": "+10% Physical DMG", "kind": "dmg", "stat": "Physical DMG", "value": 10, "unit": "%", "scope": "combat" }],
+      "4pc": [{ "label": "+35% DMG vs Assault/Anomaly (8s)", "kind": "dmg", "stat": "DMG", "value": 35, "unit": "%", "scope": "combat", "cond": true }]
+    },
+    "Phaethon's Melody": {
+      "2pc": [{ "label": "+30% Anomaly Buildup", "kind": "buildup", "stat": "Anomaly Buildup", "value": 30, "unit": "%", "scope": "combat" }],
+      "4pc": [{ "label": "+45 Anomaly Proficiency on Disorder (combat)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 45, "unit": "", "scope": "combat", "cond": true }]
+    },
+    "Freedom Blues": {
+      "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }]
+    },
+    "Woodpecker Electro": {
+      "2pc": [{ "label": "+8% CRIT Rate", "kind": "stat", "stat": "CRIT Rate", "value": 8, "unit": "%", "scope": "sheet" }]
+    },
+    "Inferno Metal": {
+      "2pc": [{ "label": "+10% Fire DMG", "kind": "dmg", "stat": "Fire DMG", "value": 10, "unit": "%", "scope": "combat" }]
+    },
+    "Swing Jazz": {
+      "2pc": [{ "label": "+2 Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 2, "unit": "", "scope": "sheet" }]
+    }
+  }
+}
