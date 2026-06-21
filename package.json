@@ -11,7 +11,8 @@
     "import": "tsx scripts/import-enka.ts",
     "frames": "python scripts/measure-frames.py",
     "seed": "tsx scripts/seed.ts",
-    "stage": "tsx scripts/stage-assets.ts"
+    "stage": "tsx scripts/stage-assets.ts",
+    "sync-stats": "tsx scripts/sync-stats.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

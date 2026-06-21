@@ -64,6 +64,14 @@ export const factionIcon = (faction: string) => {
 export const wengineIcon = (name: string) => `wengine_${slugify(name)}`;
 export const setIcon = (set: string) => `set_${slugify(set)}`;
 
+// Character-screen main-stat sheet: 10 rows in the in-game 2-column reading order
+// (row-major — HP|ATK, DEF|Impact, …). The MainStats grid auto-flows over this.
+export const STAT_SHEET = [
+  "HP", "ATK", "DEF", "Impact", "CRIT Rate", "CRIT DMG",
+  "Anomaly Mastery", "Anomaly Proficiency", "PEN Ratio", "Energy Regen",
+] as const;
+export const statIcon = (stat: string) => `stat_${slugify(stat)}`;
+
 // Standard-channel S-rank W-engines — generic, not any agent's signature. The cartridge only
 // claims "Signature" for engines NOT in this set, so a standard engine (e.g. an agent running
 // The Brimstone or Hellfire Gears) reads as "Standard". Extend as new standard engines ship.

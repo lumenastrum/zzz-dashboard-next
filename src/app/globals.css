@@ -212,6 +212,23 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .cart .wpass b { color:var(--ink); }
 .cart .wpass .cmb { color:var(--violet); font-weight:600; }
 
+/* main stats — character-screen sheet under the cartridge; scaling stats lit gold */
+.modlbl.mstats-lbl { margin-top:18px; }
+.mstats { display:grid; grid-template-columns:1fr 1fr; gap:6px 10px;
+  background:linear-gradient(180deg,var(--panel2),var(--bg2)); border:1px solid var(--bezel1); border-radius:14px; padding:12px 13px; }
+.mrow { display:flex; align-items:center; gap:8px; padding:5px 9px; border-radius:8px;
+  background:rgba(255,255,255,.025); border:1px solid transparent; min-width:0; }
+.mrow .mi { width:18px; height:18px; object-fit:contain; flex-shrink:0; opacity:.8; }
+.mrow .mn { font-family:var(--led); font-size:10px; letter-spacing:.2px; text-transform:uppercase; color:var(--mut);
+  line-height:1.12; }
+.mrow .mv { margin-left:auto; font-family:var(--disp); font-weight:600; font-size:14px; color:var(--ink); white-space:nowrap; }
+.mrow.rel { background:rgba(255,180,60,.10); border-color:rgba(255,180,60,.32); }
+.mrow.rel .mn, .mrow.rel .mv { color:var(--amber); }
+.mrow.rel .mi { opacity:1; }
+.mstats-empty { font-family:var(--led); font-size:11px; letter-spacing:.5px; color:var(--mut2);
+  background:linear-gradient(180deg,var(--panel2),var(--bg2)); border:1px dashed var(--bezel1);
+  border-radius:14px; padding:18px 16px; text-align:center; }
+
 /* VU levels */
 .levels { background:linear-gradient(180deg,var(--panel2),var(--bg2)); border:1px solid var(--bezel1); border-radius:14px; padding:14px 15px; }
 .vu { margin-bottom:11px; }

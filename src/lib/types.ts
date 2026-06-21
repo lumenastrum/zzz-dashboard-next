@@ -56,6 +56,11 @@ export interface Agent {
   base?: { atkPool?: number; AP?: number; AM?: number };
   wengine?: WEngine;
   discs?: { pieces: DiscPiece[] };
+  // Character-screen main stats + the agent's scaling stats. Lives on the agent object so the
+  // andres-zzz Supabase blob is the SINGLE source of truth (seeded via data.json, then editable
+  // → Supabase). `relevant` = the gold-highlighted stats, which are also the Levels goalposts.
+  mainStats?: { stat: string; value: string }[];
+  relevant?: string[];
   notes?: string | null;
 }
 

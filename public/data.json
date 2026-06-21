@@ -190,7 +190,54 @@
         "refine": "R2"
       },
       "attribute": "Physical",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "10,664"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,769"
+        },
+        {
+          "stat": "DEF",
+          "value": "965"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "7.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "98%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "195"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "300"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
+      ]
     },
     {
       "name": "Jane Doe",

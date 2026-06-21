@@ -25,6 +25,7 @@ import {
 } from "@/lib/deck-config";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
+import { MainStats } from "./MainStats";
 import { EquipStack } from "./EquipStack";
 import { TrackInspector } from "./TrackInspector";
 import { DeckFoot } from "./DeckFoot";
@@ -187,6 +188,8 @@ export function AgentDeck({
                       </div>
                     </div>
                   )}
+                  <div className="modlbl mstats-lbl"><span className="dot" />Main Stats</div>
+                  <MainStats rows={agent?.mainStats} relevant={agent?.relevant} />
                 </div>
                 <div>
                   <div className="modlbl"><span className="dot" />Levels</div>

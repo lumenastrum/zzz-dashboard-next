@@ -60,6 +60,7 @@ const RULES: Rule[] = [
   { dir: "ZZZ Faction icons", outDir: ICONS, map: (f) => `faction_${slug(strip(f, "Faction_", "_Icon.webp"))}.webp` },
   { dir: "ZZZ Disc Drive Sets", outDir: ICONS, map: (f) => `set_${slug(strip(f, "Drive_Disc_", "_Icon.webp"))}.webp` },
   { dir: "ZZZ W-Engines", outDir: ICONS, map: (f) => `wengine_${slug(strip(f, "W-Engine_", ".webp"))}.webp` },
+  { dir: "ZZZ Stat Icons", outDir: ICONS, map: (f) => `stat_${slug(strip(f, "Icon_Stat_", ".webp"))}.webp` },
   { dir: "ZZZ Agent Rank Icons", outDir: ICONS, map: (f) => `rank_${strip(f, "Icon_AgentRank_", ".webp")}.webp` },
   { dir: "ZZZ W-Engine Rank Icons", outDir: ICONS, map: (f) => `wrank_${strip(f, "Icon_Item_Rank_", ".webp")}.webp` },
   { dir: "ZZZ Disc Drive Layout", outDir: ICONS, map: (f) => (f === "Equipment_Menu_Screen.webp" ? "equip_frame.webp" : null) },
