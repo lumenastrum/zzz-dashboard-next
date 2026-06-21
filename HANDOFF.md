@@ -362,6 +362,14 @@ pages), live-verified through the real deck (a UI set-swap moved the sheet, then
   across a `derive-bases`+`sync-stats`**, it can clobber the push back to the old base (I hit this — base CR reverted to
   10.6, double-counting +8 live). Fix = close/park the deck (about:blank) before re-syncing. Fresh production loads are
   unaffected. After any re-derive, re-sync with **no deck open**, then verify the blob.
+- 🐛 **Multiplicative-stat recompute fix (Andres caught: Ju Fufu ATK).** On an ATK%-advanced engine (Roaring Fur-nace
+  ATK +30%), editing disc ATK% drifted the sheet ATK (−15 vs in-game 3301) — the engine's always-on 30% was folded into
+  `agent.base` **multiplicatively**, but ZZZ SUMS every %, so `base×(1+newDisc%)` ≠ `P×(1+30%+newDisc%)`. Fix: new
+  `weaponAdvanceAccum(we)` parses the engine's MULTIPLICATIVE advanced stat (ATK%/HP%/DEF%/AM%/Impact%/ER%) and SUMS it
+  into `computeSheet` + `derive-bases` (additive advanced — CR/CDMG/AP/PEN — stays in base, no artifact). `agent.base` is
+  now character(+core)-only for multiplicative stats. Re-derived (self-consistency worst 1) + re-synced. Ju Fufu ATK now
+  **exact 3301** (live-verified); 8/10 stats exact. (Residual DEF +15 / Impact +2 are pre-engine-advance — approximate
+  `rollValues` + the seed-snapshot base vs his edited blob discs; untracked stats, not a regression.)
 
 ## Next steps (next session)
 

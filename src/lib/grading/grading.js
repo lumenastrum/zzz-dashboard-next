@@ -264,21 +264,37 @@ export function setSheetAccum(pieces, cfg = {}) {
   return a;
 }
 
+/** Parse a W-Engine's MULTIPLICATIVE advanced stat (ATK%/HP%/DEF%/AM%/Impact%/ER%) into a discAccum-shaped
+ *  pool, so it gets SUMMED with disc/set %s instead of multiplied into agent.base. ZZZ's real formula sums
+ *  every %; folding the advanced % into base made multiplicative stats (e.g. ATK on an ATK%-engine) drift
+ *  once disc %s were edited — base*(1+newDisc%) != base/(1+adv%)*(1+adv%+newDisc%). ADDITIVE advanced stats
+ *  (CRIT Rate/DMG, Anomaly Prof, PEN) have no such artifact, so they stay folded in base. `we` must be the
+ *  RESOLVED engine (resolveWengine), so the advanced label is present even for Enka-imported agents. */
+export function weaponAdvanceAccum(we) {
+  const a = { atkPct: 0, hpPct: 0, defPct: 0, amPct: 0, impactPct: 0, erPct: 0 };
+  const m = /^(ATK|HP|DEF|Anomaly Mastery|Impact|Energy Regen)\s*\+\s*([\d.]+)%$/.exec(we?.advanced?.label || "");
+  if (!m) return a;
+  const key = { "ATK": "atkPct", "HP": "hpPct", "DEF": "defPct", "Anomaly Mastery": "amPct", "Impact": "impactPct", "Energy Regen": "erPct" }[m[1]];
+  a[key] += parseFloat(m[2]);
+  return a;
+}
+
 /** Recompute the character-screen (unconditional) sheet from agent.base + current discs, applying the
  *  researched ZZZ formulas (docs/stat-formulas.md): ATK/HP/DEF multiply (base × (1+%) + flat); AM /
  *  Impact / Energy Regen multiply base by (1+%); CRIT Rate/DMG, Anomaly Proficiency, PEN Ratio add;
- *  Sheer Force = 0.3·ATK + 0.1·HP (Rupture). base folds in W-Engine/core sources; sheet-scope SET
- *  bonuses are added live from setSheetAccum (so a set-swap retro-adjusts the sheet). This is what
- *  makes live disc edits flow into the stats — edit a disc or swap a set, the sheet (and goalposts) move. */
+ *  Sheer Force = 0.3·ATK + 0.1·HP (Rupture). base is character-only for multiplicative stats — the
+ *  W-Engine advanced % (weaponAdvanceAccum) and sheet-scope SET % (setSheetAccum) are SUMMED in live, so
+ *  editing a disc OR swapping a set OR (in principle) the engine retro-adjusts the sheet & goalposts. */
 export function computeSheet(agent, cfg) {
   const b = agent.base || {};
   const pieces = agent.discs?.pieces || [];
   const d = discAccum(pieces, cfg);
   const s = setSheetAccum(pieces, cfg);
-  // disc + sheet-scope set contributions share each pool (set %-stats stack additively with disc %-stats)
-  const ATK = (b.ATK || 0) * (1 + (d.atkPct + s.atkPct) / 100) + d.flatAtk + s.flatAtk;
-  const HP = (b.HP || 0) * (1 + (d.hpPct + s.hpPct) / 100) + d.flatHp + s.flatHp;
-  const DEF = (b.DEF || 0) * (1 + (d.defPct + s.defPct) / 100) + d.flatDef + s.flatDef;
+  const w = weaponAdvanceAccum(resolveWengine(agent.wengine, cfg));
+  // disc + sheet-scope set + W-engine-advanced contributions share each multiplicative pool (all summed)
+  const ATK = (b.ATK || 0) * (1 + (d.atkPct + s.atkPct + w.atkPct) / 100) + d.flatAtk + s.flatAtk;
+  const HP = (b.HP || 0) * (1 + (d.hpPct + s.hpPct + w.hpPct) / 100) + d.flatHp + s.flatHp;
+  const DEF = (b.DEF || 0) * (1 + (d.defPct + s.defPct + w.defPct) / 100) + d.flatDef + s.flatDef;
   const sheet = {
     "ATK": Math.round(ATK),
     "HP": Math.round(HP),
@@ -286,9 +302,9 @@ export function computeSheet(agent, cfg) {
     "CRIT Rate": +((b["CRIT Rate"] || 0) + d.crPct + s.crPct).toFixed(1),
     "CRIT DMG": +((b["CRIT DMG"] || 0) + d.cdPct + s.cdPct).toFixed(1),
     "Anomaly Proficiency": Math.round((b["Anomaly Proficiency"] || 0) + d.apFlat + s.apFlat),
-    "Anomaly Mastery": Math.round((b["Anomaly Mastery"] || 0) * (1 + (d.amPct + s.amPct) / 100)),
-    "Impact": Math.round((b["Impact"] || 0) * (1 + (d.impactPct + s.impactPct) / 100)),
-    "Energy Regen": +((b["Energy Regen"] || 0) * (1 + (d.erPct + s.erPct) / 100)).toFixed(2),
+    "Anomaly Mastery": Math.round((b["Anomaly Mastery"] || 0) * (1 + (d.amPct + s.amPct + w.amPct) / 100)),
+    "Impact": Math.round((b["Impact"] || 0) * (1 + (d.impactPct + s.impactPct + w.impactPct) / 100)),
+    "Energy Regen": +((b["Energy Regen"] || 0) * (1 + (d.erPct + s.erPct + w.erPct) / 100)).toFixed(2),
     "PEN Ratio": +((b["PEN Ratio"] || 0) + d.penRatio + s.penRatio).toFixed(1),
   };
   if (String(agent.section || "").toUpperCase() === "RUPTURE") {
@@ -356,4 +372,4 @@ export function swapDiscSet(agent, slot, newSet, cfg) {
   return { agent: next, grade: gradeBuild(next, cfg) };
 }
 
-export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet, discAccum, setSheetAccum, computeSheet };
+export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet, discAccum, setSheetAccum, weaponAdvanceAccum, computeSheet };
