@@ -192,6 +192,9 @@ export function computeStats(agent, cfg, opts = {}) {
     : ["ATK", "Anomaly Proficiency", "Anomaly Mastery"];
   const sheet = {};
   for (const k of statKeys) sheet[k] = override[k] != null ? _num(override[k]) : (legacy[k] ?? 0);
+  // Seeded (override) values ARE the character screen — sheet-scope set/W-Engine bonuses are
+  // already baked in, so don't re-add them (double-count). Only combat-scope buffs layer on.
+  const overridden = new Set(statKeys.filter((k) => override[k] != null));
 
   const sets = computeSets(pieces, cfg);
   const combat = {};
@@ -200,7 +203,7 @@ export function computeStats(agent, cfg, opts = {}) {
   const apply = (m, src) => {
     if (m.kind === "stat") {
       if (m.scope === "combat" && combat[m.stat]) combat[m.stat].push({ ...m, src });
-      else if (m.scope === "sheet" && sheet[m.stat] != null) sheet[m.stat] += m.value;
+      else if (m.scope === "sheet" && sheet[m.stat] != null && !overridden.has(m.stat)) sheet[m.stat] += m.value;
     } else buffs.push({ ...m, src });
   };
   // W-Engine combat effects — `we` is already resolved against cfg.wengines, so passive is present
