@@ -223,28 +223,73 @@ export function discAccum(pieces, cfg) {
   return a;
 }
 
+/** Route a {stat,value,unit} stat mod into a discAccum-shaped pool (percentage pools carry the %
+ *  number, flat pools raw). Shared by setSheetAccum so set %-stats fold in exactly like disc %-stats. */
+function routeStatMod(a, stat, value, unit) {
+  const pct = unit === "%";
+  switch (stat) {
+    case "ATK": pct ? (a.atkPct += value) : (a.flatAtk += value); break;
+    case "HP": pct ? (a.hpPct += value) : (a.flatHp += value); break;
+    case "DEF": pct ? (a.defPct += value) : (a.flatDef += value); break;
+    case "CRIT Rate": a.crPct += value; break;
+    case "CRIT DMG": a.cdPct += value; break;
+    case "Anomaly Proficiency": a.apFlat += value; break;
+    case "Anomaly Mastery": a.amPct += value; break;
+    case "Impact": a.impactPct += value; break;
+    case "Energy Regen": a.erPct += value; break;
+    case "PEN Ratio": a.penRatio += value; break;
+    case "Flat PEN": a.flatPen += value; break;
+  }
+}
+
+/** Accumulate the SHEET-scope stat bonuses from a build's ACTIVE sets (2pc when >=2 pieces, 4pc when
+ *  >=4) into the same pool shape as discAccum. Only kind:"stat" + scope:"sheet" effects — the always-on
+ *  ones that show on the character screen (Woodpecker +8% CR, Astral Voice +10% ATK, Freedom Blues
+ *  +30 AP, Swing Jazz +20% ER, …); combat-scope + dmg/buildup are layered separately by computeStats.
+ *  Pulling these out of agent.base (see scripts/derive-bases) is what lets a disc SET-swap retro-adjust
+ *  the sheet: base becomes character + W-Engine only, the swappable set stats are added live here. */
+export function setSheetAccum(pieces, cfg = {}) {
+  const a = { atkPct: 0, flatAtk: 0, hpPct: 0, flatHp: 0, defPct: 0, flatDef: 0, crPct: 0, cdPct: 0,
+    apFlat: 0, amPct: 0, impactPct: 0, erPct: 0, penRatio: 0, flatPen: 0 };
+  const { active } = computeSets(pieces, cfg);
+  for (const s of active) {
+    const defs = cfg.setEffects?.[s.set] || {};
+    const tiers = s.pc === 4 ? ["2pc", "4pc"] : ["2pc"];
+    for (const t of tiers) {
+      for (const m of (defs[t] || [])) {
+        if (m.kind === "stat" && m.scope === "sheet") routeStatMod(a, m.stat, m.value, m.unit);
+      }
+    }
+  }
+  return a;
+}
+
 /** Recompute the character-screen (unconditional) sheet from agent.base + current discs, applying the
  *  researched ZZZ formulas (docs/stat-formulas.md): ATK/HP/DEF multiply (base × (1+%) + flat); AM /
  *  Impact / Energy Regen multiply base by (1+%); CRIT Rate/DMG, Anomaly Proficiency, PEN Ratio add;
- *  Sheer Force = 0.3·ATK + 0.1·HP (Rupture). base folds in W-Engine/core/sheet-set sources. This is
- *  what makes live disc edits flow into the stats — edit a disc, the sheet (and goalposts) move. */
+ *  Sheer Force = 0.3·ATK + 0.1·HP (Rupture). base folds in W-Engine/core sources; sheet-scope SET
+ *  bonuses are added live from setSheetAccum (so a set-swap retro-adjusts the sheet). This is what
+ *  makes live disc edits flow into the stats — edit a disc or swap a set, the sheet (and goalposts) move. */
 export function computeSheet(agent, cfg) {
   const b = agent.base || {};
-  const d = discAccum(agent.discs?.pieces || [], cfg);
-  const ATK = (b.ATK || 0) * (1 + d.atkPct / 100) + d.flatAtk;
-  const HP = (b.HP || 0) * (1 + d.hpPct / 100) + d.flatHp;
-  const DEF = (b.DEF || 0) * (1 + d.defPct / 100) + d.flatDef;
+  const pieces = agent.discs?.pieces || [];
+  const d = discAccum(pieces, cfg);
+  const s = setSheetAccum(pieces, cfg);
+  // disc + sheet-scope set contributions share each pool (set %-stats stack additively with disc %-stats)
+  const ATK = (b.ATK || 0) * (1 + (d.atkPct + s.atkPct) / 100) + d.flatAtk + s.flatAtk;
+  const HP = (b.HP || 0) * (1 + (d.hpPct + s.hpPct) / 100) + d.flatHp + s.flatHp;
+  const DEF = (b.DEF || 0) * (1 + (d.defPct + s.defPct) / 100) + d.flatDef + s.flatDef;
   const sheet = {
     "ATK": Math.round(ATK),
     "HP": Math.round(HP),
     "DEF": Math.round(DEF),
-    "CRIT Rate": +((b["CRIT Rate"] || 0) + d.crPct).toFixed(1),
-    "CRIT DMG": +((b["CRIT DMG"] || 0) + d.cdPct).toFixed(1),
-    "Anomaly Proficiency": Math.round((b["Anomaly Proficiency"] || 0) + d.apFlat),
-    "Anomaly Mastery": Math.round((b["Anomaly Mastery"] || 0) * (1 + d.amPct / 100)),
-    "Impact": Math.round((b["Impact"] || 0) * (1 + d.impactPct / 100)),
-    "Energy Regen": +((b["Energy Regen"] || 0) * (1 + d.erPct / 100)).toFixed(2),
-    "PEN Ratio": +((b["PEN Ratio"] || 0) + d.penRatio).toFixed(1),
+    "CRIT Rate": +((b["CRIT Rate"] || 0) + d.crPct + s.crPct).toFixed(1),
+    "CRIT DMG": +((b["CRIT DMG"] || 0) + d.cdPct + s.cdPct).toFixed(1),
+    "Anomaly Proficiency": Math.round((b["Anomaly Proficiency"] || 0) + d.apFlat + s.apFlat),
+    "Anomaly Mastery": Math.round((b["Anomaly Mastery"] || 0) * (1 + (d.amPct + s.amPct) / 100)),
+    "Impact": Math.round((b["Impact"] || 0) * (1 + (d.impactPct + s.impactPct) / 100)),
+    "Energy Regen": +((b["Energy Regen"] || 0) * (1 + (d.erPct + s.erPct) / 100)).toFixed(2),
+    "PEN Ratio": +((b["PEN Ratio"] || 0) + d.penRatio + s.penRatio).toFixed(1),
   };
   if (String(agent.section || "").toUpperCase() === "RUPTURE") {
     sheet["Sheer Force"] = Math.round(0.3 * ATK + 0.1 * HP);
@@ -311,4 +356,4 @@ export function swapDiscSet(agent, slot, newSet, cfg) {
   return { agent: next, grade: gradeBuild(next, cfg) };
 }
 
-export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet, discAccum, computeSheet };
+export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet, discAccum, setSheetAccum, computeSheet };

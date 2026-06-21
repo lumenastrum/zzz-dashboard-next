@@ -489,7 +489,7 @@
         "DEF": 605.59,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
-        "Anomaly Proficiency": 234,
+        "Anomaly Proficiency": 204,
         "Anomaly Mastery": 147.692,
         "Impact": 86,
         "Energy Regen": 1.2,
@@ -731,9 +731,9 @@
       ],
       "base": {
         "ATK": 1614.286,
-        "HP": 10466.25,
+        "HP": 9850.588,
         "DEF": 463.926,
-        "CRIT Rate": 10.6,
+        "CRIT Rate": 2.6,
         "CRIT DMG": 83.6,
         "Anomaly Proficiency": 90,
         "Anomaly Mastery": 92,
@@ -976,10 +976,10 @@
       ],
       "base": {
         "ATK": 1571.774,
-        "HP": 10890.845,
+        "HP": 10174.342,
         "DEF": 447.605,
         "CRIT Rate": 19.4,
-        "CRIT DMG": 66,
+        "CRIT DMG": 50,
         "Anomaly Proficiency": 90,
         "Anomaly Mastery": 87,
         "Impact": 95,
@@ -1227,7 +1227,7 @@
         "Anomaly Proficiency": 165,
         "Anomaly Mastery": 112,
         "Impact": 86,
-        "Energy Regen": 1.8,
+        "Energy Regen": 1.6,
         "PEN Ratio": 0
       }
     },
@@ -1468,7 +1468,7 @@
         "HP": 7673.585,
         "DEF": 605.491,
         "CRIT Rate": 19.4,
-        "CRIT DMG": 114,
+        "CRIT DMG": 98,
         "Anomaly Proficiency": 93,
         "Anomaly Mastery": 94,
         "Impact": 83,
@@ -1710,7 +1710,7 @@
         "ATK": 1470.861,
         "HP": 8250,
         "DEF": 611.314,
-        "CRIT Rate": 51.4,
+        "CRIT Rate": 43.4,
         "CRIT DMG": 50,
         "Anomaly Proficiency": 93,
         "Anomaly Mastery": 94,
@@ -1951,7 +1951,7 @@
         "Energy Regen"
       ],
       "base": {
-        "ATK": 1733.155,
+        "ATK": 1645.178,
         "HP": 8609.565,
         "DEF": 599.86,
         "CRIT Rate": 5,
@@ -1959,7 +1959,7 @@
         "Anomaly Proficiency": 92,
         "Anomaly Mastery": 93,
         "Impact": 83,
-        "Energy Regen": 1.75,
+        "Energy Regen": 1.556,
         "PEN Ratio": 0
       }
     },
@@ -2196,11 +2196,11 @@
         "CRIT DMG"
       ],
       "base": {
-        "ATK": 1775.472,
+        "ATK": 1622.414,
         "HP": 7673.786,
         "DEF": 606,
         "CRIT Rate": 29,
-        "CRIT DMG": 66,
+        "CRIT DMG": 50,
         "Anomaly Proficiency": 238,
         "Anomaly Mastery": 115.385,
         "Impact": 86,
@@ -2445,7 +2445,7 @@
         "DEF": 618.715,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
-        "Anomaly Proficiency": 146,
+        "Anomaly Proficiency": 116,
         "Anomaly Mastery": 194.615,
         "Impact": 87,
         "Energy Regen": 1.2,
@@ -2693,7 +2693,7 @@
         "Anomaly Proficiency": 93,
         "Anomaly Mastery": 94,
         "Impact": 93,
-        "Energy Regen": 2.337,
+        "Energy Regen": 2.078,
         "PEN Ratio": 0
       }
     },
@@ -2933,7 +2933,7 @@
         "ATK": 1641.912,
         "HP": 7788.35,
         "DEF": 611.577,
-        "CRIT Rate": 51.4,
+        "CRIT Rate": 43.4,
         "CRIT DMG": 50,
         "Anomaly Proficiency": 90,
         "Anomaly Mastery": 92,
@@ -3177,7 +3177,7 @@
         "ATK": 1641.566,
         "HP": 7673,
         "DEF": 611.527,
-        "CRIT Rate": 37,
+        "CRIT Rate": 29,
         "CRIT DMG": 78.8,
         "Anomaly Proficiency": 93,
         "Anomaly Mastery": 94,
@@ -3669,7 +3669,7 @@
         "DEF": 599.65,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
-        "Anomaly Proficiency": 180,
+        "Anomaly Proficiency": 120,
         "Anomaly Mastery": 117.692,
         "Impact": 83,
         "Energy Regen": 1.56,
@@ -3916,7 +3916,7 @@
         "CRIT DMG": 50,
         "Anomaly Proficiency": 95,
         "Anomaly Mastery": 96,
-        "Impact": 137.288,
+        "Impact": 130.645,
         "Energy Regen": 1.2,
         "PEN Ratio": 0
       }
@@ -4160,7 +4160,7 @@
         "Anomaly Proficiency": 95,
         "Anomaly Mastery": 96,
         "Impact": 98,
-        "Energy Regen": 1.625,
+        "Energy Regen": 1.3,
         "PEN Ratio": 0
       }
     },
@@ -4396,7 +4396,7 @@
         "Anomaly Proficiency"
       ],
       "base": {
-        "ATK": 1559.036,
+        "ATK": 1470.455,
         "HP": 8829.565,
         "DEF": 611.888,
         "CRIT Rate": 5,
@@ -4640,14 +4640,14 @@
       ],
       "base": {
         "ATK": 1470.536,
-        "HP": 10262.105,
+        "HP": 9749,
         "DEF": 593.96,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
         "Anomaly Proficiency": 95,
         "Anomaly Mastery": 96,
         "Impact": 83,
-        "Energy Regen": 1.75,
+        "Energy Regen": 1.556,
         "PEN Ratio": 0
       }
     },
@@ -4888,7 +4888,7 @@
         "DEF": 605.645,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
-        "Anomaly Proficiency": 238,
+        "Anomaly Proficiency": 208,
         "Anomaly Mastery": 152.308,
         "Impact": 86,
         "Energy Regen": 1.2,
@@ -5131,13 +5131,13 @@
         "ATK": 1758.451,
         "HP": 7673.228,
         "DEF": 605.839,
-        "CRIT Rate": 22.6,
+        "CRIT Rate": 14.6,
         "CRIT DMG": 50,
         "Anomaly Proficiency": 93,
         "Anomaly Mastery": 94,
         "Impact": 93,
         "Energy Regen": 1.2,
-        "PEN Ratio": 8
+        "PEN Ratio": 0
       }
     },
     {
@@ -5381,7 +5381,7 @@
         "Anomaly Proficiency": 96,
         "Anomaly Mastery": 93,
         "Impact": 117.797,
-        "Energy Regen": 1.44,
+        "Energy Regen": 1.2,
         "PEN Ratio": 0
       }
     },
@@ -5624,7 +5624,7 @@
         "CRIT DMG": 50,
         "Anomaly Proficiency": 90,
         "Anomaly Mastery": 91,
-        "Impact": 164.407,
+        "Impact": 156.452,
         "Energy Regen": 1.2,
         "PEN Ratio": 0
       }
@@ -5866,7 +5866,7 @@
         "DEF": 621.508,
         "CRIT Rate": 5,
         "CRIT DMG": 50,
-        "Anomaly Proficiency": 123,
+        "Anomaly Proficiency": 93,
         "Anomaly Mastery": 162.308,
         "Impact": 120,
         "Energy Regen": 1.2,

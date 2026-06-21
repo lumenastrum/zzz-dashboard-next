@@ -1,7 +1,7 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-21 (session 6 — W-ENGINE CONFIGS, all 24 cartridges populated) · master @ `2480d5b`+1, GH Pages deploying.
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute** + **all 24 W-engine cartridges (base ATK / advanced / R1 passive + Sheet→Effective)**.
+**Last updated:** 2026-06-21 (session 7 — DISC-SET COVERAGE + SET-SWAP RECOMPUTE) · master @ `c8ce305`+1, GH Pages deploying.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute (now incl. SET-swaps)** + all 24 W-engine cartridges + **all 18 disc sets (2pc+4pc) accounted for & reflected**.
 
 **★ LIVE STAT RECOMPUTE (the headline) — VALIDATED AGAINST THE ACTUAL GAME, DEPLOYED.** The deck is no longer a
 snapshot: editing a disc recomputes the character screen AND the goalpost meters live, on ZZZ's real stat formulas
@@ -338,17 +338,39 @@ live-verified through the real deck (Ellen + Yixuan screenshots in `Claude Space
   **Dreamlit Hearth** confirmed (ER 0.4/s, Ether Veil → squad +25% DMG + 15% Max HP) — matched the Game8 single source
   exactly, no change. Every W-engine entry is now sourced or in-game-confirmed.
 
+## DONE — session 7 (2026-06-21): disc-set coverage + set-swap recompute
+
+**Two arcs: full set-effect coverage, then set-swap sheet recompute.** Research-swarm-then-build; build clean (28
+pages), live-verified through the real deck (a UI set-swap moved the sheet, then reverted clean).
+
+- ✅ **Set coverage 8 → 18** (`feat c8ce305`). 10 sets had NO `setEffects` (King of the Summit, Yunkui Tales, Dawn's
+  Bloom, Moonlight Lullaby, Wuthering Salon, White Water Ballad, Shadow Harmony, Chaos Jazz, Shockstar Disco, Puffer
+  Electro) so they rendered blank pills + contributed nothing; 4 more were missing their 4pc. Filled all via a 3-agent
+  cross-checked swarm (zero conflicts). **Bug fix:** Swing Jazz 2pc was "+2 Energy Regen" flat — actually **+20% ER**.
+  Scope rule: 2pc flat stats → `sheet`; element/Basic-Attack DMG% + Daze → `combat` chips; conditional 4pc → `combat`.
+- ✅ **Set-swap sheet recompute** — the v1 limit is GONE. New `setSheetAccum(pieces, cfg)` in `grading.js` tallies the
+  **sheet-scope set stat bonuses from the ACTIVE sets** (2pc when ≥2 pieces, 4pc when ≥4), shaped like `discAccum`.
+  `computeSheet` now merges disc + set pools (`base × (1+(discPct+setPct)) + flats`), and `derive-bases` subtracts the
+  same set bonuses — so **`agent.base` is now character + W-Engine only** (set-free). Swapping a disc SET retro-adjusts
+  the sheet live. (W-Engine advanced stays in `base` — engines aren't swappable in the UI.)
+- ✅ **Re-derived + re-synced** — `npm run derive-bases --write` (self-consistency worst error **1**, rounding) →
+  `npm run sync-stats --write` pushed the set-free bases to the `andres-zzz` blob.
+- ✅ **Verified:** additive (Woodpecker break → CR −8), multiplicative (Astral Voice break → ATK −base×0.10 = −165 on
+  Astra), Rupture propagation (Yunkui HP break → HP & Sheer Force both drop). **Live UI:** Yixuan CRIT RATE 53.8% →
+  45.8% when slot-4 Woodpecker swapped to Fanged Metal, then reverted (blob confirmed clean: base CR 2.6, slot-4 restored).
+- ⚠️ **Sync gotcha (learned):** the DataProvider debounce-saves the in-memory blob, so if a deck is **open in a browser
+  across a `derive-bases`+`sync-stats`**, it can clobber the push back to the old base (I hit this — base CR reverted to
+  10.6, double-counting +8 live). Fix = close/park the deck (about:blank) before re-syncing. Fresh production loads are
+  unaffected. After any re-derive, re-sync with **no deck open**, then verify the blob.
+
 ## Next steps (next session)
 
-**Three big arcs DONE:** ✅ calibration (24/24) · ✅ live recompute · ✅ all 24 W-engine cartridges populated.
-✅ GH Pages auto-deploys on push. Remaining = polish/breadth:
+**Four big arcs DONE:** ✅ calibration (24/24) · ✅ live recompute (disc **+ set** swaps) · ✅ all 24 W-engine cartridges
+· ✅ all 18 disc sets + set-swap sheet. ✅ GH Pages auto-deploys on push. Remaining = polish/breadth:
 
-1. **Set-swap sheet stats (the v1 limit).** `computeSheet` folds W-Engine/core/sheet-set sources into `agent.base`, so
-   swapping a disc SET doesn't retro-adjust the few sheet-scope set stats (Woodpecker +8% CR, Astral Voice +10% ATK,
-   Freedom Blues +30 AP). Fix = model those set/WE % explicitly so `base` is char-only, then add them at compute time.
-   Disc main/substat edits already recompute exactly. NOTE: session 6 added `advanced.label` (display string), NOT a
-   structured numeric advanced — fully unlocking this still needs the engine's numeric advanced + the sheet-scope set %.
-2. ✅ ~~Per-agent `wengines` configs~~ — **DONE session 6** (all 24 cartridges; see above).
+1. ✅ ~~Set-swap sheet stats (the v1 limit)~~ — **DONE session 7** (`setSheetAccum`; see above). Note W-Engine **advanced**
+   is still in `base` (display label only) — fine until/unless W-engine swap becomes a UI feature.
+2. ✅ ~~Per-agent `wengines` configs~~ — **DONE session 6** (all 24 cartridges).
 3. **Other faceplate tabs** — wire the home tabs (Levels / Teams / Pulls) to real routes + build them.
 4. **AM `full` goalposts (optional)** — tighten them; AM is low-mobility (main + engine/set only, no substat rolls), so
    the meters otherwise read perpetually partial.
