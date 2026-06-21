@@ -151,8 +151,11 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   background:linear-gradient(180deg,var(--panelhi),var(--panel2)); }
 .deck-top .np { font-family:var(--led); font-weight:700; font-size:12px; letter-spacing:4px; color:var(--red); text-transform:uppercase; }
 .deck-top .nm { font-family:var(--disp); font-weight:600; font-size:19px; letter-spacing:1px; text-transform:uppercase; }
-.deck-top .nm small { color:var(--mut); font-weight:400; letter-spacing:3px; font-size:12px; }
-.deck-top .spec { margin-left:auto; display:flex; gap:8px; align-items:center; }
+.deck-top .nm small { color:var(--mut); font-weight:400; letter-spacing:2px; font-size:12px; }
+.deck-top .np-id { display:flex; align-items:center; gap:12px; min-width:0; }
+.deck-top .fac-badge { width:34px; height:34px; object-fit:contain; flex-shrink:0;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.55)); }
+.deck-top .spec { margin-left:auto; display:flex; gap:8px; align-items:center; flex-shrink:0; }
 .spec .chip { display:flex; align-items:center; gap:6px; font-family:var(--led); font-size:11px; letter-spacing:1px;
   text-transform:uppercase; color:var(--ink); background:var(--bg2); border:1px solid var(--bezel1); border-radius:7px; padding:5px 9px; }
 .spec .chip img { width:16px; height:16px; object-fit:contain; }
@@ -175,8 +178,6 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .tt .plate { position:absolute; left:16px; right:16px; bottom:16px; z-index:3;
   background:linear-gradient(180deg,rgba(28,23,34,.7),rgba(12,9,15,.92));
   border:1px solid var(--bezel1); border-radius:13px; padding:13px 15px; backdrop-filter:blur(3px); }
-.tt .plate .fac { font-family:var(--led); font-size:10px; letter-spacing:2.5px; color:var(--red); text-transform:uppercase; line-height:1.5; }
-.tt .plate .fac img { width:15px; height:15px; object-fit:contain; vertical-align:-3px; margin-right:5px; }
 .tt .plate .big { font-family:var(--disp); font-weight:700; font-size:27px; line-height:.95; text-transform:uppercase; }
 .tt .plate .meta { display:flex; gap:7px; margin-top:9px; flex-wrap:wrap; }
 .tt .plate .mp { font-family:var(--led); font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--mut);

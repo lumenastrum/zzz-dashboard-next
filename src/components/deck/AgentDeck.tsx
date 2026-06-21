@@ -105,8 +105,14 @@ export function AgentDeck({
       <div className="deck-top">
         <span className="led" />
         <div className="np">Now Playing</div>
-        <div className="nm">
-          {name} <small>{"// "}{specialty}</small>
+        <div className="np-id">
+          {faction && (
+            <DeckImg className="fac-badge" src={iconPath(factionIcon(faction))} alt={faction} />
+          )}
+          <div className="nm">
+            {name}
+            {faction && <small>{" // "}{faction}</small>}
+          </div>
         </div>
         <div className="spec">
           <span className="chip">
@@ -136,10 +142,6 @@ export function AgentDeck({
           <div className="platter" />
           <DeckImg className="pimg" src={tallPath(entry.slug)} alt={name} />
           <div className="plate">
-            <div className="fac">
-              {faction && <DeckImg src={iconPath(factionIcon(faction))} alt="" style={{ width: 15, height: 15, objectFit: "contain", flexShrink: 0 }} />}
-              {faction ?? "—"} · {specialty}
-            </div>
             <div className="big">{name}</div>
             {titlePill}
             <div className="meta">
