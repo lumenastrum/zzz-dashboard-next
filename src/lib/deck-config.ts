@@ -50,6 +50,16 @@ export const factionIcon = (faction: string) => `faction_${slugify(faction)}`;
 export const wengineIcon = (name: string) => `wengine_${slugify(name)}`;
 export const setIcon = (set: string) => `set_${slugify(set)}`;
 
+// Standard-channel S-rank W-engines — generic, not any agent's signature. The cartridge only
+// claims "Signature" for engines NOT in this set, so a standard engine (e.g. an agent running
+// The Brimstone or Hellfire Gears) reads as "Standard". Extend as new standard engines ship.
+export const STANDARD_WENGINES = new Set([
+  "Steel Cushion", "The Brimstone", "The Restrained", "Hellfire Gears",
+  "Fusion Compiler", "Weeping Cradle",
+]);
+export const isSignatureEngine = (name: string | undefined | null) =>
+  !!name && !STANDARD_WENGINES.has(name);
+
 // ---- disc sets -----------------------------------------------------------
 // Color (cone glow / slot ring / track header accent) + short blurb per set. Icons are
 // derived by slug (setIcon), so this only curates color/flavor. Sets the grader has

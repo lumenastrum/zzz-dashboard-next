@@ -21,6 +21,7 @@ import {
   tallPath,
   VOID_HUNTER_ICON,
   elementGradient,
+  isSignatureEngine,
 } from "@/lib/deck-config";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
@@ -163,7 +164,7 @@ export function AgentDeck({
                         <div className="wn">{we.name}</div>
                         <div className="wr">
                           <span className="tag s">{we.rank ?? "S"}</span>
-                          <span className="tag r">{we.refine ?? "R1"} · Signature</span>
+                          <span className="tag r">{we.refine ?? "R1"} · {isSignatureEngine(we.name) ? "Signature" : "Standard"}</span>
                         </div>
                         <div className="wp">
                           ATK <b>{we.base?.ATK ?? "—"}</b>
