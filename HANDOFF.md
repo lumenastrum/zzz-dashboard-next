@@ -181,19 +181,26 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   `src/lib/portrait-frames.ts`; `RosterTile` renders a height-driven `<img.pf>` (`width:auto;max-width:none`
   beats Tailwind's preflight clamp), per-agent positioned. Composition outliers (Miyabi's wolf companion)
   hand-framed via the `OVERRIDES` map in the script.
-- ✅ **`ZOOM` + `NUDGE` art-direction layer** in `RosterTile.tsx` — global zoom (currently 1.5625) + per-agent
+- ✅ **`ZOOM` + `NUDGE` art-direction layer** in `RosterTile.tsx` — global zoom (currently 2.1875) + per-agent
   `{dx,dy,dz}` nudges, hand-tuned with Andres ("boyfriend-eyeball pass"). `HOLD = 1/1.4` pins agents out of
   a global zoom round. This is the human-tuned layer; `portrait-frames.ts` is the regenerable measured layer.
 - ✅ **Deck portrait squish fixed** (`globals.css .tt .pimg`: `width:auto; max-width:none`) — same Tailwind
   preflight `max-width:100%` clamp bug as the WuWa tall portraits.
 - ✅ **Void Hunter titles**: Miyabi "Void Hunter: Isshin Muga", Yixuan "Grandmaster" (custom variant title).
-- ✅ Verified live: Miyabi/Velina/Yixuan/Ye Shunguang decks + full roster grid, zero console errors.
+- ✅ **Cartridge "Signature" accuracy** — the deck no longer claims every W-engine is a signature.
+  `STANDARD_WENGINES` + `isSignatureEngine()` in `deck-config.ts`; standard-channel engines (The Brimstone,
+  Hellfire Gears, …) read "Standard", real signatures read "Signature". Plus 3 W-engine cartridge icons added.
+- ✅ Verified live throughout: deck renders (incl. Miyabi/Velina/Trigger/Nangong Yu/Lighter/Ellen) + full
+  roster grid, cartridge labels, zero console errors. Build clean (28 pages) at every step.
+
+**This session's work lives on branch `feat/zzz-enka-import-and-framing` (off `master`, 7 commits).**
+The repo has **no git remote yet** — create `lumenastrum/zzz-dashboard-next` + push to deploy (see next steps).
 
 ## Next steps (next session)
 
-1. **Last agent's build (Zhao)** — showcase Zhao + re-pull live,
-   `npm run import -- --file=… --write`. New avatar ids → add to the `AVATAR` map (+ `SUIT` names / `WENGINE_OVERRIDE`
-   as new sets/engines surface). Fill `agentOverrides` for any hybrids.
+1. **Zhao's build — DEFERRED** (Andres: low-value, not invested). The roster is effectively complete at 24/25.
+   If ever wanted: showcase Zhao + re-pull live, `npm run import -- --file=… --write`. New avatar ids → add to
+   the `AVATAR` map (+ `SUIT` names / `WENGINE_OVERRIDE` as new sets/engines surface).
 2. **Grade calibration** (Andres's call, pinned as final polish) — the scale reads harsh (benchmarks vs a
    theoretically perfect disc, so good builds land C/B). Decide interknot-lenient vs honest vs in-between.
 3. **Real stat data** — exact ZZZ base-stat curves + W-Engine values; **per-archetype `LEVEL_CFG`** (the Levels
