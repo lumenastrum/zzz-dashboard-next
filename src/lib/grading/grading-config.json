@@ -95,11 +95,68 @@
   },
 
   "agentOverrides": {
-    "_comment": "Per-agent tweaks. archetype overrides section mapping; weights merge over the archetype's weights.",
-    "Alice":  { "archetype": "anomaly" },
-    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT DMG": 2.5, "CRIT Rate": 2.0, "Anomaly Proficiency": 3.5, "ATK%": 3.0 } },
-    "Yixuan": { "archetype": "attack",  "weights": { "HP%": 3.0 } },
-    "Yidhari": { "archetype": "attack", "weights": { "HP%": 3.0 } },
+    "_comment": "Per-agent tweaks. archetype overrides section mapping; weights merge over the archetype's weights. targets = per-agent Levels goalposts; numbers only (unit comes from global LEVEL_CFG). A CRIT Rate `cap` arms the hard clamp: when the character-screen CRIT Rate is at/over cap, extra CRIT Rate rolls score 0 and the verdict redirects to CRIT DMG. Calibrated 2026-06-21 from Prydwen endgame stats — see docs/grading-calibration.md.",
+    "Ye Shunguang": { "archetype": "attack", "targets": {
+      "ATK": { "target": 3000, "full": 3800 },
+      "CRIT Rate": { "target": 48, "cap": 50, "full": 55 },
+      "CRIT DMG": { "target": 190, "full": 240 }
+    } },
+    "Evelyn": { "archetype": "attack", "targets": {
+      "ATK": { "target": 2900, "full": 3600 },
+      "CRIT Rate": { "target": 75, "cap": 80, "full": 85 },
+      "CRIT DMG": { "target": 180, "full": 240 }
+    } },
+    "Ellen": { "archetype": "attack", "targets": {
+      "ATK": { "target": 2800, "full": 3400 },
+      "CRIT Rate": { "target": 80, "cap": 85, "full": 95 },
+      "CRIT DMG": { "target": 150, "full": 200 }
+    } },
+    "Soldier 0 Anby": { "archetype": "attack", "targets": {
+      "ATK": { "target": 3000, "full": 3600 },
+      "CRIT Rate": { "target": 68, "cap": 78, "full": 85 },
+      "CRIT DMG": { "target": 180, "full": 240 }
+    } },
+    "Seed": { "archetype": "attack", "targets": {
+      "ATK": { "target": 2850, "full": 3400 },
+      "CRIT Rate": { "target": 82, "cap": 90, "full": 95 },
+      "CRIT DMG": { "target": 130, "full": 180 }
+    } },
+    "Alice": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2750, "full": 3300 },
+      "Anomaly Proficiency": { "target": 400, "full": 470 },
+      "Anomaly Mastery": { "target": 190, "full": 280 }
+    } },
+    "_miyabi_note": "Miyabi is a CRIT-SCALING anomaly, NOT an AP-scaling one: her Icefire passive converts CRIT Rate → Frost Anomaly Buildup Rate (100% of CRIT Rate, cap 80% — that's where her CRIT Rate cap comes from), and her Frost anomaly procs CAN CRIT, so CRIT DMG is her damage multiplier, not Anomaly Proficiency. Weights are CRIT-priority; do NOT revert AP to the top. relevant stays ATK/CRIT Rate/CRIT DMG (no AP/AM goalposts).",
+    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "targets": {
+      "ATK": { "target": 2700, "full": 3300 },
+      "CRIT Rate": { "target": 80, "cap": 80, "full": 90 },
+      "CRIT DMG": { "target": 160, "full": 220 },
+      "Anomaly Proficiency": { "target": 230, "full": 380 },
+      "Anomaly Mastery": { "target": 116, "full": 200 }
+    } },
+    "Jane Doe": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2700, "full": 3200 },
+      "Anomaly Proficiency": { "target": 420, "full": 480 },
+      "Anomaly Mastery": { "target": 192, "full": 280 }
+    } },
+    "Aria": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2750, "full": 3300 },
+      "Anomaly Proficiency": { "target": 400, "full": 470 },
+      "Anomaly Mastery": { "target": 214, "full": 300 }
+    } },
+    "Yixuan": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "targets": {
+      "ATK": { "target": 1900, "full": 2400 },
+      "CRIT Rate": { "target": 85, "cap": 90, "full": 95 },
+      "CRIT DMG": { "target": 150, "full": 200 },
+      "HP": { "target": 17000, "full": 21000 },
+      "Sheer Force": { "target": 2250, "full": 2600 }
+    } },
+    "Yidhari": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "targets": {
+      "CRIT Rate": { "target": 62, "cap": 66, "full": 75 },
+      "CRIT DMG": { "target": 135, "full": 180 },
+      "HP": { "target": 19000, "full": 23000 },
+      "Sheer Force": { "target": 2500, "full": 2800 }
+    } },
     "Nangong Yu": { "archetype": "anomaly" }
   },
 
@@ -130,6 +187,18 @@
     },
     "Swing Jazz": {
       "2pc": [{ "label": "+2 Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 2, "unit": "", "scope": "sheet" }]
+    },
+    "Branch & Blade Song": {
+      "_comment": "Anomaly-DPS set. 2pc CRIT DMG is always-on (on the character screen). 4pc is two conditional combat buffs: +30% CRIT DMG GATED on Anomaly Mastery >= 115 (Miyabi has 150), +12% CRIT Rate on Freeze/Shatter.",
+      "2pc": [{ "label": "+16% CRIT DMG", "kind": "stat", "stat": "CRIT DMG", "value": 16, "unit": "%", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+30% CRIT DMG (Anomaly Mastery >=115)", "kind": "stat", "stat": "CRIT DMG", "value": 30, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+12% CRIT Rate (Freeze/Shatter, 15s)", "kind": "stat", "stat": "CRIT Rate", "value": 12, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Astral Voice": {
+      "2pc": [{ "label": "+10% ATK", "kind": "stat", "stat": "ATK", "value": 10, "unit": "%", "scope": "sheet" }],
+      "4pc": [{ "label": "+24% DMG · Quick-Assist entrant (3 stacks, 15s)", "kind": "dmg", "stat": "DMG", "value": 24, "unit": "%", "scope": "combat", "cond": true }]
     }
   },
 
@@ -141,6 +210,15 @@
       "passive": [
         { "label": "+60 Anomaly Mastery", "kind": "stat", "stat": "Anomaly Mastery", "value": 60, "unit": "", "scope": "combat" },
         { "label": "+45 Anomaly Proficiency (4 stacks)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 45, "unit": "", "scope": "combat" }
+      ]
+    },
+    "Hailstorm Shrine": {
+      "_comment": "Miyabi signature (S), R1 (Andres runs ALL signatures at R1). base ATK + advanced CRIT Rate 24% are on the character screen (baked into the seeded sheet); refine scales ONLY the passive, not base/advanced. Passive CRIT DMG +50% (R1) is NOT on screen — reconciled against Miyabi's real substats (base50 + B&BS-2pc16 + 12 CDMG rolls = her 123.6 sheet) — so it layers on Effective. Ice DMG is a conditional dmg chip. R-scaling for reference: CRIT DMG 50/57/65/72/80, Ice DMG/stack 20/23/26/29/32.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT Rate +24%" },
+      "passive": [
+        { "label": "+50% CRIT DMG", "kind": "stat", "stat": "CRIT DMG", "value": 50, "unit": "%", "scope": "combat" },
+        { "label": "+40% Ice DMG (2 stacks · EX/anomaly, 15s)", "kind": "dmg", "stat": "Ice DMG", "value": 40, "unit": "%", "scope": "combat", "cond": true }
       ]
     }
   }

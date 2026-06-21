@@ -125,21 +125,48 @@ function suggest(discs, sets, A) {
   return out;
 }
 
+/** Character-screen value of a stat from the agent's seeded mainStats (null if unseeded). */
+function sheetStatValue(agent, stat) {
+  const row = (agent.mainStats || []).find((r) => r.stat === stat);
+  return row ? _num(row.value) : null;
+}
+
 /**
  * Grade a whole agent build.
  * agent = { name, section, attribute, ..., discs:{ pieces:[ <piece> x6 ] } }
+ *
+ * Per-agent CRIT-Rate hard clamp: agentOverrides[name].targets["CRIT Rate"].cap sets the stat-screen
+ * ceiling. If the seeded character-screen CRIT Rate is at/over it, extra CRIT Rate is wasted — we zero
+ * its substat weight (and drop it from the partner pairs so the slot-4/5 boost can't revive it) so
+ * CR-stacked discs grade honestly, and prepend a verdict redirecting those rolls to CRIT DMG.
  */
 export function gradeBuild(agent, cfg) {
-  const A = resolveArchetype(agent, cfg);
+  const A0 = resolveArchetype(agent, cfg);
   const pieces = agent.discs?.pieces || [];
+
+  const critCap = cfg.agentOverrides?.[agent.name]?.targets?.["CRIT Rate"]?.cap;
+  const sheetCRIT = critCap != null ? sheetStatValue(agent, "CRIT Rate") : null;
+  const capped = critCap != null && sheetCRIT != null && sheetCRIT >= critCap;
+  const A = capped
+    ? { ...A0, weights: { ...A0.weights, "CRIT Rate": 0 }, pairs: (A0.pairs || []).filter((p) => p !== "CRIT Rate") }
+    : A0;
+
   const discs = pieces.map((p) => gradeDisc(p, A, cfg));
   const buildPct = discs.length ? discs.reduce((s, d) => s + d.pct, 0) / discs.length : 0;
   const sets = computeSets(pieces, cfg);
   const tier = letterFor(buildPct, cfg);
+  const suggestions = suggest(discs, sets, A);
+  if (capped) {
+    suggestions.unshift({
+      type: "cap", stat: "CRIT Rate",
+      msg: `CRIT Rate capped (${sheetCRIT}% ≥ ${critCap}%) — extra CRIT Rate rolls are wasted; redirect to CRIT DMG`,
+    });
+  }
   return {
     agent: agent.name, archetype: A.name, archetypeLabel: A.label,
     buildPct: +buildPct.toFixed(1), buildLetter: tier.letter, buildColor: tier.color,
-    discs, sets, suggestions: suggest(discs, sets, A),
+    discs, sets, suggestions,
+    critCap: critCap ?? null, sheetCRIT, capped,
   };
 }
 

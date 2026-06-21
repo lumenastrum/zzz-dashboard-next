@@ -15,8 +15,13 @@ export function DeckFoot({ grade }: { grade: BuildGrade }) {
   const reroll = grade.suggestions.find((x) => x.type === "reroll");
   const setWarn = grade.suggestions.find((x) => x.type === "set");
   const mainWarn = grade.suggestions.find((x) => x.type === "main");
+  const capWarn = grade.suggestions.find((x) => x.type === "cap");
 
   const verdict: React.ReactNode[] = [];
+  if (capWarn)
+    verdict.push(
+      <b style={{ color: "#ffd84a" }} key="c" title={capWarn.msg}>CRIT capped → CDMG</b>,
+    );
   if (setWarn) verdict.push(<b style={{ color: "var(--red)" }} key="s">{grade.sets.note}</b>);
   if (mainWarn)
     verdict.push(<b style={{ color: "var(--red)" }} key="m">Slot {mainWarn.slot} main off-meta</b>);

@@ -233,11 +233,36 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   shade that reads as "gold" but is NOT a relevant highlight. Evelyn confirmed/fixed; **Ellen's PEN excluded,
   pending Andres confirm.**
 
+## DONE — session 4 (2026-06-21): per-agent grade calibration + CRIT hard-clamp
+
+**The pinned taste call, shipped for the 11 main DPS.** Research-then-build; build clean (28 pages), live-verified.
+
+- ✅ **Calibration research** — 11 DPS agents (Ye Shunguang, Miyabi, Alice, Jane Doe, Aria, Evelyn, Seed, Soldier 0
+  Anby, Ellen, Yidhari, Yixuan) researched across Prydwen/Game8/Icy Veins/genshin-builds/genshinlab/Mobalytics
+  (evidence-only, cite-or-omit). **Prydwen is the only site with hard endgame *numbers*** — I hand-drove the single
+  camoufox browser through all 11 Prydwen build tabs (slug gotchas: S0 Anby = `anby-demara-soldier-0`, Alice =
+  `alice`; build data is lazy-rendered behind the BUILD react-tab). Full report → **`docs/grading-calibration.md`**.
+- ✅ **Decisions (Andres):** **full per-agent** targets · **hard clamp** past CRIT cap · **keep lenient** scale (SSS≥92.5).
+- ✅ **Per-agent targets** live in `grading-config.json` `agentOverrides[name].targets` (single source: the engine reads
+  the CRIT `cap`, the Levels meter reads target/full via `levelCfgFor` in deck-config). 11 agents seeded with
+  Prydwen-calibrated ATK/HP/CRIT/AP/AM/Sheer-Force goalposts.
+- ✅ **CRIT Rate hard clamp** (`gradeBuild`) — if the seeded character-screen CRIT Rate ≥ the agent's `cap`, CRIT Rate
+  substat weight → 0 (and CRIT Rate stripped from partner pairs so the slot-4/5 boost can't revive it); CR-stacked
+  discs grade as the wasted value they are + a gold **"CRIT capped → CDMG"** verdict. **Live-verified:** Evelyn
+  (sheetCR 80.2 ≥ cap 80) → CAPPED, 4 dead CR subs, build 46.2%, meter shows MAX + 20 gold segs + "CAP 80%".
+- ✅ **Cap-aware Levels meter** — cap stats scale to the cap, go gold + "MAX" once reached, suppress the amber/red
+  high-fill tint (hitting cap is the GOAL), show "TGT n · CAP m". `Levels` now takes `agentName`.
+- ✅ **Rupture PEN = dead** — Yixuan/Yidhari `weights` zero PEN Ratio + Flat PEN (Sheer DMG ignores DEF).
+- ✅ **Confirmed Ellen's PEN** = conditional/kit, NOT a core goalpost (Evelyn precedent held). Anomaly CR-zeroing validated.
+- ⚠️ **Still GLOBAL defaults:** the other **14 agents** (stunners/supports/the rest) — no per-agent `targets` yet, so
+  they use `LEVEL_CFG`. And `relevant` lists weren't re-audited (e.g. ensure Rupture shows HP/Sheer Force, anomaly hides CRIT).
+- ☐ **Not yet committed/pushed** — review the diff, then commit + push.
+
 ## Next steps (next session)
 
-1. **Goalpost / grade calibration** (Andres's pinned taste call) — `LEVEL_CFG` targets are **rough GLOBAL
-   defaults** (Miyabi's ATK target = Ye Shunguang's, which is wrong). Decide per-agent or per-archetype targets
-   (and the disc grade scale: interknot-lenient vs honest). This is the main thing between "almost" and "done."
+1. **Commit + push** session 4 (per-agent calibration). Then: **calibrate the remaining 14 agents** (stunners/
+   supports) the same way, and **re-audit `relevant` lists** so each agent's Levels panel shows the right stats
+   (Rupture → HP/Sheer Force; anomaly → no CRIT row). The 11 DPS are done; the structure is in place to extend.
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.

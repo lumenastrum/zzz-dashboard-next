@@ -159,6 +159,9 @@ export const CONE: Record<number, [number, number]> = {
 export interface LevelCfg {
   full: number;
   target: number;
+  /** Stat-screen ceiling. Present only on cap stats (per-agent CRIT Rate): the meter scales to `cap`
+   *  and value past it is wasted; the grading engine zeroes the substat weight once at/over cap. */
+  cap?: number;
   unit: string;
 }
 // Goalpost benchmarks per stat (full = bar max, target = the notch). ROUGH global defaults so the
@@ -176,6 +179,33 @@ export const LEVEL_CFG: Record<string, LevelCfg> = {
   "Anomaly Proficiency": { full: 460, target: 330, unit: "" },
   "Anomaly Mastery": { full: 320, target: 184, unit: "" },
 };
+
+// Per-agent goalpost overrides. The calibration table lives ONCE in grading-config.json
+// (agentOverrides[name].targets) so the grading engine (CRIT cap clamp) and this meter read the same
+// source. levelCfgFor merges a per-agent {target, full, cap} over the global LEVEL_CFG default; unit
+// always comes from the global (per-agent targets carry numbers only). Calibrated 2026-06-21 — see
+// docs/grading-calibration.md.
+type AgentTarget = { target?: number; full?: number; cap?: number };
+const AGENT_TARGETS: Record<string, Record<string, AgentTarget>> = Object.fromEntries(
+  Object.entries(
+    (GRADING_CONFIG as { agentOverrides?: Record<string, { targets?: Record<string, AgentTarget> }> }).agentOverrides ?? {},
+  )
+    .filter(([k, v]) => k !== "_comment" && v && typeof v === "object" && (v as { targets?: unknown }).targets)
+    .map(([k, v]) => [k, (v as { targets: Record<string, AgentTarget> }).targets]),
+);
+
+/** Resolve the Levels goalpost for an agent+stat: per-agent target/full/cap over the global default. */
+export function levelCfgFor(agentName: string | undefined, stat: string): LevelCfg | undefined {
+  const base = LEVEL_CFG[stat];
+  const ov = agentName ? AGENT_TARGETS[agentName]?.[stat] : undefined;
+  if (!base && !ov) return undefined;
+  return {
+    full: ov?.full ?? base?.full ?? 100,
+    target: ov?.target ?? base?.target ?? 0,
+    cap: ov?.cap ?? base?.cap,
+    unit: base?.unit ?? "",
+  };
+}
 
 // Best single-sub contribution, for scaling the substat bars in the inspector.
 const partnerBoost = (GRADING_CONFIG as { partnerBoost?: number }).partnerBoost ?? 4.25;

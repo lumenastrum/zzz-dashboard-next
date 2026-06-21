@@ -39,8 +39,9 @@ export interface SetInfo {
 }
 
 export interface Suggestion {
-  type: "set" | "main" | "reroll";
+  type: "set" | "main" | "reroll" | "cap";
   slot?: number;
+  stat?: string;
   msg: string;
 }
 
@@ -54,6 +55,12 @@ export interface BuildGrade {
   discs: GradedDisc[];
   sets: SetInfo;
   suggestions: Suggestion[];
+  /** Per-agent CRIT-Rate stat-screen ceiling (null if the agent has no cap). */
+  critCap?: number | null;
+  /** The seeded character-screen CRIT Rate read for the clamp (null if unseeded / no cap). */
+  sheetCRIT?: number | null;
+  /** True when sheetCRIT ≥ critCap — extra CRIT Rate is graded as dead weight. */
+  capped?: boolean;
 }
 
 export interface StatLine {

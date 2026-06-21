@@ -198,7 +198,7 @@ export function AgentDeck({
                 </div>
                 <div>
                   <div className="modlbl"><span className="dot" />Levels</div>
-                  <Levels stats={stats} />
+                  <Levels stats={stats} agentName={name} />
                 </div>
               </div>
 
