@@ -1,8 +1,9 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-20 · **Status:** deck ported + Supabase live + **full 25-agent roster** +
-**Void Hunter tier** shipped (verified, committed `741d939`). Remaining: **disc builds** (only Alice
-has one), real stat curves, other tabs, missing factions, GH remote, Python/tsx CLI.
+**Last updated:** 2026-06-20 · **Status:** deck + Supabase + 25-agent roster + Void Hunter tier shipped;
+**Enka disc-build importer live (12 agents have real builds)** + **face-framed roster tiles** done this
+session. Remaining: 13 agents still buildless (rotate showcase + re-pull), grade calibration, real stat
+curves, anomaly-only Levels panel, other tabs, GH remote.
 
 ---
 
@@ -153,24 +154,50 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   (rest blank — see below). All 25 tiles render with art.
 - ✅ Verified throughout: build + tsc + lint clean (**28 pages**), screenshot QA, Alice deck unregressed.
 
+## DONE — session 2 (2026-06-20): Enka import + face-framed tiles
+
+- ✅ **Enka disc-build importer** (`npm run import` · `scripts/import-enka.ts`). Decodes an Enka/interknot
+  showcase payload → our `discs.pieces` schema → merges into the `andres-zzz` blob + `data.json` (prunes
+  blob to roster). Live pull: `curl -A <browser UA> "https://interknot-network.com/api/api.php?uid=<UID>&version=1.1"`
+  (Cloudflare clears with a browser UA), save to `scripts/fixtures/`, `npm run import -- --file=… --write`.
+  Maps anchored to **canonical Enka data** (avatars.json + EN loc), not guesses — `PROP`/`SUIT`/`AVATAR`/
+  `WENGINE_OVERRIDE` maps in the script. Decode model: substat `PropertyValue` = per-roll increment;
+  `PropertyLevel` = roll count; main display value = raw × 4 (percent stats ÷100); `EquipId[0:3]+"00"` = suit id.
+- ✅ **12 agents have real builds** (2 showcase pulls of 6 — the in-game showcase caps at 6): Alice, Jane Doe,
+  Yixuan, Yidhari, Velina, Ye Shunguang, Dialyn, Astra Yao, Miyabi, Aria, Cissia, Evelyn. Grades + sets +
+  W-engines all live. `Yidhari` got an `agentOverrides` entry (attack + HP% 3.0, like Yixuan).
+- ⚠️ **Enka codename ≠ our name** (verify every avatar id!): `1261`=Jane Doe (NOT Alice — `1401` is Alice),
+  `1431` "Zhenzhen"=Ye Shunguang, `1091` "Unagi"=Miyabi. New agents (Velina `1561`, Dialyn `1481`, Cissia
+  `1521`) aren't in Enka's avatars.json yet — identify via theorycraft (`y`) keys + element/mindscape.
+- ✅ **Face-framed roster tiles.** Tiles cover-fit whole sprites → squished; now a bust crop. `npm run frames`
+  (`scripts/measure-frames.py`) measures each sprite's **alpha silhouette** → `{top,left,height}` in
+  `src/lib/portrait-frames.ts`; `RosterTile` renders a height-driven `<img.pf>` (`width:auto;max-width:none`
+  beats Tailwind's preflight clamp), per-agent positioned. Composition outliers (Miyabi's wolf companion)
+  hand-framed via the `OVERRIDES` map in the script.
+- ✅ **`ZOOM` + `NUDGE` art-direction layer** in `RosterTile.tsx` — global zoom (currently 1.5625) + per-agent
+  `{dx,dy,dz}` nudges, hand-tuned with Andres ("boyfriend-eyeball pass"). `HOLD = 1/1.4` pins agents out of
+  a global zoom round. This is the human-tuned layer; `portrait-frames.ts` is the regenerable measured layer.
+- ✅ **Deck portrait squish fixed** (`globals.css .tt .pimg`: `width:auto; max-width:none`) — same Tailwind
+  preflight `max-width:100%` clamp bug as the WuWa tall portraits.
+- ✅ **Void Hunter titles**: Miyabi "Void Hunter: Isshin Muga", Yixuan "Grandmaster" (custom variant title).
+- ✅ Verified live: Miyabi/Velina/Yixuan/Ye Shunguang decks + full roster grid, zero console errors.
+
 ## Next steps (next session)
 
-1. **Disc builds — the real unlock.** Only Alice has a build (Supabase had no disc data). Enter each
-   agent's W-Engine + 6 discs (set/level/main/substats+rolls) into the `andres-zzz` blob → their deck
-   grades live. Consider a `tsx` CLI (like WuWa's `scripts/update.ts`) `setdisc`/`swapdisc` to enter
-   them headlessly. Fill `agentOverrides` for hybrids (Miyabi crit-anom, etc.).
-2. **Missing factions (11)** — Vivian, Aria, Velina, Seed, Cissia, Dialyn, Nangong Yu, Lucia, Sunna,
-   Zhao, Yidhari left blank (uncertain/newer agents). Andres to provide; one-line edits in `roster.ts`.
-3. **Real stat data** — replace calibrated `agent.base` + `rollValues` with exact ZZZ base-stat curves +
-   real W-Engine values; refine `LEVEL_CFG` full/target. (Per-archetype LEVEL_CFG when non-anomaly builds land.)
+1. **Remaining 13 agents' builds** — rotate them through the in-game showcase (6 at a time), re-pull live,
+   `npm run import -- --file=… --write`. New avatar ids → add to the `AVATAR` map (+ `SUIT` names / `WENGINE_OVERRIDE`
+   as new sets/engines surface). Fill `agentOverrides` for any hybrids.
+2. **Grade calibration** (Andres's call, pinned as final polish) — the scale reads harsh (benchmarks vs a
+   theoretically perfect disc, so good builds land C/B). Decide interknot-lenient vs honest vs in-between.
+3. **Real stat data** — exact ZZZ base-stat curves + W-Engine values; **per-archetype `LEVEL_CFG`** (the Levels
+   panel is anomaly-only, so crit/HP agents show AP/AM 0). Map W-engine passives for the Sheet/Effective buffs.
 4. **Other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes + build them.
-5. **GitHub remote + Pages** — add remote, copy WuWa's `.github/workflows/pages.yml`, push.
+5. **Remaining factions** — a few still blank in `roster.ts` (one-line edits as Andres provides).
+6. **GitHub remote + Pages** — add remote, copy WuWa's `.github/workflows/pages.yml`, push.
    `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
-6. **Stretch:** conditional effect toggles ("in rotation" switch for Fanged/Phaethon 4pc); Zhao tall
-   portrait has no current source (orphan staged copy in use — re-seed if a real one arrives).
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).
-- `npm run build` static export (`out/`) · `npm run grade` headless Alice grade · `npm run seed`
-  regenerate `public/data.json` from ALICE · `npm run stage` (re)copy seeded art into `public/assets/`.
+- `npm run import [-- --file=… --write]` import builds from an Enka showcase payload · `npm run frames` re-measure
+  face crops · `npm run build` static export · `npm run grade` headless grade · `npm run stage` (re)copy art.
 - **Reference prototype:** `cd ../zzz-redesign-mockups` → `View Mockups.bat`, open `c-soundsystem.html`.
