@@ -35,6 +35,7 @@ const SUIT: Record<string, string> = {
   "33100": "Yunkui Tales", "33500": "White Water Ballad", "33900": "Wuthering Salon",
   "33200": "King of the Summit", "32800": "Astral Voice", "33300": "Dawn's Bloom", "32200": "Inferno Metal",
   "32900": "Shadow Harmony", "31800": "Chaos Jazz", "33400": "Moonlight Lullaby", "31200": "Shockstar Disco",
+  "31100": "Puffer Electro",
 };
 
 // avatar id → roster identity (name MUST equal the ROSTER entry's `name`, that's the deck key).
@@ -59,6 +60,12 @@ const AVATAR: Record<number, { name: string; slug: string }> = {
   1361: { name: "Trigger", slug: "trigger" },
   1491: { name: "Sunna", slug: "sunna" },
   1411: { name: "Yuzuha", slug: "yuzuha" },
+  1451: { name: "Lucia", slug: "lucia" },
+  1331: { name: "Vivian", slug: "vivian" },
+  1191: { name: "Ellen", slug: "ellen" },
+  1391: { name: "Ju Fufu", slug: "jufufu" },     // Enka confirms 1391=Jufufu, 1161=Lighter (not swapped)
+  1161: { name: "Lighter", slug: "lighter" },
+  1511: { name: "Nangong Yu", slug: "nangongyu" },
 };
 
 // manual W-engine names for engines too new for interknot's `c` catalog (so they decode null).
