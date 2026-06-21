@@ -166,9 +166,11 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 - ✅ **24 of 25 agents have real builds** (4 showcase pulls of 6 — the in-game showcase caps at 6). Only
   **Zhao** is left. Grades + sets + W-engines all live. `Yidhari` got an `agentOverrides` entry (attack +
   HP% 3.0, like Yixuan). PropertyId `12202` = Impact (stun slot-6 main).
-- ⚠️ **Roster fix: Nangong Yu was Stun → corrected to Anomaly** — her real gear is pure anomaly (AP + AM
-  mains, Phaethon + Freedom Blues, Ether DMG); no stun agent runs AP/AM mains. The roster section drives the
-  grading archetype, so a wrong section grades the build on the wrong weights.
+- ⚠️ **Nangong Yu = hybrid Stunner** (Andres-confirmed — do NOT flip her to Anomaly): section stays **Stun**,
+  but she scales off **Anomaly Prof, not Impact**, so she runs an anomaly disc build (AP/AM mains, Phaethon +
+  Freedom Blues, Ether DMG). Graded via an `agentOverrides` entry (`"Nangong Yu": {archetype: "anomaly"}`) so
+  her AP build scores on anomaly weights despite the Stun section. (A wrong section drives the wrong archetype,
+  so for hybrids decouple the two with an override rather than changing the section.)
 - ⚠️ **Enka codename ≠ our name + verify every avatar id (don't trust signature-engine guesses):** `1261`=Jane
   Doe (NOT Alice — `1401` is Alice), `1431` "Zhenzhen"=Ye Shunguang, `1091` "Unagi"=Miyabi, `1381`
   "SilverAnby"=Soldier 0 Anby. Enka also corrected a Ju Fufu/Lighter mixup I'd guessed from W-engines. New

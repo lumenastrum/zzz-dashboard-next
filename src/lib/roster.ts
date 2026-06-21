@@ -27,7 +27,6 @@ export const ROSTER: RosterEntry[] = [
   { name: "Burnice", slug: "burnice", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
   { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb" },
   { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff" },
-  { name: "Nangong Yu", slug: "nangongyu", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb" }, // gear proves Anomaly, not Stun
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",
     faction: "Yunkui Summit", title: "Void Hunter: Qingming Arbiter", voidHunter: true },
@@ -41,6 +40,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Trigger", slug: "trigger", section: "Stun", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Criminal Investigation Special Response Team 29" },
   { name: "Lighter", slug: "lighter", section: "Stun", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
   { name: "Dialyn", slug: "dialyn", section: "Stun", attribute: "Physical", mindscape: 0, el: "#fcbf01" },
+  { name: "Nangong Yu", slug: "nangongyu", section: "Stun", attribute: "Ether", mindscape: 0, el: "#9a4fbb" }, // hybrid Stunner — scales off Anomaly Prof (grades via anomaly override)
   // — Support —
   { name: "Astra Yao", slug: "astra", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Stars of Lyra" },
   { name: "Yuzuha", slug: "yuzuha", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01" },
