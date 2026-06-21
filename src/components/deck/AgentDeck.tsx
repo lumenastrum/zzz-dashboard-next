@@ -87,7 +87,9 @@ export function AgentDeck({
   const onStepRoll = (slot: number, i: number, d: number) =>
     editPiece(slot, (p) => {
       const s = p.subs[i];
-      if (s) s.rolls = Math.max(0, Math.min(6, (s.rolls || 0) + d));
+      // floor at 1: a substat always holds its base value (1 roll); the UI shows rolls-1 as the
+      // in-game upgrade count, so 1 = base (+0), 6 = base + 5 upgrades (+5).
+      if (s) s.rolls = Math.max(1, Math.min(6, (s.rolls || 0) + d));
     });
 
   // identity — the build wins where present, else the static roster chrome

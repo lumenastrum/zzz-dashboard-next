@@ -90,7 +90,9 @@ export function TrackInspector({
                 <span className="sl"><i style={{ width: `${fill}%` }} /></span>
                 <span className="roll">
                   <button className="stp" onClick={() => onStepRoll(slot, i, -1)}>−</button>
-                  <b>{s.rolls}</b>
+                  {/* show in-game UPGRADE count: a substat at base value is +0, each roll +1.
+                      Our data stores rolls as base(1)+upgrades, so display rolls-1. */}
+                  <b>{s.rolls - 1}</b>
                   <button className="stp" onClick={() => onStepRoll(slot, i, 1)}>+</button>
                 </span>
               </div>
