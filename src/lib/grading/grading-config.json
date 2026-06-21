@@ -98,7 +98,8 @@
     "_comment": "Per-agent tweaks. archetype overrides section mapping; weights merge over the archetype's weights.",
     "Alice":  { "archetype": "anomaly" },
     "Miyabi": { "archetype": "anomaly", "weights": { "CRIT DMG": 2.5, "CRIT Rate": 2.0, "Anomaly Proficiency": 3.5, "ATK%": 3.0 } },
-    "Yixuan": { "archetype": "attack",  "weights": { "HP%": 3.0 } }
+    "Yixuan": { "archetype": "attack",  "weights": { "HP%": 3.0 } },
+    "Yidhari": { "archetype": "attack", "weights": { "HP%": 3.0 } }
   },
 
   "rollValues": {

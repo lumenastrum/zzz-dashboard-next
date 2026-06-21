@@ -1,52 +1,18 @@
 {
   "meta": {
     "title": "Zenless Zone Zero · Soundsystem",
-    "updated": "2026-06-20",
-    "totalAgents": 1,
-    "maxLevel": 60
+    "updated": "2026-06-21",
+    "maxLevel": 60,
+    "totalAgents": 12
   },
   "agents": [
     {
       "name": "Alice",
       "section": "ANOMALY",
       "attribute": "Physical",
-      "specialty": "Anomaly",
-      "faction": "Spook Shack",
       "rank": "S",
       "mindscape": "M1",
       "level": 60,
-      "base": {
-        "atkPool": 880,
-        "AP": 26,
-        "AM": 195
-      },
-      "wengine": {
-        "name": "Practiced Perfection",
-        "rank": "S",
-        "refine": "R1",
-        "base": {
-          "ATK": 713
-        },
-        "advanced": {
-          "label": "Anomaly Prof +32%"
-        },
-        "passive": [
-          {
-            "label": "+60 Anomaly Mastery",
-            "kind": "stat",
-            "stat": "Anomaly Mastery",
-            "value": 60,
-            "scope": "combat"
-          },
-          {
-            "label": "+45 Anomaly Proficiency (4 stacks)",
-            "kind": "stat",
-            "stat": "Anomaly Proficiency",
-            "value": 45,
-            "scope": "combat"
-          }
-        ]
-      },
       "discs": {
         "pieces": [
           {
@@ -60,26 +26,26 @@
             },
             "subs": [
               {
-                "stat": "ATK%",
-                "rolls": 3
-              },
-              {
                 "stat": "Anomaly Proficiency",
-                "rolls": 2
-              },
-              {
-                "stat": "Flat PEN",
                 "rolls": 1
               },
               {
                 "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
                 "rolls": 1
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 4
               }
             ]
           },
           {
             "slot": 2,
-            "set": "Fanged Metal",
+            "set": "Phaethon's Melody",
             "rank": "S",
             "level": 15,
             "main": {
@@ -88,20 +54,20 @@
             },
             "subs": [
               {
-                "stat": "Anomaly Proficiency",
-                "rolls": 4
+                "stat": "ATK%",
+                "rolls": 1
               },
               {
-                "stat": "ATK%",
+                "stat": "DEF",
                 "rolls": 2
               },
               {
-                "stat": "Flat PEN",
-                "rolls": 1
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
               },
               {
-                "stat": "CRIT Rate",
-                "rolls": 1
+                "stat": "Flat PEN",
+                "rolls": 2
               }
             ]
           },
@@ -112,24 +78,210 @@
             "level": 15,
             "main": {
               "stat": "DEF",
-              "value": 48
+              "value": 184
             },
             "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 4,
+            "set": "Phaethon's Melody",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Anomaly Proficiency",
+              "value": 92
+            },
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 4
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 5,
+            "set": "Fanged Metal",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Physical DMG",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 3
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
               {
                 "stat": "ATK%",
                 "rolls": 1
               },
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 6,
+            "set": "Fanged Metal",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Anomaly Mastery",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Practiced Perfection",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "faction": "Spook Shack"
+    },
+    {
+      "name": "Jane Doe",
+      "section": "ANOMALY",
+      "attribute": "Physical",
+      "rank": "S",
+      "mindscape": "M3",
+      "level": 60,
+      "discs": {
+        "pieces": [
+          {
+            "slot": 1,
+            "set": "Fanged Metal",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "set": "Freedom Blues",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "HP",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "set": "Freedom Blues",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "subs": [
               {
                 "stat": "Anomaly Proficiency",
                 "rolls": 1
               },
               {
                 "stat": "CRIT DMG",
-                "rolls": 3
+                "rolls": 4
               },
               {
-                "stat": "HP",
-                "rolls": 3
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 1
               }
             ]
           },
@@ -145,25 +297,25 @@
             "subs": [
               {
                 "stat": "ATK%",
-                "rolls": 5
-              },
-              {
-                "stat": "Flat PEN",
-                "rolls": 2
+                "rolls": 1
               },
               {
                 "stat": "ATK",
-                "rolls": 1
+                "rolls": 3
               },
               {
-                "stat": "HP%",
-                "rolls": 1
+                "stat": "DEF",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
               }
             ]
           },
           {
             "slot": 5,
-            "set": "Phaethon's Melody",
+            "set": "Fanged Metal",
             "rank": "S",
             "level": 15,
             "main": {
@@ -172,26 +324,527 @@
             },
             "subs": [
               {
-                "stat": "Anomaly Proficiency",
-                "rolls": 3
-              },
-              {
-                "stat": "ATK%",
-                "rolls": 3
-              },
-              {
-                "stat": "ATK",
+                "stat": "CRIT Rate",
                 "rolls": 2
               },
               {
                 "stat": "CRIT DMG",
                 "rolls": 1
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 4
               }
             ]
           },
           {
             "slot": 6,
-            "set": "Phaethon's Melody",
+            "set": "Fanged Metal",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Anomaly Mastery",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF",
+                "rolls": 3
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Sharpened Stinger",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "faction": "Criminal Investigation Special Response Team 29"
+    },
+    {
+      "name": "Yixuan",
+      "section": "RUPTURE",
+      "attribute": "Auric Ink",
+      "rank": "S",
+      "mindscape": "M1",
+      "level": 60,
+      "discs": {
+        "pieces": [
+          {
+            "slot": 1,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 4,
+            "set": "Woodpecker Electro",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "CRIT Rate",
+              "value": "24%"
+            },
+            "subs": [
+              {
+                "stat": "DEF",
+                "rolls": 2
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 5,
+            "set": "Woodpecker Electro",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Ether DMG",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 6,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 1
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 4
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Qingming Birdcage",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "faction": "Yunkui Summit"
+    },
+    {
+      "name": "Yidhari",
+      "section": "RUPTURE",
+      "attribute": "Ice",
+      "rank": "S",
+      "mindscape": "M0",
+      "level": 60,
+      "discs": {
+        "pieces": [
+          {
+            "slot": 1,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF",
+                "rolls": 4
+              },
+              {
+                "stat": "ATK",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "set": "Branch & Blade Song",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 4
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 4,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "CRIT DMG",
+              "value": "48%"
+            },
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 5,
+            "set": "Branch & Blade Song",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Ice DMG",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "ATK",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 6,
+            "set": "Yunkui Tales",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Kraken's Cradle",
+        "rank": "S",
+        "refine": "R2"
+      }
+    },
+    {
+      "name": "Velina",
+      "section": "ANOMALY",
+      "attribute": "Wind",
+      "rank": "S",
+      "mindscape": "M1",
+      "level": 60,
+      "discs": {
+        "pieces": [
+          {
+            "slot": 1,
+            "set": "Wuthering Salon",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "subs": [
+              {
+                "stat": "DEF",
+                "rolls": 1
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 3
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "HP%",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "set": "Wuthering Salon",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "set": "Wuthering Salon",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 4,
+            "set": "Swing Jazz",
             "rank": "S",
             "level": 15,
             "main": {
@@ -200,11 +853,1300 @@
             },
             "subs": [
               {
-                "stat": "ATK%",
+                "stat": "CRIT Rate",
                 "rolls": 2
               },
               {
                 "stat": "ATK",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 4
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 5,
+            "set": "Wuthering Salon",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 6,
+            "set": "Swing Jazz",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "Energy Regen",
+              "value": "60%"
+            },
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Joyau Doré",
+        "rank": "S",
+        "refine": "R2"
+      }
+    },
+    {
+      "name": "Ye Shunguang",
+      "section": "ATTACK",
+      "attribute": "Honed Edge",
+      "rank": "S",
+      "mindscape": "M1",
+      "level": 60,
+      "discs": {
+        "pieces": [
+          {
+            "slot": 1,
+            "set": "White Water Ballad",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 2,
+            "set": "White Water Ballad",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
+              }
+            ]
+          },
+          {
+            "slot": 3,
+            "set": "Branch & Blade Song",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 4,
+            "set": "White Water Ballad",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              }
+            ]
+          },
+          {
+            "slot": 5,
+            "set": "White Water Ballad",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK",
+                "rolls": 3
+              }
+            ]
+          },
+          {
+            "slot": 6,
+            "set": "Branch & Blade Song",
+            "rank": "S",
+            "level": 15,
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK",
+                "rolls": 4
+              }
+            ]
+          }
+        ]
+      },
+      "wengine": {
+        "name": "Cloudcleave Radiance",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "faction": "Yunkui Summit"
+    },
+    {
+      "name": "Dialyn",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "King of the Summit",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "King of the Summit",
+            "main": {
+              "stat": "CRIT Rate",
+              "value": "24%"
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "King of the Summit",
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "King of the Summit",
+            "main": {
+              "stat": "Energy Regen",
+              "value": "60%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "DEF",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          }
+        ]
+      },
+      "level": 60,
+      "section": "STUN",
+      "wengine": {
+        "name": "Yesterday Calls",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Physical",
+      "mindscape": "M0"
+    },
+    {
+      "name": "Astra Yao",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "ATK",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 4
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Swing Jazz",
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "ATK",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Swing Jazz",
+            "main": {
+              "stat": "Energy Regen",
+              "value": "60%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "HP",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          }
+        ]
+      },
+      "level": 60,
+      "faction": "Stars of Lyra",
+      "section": "SUPPORT",
+      "wengine": {
+        "name": "Elegant Vanity",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Ether",
+      "mindscape": "M1"
+    },
+    {
+      "name": "Miyabi",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Branch & Blade Song",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Branch & Blade Song",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK",
+                "rolls": 4
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Astral Voice",
+            "main": {
+              "stat": "CRIT Rate",
+              "value": "24%"
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 4
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Branch & Blade Song",
+            "main": {
+              "stat": "Ice DMG",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 1
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Branch & Blade Song",
+            "main": {
+              "stat": "Anomaly Mastery",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          }
+        ]
+      },
+      "level": 60,
+      "faction": "Hollow Special Operations Section 6",
+      "section": "ANOMALY",
+      "wengine": {
+        "name": "Hailstorm Shrine",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Frost",
+      "mindscape": "M1"
+    },
+    {
+      "name": "Aria",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "Phaethon's Melody",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 3
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Freedom Blues",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              },
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 4
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Phaethon's Melody",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "HP",
+                "rolls": 3
+              },
+              {
+                "stat": "Flat PEN",
+                "rolls": 1
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Phaethon's Melody",
+            "main": {
+              "stat": "Anomaly Proficiency",
+              "value": 92
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Freedom Blues",
+            "main": {
+              "stat": "Ether DMG",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Phaethon's Melody",
+            "main": {
+              "stat": "Anomaly Mastery",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              }
+            ],
+            "level": 15
+          }
+        ]
+      },
+      "level": 60,
+      "section": "ANOMALY",
+      "wengine": {
+        "name": "Angel in the Shell",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Ether",
+      "mindscape": "M0"
+    },
+    {
+      "name": "Cissia",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "Dawn's Bloom",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "DEF",
+                "rolls": 4
+              },
+              {
+                "stat": "ATK",
+                "rolls": 1
+              },
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Dawn's Bloom",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "ATK%",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Dawn's Bloom",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "HP%",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Swing Jazz",
+            "main": {
+              "stat": "CRIT DMG",
+              "value": "48%"
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Dawn's Bloom",
+            "main": {
+              "stat": "Electric DMG",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Swing Jazz",
+            "main": {
+              "stat": "Energy Regen",
+              "value": "60%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          }
+        ]
+      },
+      "level": 60,
+      "section": "ATTACK",
+      "wengine": {
+        "name": "Serpentine Seeker",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Electric",
+      "mindscape": "M0"
+    },
+    {
+      "name": "Evelyn",
+      "rank": "S",
+      "discs": {
+        "pieces": [
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "HP",
+              "value": 2200
+            },
+            "rank": "S",
+            "slot": 1,
+            "subs": [
+              {
+                "stat": "ATK",
+                "rolls": 2
+              },
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "ATK%",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "ATK",
+              "value": 316
+            },
+            "rank": "S",
+            "slot": 2,
+            "subs": [
+              {
+                "stat": "DEF%",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 3
+              },
+              {
+                "stat": "HP",
+                "rolls": 3
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 1
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "DEF",
+              "value": 184
+            },
+            "rank": "S",
+            "slot": 3,
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 4
+              },
+              {
+                "stat": "HP%",
+                "rolls": 1
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Inferno Metal",
+            "main": {
+              "stat": "CRIT DMG",
+              "value": "48%"
+            },
+            "rank": "S",
+            "slot": 4,
+            "subs": [
+              {
+                "stat": "Anomaly Proficiency",
                 "rolls": 2
               },
               {
@@ -214,11 +2156,82 @@
               {
                 "stat": "CRIT Rate",
                 "rolls": 3
+              },
+              {
+                "stat": "DEF",
+                "rolls": 1
               }
-            ]
+            ],
+            "level": 15
+          },
+          {
+            "set": "Inferno Metal",
+            "main": {
+              "stat": "PEN Ratio",
+              "value": "24%"
+            },
+            "rank": "S",
+            "slot": 5,
+            "subs": [
+              {
+                "stat": "HP",
+                "rolls": 1
+              },
+              {
+                "stat": "ATK",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 3
+              }
+            ],
+            "level": 15
+          },
+          {
+            "set": "Woodpecker Electro",
+            "main": {
+              "stat": "ATK%",
+              "value": "30%"
+            },
+            "rank": "S",
+            "slot": 6,
+            "subs": [
+              {
+                "stat": "ATK",
+                "rolls": 3
+              },
+              {
+                "stat": "CRIT DMG",
+                "rolls": 1
+              },
+              {
+                "stat": "Anomaly Proficiency",
+                "rolls": 2
+              },
+              {
+                "stat": "CRIT Rate",
+                "rolls": 2
+              }
+            ],
+            "level": 15
           }
         ]
-      }
+      },
+      "level": 60,
+      "faction": "Stars of Lyra",
+      "section": "ATTACK",
+      "wengine": {
+        "name": "Heartstring Nocturne",
+        "rank": "S",
+        "refine": "R2"
+      },
+      "attribute": "Fire",
+      "mindscape": "M3"
     }
   ]
 }

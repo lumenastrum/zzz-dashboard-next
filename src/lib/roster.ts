@@ -21,12 +21,12 @@ export const ROSTER: RosterEntry[] = [
   // — Anomaly —
   { name: "Alice", slug: "alice", section: "Anomaly", attribute: "Physical", mindscape: 1, el: "#fcbf01", faction: "Spook Shack" },
   { name: "Miyabi", slug: "miyabi", section: "Anomaly", attribute: "Frost", mindscape: 1, el: "#39dcf7",
-    faction: "Hollow Special Operations Section 6", voidHunter: true },
+    faction: "Hollow Special Operations Section 6", title: "Void Hunter: Isshin Muga", voidHunter: true },
   { name: "Jane Doe", slug: "janedoe", section: "Anomaly", attribute: "Physical", mindscape: 3, el: "#fcbf01", faction: "Criminal Investigation Special Response Team 29" },
   { name: "Vivian", slug: "vivian", section: "Anomaly", attribute: "Ether", mindscape: 2, el: "#9a4fbb" },
   { name: "Burnice", slug: "burnice", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
   { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb" },
-  { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 0, el: "#95c9ff" },
+  { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff" },
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",
     faction: "Yunkui Summit", title: "Void Hunter: Qingming Arbiter", voidHunter: true },
@@ -49,7 +49,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Zhao", slug: "zhao", section: "Support", attribute: "Ice", mindscape: 0, el: "#00dada" },
   // — Rupture —
   { name: "Yixuan", slug: "yixuan", section: "Rupture", attribute: "Auric Ink", mindscape: 1, el: "#e9b560",
-    faction: "Yunkui Summit", voidHunter: true },
+    faction: "Yunkui Summit", title: "Grandmaster", voidHunter: true },
   { name: "Yidhari", slug: "yidhari", section: "Rupture", attribute: "Ice", mindscape: 0, el: "#00dada" },
 ];
 
