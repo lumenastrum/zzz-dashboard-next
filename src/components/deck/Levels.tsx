@@ -53,7 +53,7 @@ function VuRow({ label, s, c }: { label: string; s: StatLine; c: LevelCfg }) {
         ) : (
           <span />
         )}
-        <span className="tg">TGT {fmt(c.target)}+</span>
+        <span className="tg">TGT {fmt(c.target)}{c.unit}+</span>
       </div>
     </div>
   );
@@ -80,10 +80,6 @@ export function Levels({ stats }: { stats: StatsResult }) {
 
       <div className="modnote">
         ▸ sheet = character screen · effective = in-combat (chips never show on the sheet)
-      </div>
-      <div className="deadrow">
-        <span>CRIT Rate / DMG</span>
-        <b>Silent — Anomaly scaling</b>
       </div>
     </div>
   );

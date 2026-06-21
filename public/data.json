@@ -423,7 +423,54 @@
         "refine": "R2"
       },
       "attribute": "Physical",
-      "mindscape": "M3"
+      "mindscape": "M3",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,960"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,252"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,054"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "12.2%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "107.6%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "192"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "335"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
+      ]
     },
     {
       "name": "Yixuan",
@@ -609,7 +656,55 @@
         "refine": "R2"
       },
       "attribute": "Auric Ink",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "19,618"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,124"
+        },
+        {
+          "stat": "DEF",
+          "value": "767"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "53.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "146%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "92"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "90"
+        },
+        {
+          "stat": "Sheer Force",
+          "value": "2,598"
+        },
+        {
+          "stat": "Automatic Adrenaline Accumulation",
+          "value": "2"
+        }
+      ],
+      "relevant": [
+        "Sheer Force",
+        "HP",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Yidhari",
@@ -794,7 +889,55 @@
         "refine": "R2"
       },
       "attribute": "Ice",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "17,665"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,341"
+        },
+        {
+          "stat": "DEF",
+          "value": "842"
+        },
+        {
+          "stat": "Impact",
+          "value": "95"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "36.2%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "166.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "87"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "126"
+        },
+        {
+          "stat": "Sheer Force",
+          "value": "2,468"
+        },
+        {
+          "stat": "Automatic Adrenaline Accumulation",
+          "value": "2"
+        }
+      ],
+      "relevant": [
+        "Sheer Force",
+        "HP",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Velina",
@@ -979,7 +1122,54 @@
         "refine": "R2"
       },
       "attribute": "Wind",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,858"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,871"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,046"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "17%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "50%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "112"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "347"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "2.88"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Proficiency",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Ye Shunguang",
@@ -1165,7 +1355,54 @@
         "refine": "R2"
       },
       "attribute": "Honed Edge",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "10,446"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,832"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,082"
+        },
+        {
+          "stat": "Impact",
+          "value": "83"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "41%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "152.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "120"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Dialyn",
@@ -1350,7 +1587,53 @@
         "refine": "R2"
       },
       "attribute": "Physical",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "13,597"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,537"
+        },
+        {
+          "stat": "DEF",
+          "value": "914"
+        },
+        {
+          "stat": "Impact",
+          "value": "110"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "99.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "50%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "156"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.92"
+        }
+      ],
+      "relevant": [
+        "CRIT Rate",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Astra Yao",
@@ -1536,7 +1819,53 @@
         "refine": "R2"
       },
       "attribute": "Ether",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,549"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,671"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,073"
+        },
+        {
+          "stat": "Impact",
+          "value": "83"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "17%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "64.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "93"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "110"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "2.8"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Miyabi",
@@ -1722,7 +2051,54 @@
         "refine": "R2"
       },
       "attribute": "Frost",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "10,328"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,293"
+        },
+        {
+          "stat": "DEF",
+          "value": "835"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "69.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "123.6%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "150"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "328"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Aria",
@@ -1907,7 +2283,54 @@
         "refine": "R2"
       },
       "attribute": "Ether",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,672"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,270"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,130"
+        },
+        {
+          "stat": "Impact",
+          "value": "87"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "14.6%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "64.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "253"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "337"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
+      ]
     },
     {
       "name": "Cissia",
@@ -2092,7 +2515,55 @@
         "refine": "R2"
       },
       "attribute": "Electric",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,018"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,431"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,025"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "38.6%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "126.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "129"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "3.74"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Evelyn",
@@ -2278,7 +2749,54 @@
         "refine": "R2"
       },
       "attribute": "Fire",
-      "mindscape": "M3"
+      "mindscape": "M3",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "10,894"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,682"
+        },
+        {
+          "stat": "DEF",
+          "value": "928"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "80.2%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "150.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "92"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "135"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "24%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Seed",
@@ -2463,7 +2981,54 @@
         "refine": "R2"
       },
       "attribute": "Electric",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "9,873"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,212"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,076"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "65.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "150.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "138"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Soldier 0 Anby",
@@ -2649,7 +3214,54 @@
         "refine": "R2"
       },
       "attribute": "Electric",
-      "mindscape": "M1"
+      "mindscape": "M1",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,578"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,742"
+        },
+        {
+          "stat": "DEF",
+          "value": "899"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "67.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "136.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "111"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Burnice",
@@ -2835,7 +3447,54 @@
         "refine": "R2"
       },
       "attribute": "Fire",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "10,568"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,876"
+        },
+        {
+          "stat": "DEF",
+          "value": "960"
+        },
+        {
+          "stat": "Impact",
+          "value": "83"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "21.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "69.2%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "153"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "299"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.56"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Proficiency",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Trigger",
@@ -3021,7 +3680,54 @@
         "refine": "R2"
       },
       "attribute": "Electric",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,536"
+        },
+        {
+          "stat": "ATK",
+          "value": "1,999"
+        },
+        {
+          "stat": "DEF",
+          "value": "974"
+        },
+        {
+          "stat": "Impact",
+          "value": "162"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "67.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "74%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "96"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "212"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "Impact",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Sunna",
@@ -3206,7 +3912,53 @@
         "refine": "R2"
       },
       "attribute": "Physical",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,906"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,272"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,203"
+        },
+        {
+          "stat": "Impact",
+          "value": "98"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "9.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "50%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "96"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "131"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "2.6"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Energy Regen"
+      ]
     },
     {
       "name": "Yuzuha",
@@ -3391,7 +4143,53 @@
         "refine": "R2"
       },
       "attribute": "Physical",
-      "mindscape": "M0"
+      "mindscape": "M0",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,690"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,113"
+        },
+        {
+          "stat": "DEF",
+          "value": "899"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "24.2%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "59.6%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "171"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "129"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.92"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Mastery"
+      ]
     },
     {
       "name": "Lucia",
@@ -3576,7 +4374,52 @@
         "name": "Dreamlit Hearth",
         "rank": "S",
         "refine": "R2"
-      }
+      },
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "22,594"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,077"
+        },
+        {
+          "stat": "DEF",
+          "value": "892"
+        },
+        {
+          "stat": "Impact",
+          "value": "83"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "19.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "78.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "96"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "113"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "2.8"
+        }
+      ],
+      "relevant": [
+        "HP"
+      ]
     },
     {
       "name": "Vivian",
@@ -3761,7 +4604,54 @@
         "name": "Flight of Fancy",
         "rank": "S",
         "refine": "R2"
-      }
+      },
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,584"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,577"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,010"
+        },
+        {
+          "stat": "Impact",
+          "value": "86"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "14.6%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "102.8%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "198"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "375"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
+      ]
     },
     {
       "name": "Ellen",
@@ -3947,7 +4837,54 @@
         "rank": "S",
         "refine": "R2"
       },
-      "faction": "Victoria Housekeeping Co."
+      "faction": "Victoria Housekeeping Co.",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "11,945"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,927"
+        },
+        {
+          "stat": "DEF",
+          "value": "878"
+        },
+        {
+          "stat": "Impact",
+          "value": "93"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "65.8%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "88.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "94"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "111"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "32%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Ju Fufu",
@@ -4133,7 +5070,54 @@
         "rank": "S",
         "refine": "R2"
       },
-      "faction": "Yunkui Summit"
+      "faction": "Yunkui Summit",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,047"
+        },
+        {
+          "stat": "ATK",
+          "value": "3,485"
+        },
+        {
+          "stat": "DEF",
+          "value": "868"
+        },
+        {
+          "stat": "Impact",
+          "value": "139"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "43.4%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "74%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "93"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "159"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.44"
+        }
+      ],
+      "relevant": [
+        "ATK",
+        "CRIT Rate",
+        "CRIT DMG"
+      ]
     },
     {
       "name": "Lighter",
@@ -4319,7 +5303,52 @@
         "rank": "S",
         "refine": "R2"
       },
-      "faction": "Sons of Calydon"
+      "faction": "Sons of Calydon",
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,452"
+        },
+        {
+          "stat": "ATK",
+          "value": "2,989"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,004"
+        },
+        {
+          "stat": "Impact",
+          "value": "194"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "14.6%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "69.2%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "91"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "90"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "Impact"
+      ]
     },
     {
       "name": "Nangong Yu",
@@ -4504,7 +5533,53 @@
         "name": "Neon Fantasies",
         "rank": "S",
         "refine": "R2"
-      }
+      },
+      "mainStats": [
+        {
+          "stat": "HP",
+          "value": "12,165"
+        },
+        {
+          "stat": "ATK",
+          "value": "1,938"
+        },
+        {
+          "stat": "DEF",
+          "value": "1,089"
+        },
+        {
+          "stat": "Impact",
+          "value": "120"
+        },
+        {
+          "stat": "CRIT Rate",
+          "value": "26.6%"
+        },
+        {
+          "stat": "CRIT DMG",
+          "value": "64.4%"
+        },
+        {
+          "stat": "Anomaly Mastery",
+          "value": "211"
+        },
+        {
+          "stat": "Anomaly Proficiency",
+          "value": "323"
+        },
+        {
+          "stat": "PEN Ratio",
+          "value": "0%"
+        },
+        {
+          "stat": "Energy Regen",
+          "value": "1.2"
+        }
+      ],
+      "relevant": [
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
+      ]
     }
   ]
 }

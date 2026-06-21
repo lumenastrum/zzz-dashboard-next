@@ -161,12 +161,21 @@ export interface LevelCfg {
   target: number;
   unit: string;
 }
+// Goalpost benchmarks per stat (full = bar max, target = the notch). ROUGH global defaults so the
+// Levels panel works for every relevant stat — per-agent/archetype calibration is the pending
+// "grade calibration" taste call (e.g. Miyabi's ATK target ≠ Ye Shunguang's).
 export const LEVEL_CFG: Record<string, LevelCfg> = {
-  "ATK": { full: 3400, target: 2700, unit: "" },
+  "ATK": { full: 4200, target: 2700, unit: "" },
+  "HP": { full: 22000, target: 16000, unit: "" },
+  "CRIT Rate": { full: 100, target: 70, unit: "%" },
+  "CRIT DMG": { full: 260, target: 150, unit: "%" },
+  "Energy Regen": { full: 3, target: 1.4, unit: "" },
+  "Sheer Force": { full: 3200, target: 2400, unit: "" },
+  "Impact": { full: 200, target: 120, unit: "" },
+  "PEN Ratio": { full: 60, target: 20, unit: "%" },
   "Anomaly Proficiency": { full: 460, target: 330, unit: "" },
   "Anomaly Mastery": { full: 320, target: 184, unit: "" },
 };
-export const LEVEL_ORDER = ["ATK", "Anomaly Proficiency", "Anomaly Mastery"];
 
 // Best single-sub contribution, for scaling the substat bars in the inspector.
 const partnerBoost = (GRADING_CONFIG as { partnerBoost?: number }).partnerBoost ?? 4.25;
