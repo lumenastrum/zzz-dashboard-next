@@ -1,9 +1,13 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-20 · **Status:** deck + Supabase + 25-agent roster + Void Hunter tier shipped;
-**Enka disc-build importer live (24 of 25 agents have real builds)** + **face-framed roster tiles** done
-this session. Remaining: only **Zhao** buildless (one more showcase pull), grade calibration, real stat
-curves, anomaly-only Levels panel, other tabs, GH remote.
+**Last updated:** 2026-06-21 · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped earlier.
+**This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
+in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
+gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
+config), **single source of truth migration** (mainStats on the agent blob, `main-stats.ts` retired), and
+**all 24 built agents seeded** with real character-screen stats + highlights. **GitHub remote LIVE + pushed**
+(`lumenastrum/zzz-dashboard-next`, master @ `b1705bb`). Remaining: grade/goalpost calibration (targets are
+rough globals), per-agent `wengines` configs (cartridge effects), other tabs, GH Pages workflow, Zhao (buildless).
 
 ---
 
@@ -193,25 +197,61 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 - ✅ Verified live throughout: deck renders (incl. Miyabi/Velina/Trigger/Nangong Yu/Lighter/Ellen) + full
   roster grid, cartridge labels, zero console errors. Build clean (28 pages) at every step.
 
-**This session's work lives on branch `feat/zzz-enka-import-and-framing` (off `master`, 7 commits).**
-The repo has **no git remote yet** — create `lumenastrum/zzz-dashboard-next` + push to deploy (see next steps).
+**Session 2's work was later merged to `master`; the GitHub remote now exists (see session 3).**
+
+## DONE — session 3 (2026-06-21): factions, deck polish, Main Stats + stat flow, full seeding
+
+**Pushed to `lumenastrum/zzz-dashboard-next` master (through `b1705bb`).**
+
+- ✅ **Factions 100%** — filled the 12 missing + corrections (Trigger→Obol, Soldier 0 Anby→Defense Force -
+  Silver Squad, Krampus Compliance Authority). `FACTION_ICON_ALIAS` in deck-config maps full org-path display
+  names → staged squad icons (Roscaelifer… → external_strategy_department, etc.). All 14 unique resolve.
+- ✅ **Deck polish** — (1) header now reads `NOW PLAYING · NAME // FACTION` with the faction icon promoted to a
+  34px badge; foot plate decluttered (type was a dupe of the top-right pill). (2) Equipment-frame **cones in
+  in-game slot order**: 1-2-3 down the left column (top→bottom), 4-5-6 up the right (bottom→top) — `CONE` map in
+  deck-config; validated vs fixed mains (slot 1 HP / 2 ATK / 3 DEF). (3) Per-disc **letter grade promoted to a
+  big 22px badge** (`.gletter`), dropped the S-rank coin + "Lv 15/15". (4) **W-Engine core 28%→34%**.
+- ✅ **Slug diacritic bugfix** — `slugify` now NFD-normalizes + strips combining marks (é→e), so Velina's
+  "Joyau Doré" resolves `wengine_joyau_dore.webp` (was `joyau_dor`, self-hid). Mirrored into stage-assets.ts.
+- ✅ **Main Stats panel** (`MainStats.tsx`) — 10-stat character sheet under the cartridge, 2-col in-game order,
+  the agent's **scaling stats lit gold**. Stat icons stage as `stat_*` (incl. Sheer Force + Automatic Adrenaline
+  Accumulation for Rupture). `STAT_SHEET` + `statIcon` in deck-config.
+- ✅ **Stats flow into the Levels goalposts** — `computeStats(agent, cfg, {sheet, stats})` takes the seeded
+  character-screen values as the **Sheet** (was illustrative `base` consts → wrong) and goalposts the agent's
+  `relevant` stats. **Sheet vs Effective restored**: W-Engine base/advanced/passive (stripped by the Enka
+  import) now live in a name-keyed **`wengines` config** + `resolveWengine()` — feeds both the cartridge AND the
+  combat layer. ⚠️ **Only Alice has a `wengines` entry so far** — the other 23 cartridges show name only.
+- ✅ **Single source of truth** (Andres's call) — `mainStats` + `relevant` live **on the agent object** in the
+  andres-zzz blob; **`main-stats.ts` retired**. Authored in `data.json` (seed), pushed to the blob via
+  **`npm run sync-stats -- --write`** (mirrors the import's seed→blob write). The "JSON seed is bait" rule holds.
+- ✅ **All 24 built agents seeded** with real character-screen stats + gold highlights (read off in-game shots,
+  pixel-cropped for accuracy). `LEVEL_CFG` expanded (HP, CRIT Rate, CRIT DMG, Energy Regen, Impact, Sheer Force,
+  PEN Ratio). Two Rupture sheets (Yixuan, Yidhari). **Only Zhao unseeded (buildless — no deck panel).**
+- 🐛 **Double-count fix** — seeded Sheet already includes sheet-scope set/W-Engine bonuses, so computeStats now
+  skips re-adding them for overridden stats (Dialyn CRIT was 107.4% vs real 99.4%); only combat-scope buffs layer.
+- ⚠️ **Gold-detection caveat:** a kit-given non-default value (Evelyn's PEN 24%, Ellen's PEN 32%) can render in a
+  shade that reads as "gold" but is NOT a relevant highlight. Evelyn confirmed/fixed; **Ellen's PEN excluded,
+  pending Andres confirm.**
 
 ## Next steps (next session)
 
-1. **Zhao's build — DEFERRED** (Andres: low-value, not invested). The roster is effectively complete at 24/25.
-   If ever wanted: showcase Zhao + re-pull live, `npm run import -- --file=… --write`. New avatar ids → add to
-   the `AVATAR` map (+ `SUIT` names / `WENGINE_OVERRIDE` as new sets/engines surface).
-2. **Grade calibration** (Andres's call, pinned as final polish) — the scale reads harsh (benchmarks vs a
-   theoretically perfect disc, so good builds land C/B). Decide interknot-lenient vs honest vs in-between.
-3. **Real stat data** — exact ZZZ base-stat curves + W-Engine values; **per-archetype `LEVEL_CFG`** (the Levels
-   panel is anomaly-only, so crit/HP agents show AP/AM 0). Map W-engine passives for the Sheet/Effective buffs.
+1. **Goalpost / grade calibration** (Andres's pinned taste call) — `LEVEL_CFG` targets are **rough GLOBAL
+   defaults** (Miyabi's ATK target = Ye Shunguang's, which is wrong). Decide per-agent or per-archetype targets
+   (and the disc grade scale: interknot-lenient vs honest). This is the main thing between "almost" and "done."
+2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
+   ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
+   passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.
+3. **Confirm Ellen's PEN Ratio** — excluded as a likely kit-value (Evelyn precedent); Andres to verify.
 4. **Other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes + build them.
-5. **Remaining factions** — a few still blank in `roster.ts` (one-line edits as Andres provides).
-6. **GitHub remote + Pages** — add remote, copy WuWa's `.github/workflows/pages.yml`, push.
-   `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
+5. **GitHub Pages workflow** — remote is live + pushed, but there's **no `.github/workflows/`** yet, so it's not
+   auto-deploying. Copy WuWa's `pages.yml`. `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
+6. **Zhao** — buildless (no discs), so her deck shows no build/stat panel. Build her in-game + `npm run import`,
+   then seed her stats, if ever wanted. Otherwise the roster is effectively complete at 24/25.
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).
+- **Seeding main stats:** edit `mainStats`/`relevant` in `public/data.json`, then `npm run sync-stats -- --write`
+  to push to the andres-zzz blob (the live source of truth). Dry-run without `--write`.
 - `npm run import [-- --file=… --write]` import builds from an Enka showcase payload · `npm run frames` re-measure
   face crops · `npm run build` static export · `npm run grade` headless grade · `npm run stage` (re)copy art.
 - **Reference prototype:** `cd ../zzz-redesign-mockups` → `View Mockups.bat`, open `c-soundsystem.html`.
