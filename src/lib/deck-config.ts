@@ -15,6 +15,37 @@ export const tallPath = (slug: string) => `/assets/tall/${slug}.webp`;
 
 export const elementIcon = (attribute: string) => `element_${slugify(attribute)}`;
 export const typeIcon = (section: string) => `type_${slugify(section)}`;
+export const VOID_HUNTER_ICON = "type_void_hunter";
+
+// In-game element colors, sampled (dominant non-extreme pixel) from each element icon.
+// Drives the Void Hunter gradient accents so each elite reads in their own element's hue.
+export const ELEMENT_COLOR: Record<string, string> = {
+  physical: "#fcbf01",
+  fire: "#f74c0f",
+  ice: "#00dada",
+  electric: "#14b0ff",
+  ether: "#9a4fbb",
+  frost: "#39dcf7",
+  auric_ink: "#e9b560",
+  honed_edge: "#9bb4fb",
+  wind: "#95c9ff",
+};
+const clampByte = (n: number) => Math.max(0, Math.min(255, Math.round(n)));
+const hexRgb = (h: string) => {
+  const m = h.replace("#", "");
+  return [0, 2, 4].map((i) => parseInt(m.slice(i, i + 2), 16));
+};
+const toHex = (rgb: number[]) => "#" + rgb.map((v) => clampByte(v).toString(16).padStart(2, "0")).join("");
+const mix = (hex: string, target: string, t: number) => {
+  const a = hexRgb(hex), b = hexRgb(target);
+  return toHex(a.map((v, i) => v + (b[i] - v) * t));
+};
+export const elementColor = (attribute: string) => ELEMENT_COLOR[slugify(attribute)] ?? "#9a6bff";
+// A 3-stop sheen gradient in the element's hue (light → base → deep).
+export const elementGradient = (attribute: string) => {
+  const c = elementColor(attribute);
+  return `linear-gradient(120deg, ${mix(c, "#ffffff", 0.42)} 0%, ${c} 50%, ${mix(c, "#1a0f1e", 0.34)} 100%)`;
+};
 export const factionIcon = (faction: string) => `faction_${slugify(faction)}`;
 export const wengineIcon = (name: string) => `wengine_${slugify(name)}`;
 export const setIcon = (set: string) => `set_${slugify(set)}`;

@@ -1,11 +1,11 @@
 "use client";
 
 // The "Now Playing" deck — the full agent profile ported from c-soundsystem.html.
-// Orchestrates the layout (header · turntable · cartridge · Levels · Stack · Foot),
-// grades the agent live with the shared engine, and routes every disc edit back through
-// `onChange` (which the route wires to the DataProvider's debounced Supabase save).
-// In the prototype this was a modal overlay; here it's the body of the /r/[name] route,
-// so the page scrolls and the turntable stays pinned (CSS `.deck` / `.tt`).
+// Renders an agent's IDENTITY (header · turntable · title pill) for any rostered agent,
+// and the BUILD panels (cartridge · Levels · Stack · Foot) only when a disc build exists
+// in the Supabase blob. Identity falls back to the static roster chrome, so a newly-seeded
+// agent (no build yet) still gets a real agent screen. Every disc edit routes through
+// `onChange` → the DataProvider's debounced save.
 import { useState } from "react";
 import Link from "next/link";
 import type { Agent } from "@/lib/types";
@@ -19,6 +19,8 @@ import {
   wengineIcon,
   iconPath,
   tallPath,
+  VOID_HUNTER_ICON,
+  elementGradient,
 } from "@/lib/deck-config";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
@@ -43,18 +45,19 @@ export function AgentDeck({
   onChange,
   syncStatus = "local",
 }: {
-  agent: Agent;
+  agent: Agent | null;
   entry: RosterEntry;
   onChange: (mutator: (a: Agent) => void) => void;
   syncStatus?: SyncStatus;
 }) {
   const [selSlot, setSelSlot] = useState(4);
 
-  const grade = gradeBuild(agent, GRADING_CONFIG);
-  const stats = computeStats(agent, GRADING_CONFIG);
-  const pieces = agent.discs?.pieces ?? [];
+  const hasBuild = !!agent?.discs?.pieces?.length;
+  const grade = hasBuild ? gradeBuild(agent as Agent, GRADING_CONFIG) : null;
+  const stats = hasBuild ? computeStats(agent as Agent, GRADING_CONFIG) : null;
+  const pieces = agent?.discs?.pieces ?? [];
 
-  const disc = grade.discs.find((d) => d.slot === selSlot) ?? grade.discs[0];
+  const disc = grade ? grade.discs.find((d) => d.slot === selSlot) ?? grade.discs[0] : undefined;
   const piece = disc ? pieces.find((p) => p.slot === disc.slot) : undefined;
 
   // edit helpers — locate the piece in a draft and mutate it (re-grades + saves)
@@ -73,9 +76,28 @@ export function AgentDeck({
       if (s) s.rolls = Math.max(0, Math.min(6, (s.rolls || 0) + d));
     });
 
-  const we = agent.wengine;
+  // identity — the build wins where present, else the static roster chrome
+  const name = agent?.name ?? entry.name;
+  const faction = agent?.faction ?? entry.faction;
+  const attribute = agent?.attribute ?? entry.attribute;
+  const section = agent?.section ?? entry.section;
+  const specialty = agent?.specialty || titleCase(section);
+  const mindscape = agent?.mindscape ?? `M${entry.mindscape}`;
+  const level = agent?.level ?? 60;
+  const rank = agent?.rank ?? "S";
+  const { title, voidHunter } = entry;
+  const we = agent?.wengine;
   const sync = SYNC_LABEL[syncStatus];
-  const specialty = agent.specialty || titleCase(agent.section);
+
+  const titlePill = title ? (
+    <span
+      className={`title-pill${voidHunter ? " vh" : ""}`}
+      style={voidHunter ? ({ "--vh-grad": elementGradient(attribute) } as React.CSSProperties) : undefined}
+    >
+      {voidHunter && <DeckImg src={iconPath(VOID_HUNTER_ICON)} alt="Void Hunter" />}
+      {title}
+    </span>
+  ) : null;
 
   return (
     <div className="deck">
@@ -83,25 +105,19 @@ export function AgentDeck({
         <span className="led" />
         <div className="np">Now Playing</div>
         <div className="nm">
-          {agent.name} <small>{"// "}{agent.faction ?? specialty}</small>
+          {name} <small>{"// "}{specialty}</small>
         </div>
         <div className="spec">
-          {agent.faction && (
-            <span className="chip">
-              <DeckImg src={iconPath(factionIcon(agent.faction))} alt={agent.faction} />
-              {agent.faction}
-            </span>
-          )}
           <span className="chip">
-            <DeckImg src={iconPath(elementIcon(agent.attribute))} alt={agent.attribute} />
-            {agent.attribute}
+            <DeckImg src={iconPath(elementIcon(attribute))} alt={attribute} />
+            {attribute}
           </span>
           <span className="chip">
-            <DeckImg src={iconPath(typeIcon(agent.section))} alt={specialty} />
+            <DeckImg src={iconPath(typeIcon(section))} alt={specialty} />
             {specialty}
           </span>
           <span className="chip">
-            {agent.mindscape ?? "M0"} · LV{agent.level ?? 60}
+            {mindscape} · LV{level}
           </span>
           <span className="chip" title={`Supabase: ${syncStatus}`}>
             <span
@@ -117,85 +133,92 @@ export function AgentDeck({
       <div className="deck-body">
         <div className="tt">
           <div className="platter" />
-          <DeckImg className="pimg" src={tallPath(entry.slug)} alt={agent.name} />
+          <DeckImg className="pimg" src={tallPath(entry.slug)} alt={name} />
           <div className="plate">
             <div className="fac">
-              {agent.faction && (
-                <DeckImg
-                  src={iconPath(factionIcon(agent.faction))}
-                  alt=""
-                  style={{ width: 15, height: 15, objectFit: "contain", flexShrink: 0 }}
-                />
-              )}
-              {agent.faction ?? "—"} · {specialty}
+              {faction && <DeckImg src={iconPath(factionIcon(faction))} alt="" style={{ width: 15, height: 15, objectFit: "contain", flexShrink: 0 }} />}
+              {faction ?? "—"} · {specialty}
             </div>
-            <div className="big">{agent.name}</div>
+            <div className="big">{name}</div>
+            {titlePill}
             <div className="meta">
-              <span className="mp">RANK <b>{agent.rank ?? "S"}</b></span>
-              <span className="mp">MINDSCAPE <b>{agent.mindscape ?? "M0"}</b></span>
-              <span className="mp">LV <b>{agent.level ?? 60}</b></span>
+              <span className="mp">RANK <b>{rank}</b></span>
+              <span className="mp">MINDSCAPE <b>{mindscape}</b></span>
+              <span className="mp">LV <b>{level}</b></span>
             </div>
           </div>
         </div>
 
         <div className="rack">
-          <div className="rtop">
-            <div>
-              <div className="modlbl"><span className="dot" />Cartridge · W-Engine</div>
-              {we && (
-                <div className="cart">
-                  <div className="disc-bg" />
-                  <DeckImg src={iconPath(wengineIcon(we.name))} alt={we.name} />
-                  <div>
-                    <div className="wn">{we.name}</div>
-                    <div className="wr">
-                      <span className="tag s">{we.rank ?? "S"}</span>
-                      <span className="tag r">{we.refine ?? "R1"} · Signature</span>
-                    </div>
-                    <div className="wp">
-                      ATK <b>{we.base?.ATK ?? "—"}</b>
-                      {we.advanced?.label ? <> · {we.advanced.label}</> : null}
-                    </div>
-                    {we.passive && we.passive.length > 0 && (
-                      <div className="wpass">
-                        <span className="pi">✦</span> Passive:{" "}
-                        {we.passive.map((m, i) => (
-                          <span key={i}>
-                            {i > 0 && " · "}
-                            <span className="cmb">{m.label}</span>
-                          </span>
-                        ))}{" "}
-                        <b>(in-combat)</b>
+          {hasBuild && grade && stats ? (
+            <>
+              <div className="rtop">
+                <div>
+                  <div className="modlbl"><span className="dot" />Cartridge · W-Engine</div>
+                  {we && (
+                    <div className="cart">
+                      <div className="disc-bg" />
+                      <DeckImg src={iconPath(wengineIcon(we.name))} alt={we.name} />
+                      <div>
+                        <div className="wn">{we.name}</div>
+                        <div className="wr">
+                          <span className="tag s">{we.rank ?? "S"}</span>
+                          <span className="tag r">{we.refine ?? "R1"} · Signature</span>
+                        </div>
+                        <div className="wp">
+                          ATK <b>{we.base?.ATK ?? "—"}</b>
+                          {we.advanced?.label ? <> · {we.advanced.label}</> : null}
+                        </div>
+                        {we.passive && we.passive.length > 0 && (
+                          <div className="wpass">
+                            <span className="pi">✦</span> Passive:{" "}
+                            {we.passive.map((m, i) => (
+                              <span key={i}>
+                                {i > 0 && " · "}
+                                <span className="cmb">{m.label}</span>
+                              </span>
+                            ))}{" "}
+                            <b>(in-combat)</b>
+                          </div>
+                        )}
                       </div>
-                    )}
-                  </div>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-            <div>
-              <div className="modlbl"><span className="dot" />Levels</div>
-              <Levels stats={stats} />
-            </div>
-          </div>
+                <div>
+                  <div className="modlbl"><span className="dot" />Levels</div>
+                  <Levels stats={stats} />
+                </div>
+              </div>
 
-          <div className="modlbl"><span className="dot" />The Stack · 6-Disc Audit</div>
-          <div className="stack">
-            <EquipStack agent={agent} grade={grade} selSlot={disc?.slot ?? selSlot} onSelect={setSelSlot} />
-            {disc && piece ? (
-              <TrackInspector
-                disc={disc}
-                piece={piece}
-                onSetSet={onSetSet}
-                onSetMain={onSetMain}
-                onSetSub={onSetSub}
-                onStepRoll={onStepRoll}
-              />
-            ) : (
-              <div className="track" />
-            )}
-          </div>
+              <div className="modlbl"><span className="dot" />The Stack · 6-Disc Audit</div>
+              <div className="stack">
+                <EquipStack agent={agent as Agent} grade={grade} selSlot={disc?.slot ?? selSlot} onSelect={setSelSlot} />
+                {disc && piece ? (
+                  <TrackInspector
+                    disc={disc}
+                    piece={piece}
+                    onSetSet={onSetSet}
+                    onSetMain={onSetMain}
+                    onSetSub={onSetSub}
+                    onStepRoll={onStepRoll}
+                  />
+                ) : (
+                  <div className="track" />
+                )}
+              </div>
 
-          <DeckFoot grade={grade} />
+              <DeckFoot grade={grade} />
+            </>
+          ) : (
+            <>
+              <div className="modlbl"><span className="dot" />The Stack · 6-Disc Audit</div>
+              <div className="nobuild-card">
+                <b>Disc build not entered yet.</b>
+                <span>Add {name}&apos;s W-Engine + 6 discs to grade the build and light up the stack.</span>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </div>

@@ -43,17 +43,9 @@ export function AgentRoute({ slug }: { slug: string }) {
     );
   }
 
-  const agent = agentByName[entry.name];
-  if (!agent || !agent.discs?.pieces?.length) {
-    return (
-      <StatePanel title={entry.name}>
-        <p className="note">
-          Build not entered yet — Alice is the reference build. Other agents grade once their
-          discs are entered.
-        </p>
-      </StatePanel>
-    );
-  }
+  // AgentDeck renders identity from the roster chrome even when no build exists yet,
+  // so a newly-seeded agent still gets a real agent screen (title pill + portrait).
+  const agent = agentByName[entry.name] ?? null;
 
   return (
     <div className="wrap deck-wrap">
@@ -61,7 +53,7 @@ export function AgentRoute({ slug }: { slug: string }) {
         agent={agent}
         entry={entry}
         syncStatus={syncStatus}
-        onChange={(m) => updateAgent(agent.name, m)}
+        onChange={(m) => updateAgent(entry.name, m)}
       />
     </div>
   );
