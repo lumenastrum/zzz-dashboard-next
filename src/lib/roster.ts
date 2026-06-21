@@ -23,34 +23,34 @@ export const ROSTER: RosterEntry[] = [
   { name: "Miyabi", slug: "miyabi", section: "Anomaly", attribute: "Frost", mindscape: 1, el: "#39dcf7",
     faction: "Hollow Special Operations Section 6", title: "Void Hunter: Isshin Muga", voidHunter: true },
   { name: "Jane Doe", slug: "janedoe", section: "Anomaly", attribute: "Physical", mindscape: 3, el: "#fcbf01", faction: "Criminal Investigation Special Response Team 29" },
-  { name: "Vivian", slug: "vivian", section: "Anomaly", attribute: "Ether", mindscape: 2, el: "#9a4fbb" },
+  { name: "Vivian", slug: "vivian", section: "Anomaly", attribute: "Ether", mindscape: 2, el: "#9a4fbb", faction: "Mockingbird" },
   { name: "Burnice", slug: "burnice", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
-  { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb" },
-  { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff" },
+  { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" },
+  { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff", faction: "Roscaelifer External Strategy Department" },
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",
     faction: "Yunkui Summit", title: "Void Hunter: Qingming Arbiter", voidHunter: true },
   { name: "Evelyn", slug: "evelyn", section: "Attack", attribute: "Fire", mindscape: 3, el: "#f74c0f", faction: "Stars of Lyra" },
   { name: "Ellen", slug: "ellen", section: "Attack", attribute: "Ice", mindscape: 0, el: "#00dada", faction: "Victoria Housekeeping Co." },
-  { name: "Soldier 0 Anby", slug: "soldier0anby", section: "Attack", attribute: "Electric", mindscape: 1, el: "#14b0ff", faction: "Obol Squad" },
-  { name: "Seed", slug: "seed", section: "Attack", attribute: "Electric", mindscape: 0, el: "#14b0ff" },
-  { name: "Cissia", slug: "cissia", section: "Attack", attribute: "Electric", mindscape: 0, el: "#14b0ff" },
+  { name: "Soldier 0 Anby", slug: "soldier0anby", section: "Attack", attribute: "Electric", mindscape: 1, el: "#14b0ff", faction: "Defense Force - Silver Squad" },
+  { name: "Seed", slug: "seed", section: "Attack", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Obol Squad" },
+  { name: "Cissia", slug: "cissia", section: "Attack", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Public Security: Metropolitan Order Division" },
   // — Stun —
   { name: "Ju Fufu", slug: "jufufu", section: "Stun", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Yunkui Summit" },
-  { name: "Trigger", slug: "trigger", section: "Stun", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Criminal Investigation Special Response Team 29" },
+  { name: "Trigger", slug: "trigger", section: "Stun", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Obol Squad" },
   { name: "Lighter", slug: "lighter", section: "Stun", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
-  { name: "Dialyn", slug: "dialyn", section: "Stun", attribute: "Physical", mindscape: 0, el: "#fcbf01" },
-  { name: "Nangong Yu", slug: "nangongyu", section: "Stun", attribute: "Ether", mindscape: 0, el: "#9a4fbb" }, // hybrid Stunner — scales off Anomaly Prof (grades via anomaly override)
+  { name: "Dialyn", slug: "dialyn", section: "Stun", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Krampus Compliance Authority" },
+  { name: "Nangong Yu", slug: "nangongyu", section: "Stun", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" }, // hybrid Stunner — scales off Anomaly Prof (grades via anomaly override)
   // — Support —
   { name: "Astra Yao", slug: "astra", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Stars of Lyra" },
-  { name: "Yuzuha", slug: "yuzuha", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01" },
-  { name: "Lucia", slug: "lucia", section: "Support", attribute: "Ether", mindscape: 0, el: "#9a4fbb" },
-  { name: "Sunna", slug: "sunna", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01" },
-  { name: "Zhao", slug: "zhao", section: "Support", attribute: "Ice", mindscape: 0, el: "#00dada" },
+  { name: "Yuzuha", slug: "yuzuha", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Spook Shack" },
+  { name: "Lucia", slug: "lucia", section: "Support", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Spook Shack" },
+  { name: "Sunna", slug: "sunna", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Angels of Delusion" },
+  { name: "Zhao", slug: "zhao", section: "Support", attribute: "Ice", mindscape: 0, el: "#00dada", faction: "Krampus Compliance Authority" },
   // — Rupture —
   { name: "Yixuan", slug: "yixuan", section: "Rupture", attribute: "Auric Ink", mindscape: 1, el: "#e9b560",
     faction: "Yunkui Summit", title: "Grandmaster", voidHunter: true },
-  { name: "Yidhari", slug: "yidhari", section: "Rupture", attribute: "Ice", mindscape: 0, el: "#00dada" },
+  { name: "Yidhari", slug: "yidhari", section: "Rupture", attribute: "Ice", mindscape: 0, el: "#00dada", faction: "Spook Shack" },
 ];
 
 // Full Alice build (ported from Mockup C) — drives the engine until Supabase is wired.

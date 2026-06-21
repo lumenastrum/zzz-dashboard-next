@@ -46,7 +46,17 @@ export const elementGradient = (attribute: string) => {
   const c = elementColor(attribute);
   return `linear-gradient(120deg, ${mix(c, "#ffffff", 0.42)} 0%, ${c} 50%, ${mix(c, "#1a0f1e", 0.34)} 100%)`;
 };
-export const factionIcon = (faction: string) => `faction_${slugify(faction)}`;
+// Some agents display under their full org-path faction name, but the in-game icon is filed
+// under the core squad name. Map the long display slug → the staged icon basename so the plate
+// still shows the squad badge. (Display string stays whatever roster.ts says.)
+const FACTION_ICON_ALIAS: Record<string, string> = {
+  roscaelifer_external_strategy_department: "external_strategy_department",
+  public_security_metropolitan_order_division: "metropolitan_order_division",
+};
+export const factionIcon = (faction: string) => {
+  const s = slugify(faction);
+  return `faction_${FACTION_ICON_ALIAS[s] ?? s}`;
+};
 export const wengineIcon = (name: string) => `wengine_${slugify(name)}`;
 export const setIcon = (set: string) => `set_${slugify(set)}`;
 
