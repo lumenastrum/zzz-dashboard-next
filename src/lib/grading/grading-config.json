@@ -297,6 +297,215 @@
         { "label": "+50% CRIT DMG", "kind": "stat", "stat": "CRIT DMG", "value": 50, "unit": "%", "scope": "combat" },
         { "label": "+40% Ice DMG (2 stacks · EX/anomaly, 15s)", "kind": "dmg", "stat": "Ice DMG", "value": 40, "unit": "%", "scope": "combat", "cond": true }
       ]
+    },
+    "Sharpened Stinger": {
+      "_comment": "Jane Doe signature, R1. Anomaly/Physical. zzz.gg served R5 (24%/80%); R1 via Game8 = 12% Phys DMG/stk, 40% buildup at max.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Anomaly Prof +90" },
+      "passive": [
+        { "label": "Physical DMG +12%/stk (x3)", "kind": "dmg", "stat": "Physical DMG", "value": 12, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Anomaly Buildup +40% (max stk)", "kind": "buildup", "stat": "Anomaly Buildup", "value": 40, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Qingming Birdcage": {
+      "_comment": "Yixuan signature, R1. zzz.gg served R5; R1 via Game8 = CRIT 20 / Ether 8 / Sheer 10. base ATK 743 (a tier above the usual 713, per Prydwen/Game8).",
+      "base": { "ATK": 743 },
+      "advanced": { "label": "HP +30%" },
+      "passive": [
+        { "label": "CRIT Rate +20%", "kind": "stat", "stat": "CRIT Rate", "value": 20, "unit": "%", "scope": "combat" },
+        { "label": "Ether DMG +8%/stk (x2)", "kind": "dmg", "stat": "Ether DMG", "value": 8, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Ult/EX Ether Sheer DMG +10%/stk (x2)", "kind": "dmg", "stat": "Ether Sheer DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Kraken's Cradle": {
+      "_comment": "Yidhari signature, R1. Rupture (Ice Sheer). New 2026 engine; sourced Game8 + Prydwen.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "HP +30%" },
+      "passive": [
+        { "label": "Ice Sheer DMG +6%/stk (x3, on HP loss)", "kind": "dmg", "stat": "Ice Sheer DMG", "value": 6, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "CRIT Rate +20% (HP<=50%)", "kind": "stat", "stat": "CRIT Rate", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Joyau Doré": {
+      "_comment": "Velina signature, R1. Anomaly (Wind). New 2026 engine; sourced Game8 + Prydwen.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Energy Regen +60%" },
+      "passive": [
+        { "label": "Anomaly Prof +70", "kind": "stat", "stat": "Anomaly Proficiency", "value": 70, "unit": "", "scope": "combat" },
+        { "label": "Vortex/Windswept DMG +7%/stk (x2)", "kind": "dmg", "stat": "Vortex/Windswept DMG", "value": 7, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Squad Anomaly Prof +60 (2 stk)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 60, "unit": "", "scope": "combat", "cond": true }
+      ]
+    },
+    "Cloudcleave Radiance": {
+      "_comment": "Ye Shunguang signature, R1. base ATK unresolved (Game8 table 713 vs Prydwen 743) - display-only, using 713; verify in-game.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT DMG +48%" },
+      "passive": [
+        { "label": "Ignore 20% Physical RES", "kind": "buff", "stat": "Physical RES Ignore", "value": 20, "unit": "%", "scope": "combat" },
+        { "label": "DMG +25% (Ether Veil, 40s)", "kind": "dmg", "stat": "DMG", "value": 25, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "CRIT DMG +25% (Ether Veil, 40s)", "kind": "stat", "stat": "CRIT DMG", "value": 25, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Yesterday Calls": {
+      "_comment": "Dialyn signature, R1. Stun/support. New 2026 engine; sourced Game8 + Prydwen.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT Rate +24%" },
+      "passive": [
+        { "label": "Energy Regen +1.5/s (off-field)", "kind": "stat", "stat": "Energy Regen", "value": 1.5, "unit": "/s", "scope": "combat", "cond": true },
+        { "label": "Daze +9%/stk (x3)", "kind": "buildup", "stat": "Daze", "value": 9, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Squad CRIT DMG +30% (3 stk, 40s)", "kind": "buff", "stat": "CRIT DMG", "value": 30, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Elegant Vanity": {
+      "_comment": "Astra Yao signature, R1. Support.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "ATK +30%" },
+      "passive": [
+        { "label": "+7 Energy on assist (5s cd)", "kind": "buff", "stat": "Energy", "value": 7, "unit": "", "scope": "combat" },
+        { "label": "Squad DMG +16%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 16, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Angel in the Shell": {
+      "_comment": "Aria signature, R1. Attack/Ether anomaly. New 2026 engine; sourced Game8 + Prydwen.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Anomaly Mastery +30%" },
+      "passive": [
+        { "label": "Anomaly Prof +90", "kind": "stat", "stat": "Anomaly Proficiency", "value": 90, "unit": "", "scope": "combat" },
+        { "label": "DMG vs Anomaly-afflicted +20%", "kind": "dmg", "stat": "DMG", "value": 20, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Anomaly DMG +10%", "kind": "dmg", "stat": "Anomaly DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Serpentine Seeker": {
+      "_comment": "Cissia signature, R1. Attack/Electric (energy). New 2026 engine; sourced Game8 + genshin.gg + BitTopup.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Energy Regen +60%" },
+      "passive": [
+        { "label": "CRIT Rate +25%", "kind": "stat", "stat": "CRIT Rate", "value": 25, "unit": "%", "scope": "combat" },
+        { "label": "Ignore 28% DEF (Electric, per 20 energy)", "kind": "buff", "stat": "DEF Ignore", "value": 28, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Heartstring Nocturne": {
+      "_comment": "Evelyn signature, R1. Attack/Fire. zzz.gg served R5 (80%/20%); R1 via Game8 = CRIT DMG 50%, 12.5% Fire RES ignore/stk.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT Rate +24%" },
+      "passive": [
+        { "label": "CRIT DMG +50%", "kind": "stat", "stat": "CRIT DMG", "value": 50, "unit": "%", "scope": "combat" },
+        { "label": "Chain/Ult ignore 12.5% Fire RES/stk (x2)", "kind": "buff", "stat": "Fire RES Ignore", "value": 12.5, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Cordis Germina": {
+      "_comment": "Seed signature, R1. Attack/Electric. New 2026 engine; sourced Game8 + genshin.gg + BitTopup.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT Rate +24%" },
+      "passive": [
+        { "label": "CRIT Rate +15%", "kind": "stat", "stat": "CRIT Rate", "value": 15, "unit": "%", "scope": "combat" },
+        { "label": "Electric DMG +12.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 12.5, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Basic/Ult ignore 20% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Severed Innocence": {
+      "_comment": "Soldier 0 Anby signature, R1. Attack/Electric. zzz.gg served R5; R1 via Game8 = CRIT DMG 30% base + 10%/stk (x3), Electric DMG 20% at max.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT DMG +48%" },
+      "passive": [
+        { "label": "CRIT DMG +30%", "kind": "stat", "stat": "CRIT DMG", "value": 30, "unit": "%", "scope": "combat" },
+        { "label": "CRIT DMG +10%/stk (x3)", "kind": "stat", "stat": "CRIT DMG", "value": 30, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Electric DMG +20% (3 stk)", "kind": "dmg", "stat": "Electric DMG", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Flamemaker Shaker": {
+      "_comment": "Burnice signature, R1. Anomaly/Fire. zzz.gg served R5 (7%/+100 AP); R1 via Game8 = 0.6/s ER, 3.5% DMG/stk, +50 AP at >=5 stk.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "ATK +30%" },
+      "passive": [
+        { "label": "Energy Regen +0.6/s (off-field)", "kind": "stat", "stat": "Energy Regen", "value": 0.6, "unit": "/s", "scope": "combat", "cond": true },
+        { "label": "DMG +3.5%/stk (x10)", "kind": "dmg", "stat": "DMG", "value": 3.5, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Anomaly Prof +50 (>=5 stk)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 50, "unit": "", "scope": "combat", "cond": true }
+      ]
+    },
+    "Spectral Gaze": {
+      "_comment": "Trigger signature, R1. Stun/Electric. Impact buffs are %-multiplicative so modeled as chips, not meter-additive. New 2026 engine.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "CRIT Rate +24%" },
+      "passive": [
+        { "label": "Target DEF -25% (Aftershock, 5s)", "kind": "buff", "stat": "DEF Shred", "value": 25, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Impact +4%/stk (x3, off-field)", "kind": "buff", "stat": "Impact", "value": 4, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Impact +8% (3 stk)", "kind": "buff", "stat": "Impact", "value": 8, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Thoughtbop": {
+      "_comment": "Sunna signature, R1. Support/Physical. New 2026 engine; sourced Game8 + genshin.gg.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Energy Regen +60%" },
+      "passive": [
+        { "label": "Energy Regen +0.6/s (off-field)", "kind": "stat", "stat": "Energy Regen", "value": 0.6, "unit": "/s", "scope": "combat", "cond": true },
+        { "label": "Squad DMG +12.5%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 12.5, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Squad ATK +10% (2 stk)", "kind": "buff", "stat": "ATK", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Metanukimorphosis": {
+      "_comment": "Yuzuha signature, R1. Support (Physical, anomaly support). New 2026 engine; sourced Game8 + topuplive.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Energy Regen +60%" },
+      "passive": [
+        { "label": "Anomaly Mastery +30 (EX/Ult Physical, 40s)", "kind": "stat", "stat": "Anomaly Mastery", "value": 30, "unit": "", "scope": "combat", "cond": true },
+        { "label": "Squad Anomaly Prof +60 (Aftershock, 40s)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 60, "unit": "", "scope": "combat", "cond": true }
+      ]
+    },
+    "Dreamlit Hearth": {
+      "_comment": "Lucia signature, R1. Support/Ether. Passive numbers single-source (Game8); too new for cross-check - verify if a 2nd source appears.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "HP +30%" },
+      "passive": [
+        { "label": "Energy Regen +0.4/s", "kind": "stat", "stat": "Energy Regen", "value": 0.4, "unit": "/s", "scope": "combat" },
+        { "label": "Squad DMG +25% (Ether Veil, 45s)", "kind": "dmg", "stat": "DMG", "value": 25, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Squad HP +15% (Ether Veil, 45s)", "kind": "buff", "stat": "HP", "value": 15, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Flight of Fancy": {
+      "_comment": "Vivian signature, R1. Anomaly/Ether. zzz.gg surfaced R5 only; R1 derived by standard 2x scaling (Buildup 32%, +16 AP/stk) - verify if a clean P1 source appears.",
+      "base": { "ATK": 714 },
+      "advanced": { "label": "Anomaly Prof +90" },
+      "passive": [
+        { "label": "Anomaly Buildup +32%", "kind": "buildup", "stat": "Anomaly Buildup", "value": 32, "unit": "%", "scope": "combat" },
+        { "label": "Anomaly Prof +16/stk (x6)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 96, "unit": "", "scope": "combat", "cond": true }
+      ]
+    },
+    "The Brimstone": {
+      "_comment": "Ellen standard engine, R1. The 7% (zzz.gg) was R5; R1 ATK/stk = 3.5% confirmed by 3 sources. base ATK 684 (ATK%-secondary standard tier). ATK% buff is %-mult so modeled as a chip.",
+      "base": { "ATK": 684 },
+      "advanced": { "label": "ATK +30%" },
+      "passive": [
+        { "label": "ATK +3.5%/stk (x8)", "kind": "buff", "stat": "ATK", "value": 3.5, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Roaring Fur-nace": {
+      "_comment": "Ju Fufu signature, R1. Stun/Fire. zzz.gg served R5; R1 via Game8 = 28% Daze, 10% squad DMG/stk.",
+      "base": { "ATK": 714 },
+      "advanced": { "label": "ATK +30%" },
+      "passive": [
+        { "label": "EX/Chain/Ult Daze +28%", "kind": "buildup", "stat": "Daze", "value": 28, "unit": "%", "scope": "combat" },
+        { "label": "Squad DMG +10%/stk (x2, Fire)", "kind": "dmg", "stat": "DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Hellfire Gears": {
+      "_comment": "Lighter standard engine, R1. Stun/Fire. base ATK 684. Impact buff is %-mult so modeled as a chip.",
+      "base": { "ATK": 684 },
+      "advanced": { "label": "Impact +18%" },
+      "passive": [
+        { "label": "Energy Regen +0.6/s (off-field)", "kind": "stat", "stat": "Energy Regen", "value": 0.6, "unit": "/s", "scope": "combat", "cond": true },
+        { "label": "Impact +10%/stk (x2)", "kind": "buff", "stat": "Impact", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Neon Fantasies": {
+      "_comment": "Nangong Yu signature, R1. Hybrid Stunner scaling on Anomaly Prof (Ether). Advanced stat is Anomaly Mastery; the +90 is Anomaly PROFICIENCY (separate stat). New 2026 engine.",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Anomaly Mastery +30%" },
+      "passive": [
+        { "label": "Anomaly Prof +90", "kind": "stat", "stat": "Anomaly Proficiency", "value": 90, "unit": "", "scope": "combat" },
+        { "label": "Squad DMG +15%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Anomaly Prof +60 (2 stk)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 60, "unit": "", "scope": "combat", "cond": true }
+      ]
     }
   }
 }

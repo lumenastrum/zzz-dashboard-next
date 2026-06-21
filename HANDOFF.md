@@ -1,7 +1,7 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-21 (session 5 — SHIPPED, PUSHED, IN-GAME VALIDATED) · master @ `2480d5b`, GH Pages deploying.
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute**.
+**Last updated:** 2026-06-21 (session 6 — W-ENGINE CONFIGS, all 24 cartridges populated) · master @ `2480d5b`+1, GH Pages deploying.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute** + **all 24 W-engine cartridges (base ATK / advanced / R1 passive + Sheet→Effective)**.
 
 **★ LIVE STAT RECOMPUTE (the headline) — VALIDATED AGAINST THE ACTUAL GAME, DEPLOYED.** The deck is no longer a
 snapshot: editing a disc recomputes the character screen AND the goalpost meters live, on ZZZ's real stat formulas
@@ -312,18 +312,42 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   it), **s6 AM ⇄ ATK% is comp-dependent** (AM for saturated-ATK / B&BS AM≥115 gate; ATK% for lighter buff comps) → both
   encoded BiS(3), AP off-meta on s4/s6. Her real AM s6 now grades **A**. Full trail in docs/grading-calibration.md.
 
+## DONE — session 6 (2026-06-21): all 22 remaining W-engine configs
+
+**Next-step #2 SHIPPED — every cartridge is now populated.** Research-swarm-then-translate; build clean (28 pages),
+live-verified through the real deck (Ellen + Yixuan screenshots in `Claude Space/screenshots/`).
+
+- ✅ **Research swarm** — 3 parallel WebFetch agents (the blessed gacha-research pattern, no camoufox) cross-checked
+  all 22 engines across ≥2 sources (zzz.gg / senpailife / Game8 / Prydwen / genshin.gg). **Two systemic traps caught:**
+  (a) **zzz.gg serves Phase-5 passive text by default, not R1** — every signature is R1 (Andres's pref), so R5 numbers
+  would've been ~2× too strong; re-pulled R1 from Game8's per-phase tables. (b) **Game8's base ATK is the Lv1 figure**
+  (638/665/611), not Lv60 — real Lv60 is 713/714, or **684** for the two standard ATK%-engines (Brimstone, Hellfire Gears).
+- ✅ **22 `wengines` entries** added to `grading-config.json` (now 24 incl. Alice + Miyabi). Each = `base.ATK` +
+  `advanced.label` + R1 `passive[]`. Translation rules (consumption verified in `grading.js`): **point-additive** combat
+  stat buffs (CRIT Rate/DMG, flat AP/AM/Impact, ER/s) → `kind:"stat", scope:"combat"` (layer onto the Effective meter iff
+  the stat is in `relevant`); **multiplicative** %-buffs (ATK%/HP%/Impact%) + element/skill **DMG%** + squad buffs →
+  **chips** (`kind:"buff"/"dmg"/"buildup"`) — the combat layer ADDS `m.value`, so %-mult can't touch a meter honestly.
+- ✅ **Isolated change** — `base.ATK` is **cartridge-display-only** (`derive-bases` folds the engine ATK into `agent.base`,
+  `computeSheet` never reads `we.base.ATK`), so no re-derive, no Supabase sync (config is bundled in the build), no
+  recompute drift. Base-ATK conflicts (Cloudcleave 713 vs 743) are cosmetic — flagged in per-engine `_comment`s.
+- ✅ **Verified live:** Ellen `ATK 684 · ATK +30%` + passive `ATK +3.5%/stk (x8)` → chip (not faked on the ATK meter);
+  Yixuan `Qingming Birdcage` + CRIT RATE meter `53.8%→73.8%` ghost-segment sourced `+20 · QINGMING BIRDCAGE (COMBAT)`.
+  Smoke-tested all 24 through the real engine: no throws, no additive-on-mult deltas, all names resolve.
+- ⚠️ **Flagged in `_comment`s for a later confirm:** Cloudcleave base ATK (713 vs 743, display-only); **Flight of Fancy**
+  R1 (32% buildup / +16 AP/stk) is *derived* by halving zzz.gg's R5 (no clean P1 source); **Dreamlit Hearth** passive is
+  single-source (Game8 — too new). All low-stakes (combat-layer / display).
+
 ## Next steps (next session)
 
-**The two big arcs are DONE:** ✅ calibration (24/24) and ✅ live disc→sheet→goalpost recompute (in-game validated).
-✅ GH Pages auto-deploys on push (`.github/workflows/` live; `basePath` `/zzz-dashboard-next`). Remaining = polish/breadth:
+**Three big arcs DONE:** ✅ calibration (24/24) · ✅ live recompute · ✅ all 24 W-engine cartridges populated.
+✅ GH Pages auto-deploys on push. Remaining = polish/breadth:
 
 1. **Set-swap sheet stats (the v1 limit).** `computeSheet` folds W-Engine/core/sheet-set sources into `agent.base`, so
    swapping a disc SET doesn't retro-adjust the few sheet-scope set stats (Woodpecker +8% CR, Astral Voice +10% ATK,
    Freedom Blues +30 AP). Fix = model those set/WE % explicitly so `base` is char-only, then add them at compute time.
-   Disc main/substat edits already recompute exactly. Needs (2).
-2. **Per-agent `wengines` configs** — only Alice + Miyabi have one, so the other 22 cartridges show the engine name but
-   no ATK/advanced/passive line + no combat Sheet→Effective. Add each engine's base ATK + advanced + combat passive to
-   `grading-config.json` `wengines` (keyed by name). Also unlocks (1) + engine-swap recompute.
+   Disc main/substat edits already recompute exactly. NOTE: session 6 added `advanced.label` (display string), NOT a
+   structured numeric advanced — fully unlocking this still needs the engine's numeric advanced + the sheet-scope set %.
+2. ✅ ~~Per-agent `wengines` configs~~ — **DONE session 6** (all 24 cartridges; see above).
 3. **Other faceplate tabs** — wire the home tabs (Levels / Teams / Pulls) to real routes + build them.
 4. **AM `full` goalposts (optional)** — tighten them; AM is low-mobility (main + engine/set only, no substat rolls), so
    the meters otherwise read perpetually partial.
