@@ -25,7 +25,18 @@ export function resolveArchetype(agent, cfg) {
   const base = cfg.archetypes[name];
   if (!base) throw new Error(`Unknown archetype "${name}" for ${agent.name}`);
   const weights = ov?.weights ? { ...base.weights, ...ov.weights } : base.weights;
-  return { ...base, weights, name };
+  // Per-agent mainStatPoints: deep-merge each overridden slot OVER the archetype default, so a
+  // kit-specific slot main (Rupture HP% on 6, Miyabi CRIT Rate on 4, Cissia/Velina Energy Regen on 6)
+  // scores as the recommended main instead of falling to the off-meta `?? 1` — without dropping the
+  // archetype's vanilla mains for that slot.
+  let mainStatPoints = base.mainStatPoints;
+  if (ov?.mainStatPoints) {
+    mainStatPoints = { ...base.mainStatPoints };
+    for (const slot of Object.keys(ov.mainStatPoints)) {
+      mainStatPoints[slot] = { ...(base.mainStatPoints?.[slot] || {}), ...ov.mainStatPoints[slot] };
+    }
+  }
+  return { ...base, weights, mainStatPoints, name };
 }
 
 /** Element-specific DMG mains all collapse to the "Attribute DMG" key for points lookup. */

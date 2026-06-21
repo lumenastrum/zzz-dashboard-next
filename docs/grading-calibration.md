@@ -122,9 +122,19 @@ Stats (Level 60)" + disc plan, hand-pulled through the single camoufox browser (
    directly with AP), so AP weight bumped 3.5 → **4.0** and her ATK goalpost set LOW (2000–2400). The bump
    moves her real build only ~1pp (33.2→32.1%); the low D is honest (her imported discs are full of dead
    CRIT/HP/DEF substats).
-5. **Known follow-up (not done):** the `attack`/`anomaly` archetypes don't list Energy Regen in
-   `mainStatPoints[6]`, so Cissia's & Velina's *correct* slot-6 ER disc grades as off-meta (mainPts=1).
-   Fix = extend `resolveArchetype` to merge per-agent `mainStatPoints`, then give them ER on slot 6.
+5. **Slot-main grading gap — FOUND SYSTEMIC, FIXED.** The archetype `mainStatPoints` tables only
+   encode the *vanilla* main per slot, so any agent running a **kit-specific** slot-4/5/6 main fell to
+   the off-meta `?? 1`. A full roster audit found this hit **5 calibrated agents**, not just ER:
+   - **Yixuan / Yidhari** (Rupture) — **HP% on slot 6** (HP is their offense via Sheer Force).
+   - **Miyabi** — **CRIT Rate on slot 4** (her signature CRIT-anomaly build; was grading **D**).
+   - **Cissia / Velina** — **Energy Regen on slot 6**.
+   - (Raw, deferred to the support batch: Yuzuha s6 AM, Lucia s4/s5 HP%.)
+
+   **Fix:** `resolveArchetype` now deep-merges a per-agent `mainStatPoints` (per slot) OVER the archetype
+   default — so the kit-main scores 3 (recommended) without dropping the archetype's vanilla mains.
+   Added `mainStatPoints` overrides for the 5. Verified before→after: every fixed disc went off-meta→
+   recommended (mainPts 1→3, mainStatOk false→true), Yixuan's build B→A, Miyabi's slot-4 D→C, and the
+   false "off-meta main" verdict cleared on all five. No regressions.
 
 **Remaining after this batch (9):** Stunners (Dialyn, Trigger, Ju Fufu, Lighter, Nangong Yu) need the
 **Impact** goalpost axis; Supports (Astra Yao, Sunna, Yuzuha, Lucia) need a buffer philosophy.

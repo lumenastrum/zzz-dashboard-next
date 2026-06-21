@@ -122,7 +122,7 @@
       "CRIT DMG": { "target": 130, "full": 180 }
     } },
     "_cissia_note": "Cissia is gear-CR / passive-fed-CDMG (Festering Venom self-grants +50% CRIT DMG, off-screen combat) so her CRIT DMG goalpost is LOW (110+) and CRIT Rate is the gear stat (50-57 w/ signature, no mechanical cap). Disk 6 main is ENERGY REGEN, not ATK%: her Core Passive scales squad DEF-Ignore with ER above 1.4, maxing at 12.88% DEF-Ignore at ER 3.68 (1.4 + 19 steps of 0.52% per 0.12 ER) — that's the Energy Regen `cap`. Prydwen 2.7.",
-    "Cissia": { "archetype": "attack", "targets": {
+    "Cissia": { "archetype": "attack", "mainStatPoints": { "6": { "Energy Regen": 3 } }, "targets": {
       "ATK": { "target": 2600, "full": 3200 },
       "CRIT Rate": { "target": 50, "full": 60 },
       "CRIT DMG": { "target": 110, "full": 180 },
@@ -134,7 +134,7 @@
       "Anomaly Mastery": { "target": 190, "full": 280 }
     } },
     "_miyabi_note": "Miyabi is a CRIT-SCALING anomaly, NOT an AP-scaling one: her Icefire passive converts CRIT Rate → Frost Anomaly Buildup Rate (100% of CRIT Rate, cap 80% — that's where her CRIT Rate cap comes from), and her Frost anomaly procs CAN CRIT, so CRIT DMG is her damage multiplier, not Anomaly Proficiency. Weights are CRIT-priority; do NOT revert AP to the top. relevant stays ATK/CRIT Rate/CRIT DMG (no AP/AM goalposts).",
-    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "targets": {
+    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "mainStatPoints": { "4": { "CRIT Rate": 3, "CRIT DMG": 3 } }, "targets": {
       "ATK": { "target": 2700, "full": 3300 },
       "CRIT Rate": { "target": 80, "cap": 80, "full": 90 },
       "CRIT DMG": { "target": 160, "full": 220 },
@@ -151,7 +151,7 @@
       "Anomaly Proficiency": { "target": 400, "full": 470 },
       "Anomaly Mastery": { "target": 214, "full": 300 }
     } },
-    "Velina": { "archetype": "anomaly", "targets": {
+    "Velina": { "archetype": "anomaly", "mainStatPoints": { "6": { "Energy Regen": 3 } }, "targets": {
       "ATK": { "target": 2500, "full": 3100 },
       "Anomaly Proficiency": { "target": 375, "full": 460 },
       "Energy Regen": { "target": 2.7, "full": 3.2 }
@@ -167,14 +167,14 @@
       "Anomaly Mastery": { "target": 198, "full": 290 },
       "Anomaly Proficiency": { "target": 410, "full": 480 }
     } },
-    "Yixuan": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "targets": {
+    "Yixuan": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "mainStatPoints": { "6": { "HP%": 3 } }, "targets": {
       "ATK": { "target": 1900, "full": 2400 },
       "CRIT Rate": { "target": 85, "cap": 90, "full": 95 },
       "CRIT DMG": { "target": 150, "full": 200 },
       "HP": { "target": 17000, "full": 21000 },
       "Sheer Force": { "target": 2250, "full": 2600 }
     } },
-    "Yidhari": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "targets": {
+    "Yidhari": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "mainStatPoints": { "6": { "HP%": 3 } }, "targets": {
       "CRIT Rate": { "target": 62, "cap": 66, "full": 75 },
       "CRIT DMG": { "target": 135, "full": 180 },
       "HP": { "target": 19000, "full": 23000 },

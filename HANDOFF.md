@@ -1,9 +1,11 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
 **Last updated:** 2026-06-21 (session 5) · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped.
-**Session 5:** drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
-calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM. See
-"DONE — session 5" below. Pending: `sync-stats --write` (Burnice) + commit/push; then stunners/supports.
+**Session 5:** (a) drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
+calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM (synced).
+(b) **Systemic slot-main grading fix** — per-agent `mainStatPoints` merge in `resolveArchetype` un-breaks kit-specific
+mains for 5 agents (Rupture HP%, Miyabi CRIT Rate, Cissia/Velina ER). See "DONE — session 5" below. Committed locally
+(`f446e8e` + slot-fix), **push held**; remaining: stunners/supports.
 **This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
 in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
 gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
@@ -280,8 +282,13 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 - ⚠️ **Burnice `relevant` is the ONE delta vs the live blob** — diffed the andres-zzz Supabase blob against the edited
   seed: only Burnice differs, everything else identical. Needs `npm run sync-stats -- --write` to surface live (targets
   already live — they're bundled in the build, not the blob). **Not yet synced/committed/pushed.**
-- ☐ **Follow-up surfaced:** Cissia/Velina slot-6 Energy-Regen disc grades as off-meta (mainPts=1) because the
-  archetype `mainStatPoints[6]` omits ER. Fix = merge per-agent `mainStatPoints` in `resolveArchetype`.
+- ✅ **Slot-main grading fix (systemic — Andres's catch).** A roster audit found the off-meta `?? 1` main-stat
+  fallback hit **5 calibrated agents**, not just ER: **Yixuan/Yidhari** HP% s6 (Rupture offense), **Miyabi** CRIT
+  Rate s4 (her signature disc was grading **D**), **Cissia/Velina** ER s6. Fixed by deep-merging a per-agent
+  `mainStatPoints` over the archetype default in `resolveArchetype` (grading.js) + overrides for the 5. Verified
+  before→after: every fixed disc off-meta→recommended, Yixuan B→A, Miyabi s4 D→C, false "off-meta" verdicts cleared,
+  no regressions, build clean, live-confirmed on Miyabi's deck. (Raw supports Yuzuha s6=AM / Lucia s4,5=HP% deferred
+  to the support batch.)
 
 ## Next steps (next session)
 
@@ -290,7 +297,8 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
    **Impact** goalpost axis + a uniform `relevant` philosophy (theirs are inconsistent: some show Impact, some don't);
    Supports (Astra Yao/Sunna/Yuzuha/Lucia) need a buffer philosophy (Energy Regen / enabler stats vs damage). The 15
    DPS are done; the structure is in place to extend.
-1b. **Slot-6 main-stat fix** (above) so Cissia/Velina's ER discs grade correctly — small `resolveArchetype` change.
+1b. When calibrating the supports, give **Yuzuha** (`mainStatPoints` s6 = Anomaly Mastery) and **Lucia** (s4/s5 =
+   HP%) their per-agent main overrides too — the audit already flagged them; the mechanism is in place.
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.
