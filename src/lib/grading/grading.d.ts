@@ -79,10 +79,17 @@ export interface StatsResult {
 }
 
 export function resolveArchetype(agent: Agent, cfg: GradingConfig): unknown;
+export function resolveWengine(we: Agent["wengine"] | null, cfg: GradingConfig): NonNullable<Agent["wengine"]> | null;
 export function gradeDisc(piece: unknown, archetype: unknown, cfg: GradingConfig): GradedDisc;
 export function computeSets(pieces: unknown[], cfg?: GradingConfig): SetInfo;
 export function gradeBuild(agent: Agent, cfg: GradingConfig): BuildGrade;
-export function computeStats(agent: Agent, cfg: GradingConfig): StatsResult;
+export interface ComputeStatsOpts {
+  /** Real character-screen values (the seeded main stats) — used as the Sheet baseline. */
+  sheet?: Record<string, string | number>;
+  /** The stats to report (the agent's relevant/goalposted stats). Defaults to the anomaly trio. */
+  stats?: string[];
+}
+export function computeStats(agent: Agent, cfg: GradingConfig, opts?: ComputeStatsOpts): StatsResult;
 export function swapDiscSet(
   agent: Agent,
   slot: number,

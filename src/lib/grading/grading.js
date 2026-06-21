@@ -152,7 +152,15 @@ export function gradeBuild(agent, cfg) {
  */
 const _num = (v) => (typeof v === "number" ? v : parseFloat(String(v).replace(/[^0-9.\-]/g, "")) || 0);
 
-export function computeStats(agent, cfg) {
+/** Merge a W-Engine's reference data (base ATK / advanced / passive — stripped by Enka imports,
+ *  so they live in cfg.wengines keyed by name) UNDER the agent's own wengine fields (name/rank/
+ *  refine win). The cartridge card and the Sheet-vs-Effective layer both read through this. */
+export function resolveWengine(we, cfg) {
+  if (!we) return null;
+  return { ...(cfg?.wengines?.[we.name] || {}), ...we };
+}
+
+export function computeStats(agent, cfg, opts = {}) {
   const rv = cfg.rollValues || {};
   const pieces = agent.discs?.pieces || [];
   let atkPct = 0, flatAtk = 0, apDiscs = 0, amDiscs = 0;
@@ -169,15 +177,25 @@ export function computeStats(agent, cfg) {
       else if (s.stat === "Anomaly Proficiency") apDiscs += amt;
     }
   }
-  const base = agent.base || {}, we = agent.wengine || {};
-  const sheet = {
+  const base = agent.base || {}, we = resolveWengine(agent.wengine, cfg) || {};
+  // The Sheet baseline. Prefer the REAL character-screen values (opts.sheet — the seeded main
+  // stats); fall back to the illustrative base+disc computation for pre-seed agents. The stats
+  // we report = opts.stats (the agent's relevant/goalposted stats), default to the anomaly trio.
+  const legacy = {
     "ATK": Math.round(((base.atkPool || 0) + (we.base?.ATK || 0)) * (1 + atkPct / 100) + flatAtk),
     "Anomaly Proficiency": Math.round((base.AP || 0) + apDiscs),
     "Anomaly Mastery": Math.round((base.AM || 0) + amDiscs),
   };
+  const override = opts.sheet || {};
+  const statKeys = (opts.stats && opts.stats.length)
+    ? opts.stats
+    : ["ATK", "Anomaly Proficiency", "Anomaly Mastery"];
+  const sheet = {};
+  for (const k of statKeys) sheet[k] = override[k] != null ? _num(override[k]) : (legacy[k] ?? 0);
 
   const sets = computeSets(pieces, cfg);
-  const combat = { "ATK": [], "Anomaly Proficiency": [], "Anomaly Mastery": [] };
+  const combat = {};
+  for (const k of statKeys) combat[k] = [];
   const buffs = [];
   const apply = (m, src) => {
     if (m.kind === "stat") {
@@ -185,6 +203,8 @@ export function computeStats(agent, cfg) {
       else if (m.scope === "sheet" && sheet[m.stat] != null) sheet[m.stat] += m.value;
     } else buffs.push({ ...m, src });
   };
+  // W-Engine combat effects — `we` is already resolved against cfg.wengines, so passive is present
+  // even for Enka-imported agents (which only carry name/rank/refine).
   (we.passive || []).forEach((m) => apply(m, we.name || "W-Engine"));
   for (const s of sets.active) {
     const defs = cfg.setEffects?.[s.set] || {};
@@ -197,14 +217,9 @@ export function computeStats(agent, cfg) {
     const add = cs.reduce((a, m) => a + m.value, 0);
     return { sheet: sheet[key], combat: add, effective: sheet[key] + add, sources: cs };
   };
-  return {
-    stats: {
-      "ATK": mk("ATK"),
-      "Anomaly Proficiency": mk("Anomaly Proficiency"),
-      "Anomaly Mastery": mk("Anomaly Mastery"),
-    },
-    buffs, sets,
-  };
+  const stats = {};
+  for (const k of statKeys) stats[k] = mk(k);
+  return { stats, buffs, sets };
 }
 
 /** Swap a disc's set in place (e.g. Slot 6 Fanged Metal → Phaethon's Melody) and return a fresh build grade. */
@@ -216,4 +231,4 @@ export function swapDiscSet(agent, slot, newSet, cfg) {
   return { agent: next, grade: gradeBuild(next, cfg) };
 }
 
-export default { resolveArchetype, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet };
+export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet };

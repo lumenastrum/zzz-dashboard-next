@@ -131,5 +131,17 @@
     "Swing Jazz": {
       "2pc": [{ "label": "+2 Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 2, "unit": "", "scope": "sheet" }]
     }
+  },
+
+  "wengines": {
+    "_comment": "W-Engine reference data keyed by engine name. Enka imports only carry name/rank/refine, so base ATK / advanced stat / combat passive live here — the cartridge card AND the Sheet-vs-Effective layer read from this. `passive` lists ONLY in-combat conditional buffs (Effective = Sheet + these); sheet-scope base/advanced are already baked into the seeded character-screen value and shown on the cartridge.",
+    "Practiced Perfection": {
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Anomaly Prof +32%" },
+      "passive": [
+        { "label": "+60 Anomaly Mastery", "kind": "stat", "stat": "Anomaly Mastery", "value": 60, "unit": "", "scope": "combat" },
+        { "label": "+45 Anomaly Proficiency (4 stacks)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 45, "unit": "", "scope": "combat" }
+      ]
+    }
   }
 }

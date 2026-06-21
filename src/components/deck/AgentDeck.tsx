@@ -10,7 +10,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Agent } from "@/lib/types";
 import type { RosterEntry } from "@/lib/roster";
-import { gradeBuild, computeStats, GRADING_CONFIG } from "@/lib/grading";
+import { gradeBuild, computeStats, resolveWengine, GRADING_CONFIG } from "@/lib/grading";
 import type { SyncStatus } from "@/lib/data-context";
 import {
   elementIcon,
@@ -56,7 +56,12 @@ export function AgentDeck({
 
   const hasBuild = !!agent?.discs?.pieces?.length;
   const grade = hasBuild ? gradeBuild(agent as Agent, GRADING_CONFIG) : null;
-  const stats = hasBuild ? computeStats(agent as Agent, GRADING_CONFIG) : null;
+  // The agent's character-screen values (mainStats) are the Sheet; its `relevant` stats are what
+  // the Levels panel goalposts. Effective layers the combat buffs (sets + W-Engine) on top.
+  const statsOpts = agent?.mainStats?.length
+    ? { sheet: Object.fromEntries(agent.mainStats.map((r) => [r.stat, r.value])), stats: agent.relevant }
+    : undefined;
+  const stats = hasBuild ? computeStats(agent as Agent, GRADING_CONFIG, statsOpts) : null;
   const pieces = agent?.discs?.pieces ?? [];
 
   const disc = grade ? grade.discs.find((d) => d.slot === selSlot) ?? grade.discs[0] : undefined;
@@ -88,7 +93,7 @@ export function AgentDeck({
   const level = agent?.level ?? 60;
   const rank = agent?.rank ?? "S";
   const { title, voidHunter } = entry;
-  const we = agent?.wengine;
+  const we = resolveWengine(agent?.wengine ?? null, GRADING_CONFIG);
   const sync = SYNC_LABEL[syncStatus];
 
   const titlePill = title ? (

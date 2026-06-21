@@ -3,7 +3,7 @@
 // a notch marks the target. Below: combat-buff chips (DMG%/buildup that never touch the
 // sheet) + the dead-stat row.
 import type { StatLine, StatsResult } from "@/lib/grading";
-import { LEVEL_CFG, LEVEL_ORDER, type LevelCfg } from "@/lib/deck-config";
+import { LEVEL_CFG, type LevelCfg } from "@/lib/deck-config";
 
 const fmt = (n: number) => Number(n).toLocaleString("en-US");
 
@@ -62,7 +62,8 @@ function VuRow({ label, s, c }: { label: string; s: StatLine; c: LevelCfg }) {
 export function Levels({ stats }: { stats: StatsResult }) {
   return (
     <div className="levels">
-      {LEVEL_ORDER.filter((k) => stats.stats[k] && LEVEL_CFG[k]).map((k) => (
+      {/* the agent's relevant stats (seed order); each goalposted via LEVEL_CFG */}
+      {Object.keys(stats.stats).filter((k) => LEVEL_CFG[k]).map((k) => (
         <VuRow key={k} label={k} s={stats.stats[k]} c={LEVEL_CFG[k]} />
       ))}
 
