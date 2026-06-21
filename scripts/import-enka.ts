@@ -23,7 +23,7 @@ import type { Agent, DashboardData, DiscPiece, DiscSub } from "../src/lib/types"
 const PROP: Record<number, string> = {
   11102: "HP%", 11103: "HP", 12102: "ATK%", 12103: "ATK", 13102: "DEF%", 13103: "DEF",
   20103: "CRIT Rate", 21103: "CRIT DMG", 23203: "Flat PEN", 31203: "Anomaly Proficiency",
-  31402: "Anomaly Mastery", 30502: "Energy Regen", 23103: "PEN Ratio",
+  31402: "Anomaly Mastery", 30502: "Energy Regen", 23103: "PEN Ratio", 12202: "Impact",
   31503: "Physical DMG", 31603: "Fire DMG", 31703: "Ice DMG", 31803: "Electric DMG", 31903: "Ether DMG",
 };
 
@@ -34,6 +34,7 @@ const SUIT: Record<string, string> = {
   "32600": "Fanged Metal", "32700": "Branch & Blade Song", "33000": "Phaethon's Melody",
   "33100": "Yunkui Tales", "33500": "White Water Ballad", "33900": "Wuthering Salon",
   "33200": "King of the Summit", "32800": "Astral Voice", "33300": "Dawn's Bloom", "32200": "Inferno Metal",
+  "32900": "Shadow Harmony", "31800": "Chaos Jazz", "33400": "Moonlight Lullaby", "31200": "Shockstar Disco",
 };
 
 // avatar id → roster identity (name MUST equal the ROSTER entry's `name`, that's the deck key).
@@ -52,6 +53,12 @@ const AVATAR: Record<number, { name: string; slug: string }> = {
   1501: { name: "Aria", slug: "aria" },
   1521: { name: "Cissia", slug: "cissia" },
   1321: { name: "Evelyn", slug: "evelyn" },
+  1461: { name: "Seed", slug: "seed" },
+  1381: { name: "Soldier 0 Anby", slug: "soldier0anby" }, // Enka codename "SilverAnby"
+  1171: { name: "Burnice", slug: "burnice" },
+  1361: { name: "Trigger", slug: "trigger" },
+  1491: { name: "Sunna", slug: "sunna" },
+  1411: { name: "Yuzuha", slug: "yuzuha" },
 };
 
 // manual W-engine names for engines too new for interknot's `c` catalog (so they decode null).

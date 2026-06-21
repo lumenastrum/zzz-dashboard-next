@@ -1,8 +1,8 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
 **Last updated:** 2026-06-20 · **Status:** deck + Supabase + 25-agent roster + Void Hunter tier shipped;
-**Enka disc-build importer live (12 agents have real builds)** + **face-framed roster tiles** done this
-session. Remaining: 13 agents still buildless (rotate showcase + re-pull), grade calibration, real stat
+**Enka disc-build importer live (18 agents have real builds)** + **face-framed roster tiles** done this
+session. Remaining: 7 agents still buildless (rotate showcase + re-pull), grade calibration, real stat
 curves, anomaly-only Levels panel, other tabs, GH remote.
 
 ---
@@ -163,12 +163,14 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   Maps anchored to **canonical Enka data** (avatars.json + EN loc), not guesses — `PROP`/`SUIT`/`AVATAR`/
   `WENGINE_OVERRIDE` maps in the script. Decode model: substat `PropertyValue` = per-roll increment;
   `PropertyLevel` = roll count; main display value = raw × 4 (percent stats ÷100); `EquipId[0:3]+"00"` = suit id.
-- ✅ **12 agents have real builds** (2 showcase pulls of 6 — the in-game showcase caps at 6): Alice, Jane Doe,
-  Yixuan, Yidhari, Velina, Ye Shunguang, Dialyn, Astra Yao, Miyabi, Aria, Cissia, Evelyn. Grades + sets +
-  W-engines all live. `Yidhari` got an `agentOverrides` entry (attack + HP% 3.0, like Yixuan).
+- ✅ **18 agents have real builds** (3 showcase pulls of 6 — the in-game showcase caps at 6): Alice, Jane Doe,
+  Yixuan, Yidhari, Velina, Ye Shunguang, Dialyn, Astra Yao, Miyabi, Aria, Cissia, Evelyn, Seed, Soldier 0 Anby,
+  Burnice, Trigger, Sunna, Yuzuha. Grades + sets + W-engines all live. `Yidhari` got an `agentOverrides` entry
+  (attack + HP% 3.0, like Yixuan). PropertyId `12202` = Impact (Trigger's slot-6 stun main).
 - ⚠️ **Enka codename ≠ our name** (verify every avatar id!): `1261`=Jane Doe (NOT Alice — `1401` is Alice),
-  `1431` "Zhenzhen"=Ye Shunguang, `1091` "Unagi"=Miyabi. New agents (Velina `1561`, Dialyn `1481`, Cissia
-  `1521`) aren't in Enka's avatars.json yet — identify via theorycraft (`y`) keys + element/mindscape.
+  `1431` "Zhenzhen"=Ye Shunguang, `1091` "Unagi"=Miyabi, `1381` "SilverAnby"=Soldier 0 Anby. New agents
+  (Velina `1561`, Seed `1461`, Sunna `1491`) aren't in Enka's avatars.json yet — identify via theorycraft
+  (`y`) keys + element/mindscape/build profile (crit-rolls vs support stats).
 - ✅ **Face-framed roster tiles.** Tiles cover-fit whole sprites → squished; now a bust crop. `npm run frames`
   (`scripts/measure-frames.py`) measures each sprite's **alpha silhouette** → `{top,left,height}` in
   `src/lib/portrait-frames.ts`; `RosterTile` renders a height-driven `<img.pf>` (`width:auto;max-width:none`
@@ -184,7 +186,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 
 ## Next steps (next session)
 
-1. **Remaining 13 agents' builds** — rotate them through the in-game showcase (6 at a time), re-pull live,
+1. **Remaining 7 agents' builds** — rotate them through the in-game showcase (6 at a time), re-pull live,
    `npm run import -- --file=… --write`. New avatar ids → add to the `AVATAR` map (+ `SUIT` names / `WENGINE_OVERRIDE`
    as new sets/engines surface). Fill `agentOverrides` for any hybrids.
 2. **Grade calibration** (Andres's call, pinned as final polish) — the scale reads harsh (benchmarks vs a

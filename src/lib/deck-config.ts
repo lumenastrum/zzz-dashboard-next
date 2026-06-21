@@ -105,7 +105,7 @@ export const SUBSTATS = [
 export const MAINS: Record<number, string[]> = {
   4: ["CRIT Rate", "CRIT DMG", "ATK%", "HP%", "DEF%", "Anomaly Proficiency"],
   5: ["Physical DMG", "ATK%", "HP%", "DEF%", "PEN Ratio"],
-  6: ["ATK%", "HP%", "DEF%", "Anomaly Proficiency", "Anomaly Mastery", "PEN Ratio"],
+  6: ["ATK%", "HP%", "DEF%", "Anomaly Proficiency", "Anomaly Mastery", "Impact", "Energy Regen", "PEN Ratio"],
 };
 
 // ---- equipment-frame cone geometry (%[left, top] on equip_frame.webp) ----
