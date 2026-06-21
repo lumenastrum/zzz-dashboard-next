@@ -1,7 +1,8 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-20 · **Status:** Next.js repo scaffolded; **Now Playing deck ported +
-Supabase wired live** (verified end-to-end). Remaining: real stat curves, other tabs, Python CLI, GH remote.
+**Last updated:** 2026-06-20 · **Status:** deck ported + Supabase live + **full 25-agent roster** +
+**Void Hunter tier** shipped (verified, committed `741d939`). Remaining: **disc builds** (only Alice
+has one), real stat curves, other tabs, missing factions, GH remote, Python/tsx CLI.
 
 ---
 
@@ -106,43 +107,70 @@ re-roll verdict instead.
 
 ---
 
-## DONE (2026-06-20 — this session)
+## This repo (`Gacha Dashboards/zzz-dashboard-next/`)
+```
+src/app/            layout (wraps <DataProvider>) · page.tsx (roster home) · r/[name]/{page,client}.tsx
+src/components/
+  RosterTile.tsx      album tile: tall-portrait art + element/type/void-hunter corner badges
+  deck/               AgentDeck (orchestrator) · Levels · EquipStack · TrackInspector · DeckFoot · DeckImg · Segs
+src/lib/
+  grading/            the engine (grading.js + grading-config.json + grading.d.ts + index.ts → GRADING_CONFIG)
+  roster.ts           ROSTER (25 agents) + ALICE reference build + agentBySlug
+  deck-config.ts      SET_CATALOG, CONE coords, MAINS/SUBSTATS, LEVEL_CFG, ELEMENT_COLOR, icon resolvers, elementGradient
+  data-context.tsx    DataProvider (Supabase load→fallback→seed, debounced save), useData/updateAgent
+  types.ts · supabase.ts · base-path.ts
+scripts/  grade.ts (npm run grade) · seed.ts (npm run seed) · stage-assets.ts (npm run stage)
+public/assets/  icons/ (element/type/faction/set/wengine/rank/equip_frame) · tall/ (portraits)
+```
+**Supabase source-of-truth map:** legacy `andres` / `wife` rows = roster METADATA only (the old vanilla
+dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboard's editable blob
+(`{meta, agents[]}`; only Alice has a build so far). Don't touch the legacy `../zzz-dashboard` repo.
 
-- ✅ **Stack decision:** Next.js (matches WuWa). Modal → **route per agent** (`/r/[slug]`), since the
-  scaffold + WuWa both use routes (deep-linkable, static-export-friendly). Deck *visual* is 1:1 with C.
-- ✅ **Engine ported** earlier (scaffold): `src/lib/grading/` imported as `@/lib/grading`.
-- ✅ **Deck ported** → `src/components/deck/` (`AgentDeck` orchestrator + `Levels` · `EquipStack` ·
-  `TrackInspector` · `DeckFoot` + `DeckImg`/`Segs`). Presentation maps in `src/lib/deck-config.ts`
-  (SET_META, CONE coords, MAINS/SUBSTATS, LEVEL_CFG, icon resolvers). Equipment frame is an `<img>`,
-  not a CSS `url()`, so `withBase()` prefixes it for GH Pages.
-- ✅ **Supabase wired live** — `src/lib/data-context.tsx` (WuWa pattern, but **non-blocking** so the
-  static roster home doesn't wait on the fetch). Loads row `andres-zzz` → falls back to `/data.json`
-  seed → seeds Supabase. `updateAgent(name, mutator)` → debounced save (650ms). Seed generated from
-  `ALICE` via `npm run seed` → `public/data.json`. Layout wraps `<DataProvider>`; `/r/[name]` split
-  into server `page.tsx` (generateStaticParams from ROSTER) + client `client.tsx` (useData bridge).
-- ✅ **Verified end-to-end:** `npm run build` clean (12 agent pages), lint clean, 0 console errors,
-  21/21 deck images load. Live edit through real controls moved Slot 3 **C 43.3% → SSS 100%**, build
-  **70.5% A → 80% S**, verdict auto-retargeted to Slot 6; reload re-loads the saved build from Supabase
-  (then reverted to pristine). ATK reads 2,769 / AP 300→345 / AM 195→255 — matches the engine exactly.
+## DONE (2026-06-20)
+
+**Commits:** `22d3c60` scaffold · `2f636f4` deck + Supabase + asset landscape · `741d939` Void Hunter tier + 25-agent roster.
+
+- ✅ **Now Playing deck** ported 1:1 from Mockup C → `src/components/deck/`. Modal → **route per agent**
+  (`/r/[slug]`: server `page.tsx` generateStaticParams + client `client.tsx` useData bridge). Editable
+  disc inspector re-grades live; equip frame is an `<img>` (withBase) not CSS `url()` for GH Pages.
+- ✅ **Supabase live** — `data-context.tsx`, WuWa pattern but **non-blocking**. `andres-zzz` row →
+  `/data.json` seed → seeds Supabase; `updateAgent` → debounced 650ms save. Verified: live edit moved
+  Slot 3 C→SSS / build 70.5%→80% / verdict retargeted, persisted across reload. Alice ATK 2,769.
+- ✅ **Asset pipeline** — `npm run stage` (`stage-assets.ts`) copies+renames the seeded `../ZZZ *` art
+  into `public/assets/{icons,tall}` with slug names; idempotent, re-run as art is added. All resolvers
+  slug-based (element/type/faction/set/wengine). ~102 assets staged. **9 elements** incl. Frost/Auric
+  Ink/Honed Edge; Auric Ink is GOLD (#e9b560).
+- ✅ **Roster tiles** — element + type icon corner badges; art = tall portrait (square art only existed
+  for 12). Faction icon wired on the deck plate (long names overflow a deck-top chip).
+- ✅ **Void Hunter tier** (Miyabi · Yixuan · Ye Shunguang) — `RosterEntry` gained `faction/title/voidHunter`.
+  Per-element gradient accent (`elementGradient` from sampled `ELEMENT_COLOR`) on tile vinyl/strip/title
+  + deck title pill; white-masked void-hunter badge. Ye Shunguang title "Void Hunter: Qingming Arbiter".
+- ✅ **AgentDeck handles build-less agents** — renders identity (header/turntable/title pill) from roster
+  chrome with a `.nobuild-card` where the stack goes; `.tt` min-height keeps the portrait full. So every
+  rostered agent has a real agent screen pre-build.
+- ✅ **Full 25-agent roster** imported from the legacy `andres` Supabase row (REAL mindscapes), grouped
+  by section, element corrections applied, accents = element colors, **12 canonical factions filled**
+  (rest blank — see below). All 25 tiles render with art.
+- ✅ Verified throughout: build + tsc + lint clean (**28 pages**), screenshot QA, Alice deck unregressed.
 
 ## Next steps (next session)
 
-1. **Real stat data** — replace the calibrated base/W-Engine numbers (`agent.base` atkPool/AP/AM +
-   `rollValues` in grading-config) with exact ZZZ base-stat curves + real W-Engine passive values;
-   map Enka `PropertyId` → stat keys if we ever auto-import from a UID. Refine `LEVEL_CFG` full/target.
-2. **Roster + other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes;
-   build Stat Audit / Teams / Pulls in the new shell. Home roster is still static `ROSTER` chrome.
-3. **More agent builds** — only Alice has a full build. Enter the rest (they show a "build not entered"
-   state until their `discs.pieces` land in the Supabase blob). Fill `agentOverrides` for hybrids
-   (Miyabi crit-anom, etc.).
-4. **Port `gradeBuild`/`computeStats` to Python** for `zzz_update.py` (`grade`/`setdisc`/`swapdisc`) so
-   the CLI matches the dashboard headless — OR build a `tsx` CLI like WuWa's `scripts/update.ts`.
-5. **GitHub remote + Pages** — add the remote, `.github/workflows/pages.yml` (copy WuWa's), push.
+1. **Disc builds — the real unlock.** Only Alice has a build (Supabase had no disc data). Enter each
+   agent's W-Engine + 6 discs (set/level/main/substats+rolls) into the `andres-zzz` blob → their deck
+   grades live. Consider a `tsx` CLI (like WuWa's `scripts/update.ts`) `setdisc`/`swapdisc` to enter
+   them headlessly. Fill `agentOverrides` for hybrids (Miyabi crit-anom, etc.).
+2. **Missing factions (11)** — Vivian, Aria, Velina, Seed, Cissia, Dialyn, Nangong Yu, Lucia, Sunna,
+   Zhao, Yidhari left blank (uncertain/newer agents). Andres to provide; one-line edits in `roster.ts`.
+3. **Real stat data** — replace calibrated `agent.base` + `rollValues` with exact ZZZ base-stat curves +
+   real W-Engine values; refine `LEVEL_CFG` full/target. (Per-archetype LEVEL_CFG when non-anomaly builds land.)
+4. **Other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes + build them.
+5. **GitHub remote + Pages** — add remote, copy WuWa's `.github/workflows/pages.yml`, push.
    `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
-6. **Conditional effect toggles** (stretch) — "in rotation" switch so Fanged 4pc / Phaethon 4pc
-   conditional buffs flip Effective on/off.
+6. **Stretch:** conditional effect toggles ("in rotation" switch for Fanged/Phaethon 4pc); Zhao tall
+   portrait has no current source (orphan staged copy in use — re-seed if a real one arrives).
 
 ## How to run
-- **App:** `npm run dev` → http://localhost:3000 → roster → click Alice → `/r/alice/` (the deck).
-  `npm run build` for static export; `npm run grade` headless; `npm run seed` to regenerate data.json.
+- **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).
+- `npm run build` static export (`out/`) · `npm run grade` headless Alice grade · `npm run seed`
+  regenerate `public/data.json` from ALICE · `npm run stage` (re)copy seeded art into `public/assets/`.
 - **Reference prototype:** `cd ../zzz-redesign-mockups` → `View Mockups.bat`, open `c-soundsystem.html`.
