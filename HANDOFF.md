@@ -333,9 +333,9 @@ live-verified through the real deck (Ellen + Yixuan screenshots in `Claude Space
 - ✅ **Verified live:** Ellen `ATK 684 · ATK +30%` + passive `ATK +3.5%/stk (x8)` → chip (not faked on the ATK meter);
   Yixuan `Qingming Birdcage` + CRIT RATE meter `53.8%→73.8%` ghost-segment sourced `+20 · QINGMING BIRDCAGE (COMBAT)`.
   Smoke-tested all 24 through the real engine: no throws, no additive-on-mult deltas, all names resolve.
-- ⚠️ **Flagged in `_comment`s for a later confirm:** Cloudcleave base ATK (713 vs 743, display-only); **Flight of Fancy**
-  R1 (32% buildup / +16 AP/stk) is *derived* by halving zzz.gg's R5 (no clean P1 source); **Dreamlit Hearth** passive is
-  single-source (Game8 — too new). All low-stakes (combat-layer / display).
+- ✅ **In-game truth pass (Andres):** Cloudcleave base ATK = **743**; **Flight of Fancy** R1 = **40% Anomaly Buildup +
+  20 AP/stk (x6)** — my halve-the-R5 derivation was wrong (R5 = R1×1.6, not ×2). Both patched. Remaining flag:
+  **Dreamlit Hearth** passive is single-source (Game8 — too new). All low-stakes (combat-layer / display).
 
 ## Next steps (next session)
 

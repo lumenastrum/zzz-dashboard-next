@@ -337,8 +337,8 @@
       ]
     },
     "Cloudcleave Radiance": {
-      "_comment": "Ye Shunguang signature, R1. base ATK unresolved (Game8 table 713 vs Prydwen 743) - display-only, using 713; verify in-game.",
-      "base": { "ATK": 713 },
+      "_comment": "Ye Shunguang signature, R1. base ATK 743 (confirmed in-game by Andres).",
+      "base": { "ATK": 743 },
       "advanced": { "label": "CRIT DMG +48%" },
       "passive": [
         { "label": "Ignore 20% Physical RES", "kind": "buff", "stat": "Physical RES Ignore", "value": 20, "unit": "%", "scope": "combat" },
@@ -463,12 +463,12 @@
       ]
     },
     "Flight of Fancy": {
-      "_comment": "Vivian signature, R1. Anomaly/Ether. zzz.gg surfaced R5 only; R1 derived by standard 2x scaling (Buildup 32%, +16 AP/stk) - verify if a clean P1 source appears.",
-      "base": { "ATK": 714 },
+      "_comment": "Vivian signature, R1. Anomaly/Ether. R1 confirmed in-game by Andres: 40% Anomaly Buildup + 20 AP (flat)/stk on Ether DMG, 5s, x6 (so R5=R1x1.6, NOT x2 — zzz.gg's R5 misled the earlier derivation).",
+      "base": { "ATK": 713 },
       "advanced": { "label": "Anomaly Prof +90" },
       "passive": [
-        { "label": "Anomaly Buildup +32%", "kind": "buildup", "stat": "Anomaly Buildup", "value": 32, "unit": "%", "scope": "combat" },
-        { "label": "Anomaly Prof +16/stk (x6)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 96, "unit": "", "scope": "combat", "cond": true }
+        { "label": "Anomaly Buildup +40%", "kind": "buildup", "stat": "Anomaly Buildup", "value": 40, "unit": "%", "scope": "combat" },
+        { "label": "Anomaly Prof +20/stk (x6)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 120, "unit": "", "scope": "combat", "cond": true }
       ]
     },
     "The Brimstone": {
