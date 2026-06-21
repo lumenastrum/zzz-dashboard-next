@@ -162,3 +162,32 @@ breakdowns + the AM-vs-ATK% threads), pulled via the single camoufox browser (ol
   AP-s4/s6 swaps read off-meta, ATK%-s6 & PEN-s5 read BiS, zero false verdicts. **Takeaway:** main-stat "BiS" is
   often comp-dependent — encoding *both* valid mains at 3 is more honest than forcing one, and it's why we read
   the comments instead of trusting a single rating number.
+
+## Stunner batch (2026-06-21) — there is NO blanket Impact benchmark
+
+Bearings pass on the 5 built stunners: I drove Prydwen (camoufox solo), 5 "chibi-Clio" subagents swept the kit
+mechanics (WebFetch + Jina only — never camoufox; parallel browsers dogpile). Verdict: stunners split **four ways**,
+and only two even build Impact. No new engine mechanics needed — every case maps onto tools already shipped.
+
+| Agent | El | Real axis | Disc 4/5/6 | Encoded |
+|---|---|---|---|---|
+| **Lighter** | Fire | **Impact** 170–195 (270 = full buff) + CR 50 KotS floor | CR≥CDMG / ATK%=Fire=PEN / **Impact** | stun · Impact 185/270, CR 50/80 · rel +CRIT Rate |
+| **Trigger** | Elec | **Impact** 162–186 + **CR→Daze, hard cap 90** | CR / ElecDMG>ATK% / **Impact** | stun · Impact 175/240, **CR 80/cap90/95**, CDMG 100/160 |
+| **Ju Fufu** | Fire | **ATK 3400** (squad-CDMG buff scales off ATK) + CR 50 floor | CR=ATK% / ATK% / Impact=ATK% | stun · `mainStatPoints {4,5: ATK%:3}` · ATK 3300/3500, CR 50/80, Impact 150/220 · rel CDMG→Impact |
+| **Dialyn** | Phys | **CRIT Rate 80–100 → Impact** (core passive) + Energy Regen s6 | CR / ATK%≥Phys=PEN / **Energy Regen** | stun · `mainStatPoints {6: Energy Regen:3}` · CR 90/100, ER 2.0/3.0 (rel already correct) |
+| **Nangong Yu** | Ether | **Anomaly** (AP 280–350, AM 173–211), AM>110 → Impact | AP / EtherDMG=ATK%>PEN / **AM** | anomaly · `mainStatPoints {6: AM:3}` · ATK 2350/2900, AP 320/420, AM 190/290 · rel +ATK |
+
+**Reused, not rebuilt:** the **CRIT-cap clamp** (DPS) → Trigger's 90% daze cap. The **slot-6 `mainStatPoints` merge**
+(Cissia/Velina) → Dialyn's Energy Regen & Nangong Yu's AM. The **anomaly archetype** (Alice/Jane/Aria) → Nangong Yu.
+Impact goalpost shows ONLY for Lighter & Trigger; the rest grade on their real axis (their Impact is a derived output).
+
+Verified: all 5 grade clean, targets resolve, Trigger's cap shows but doesn't trip (sheet CR 67.4 < 90), Dialyn ER-s6
+& Ju Fufu ATK%-s4/5 & Nangong Yu AM-s6 all → pts3 BiS; build clean; live-confirmed on Trigger's deck. Builds land C/D
+honestly (under-farmed stunners — e.g. Lighter's CR 14.6% screams "missing your KotS floor").
+
+**Open follow-up (flagged, not done):** the `anomaly` archetype slot 6 still rates `AP:3 / AM:2`, but ALL anomaly
+agents run **AM** on slot 6. Fixing it at the archetype level (`AM:3, AP:2.5`) would correctly value the AM-s6 disc for
+Alice/Jane/Aria/Vivian/Burnice too (safe — no agent runs AP-s6) and let Nangong Yu drop her per-agent override. Left
+out of the stunner batch to avoid touching shipped DPS grades without sign-off.
+
+**Remaining (4): Supports** — Astra Yao, Sunna, Yuzuha, Lucia (Yuzuha s6=AM & Lucia s4/5=HP% main overrides pre-flagged).

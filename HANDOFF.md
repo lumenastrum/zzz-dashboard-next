@@ -4,8 +4,11 @@
 **Session 5:** (a) drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
 calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM (synced).
 (b) **Systemic slot-main grading fix** — per-agent `mainStatPoints` merge in `resolveArchetype` un-breaks kit-specific
-mains for 5 agents (Rupture HP%, Miyabi CRIT Rate, Cissia/Velina ER). See "DONE — session 5" below. Committed locally
-(`f446e8e` + slot-fix), **push held**; remaining: stunners/supports.
+mains for 5 agents (Rupture HP%, Miyabi CRIT Rate, Cissia/Velina ER). (c) **Miyabi mains corrected** (r/MiyabiMains).
+(d) **Stunner batch** — all 5 calibrated across 4 axes (bearings: Prydwen + 5 chibi WebFetch sweeps); reused the
+CRIT-cap (Trigger 90), slot-6 merge (Dialyn ER / Nangong Yu AM), anomaly archetype (Nangong Yu). **20/24 agents now
+calibrated; only the 4 Supports remain.** Session-5 commits `f446e8e`+`f78263b`+`c62e234` are PUSHED; the stunner
+commit is the next one. See "DONE — session 5" + docs/grading-calibration.md (stunner batch).
 **This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
 in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
 gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
@@ -297,13 +300,13 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 
 ## Next steps (next session)
 
-0. **Land session 5:** `npm run sync-stats -- --write` (pushes Burnice's `relevant`), then commit + push.
-1. **Calibrate the remaining 9 agents** the same way — Stunners (Dialyn/Trigger/Ju Fufu/Lighter/Nangong Yu) need the
-   **Impact** goalpost axis + a uniform `relevant` philosophy (theirs are inconsistent: some show Impact, some don't);
-   Supports (Astra Yao/Sunna/Yuzuha/Lucia) need a buffer philosophy (Energy Regen / enabler stats vs damage). The 15
-   DPS are done; the structure is in place to extend.
-1b. When calibrating the supports, give **Yuzuha** (`mainStatPoints` s6 = Anomaly Mastery) and **Lucia** (s4/s5 =
-   HP%) their per-agent main overrides too — the audit already flagged them; the mechanism is in place.
+1. **Calibrate the 4 Supports** (Astra Yao/Sunna/Yuzuha/Lucia) — the last batch. They need a buffer philosophy
+   (Energy Regen / ATK-enabler / HP-scaling vs damage). Same flow that worked: Andres→Prydwen, Clio→r/mains,
+   chibi-Clios→WebFetch breadth. Give **Yuzuha** (`mainStatPoints` s6 = Anomaly Mastery) and **Lucia** (s4/s5 = HP%)
+   their per-agent main overrides — the slot-main audit already flagged them; the mechanism is in place. **20/24 done.**
+1b. **Optional archetype fix:** `anomaly` slot 6 rates `AP:3 / AM:2`, but all anomaly agents run **AM** on s6. Swap to
+   `AM:3, AP:2.5` to fix the AM-s6 grade for Alice/Jane/Aria/Vivian/Burnice (safe — none run AP-s6) and drop Nangong
+   Yu's per-agent override. Held out of the stunner batch to avoid touching shipped DPS grades without sign-off.
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.

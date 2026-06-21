@@ -181,7 +181,30 @@
       "HP": { "target": 19000, "full": 23000 },
       "Sheer Force": { "target": 2500, "full": 2800 }
     } },
-    "Nangong Yu": { "archetype": "anomaly" }
+    "_stunner_note": "STUNNERS have NO single benchmark — bearings 2026-06-21 (Prydwen + 5 chibi WebFetch sweeps) split them 4 ways: (A) true-Impact + CRIT floor [Lighter, Trigger — Trigger's CRIT Rate converts to Aftershock Daze, HARD CAP 90%]; (B) stat-axis [Ju Fufu = ATK 3400 (her squad-CDMG buff scales off ATK) + CR 50 KotS floor; Dialyn = CRIT Rate 80-100 -> Impact via core passive (+2 Impact/1%CR over 50), Energy Regen on slot 6]; (C) anomaly [Nangong Yu = AP/AM, AM>110 converts 1:1 -> Impact]. The Impact goalpost is shown ONLY for the two that BUILD it (Lighter, Trigger); the rest grade on their real axis (Impact is a derived output for them, not an input).",
+    "Lighter": { "archetype": "stun", "targets": {
+      "Impact": { "target": 185, "full": 270 },
+      "CRIT Rate": { "target": 50, "full": 80 }
+    } },
+    "Trigger": { "archetype": "stun", "targets": {
+      "Impact": { "target": 175, "full": 240 },
+      "CRIT Rate": { "target": 80, "cap": 90, "full": 95 },
+      "CRIT DMG": { "target": 100, "full": 160 }
+    } },
+    "Ju Fufu": { "archetype": "stun", "mainStatPoints": { "4": { "ATK%": 3 }, "5": { "ATK%": 3 } }, "targets": {
+      "ATK": { "target": 3300, "full": 3500 },
+      "CRIT Rate": { "target": 50, "full": 80 },
+      "Impact": { "target": 150, "full": 220 }
+    } },
+    "Dialyn": { "archetype": "stun", "mainStatPoints": { "6": { "Energy Regen": 3 } }, "targets": {
+      "CRIT Rate": { "target": 90, "full": 100 },
+      "Energy Regen": { "target": 2.0, "full": 3.0 }
+    } },
+    "Nangong Yu": { "archetype": "anomaly", "mainStatPoints": { "6": { "Anomaly Mastery": 3 } }, "targets": {
+      "ATK": { "target": 2350, "full": 2900 },
+      "Anomaly Proficiency": { "target": 320, "full": 420 },
+      "Anomaly Mastery": { "target": 190, "full": 290 }
+    } }
   },
 
   "rollValues": {
