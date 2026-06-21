@@ -138,3 +138,27 @@ Stats (Level 60)" + disc plan, hand-pulled through the single camoufox browser (
 
 **Remaining after this batch (9):** Stunners (Dialyn, Trigger, Ju Fufu, Lighter, Nangong Yu) need the
 **Impact** goalpost axis; Supports (Astra Yao, Sunna, Yuzuha, Lucia) need a buffer philosophy.
+
+## Miyabi disc-MAIN deep dive (2026-06-21) — r/MiyabiMains, beyond Prydwen
+
+A sanity check on Prydwen's Miyabi mains turned up a bug in my first slot-fix and a comp-dependency the
+aggregators flatten. Sources: Prydwen build tab + r/MiyabiMains megathread comments (the `HiImNotABot001`
+breakdowns + the AM-vs-ATK% threads), pulled via the single camoufox browser (old.reddit HTML; Reddit's
+`.json` is behind a bot wall).
+
+- **Prydwen:** s4 `CRIT Rate% >= ATK%` · s5 `Ice DMG% = ATK%` · s6 `ATK%` · subs `CR(→80) >= CDMG = ATK% > AP = ATK = PEN`.
+- **My first fix was wrong:** I'd added `CRIT DMG: 3` to her slot-4 mainStatPoints "for flexibility". CDMG is
+  a top *substat*, **never the slot-4 main** (Prydwen + the sub agree). Removed — CDMG slot-4 now grades off-meta.
+- **r/MiyabiMains tech (more granular than Prydwen):**
+  - **s4:** CR *or* ATK% — ATK% becomes her best main once CR ≥ ~68% ("free AM" from CR carries below that). Never CDMG.
+  - **s5:** `pen >= ice > atk` — **PEN is legit** (esp. Lycaon/shred comps), so we keep the anomaly-default PEN
+    on slot 5 (I'd almost zeroed it from Prydwen alone — that would've been wrong).
+  - **s6:** **AM ⇄ ATK%, comp-dependent.** AM when her ATK is already saturated by double ATK-buff / anomaly
+    supports (Yuzu + Soukaku) or she needs the **Branch & Blade Song AM ≥ 115 gate** (+30% CDMG); ATK% with
+    lighter ATK-buff comps (Astra + Nicole) for EBA3 oomph. Real-play reports: AM build ~2600 ATK vs ATK% build
+    ~3105 ATK, "no real difference in actual use." So both are BiS → both score 3; AP is off-meta on s4 & s6.
+- **Encoded:** `Miyabi.mainStatPoints = { "4": {CRIT Rate:3, ATK%:3, AP:0}, "6": {ATK%:3, Anomaly Mastery:3, AP:0} }`
+  (slot 5 left to the anomaly default). Verified: her real build s4 C / s5 B / **s6 AM → A 69.4%**, CDMG-s4 &
+  AP-s4/s6 swaps read off-meta, ATK%-s6 & PEN-s5 read BiS, zero false verdicts. **Takeaway:** main-stat "BiS" is
+  often comp-dependent — encoding *both* valid mains at 3 is more honest than forcing one, and it's why we read
+  the comments instead of trusting a single rating number.

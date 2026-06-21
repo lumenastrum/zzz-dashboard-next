@@ -134,7 +134,8 @@
       "Anomaly Mastery": { "target": 190, "full": 280 }
     } },
     "_miyabi_note": "Miyabi is a CRIT-SCALING anomaly, NOT an AP-scaling one: her Icefire passive converts CRIT Rate → Frost Anomaly Buildup Rate (100% of CRIT Rate, cap 80% — that's where her CRIT Rate cap comes from), and her Frost anomaly procs CAN CRIT, so CRIT DMG is her damage multiplier, not Anomaly Proficiency. Weights are CRIT-priority; do NOT revert AP to the top. relevant stays ATK/CRIT Rate/CRIT DMG (no AP/AM goalposts).",
-    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "mainStatPoints": { "4": { "CRIT Rate": 3, "CRIT DMG": 3 } }, "targets": {
+    "_miyabi_mains_note": "Disc MAINS, from r/MiyabiMains tech (more granular than Prydwen, which says s4 CR>=ATK% / s5 Ice=ATK% / s6 ATK%). Slot 4: CRIT Rate OR ATK% (ATK% becomes best once CR>=~68%; CRIT Rate carries 'free AM' below that) — NEVER CRIT DMG as the MAIN (CDMG is a top SUBSTAT only). Slot 5: Ice DMG / PEN Ratio / ATK% all valid — PEN is legit (`pen>=ice>atk`, esp. Lycaon/shred comps), so we keep the anomaly default (don't zero PEN). Slot 6: AM and ATK% are BOTH BiS, comp-dependent — AM when her ATK is already saturated by double ATK-buff / anomaly supports (Yuzu+Soukaku) or she needs the Branch&Blade AM>=115 gate; ATK% with lighter ATK-buff comps (Astra+Nicole) for EBA3 oomph. So both score 3; AP is off-meta on 4 and 6.",
+    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "mainStatPoints": { "4": { "CRIT Rate": 3, "ATK%": 3, "Anomaly Proficiency": 0 }, "6": { "ATK%": 3, "Anomaly Mastery": 3, "Anomaly Proficiency": 0 } }, "targets": {
       "ATK": { "target": 2700, "full": 3300 },
       "CRIT Rate": { "target": 80, "cap": 80, "full": 90 },
       "CRIT DMG": { "target": 160, "full": 220 },

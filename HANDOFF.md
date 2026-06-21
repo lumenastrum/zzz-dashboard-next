@@ -289,6 +289,11 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   before→after: every fixed disc off-meta→recommended, Yixuan B→A, Miyabi s4 D→C, false "off-meta" verdicts cleared,
   no regressions, build clean, live-confirmed on Miyabi's deck. (Raw supports Yuzuha s6=AM / Lucia s4,5=HP% deferred
   to the support batch.)
+- ✅ **Miyabi mains corrected (r/MiyabiMains dive).** Sanity-checking Prydwen caught a bug in the above fix: I'd put
+  `CRIT DMG:3` on her slot 4 — wrong (CDMG is a top *substat*, never the s4 main). Pulled the MiyabiMains megathread
+  (camoufox, old.reddit) for the real tech: s4 = CR/ATK% (no CDMG), s5 PEN stays valid (Lycaon comps — almost zeroed
+  it), **s6 AM ⇄ ATK% is comp-dependent** (AM for saturated-ATK / B&BS AM≥115 gate; ATK% for lighter buff comps) → both
+  encoded BiS(3), AP off-meta on s4/s6. Her real AM s6 now grades **A**. Full trail in docs/grading-calibration.md.
 
 ## Next steps (next session)
 
