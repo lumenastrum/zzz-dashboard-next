@@ -254,16 +254,21 @@
       "4pc": [{ "label": "+45 Anomaly Proficiency on Disorder (combat)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 45, "unit": "", "scope": "combat", "cond": true }]
     },
     "Freedom Blues": {
-      "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }]
+      "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }],
+      "4pc": [{ "label": "Target Anomaly Buildup RES -20% (EX hit, 8s)", "kind": "buildup", "stat": "Anomaly RES Shred", "value": 20, "unit": "%", "scope": "combat", "cond": true }]
     },
     "Woodpecker Electro": {
-      "2pc": [{ "label": "+8% CRIT Rate", "kind": "stat", "stat": "CRIT Rate", "value": 8, "unit": "%", "scope": "sheet" }]
+      "2pc": [{ "label": "+8% CRIT Rate", "kind": "stat", "stat": "CRIT Rate", "value": 8, "unit": "%", "scope": "sheet" }],
+      "4pc": [{ "label": "ATK +9% (on crit: Basic/Counter/EX, 6s)", "kind": "buff", "stat": "ATK", "value": 9, "unit": "%", "scope": "combat", "cond": true }]
     },
     "Inferno Metal": {
-      "2pc": [{ "label": "+10% Fire DMG", "kind": "dmg", "stat": "Fire DMG", "value": 10, "unit": "%", "scope": "combat" }]
+      "2pc": [{ "label": "+10% Fire DMG", "kind": "dmg", "stat": "Fire DMG", "value": 10, "unit": "%", "scope": "combat" }],
+      "4pc": [{ "label": "+28% CRIT Rate (vs Burning, 8s)", "kind": "stat", "stat": "CRIT Rate", "value": 28, "unit": "%", "scope": "combat", "cond": true }]
     },
     "Swing Jazz": {
-      "2pc": [{ "label": "+2 Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 2, "unit": "", "scope": "sheet" }]
+      "_comment": "2pc corrected 2026-06-21: +20% Energy Regen (%-mult), NOT the prior flat +2.",
+      "2pc": [{ "label": "+20% Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 20, "unit": "%", "scope": "sheet" }],
+      "4pc": [{ "label": "Squad DMG +15% (Chain/Ult, 12s)", "kind": "dmg", "stat": "DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true }]
     },
     "Branch & Blade Song": {
       "_comment": "Anomaly-DPS set. 2pc CRIT DMG is always-on (on the character screen). 4pc is two conditional combat buffs: +30% CRIT DMG GATED on Anomaly Mastery >= 115 (Miyabi has 150), +12% CRIT Rate on Freeze/Shatter.",
@@ -276,6 +281,72 @@
     "Astral Voice": {
       "2pc": [{ "label": "+10% ATK", "kind": "stat", "stat": "ATK", "value": 10, "unit": "%", "scope": "sheet" }],
       "4pc": [{ "label": "+24% DMG · Quick-Assist entrant (3 stacks, 15s)", "kind": "dmg", "stat": "DMG", "value": 24, "unit": "%", "scope": "combat", "cond": true }]
+    },
+    "King of the Summit": {
+      "2pc": [{ "label": "+6% Daze", "kind": "buildup", "stat": "Daze", "value": 6, "unit": "%", "scope": "combat" }],
+      "4pc": [
+        { "label": "Squad CRIT DMG +15% (Stun, EX/Chain, 15s)", "kind": "stat", "stat": "CRIT DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+15% more CRIT DMG (equipper CR >=50%)", "kind": "stat", "stat": "CRIT DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Yunkui Tales": {
+      "2pc": [{ "label": "+10% HP", "kind": "stat", "stat": "HP", "value": 10, "unit": "%", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+4% CRIT Rate/stk (x3, EX/Chain/Ult, 15s)", "kind": "stat", "stat": "CRIT Rate", "value": 12, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+10% Sheer DMG (3 stk)", "kind": "dmg", "stat": "Sheer DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Dawn's Bloom": {
+      "2pc": [{ "label": "+15% Basic Attack DMG", "kind": "dmg", "stat": "Basic Attack DMG", "value": 15, "unit": "%", "scope": "combat" }],
+      "4pc": [
+        { "label": "+20% Basic Attack DMG", "kind": "dmg", "stat": "Basic Attack DMG", "value": 20, "unit": "%", "scope": "combat" },
+        { "label": "+20% Basic Attack DMG (Attack, EX/Ult, 25s)", "kind": "dmg", "stat": "Basic Attack DMG", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Moonlight Lullaby": {
+      "2pc": [{ "label": "+20% Energy Regen", "kind": "stat", "stat": "Energy Regen", "value": 20, "unit": "%", "scope": "sheet" }],
+      "4pc": [{ "label": "Squad DMG +18% (Support, EX/Ult, 25s)", "kind": "dmg", "stat": "DMG", "value": 18, "unit": "%", "scope": "combat", "cond": true }]
+    },
+    "Wuthering Salon": {
+      "2pc": [{ "label": "+10% Wind DMG", "kind": "dmg", "stat": "Wind DMG", "value": 10, "unit": "%", "scope": "combat" }],
+      "4pc": [
+        { "label": "+25 Anomaly Prof/stk (x2, EX, 40s)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 50, "unit": "", "scope": "combat", "cond": true },
+        { "label": "+18% DMG (Windswept, 40s)", "kind": "dmg", "stat": "DMG", "value": 18, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "White Water Ballad": {
+      "2pc": [{ "label": "+10% Physical DMG", "kind": "dmg", "stat": "Physical DMG", "value": 10, "unit": "%", "scope": "combat" }],
+      "4pc": [
+        { "label": "+10% CRIT Rate (in Ether Veil, +15s)", "kind": "stat", "stat": "CRIT Rate", "value": 10, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+10% CRIT Rate (Attack, Ether Veil, 30s)", "kind": "stat", "stat": "CRIT Rate", "value": 10, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+10% ATK (Attack, Ether Veil, 30s)", "kind": "buff", "stat": "ATK", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Shadow Harmony": {
+      "2pc": [{ "label": "+15% Aftershock/Dash DMG", "kind": "dmg", "stat": "Aftershock/Dash DMG", "value": 15, "unit": "%", "scope": "combat" }],
+      "4pc": [
+        { "label": "+4% CRIT Rate/stk (x3, 15s)", "kind": "stat", "stat": "CRIT Rate", "value": 12, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "+4% ATK/stk (x3, 15s)", "kind": "buff", "stat": "ATK", "value": 12, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Chaos Jazz": {
+      "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+15% Fire DMG", "kind": "dmg", "stat": "Fire DMG", "value": 15, "unit": "%", "scope": "combat" },
+        { "label": "+15% Electric DMG", "kind": "dmg", "stat": "Electric DMG", "value": 15, "unit": "%", "scope": "combat" },
+        { "label": "+20% EX/Assist DMG (off-field, 5s on-field)", "kind": "dmg", "stat": "DMG", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Shockstar Disco": {
+      "2pc": [{ "label": "+6% Impact", "kind": "stat", "stat": "Impact", "value": 6, "unit": "%", "scope": "sheet" }],
+      "4pc": [{ "label": "+20% Daze (Basic/Dash/Counter to main target)", "kind": "buildup", "stat": "Daze", "value": 20, "unit": "%", "scope": "combat", "cond": true }]
+    },
+    "Puffer Electro": {
+      "2pc": [{ "label": "+8% PEN Ratio", "kind": "stat", "stat": "PEN Ratio", "value": 8, "unit": "%", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+20% Ultimate DMG", "kind": "dmg", "stat": "Ultimate DMG", "value": 20, "unit": "%", "scope": "combat" },
+        { "label": "+15% ATK (on Ultimate, 12s)", "kind": "buff", "stat": "ATK", "value": 15, "unit": "%", "scope": "combat", "cond": true }
+      ]
     }
   },
 
