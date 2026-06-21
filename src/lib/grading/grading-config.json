@@ -32,6 +32,8 @@
     "RUPTURE": "attack"
   },
 
+  "_mainStatRule": "GAME RULE for disc main stats: slot 4 can roll Anomaly Proficiency but NEVER Anomaly Mastery; slot 6 can roll Anomaly Mastery but NEVER Anomaly Proficiency; slot 5 rolls neither. So mainStatPoints['4'] must never list Anomaly Mastery, and mainStatPoints['6'] must never list Anomaly Proficiency — those are impossible mains and would grade a build the game can't produce.",
+
   "archetypes": {
     "anomaly": {
       "label": "Anomaly DPS",
@@ -44,7 +46,7 @@
       "mainStatPoints": {
         "4": { "Anomaly Proficiency": 3, "ATK%": 2 },
         "5": { "Attribute DMG": 3, "PEN Ratio": 3, "ATK%": 2 },
-        "6": { "Anomaly Proficiency": 3, "ATK%": 2.5, "Anomaly Mastery": 2 }
+        "6": { "ATK%": 2.5, "Anomaly Mastery": 3 }
       }
     },
 
@@ -89,7 +91,7 @@
       "mainStatPoints": {
         "4": { "CRIT DMG": 2.5, "ATK%": 2.5, "Anomaly Proficiency": 2 },
         "5": { "ATK%": 2.5, "Attribute DMG": 2.5 },
-        "6": { "Energy Regen": 3, "ATK%": 2.5, "Anomaly Proficiency": 2 }
+        "6": { "Energy Regen": 3, "ATK%": 2.5, "Anomaly Mastery": 2 }
       }
     }
   },
@@ -135,7 +137,7 @@
     } },
     "_miyabi_note": "Miyabi is a CRIT-SCALING anomaly, NOT an AP-scaling one: her Icefire passive converts CRIT Rate → Frost Anomaly Buildup Rate (100% of CRIT Rate, cap 80% — that's where her CRIT Rate cap comes from), and her Frost anomaly procs CAN CRIT, so CRIT DMG is her damage multiplier, not Anomaly Proficiency. Weights are CRIT-priority; do NOT revert AP to the top. relevant stays ATK/CRIT Rate/CRIT DMG (no AP/AM goalposts).",
     "_miyabi_mains_note": "Disc MAINS, from r/MiyabiMains tech (more granular than Prydwen, which says s4 CR>=ATK% / s5 Ice=ATK% / s6 ATK%). Slot 4: CRIT Rate OR ATK% (ATK% becomes best once CR>=~68%; CRIT Rate carries 'free AM' below that) — NEVER CRIT DMG as the MAIN (CDMG is a top SUBSTAT only). Slot 5: Ice DMG / PEN Ratio / ATK% all valid — PEN is legit (`pen>=ice>atk`, esp. Lycaon/shred comps), so we keep the anomaly default (don't zero PEN). Slot 6: AM and ATK% are BOTH BiS, comp-dependent — AM when her ATK is already saturated by double ATK-buff / anomaly supports (Yuzu+Soukaku) or she needs the Branch&Blade AM>=115 gate; ATK% with lighter ATK-buff comps (Astra+Nicole) for EBA3 oomph. So both score 3; AP is off-meta on 4 and 6.",
-    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "mainStatPoints": { "4": { "CRIT Rate": 3, "ATK%": 3, "Anomaly Proficiency": 0 }, "6": { "ATK%": 3, "Anomaly Mastery": 3, "Anomaly Proficiency": 0 } }, "targets": {
+    "Miyabi": { "archetype": "anomaly", "weights": { "CRIT Rate": 3.5, "CRIT DMG": 3.5, "ATK%": 3.0, "Anomaly Proficiency": 1.0 }, "mainStatPoints": { "4": { "CRIT Rate": 3, "ATK%": 3, "Anomaly Proficiency": 0 }, "6": { "ATK%": 3, "Anomaly Mastery": 3 } }, "targets": {
       "ATK": { "target": 2700, "full": 3300 },
       "CRIT Rate": { "target": 80, "cap": 80, "full": 90 },
       "CRIT DMG": { "target": 160, "full": 220 },
@@ -200,7 +202,7 @@
       "CRIT Rate": { "target": 90, "full": 100 },
       "Energy Regen": { "target": 2.0, "full": 3.0 }
     } },
-    "Nangong Yu": { "archetype": "anomaly", "mainStatPoints": { "6": { "Anomaly Mastery": 3 } }, "targets": {
+    "Nangong Yu": { "archetype": "anomaly", "targets": {
       "ATK": { "target": 2350, "full": 2900 },
       "Anomaly Proficiency": { "target": 320, "full": 420 },
       "Anomaly Mastery": { "target": 190, "full": 290 }

@@ -185,9 +185,12 @@ Verified: all 5 grade clean, targets resolve, Trigger's cap shows but doesn't tr
 & Ju Fufu ATK%-s4/5 & Nangong Yu AM-s6 all → pts3 BiS; build clean; live-confirmed on Trigger's deck. Builds land C/D
 honestly (under-farmed stunners — e.g. Lighter's CR 14.6% screams "missing your KotS floor").
 
-**Open follow-up (flagged, not done):** the `anomaly` archetype slot 6 still rates `AP:3 / AM:2`, but ALL anomaly
-agents run **AM** on slot 6. Fixing it at the archetype level (`AM:3, AP:2.5`) would correctly value the AM-s6 disc for
-Alice/Jane/Aria/Vivian/Burnice too (safe — no agent runs AP-s6) and let Nangong Yu drop her per-agent override. Left
-out of the stunner batch to avoid touching shipped DPS grades without sign-off.
+**Game-rule fix (DONE — Andres's correction).** The flag above turned out to be a hard game rule, not a taste call:
+**slot 4 can roll Anomaly Proficiency but NEVER Anomaly Mastery; slot 6 can roll Anomaly Mastery but NEVER Anomaly
+Proficiency** (slot 5 rolls neither). So the `anomaly` archetype's `s6: {AP:3, ...}` listed an **impossible main** —
+a build the game can't produce. Fixed `anomaly` s6 → `{ATK%:2.5, AM:3}` (AP removed, AM is the only anomaly s6 main)
+and the same impossible `AP` on `support` s6 → `AM:2`. Documented as top-level `_mainStatRule` so it can't be
+re-added. Verified: all 6 anomaly agents' AM-s6 disc → pts3 BiS (was 2), no regressions (mainStatPoints don't touch
+the ideal denominator); dropped Nangong Yu's now-redundant override and Miyabi's impossible `AP:0` on s6.
 
 **Remaining (4): Supports** — Astra Yao, Sunna, Yuzuha, Lucia (Yuzuha s6=AM & Lucia s4/5=HP% main overrides pre-flagged).

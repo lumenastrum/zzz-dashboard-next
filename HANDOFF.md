@@ -304,9 +304,9 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
    (Energy Regen / ATK-enabler / HP-scaling vs damage). Same flow that worked: Andres→Prydwen, Clio→r/mains,
    chibi-Clios→WebFetch breadth. Give **Yuzuha** (`mainStatPoints` s6 = Anomaly Mastery) and **Lucia** (s4/s5 = HP%)
    their per-agent main overrides — the slot-main audit already flagged them; the mechanism is in place. **20/24 done.**
-1b. **Optional archetype fix:** `anomaly` slot 6 rates `AP:3 / AM:2`, but all anomaly agents run **AM** on s6. Swap to
-   `AM:3, AP:2.5` to fix the AM-s6 grade for Alice/Jane/Aria/Vivian/Burnice (safe — none run AP-s6) and drop Nangong
-   Yu's per-agent override. Held out of the stunner batch to avoid touching shipped DPS grades without sign-off.
+1b. ✅ **DONE — game-rule fix (Andres):** slot 4 = AP-only (never AM), slot 6 = AM-only (never AP). The `anomaly` (and
+   `support`) archetypes listed an **impossible** AP main on slot 6 — removed; anomaly s6 → `{ATK%:2.5, AM:3}`. All 6
+   anomaly agents' AM-s6 disc now grades pts3 BiS. Rule pinned as top-level `_mainStatRule` so it can't be re-added.
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.
