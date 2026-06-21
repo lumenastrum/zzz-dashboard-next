@@ -4188,7 +4188,8 @@
       ],
       "relevant": [
         "ATK",
-        "Anomaly Mastery"
+        "Anomaly Mastery",
+        "Anomaly Proficiency"
       ]
     },
     {
@@ -4418,7 +4419,8 @@
         }
       ],
       "relevant": [
-        "HP"
+        "HP",
+        "Energy Regen"
       ]
     },
     {

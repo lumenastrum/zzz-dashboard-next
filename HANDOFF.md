@@ -6,9 +6,11 @@ calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MA
 (b) **Systemic slot-main grading fix** — per-agent `mainStatPoints` merge in `resolveArchetype` un-breaks kit-specific
 mains for 5 agents (Rupture HP%, Miyabi CRIT Rate, Cissia/Velina ER). (c) **Miyabi mains corrected** (r/MiyabiMains).
 (d) **Stunner batch** — all 5 calibrated across 4 axes (bearings: Prydwen + 5 chibi WebFetch sweeps); reused the
-CRIT-cap (Trigger 90), slot-6 merge (Dialyn ER / Nangong Yu AM), anomaly archetype (Nangong Yu). **20/24 agents now
-calibrated; only the 4 Supports remain.** Session-5 commits `f446e8e`+`f78263b`+`c62e234` are PUSHED; the stunner
-commit is the next one. See "DONE — session 5" + docs/grading-calibration.md (stunner batch).
+CRIT-cap (Trigger 90), slot-6 merge (Dialyn ER / Nangong Yu AM), anomaly archetype (Nangong Yu). (e) **Game-rule fix**:
+removed impossible AP-on-slot-6 mains (anomaly+support), pinned `_mainStatRule`. (f) **Support batch** — all 4 done on
+buff-scaling axes with breakpoint caps (Astra/Sunna ATK, Yuzuha ATK+AM, Lucia HP); the cap now reads "buff maxed".
+**🎉 ROSTER COMPLETE — 24/24 calibrated.** First 3 commits PUSHED; `fc96fdf` (stunners), `7576dc7` (game-rule),
++ the support commit are local. See docs/grading-calibration.md.
 **This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
 in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
 gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
@@ -300,13 +302,11 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 
 ## Next steps (next session)
 
-1. **Calibrate the 4 Supports** (Astra Yao/Sunna/Yuzuha/Lucia) — the last batch. They need a buffer philosophy
-   (Energy Regen / ATK-enabler / HP-scaling vs damage). Same flow that worked: Andres→Prydwen, Clio→r/mains,
-   chibi-Clios→WebFetch breadth. Give **Yuzuha** (`mainStatPoints` s6 = Anomaly Mastery) and **Lucia** (s4/s5 = HP%)
-   their per-agent main overrides — the slot-main audit already flagged them; the mechanism is in place. **20/24 done.**
-1b. ✅ **DONE — game-rule fix (Andres):** slot 4 = AP-only (never AM), slot 6 = AM-only (never AP). The `anomaly` (and
-   `support`) archetypes listed an **impossible** AP main on slot 6 — removed; anomaly s6 → `{ATK%:2.5, AM:3}`. All 6
-   anomaly agents' AM-s6 disc now grades pts3 BiS. Rule pinned as top-level `_mainStatRule` so it can't be re-added.
+1. ✅ **CALIBRATION COMPLETE — 24/24 built agents** (drop-in DPS + slot-main fix + Miyabi mains + stunners + game-rule
+   + supports). Goalposts/grades are real for every built agent; only Zhao is uncalibrated (buildless, intentionally
+   out). Game-rule fix done (slot 4 = AP-only, slot 6 = AM-only; impossible AP-on-s6 removed, pinned `_mainStatRule`).
+   Future non-calibration candidates: other faceplate tabs (Levels/Teams/Pulls routes); optionally tighten AM `full`
+   values (AM is low-mobility — main + engine/set only, no substat rolls).
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.

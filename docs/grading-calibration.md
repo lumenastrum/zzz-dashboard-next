@@ -193,4 +193,26 @@ and the same impossible `AP` on `support` s6 → `AM:2`. Documented as top-level
 re-added. Verified: all 6 anomaly agents' AM-s6 disc → pts3 BiS (was 2), no regressions (mainStatPoints don't touch
 the ideal denominator); dropped Nangong Yu's now-redundant override and Miyabi's impossible `AP:0` on s6.
 
-**Remaining (4): Supports** — Astra Yao, Sunna, Yuzuha, Lucia (Yuzuha s6=AM & Lucia s4/5=HP% main overrides pre-flagged).
+## Support batch (2026-06-21) — buff-scaling axes, breakpoint caps · ROSTER COMPLETE (24/24)
+
+Bearings: Prydwen (camoufox-solo) + 4 chibi WebFetch sweeps. The unifying rule: **supports build a stat to SCALE A
+TEAM BUFF, not for personal offense — and each buff CAPS at a hard breakpoint** (extra is wasted → a `cap`; meter-only,
+the grade-clamp stays CRIT-Rate-only). CRIT/personal DMG are "any amount" filler, never goalposts.
+
+| Agent | El | Buff-scaling axis (cap) | Disc 4/5/6 | Encoded |
+|---|---|---|---|---|
+| **Astra Yao** | Ether | **ATK 3430** (ally flat-ATK buff = 22% of her ATK, cap +1200) + ER | ATK% / ATK% / ER=ATK% | `mainStatPoints{4,5:ATK%:3}` · ATK 3300/**cap3430**/3600, ER 1.5/3 |
+| **Sunna** | Phys | **ATK 3500** (buff = 30% of ATK, cap +1050) + ER (low 1.0 base) | ATK% / ATK% / ER | `{4,5:ATK%:3}` · ATK 3400/**cap3500**/3700, ER 1.4/3 |
+| **Yuzuha** | Phys | **ATK 3000 + AM 200** (AM>100 → team Anomaly-Buildup/Disorder buff) + AP | ATK% / ATK% / **AM** | `{4,5:ATK%:3, 6:AM:3}` · ATK 2900/**cap3000**, AM 185/**cap200**, AP 200/300 |
+| **Lucia** | Ether | **HP 24000** (Sheer Force squad buff scales off Max HP, cap 900 SF) | **HP% / HP% / HP%** | `weights{HP%:3.5}` + `{4,5,6:HP%:3}` · HP 22000/**cap24000**, ER 1.4/3 |
+
+**New application of the cap semantic:** the breakpoint cap (Cissia ER / Trigger daze) now reads as **"buff maxed —
+stop, pivot"** for a support. Live-verified: Astra's ATK 3671 ≥ 3430 → gold MAX (screenshot
+`Claude Space/screenshots/astra-levels-support-atkcap.png`); Yuzuha ATK 3113 → MAX, AM 171 under its 200 cap; Lucia
+HP 22,594 just over target, under the 24k cap. **Lucia is an HP-scaler in a support shell** (like Rupture) — needed
+the HP% weight bump + triple HP% `mainStatPoints` (support archetype had no HP% main, so her HP% slots were off-meta).
+
+**Reused, not rebuilt:** the breakpoint `cap` (Cissia/Trigger), the slot-6/4-5 `mainStatPoints` merge (ATK%, AM, HP%),
+HP%-weight bump (Rupture). Verified: all 4 grade clean, zero impossible mains, every kit-main → pts3 BiS, build clean.
+
+**🎉 ROSTER COMPLETE — 24/24 built agents calibrated** (Zhao is buildless/no discs, intentionally out).

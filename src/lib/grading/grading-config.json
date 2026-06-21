@@ -206,6 +206,24 @@
       "ATK": { "target": 2350, "full": 2900 },
       "Anomaly Proficiency": { "target": 320, "full": 420 },
       "Anomaly Mastery": { "target": 190, "full": 290 }
+    } },
+    "_support_note": "SUPPORTS grade on BUFF-SCALING stats, not personal offense — every stat they build feeds a team buff, and most have a hard breakpoint where the buff CAPS (extra is wasted -> a `cap`, meter-only; the grade-clamp stays CRIT-Rate-only). Bearings 2026-06-21 (Prydwen + 4 chibi WebFetch sweeps): Astra Yao / Sunna = ATK breakpoint (their flat-ATK squad buff is a % of their own ATK, hard-capped) + Energy Regen (Quick-Assist / EX cycling); Yuzuha = ATK 3000 + Anomaly Mastery 200 (her AM>100 scales a team Anomaly-Buildup/Disorder buff, capped at 200) + AP; Lucia = HP 24000 (her Sheer Force squad buff scales off Max HP, capped at 24k) — HP-scaling like a Rupture carry (HP% weight + triple HP% mains). CRIT / personal DMG are 'any amount' filler, NOT goalposts.",
+    "Astra Yao": { "archetype": "support", "mainStatPoints": { "4": { "ATK%": 3 }, "5": { "ATK%": 3 } }, "targets": {
+      "ATK": { "target": 3300, "cap": 3430, "full": 3600 },
+      "Energy Regen": { "target": 1.5, "full": 3.0 }
+    } },
+    "Sunna": { "archetype": "support", "mainStatPoints": { "4": { "ATK%": 3 }, "5": { "ATK%": 3 } }, "targets": {
+      "ATK": { "target": 3400, "cap": 3500, "full": 3700 },
+      "Energy Regen": { "target": 1.4, "full": 3.0 }
+    } },
+    "Yuzuha": { "archetype": "support", "mainStatPoints": { "4": { "ATK%": 3 }, "5": { "ATK%": 3 }, "6": { "Anomaly Mastery": 3 } }, "targets": {
+      "ATK": { "target": 2900, "cap": 3000, "full": 3200 },
+      "Anomaly Mastery": { "target": 185, "cap": 200, "full": 210 },
+      "Anomaly Proficiency": { "target": 200, "full": 300 }
+    } },
+    "Lucia": { "archetype": "support", "weights": { "HP%": 3.5, "HP": 1.0, "ATK%": 1.0 }, "mainStatPoints": { "4": { "HP%": 3 }, "5": { "HP%": 3 }, "6": { "HP%": 3 } }, "targets": {
+      "HP": { "target": 22000, "cap": 24000, "full": 25000 },
+      "Energy Regen": { "target": 1.4, "full": 3.0 }
     } }
   },
 
