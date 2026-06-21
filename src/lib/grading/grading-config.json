@@ -453,7 +453,7 @@
       ]
     },
     "Dreamlit Hearth": {
-      "_comment": "Lucia signature, R1. Support/Ether. Passive numbers single-source (Game8); too new for cross-check - verify if a 2nd source appears.",
+      "_comment": "Lucia signature, R1. Support/Ether. R1 confirmed in-game by Andres (ER 0.4/s; Ether Veil -> squad +25% DMG + 15% Max HP, 45s) — matched the Game8 single-source data exactly.",
       "base": { "ATK": 713 },
       "advanced": { "label": "HP +30%" },
       "passive": [
