@@ -121,6 +121,13 @@
       "CRIT Rate": { "target": 82, "cap": 90, "full": 95 },
       "CRIT DMG": { "target": 130, "full": 180 }
     } },
+    "_cissia_note": "Cissia is gear-CR / passive-fed-CDMG (Festering Venom self-grants +50% CRIT DMG, off-screen combat) so her CRIT DMG goalpost is LOW (110+) and CRIT Rate is the gear stat (50-57 w/ signature, no mechanical cap). Disk 6 main is ENERGY REGEN, not ATK%: her Core Passive scales squad DEF-Ignore with ER above 1.4, maxing at 12.88% DEF-Ignore at ER 3.68 (1.4 + 19 steps of 0.52% per 0.12 ER) — that's the Energy Regen `cap`. Prydwen 2.7.",
+    "Cissia": { "archetype": "attack", "targets": {
+      "ATK": { "target": 2600, "full": 3200 },
+      "CRIT Rate": { "target": 50, "full": 60 },
+      "CRIT DMG": { "target": 110, "full": 180 },
+      "Energy Regen": { "target": 3.0, "cap": 3.68, "full": 3.8 }
+    } },
     "Alice": { "archetype": "anomaly", "targets": {
       "ATK": { "target": 2750, "full": 3300 },
       "Anomaly Proficiency": { "target": 400, "full": 470 },
@@ -143,6 +150,22 @@
       "ATK": { "target": 2750, "full": 3300 },
       "Anomaly Proficiency": { "target": 400, "full": 470 },
       "Anomaly Mastery": { "target": 214, "full": 300 }
+    } },
+    "Velina": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2500, "full": 3100 },
+      "Anomaly Proficiency": { "target": 375, "full": 460 },
+      "Energy Regen": { "target": 2.7, "full": 3.2 }
+    } },
+    "Burnice": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2700, "full": 3300 },
+      "Anomaly Proficiency": { "target": 375, "full": 450 },
+      "Anomaly Mastery": { "target": 153, "full": 260 }
+    } },
+    "_vivian_note": "Anomaly Proficiency is uniquely premium for Vivian: her Core Passive scales Abloom (the bulk of her DPS) DIRECTLY with AP, so Prydwen flags AP over ATK% in almost all cases — hence the AP weight bump to 4.0 and her LOW ATK goalpost (2000-2400). Disk 6 main is Anomaly Mastery. Prydwen 2.7.",
+    "Vivian": { "archetype": "anomaly", "weights": { "Anomaly Proficiency": 4.0 }, "targets": {
+      "ATK": { "target": 2200, "full": 2700 },
+      "Anomaly Mastery": { "target": 198, "full": 290 },
+      "Anomaly Proficiency": { "target": 410, "full": 480 }
     } },
     "Yixuan": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "targets": {
       "ATK": { "target": 1900, "full": 2400 },

@@ -1,6 +1,9 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-21 · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped earlier.
+**Last updated:** 2026-06-21 (session 5) · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped.
+**Session 5:** drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
+calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM. See
+"DONE — session 5" below. Pending: `sync-stats --write` (Burnice) + commit/push; then stunners/supports.
 **This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
 in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
 gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
@@ -258,11 +261,36 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   they use `LEVEL_CFG`. And `relevant` lists weren't re-audited (e.g. ensure Rupture shows HP/Sheer Force, anomaly hides CRIT).
 - ☐ **Not yet committed/pushed** — review the diff, then commit + push.
 
+## DONE — session 5 (2026-06-21): drop-in DPS calibration (Cissia + anomaly trio)
+
+**The four DPS-shaped agents that reuse session-4's structure, no new semantics.** Research-then-build, build clean
+(28 pages), live-verified through the real deck UI.
+
+- ✅ **Prydwen research** — Cissia (crit), Velina/Burnice/Vivian (anomaly) endgame stats + disc plans hand-pulled
+  through the single camoufox browser (BUILD react-tab). Numbers + decisions → `docs/grading-calibration.md` §5.
+- ✅ **Per-agent `targets`** added to `grading-config.json` for all 4. Highlights: **Cissia** is kit-inverted
+  (passive self-feeds +50% CDMG → CRIT DMG goalpost LOW at 110, CRIT Rate is the gear stat, **no cap**), plus a
+  **mechanically-exact Energy Regen cap of 3.68** (her Core Passive DEF-Ignore maxes there: 1.4 + 19×0.12). **Vivian**
+  AP weight 3.5→4.0 (Abloom scales on AP) + LOW ATK target (2000–2400).
+- ✅ **First non-CRIT cap, live-verified:** Cissia's ER (sheet 3.74 ≥ cap 3.68) renders **gold + MAX**, 20/20 capped
+  segments, "TGT 3 · CAP 3.68" — screenshot `Claude Space/screenshots/cissia-levels-er-cap.png`. The cap-clamp on
+  grading stays CRIT-Rate-only (grading.js:147), so the ER cap is meter-only (confirmed: Cissia `capped=false`).
+- ✅ **`relevant` audit:** **Burnice** fixed `[ATK, AP, Energy Regen]` → **`[ATK, AP, Anomaly Mastery]`** (her slot-6
+  main is AM, sheet ER is near-minimum 1.56). Velina keeps ER (real 2.88 goalpost), Vivian/Cissia unchanged.
+- ⚠️ **Burnice `relevant` is the ONE delta vs the live blob** — diffed the andres-zzz Supabase blob against the edited
+  seed: only Burnice differs, everything else identical. Needs `npm run sync-stats -- --write` to surface live (targets
+  already live — they're bundled in the build, not the blob). **Not yet synced/committed/pushed.**
+- ☐ **Follow-up surfaced:** Cissia/Velina slot-6 Energy-Regen disc grades as off-meta (mainPts=1) because the
+  archetype `mainStatPoints[6]` omits ER. Fix = merge per-agent `mainStatPoints` in `resolveArchetype`.
+
 ## Next steps (next session)
 
-1. **Commit + push** session 4 (per-agent calibration). Then: **calibrate the remaining 14 agents** (stunners/
-   supports) the same way, and **re-audit `relevant` lists** so each agent's Levels panel shows the right stats
-   (Rupture → HP/Sheer Force; anomaly → no CRIT row). The 11 DPS are done; the structure is in place to extend.
+0. **Land session 5:** `npm run sync-stats -- --write` (pushes Burnice's `relevant`), then commit + push.
+1. **Calibrate the remaining 9 agents** the same way — Stunners (Dialyn/Trigger/Ju Fufu/Lighter/Nangong Yu) need the
+   **Impact** goalpost axis + a uniform `relevant` philosophy (theirs are inconsistent: some show Impact, some don't);
+   Supports (Astra Yao/Sunna/Yuzuha/Lucia) need a buffer philosophy (Energy Regen / enabler stats vs damage). The 15
+   DPS are done; the structure is in place to extend.
+1b. **Slot-6 main-stat fix** (above) so Cissia/Velina's ER discs grade correctly — small `resolveArchetype` change.
 2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
    ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
    passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.

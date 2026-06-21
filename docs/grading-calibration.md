@@ -89,3 +89,42 @@ Ye caps at 50 but Ellen wants 90 — both "crit" archetype. CRIT is irreducibly 
 - Most non-Prydwen sites are **priority-only** — for hard numbers, Prydwen (or MMP for Miyabi) is the source.
 - "Folklore" numbers (e.g. Ellen ATK 2500 / ER 120–140%, Yixuan HP 18–20k) circulating in search snippets
   were NOT on fetched pages — excluded. Prydwen's actual numbers are above.
+
+---
+
+# Session 5 addendum — drop-in DPS batch (2026-06-21)
+
+Four more agents, all reusing the session-4 structure (no new semantics). Prydwen "Best Endgame
+Stats (Level 60)" + disc plan, hand-pulled through the single camoufox browser (BUILD react-tab).
+
+| Agent | Arch | ATK | CRIT Rate | CRIT DMG | AP | AM | Energy Regen | Disk 4/5/6 mains |
+|---|---|---|---|---|---|---|---|---|
+| Cissia | crit | 2500–2700+ | **50–57** (w/ sig) | **110+** (low) | — | — | **scaling** (Core Passive) | CR>CDMG / ElecDMG>ATK% / **Energy Regen** |
+| Velina | anomaly | 2400–2600+ | n/a | n/a | 330–420+ | — | **2.88** | AP / WindDMG=ATK%=PEN / **Energy Regen** |
+| Burnice | anomaly | 2500–3200+ | n/a | n/a | 350–400+ | 153+ | (minimum) | AP / PEN>=FireDMG / **Anomaly Mastery** |
+| Vivian | anomaly | **2000–2400+** | n/a | n/a | 380–450+ | 198+ | (minimum) | AP / EtherDMG>PEN=ATK% / **Anomaly Mastery** |
+
+### Decisions / structural findings
+1. **Cissia's CRIT is inverted from a normal crit DPS.** Her Festering Venom passive self-grants
+   **+50% CRIT DMG** (combat, off the character screen), so her CRIT DMG *goalpost* is LOW (110+) and
+   **CRIT Rate is the gear stat** (50–57 w/ signature). No mechanical CR cap (no conversion past a
+   breakpoint), so **no `cap`** — just target/full.
+2. **Cissia's Energy Regen has a real, computable cap.** Core Passive: squad DEF-Ignore = 3% flat +
+   0.52% per 0.12 ER above 1.4, capped at 12.88%. Solve: (12.88−3)/0.52 = 19 steps → ER = 1.4 +
+   19×0.12 = **3.68**. Past that, ER is wasted → `cap: 3.68`. Her seeded sheet ER is 3.74, so her meter
+   reads **MAX/gold** (verified live). First non-CRIT cap; the meter's cap logic is generic, and the
+   grade-clamp is CRIT-Rate-only (line 147), so an ER cap never touches grading.
+3. **Velina & Burnice run Energy Regen / Anomaly Mastery on slot 6, not ATK%.** Velina's ER goalpost is
+   2.88 (a real benchmark, not a cap). Burnice's slot 6 is **AM** (153+), so her `relevant` was wrong
+   (`[ATK, AP, Energy Regen]`) → fixed to **`[ATK, AP, Anomaly Mastery]`**. Her sheet ER (1.56) confirms
+   ER is not her goalpost.
+4. **Vivian favors AP over ATK% in almost all cases** (Core Passive scales Abloom — the bulk of her DPS —
+   directly with AP), so AP weight bumped 3.5 → **4.0** and her ATK goalpost set LOW (2000–2400). The bump
+   moves her real build only ~1pp (33.2→32.1%); the low D is honest (her imported discs are full of dead
+   CRIT/HP/DEF substats).
+5. **Known follow-up (not done):** the `attack`/`anomaly` archetypes don't list Energy Regen in
+   `mainStatPoints[6]`, so Cissia's & Velina's *correct* slot-6 ER disc grades as off-meta (mainPts=1).
+   Fix = extend `resolveArchetype` to merge per-agent `mainStatPoints`, then give them ER on slot 6.
+
+**Remaining after this batch (9):** Stunners (Dialyn, Trigger, Ju Fufu, Lighter, Nangong Yu) need the
+**Impact** goalpost axis; Supports (Astra Yao, Sunna, Yuzuha, Lucia) need a buffer philosophy.
