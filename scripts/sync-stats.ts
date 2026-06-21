@@ -16,6 +16,7 @@ interface SeedAgent {
   name: string;
   mainStats?: { stat: string; value: string }[];
   relevant?: string[];
+  base?: Record<string, number>;
 }
 
 async function main() {
@@ -41,6 +42,7 @@ async function main() {
     if (!s?.mainStats) continue;
     a.mainStats = s.mainStats;
     if (s.relevant) a.relevant = s.relevant;
+    if (s.base) a.base = s.base; // derived hidden base stats → enables live disc→sheet recompute
     synced.push(a.name);
   }
   console.log(`agents with mainStats → ${synced.length}: ${synced.join(", ") || "(none)"}`);

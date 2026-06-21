@@ -237,7 +237,19 @@
         "ATK",
         "Anomaly Mastery",
         "Anomaly Proficiency"
-      ]
+      ],
+      "base": {
+        "ATK": 1978.226,
+        "HP": 7673.786,
+        "DEF": 605.645,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 118,
+        "Anomaly Mastery": 150,
+        "Impact": 86,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Jane Doe",
@@ -470,7 +482,19 @@
         "ATK",
         "Anomaly Mastery",
         "Anomaly Proficiency"
-      ]
+      ],
+      "base": {
+        "ATK": 1592.373,
+        "HP": 7788.43,
+        "DEF": 605.59,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 234,
+        "Anomaly Mastery": 147.692,
+        "Impact": 86,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Yixuan",
@@ -704,7 +728,19 @@
         "HP",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1614.286,
+        "HP": 10466.25,
+        "DEF": 463.926,
+        "CRIT Rate": 10.6,
+        "CRIT DMG": 83.6,
+        "Anomaly Proficiency": 90,
+        "Anomaly Mastery": 92,
+        "Impact": 93,
+        "Energy Regen": 0,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Yidhari",
@@ -937,7 +973,19 @@
         "HP",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1571.774,
+        "HP": 10890.845,
+        "DEF": 447.605,
+        "CRIT Rate": 19.4,
+        "CRIT DMG": 66,
+        "Anomaly Proficiency": 90,
+        "Anomaly Mastery": 87,
+        "Impact": 95,
+        "Energy Regen": 0,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Velina",
@@ -1169,7 +1217,19 @@
         "ATK",
         "Anomaly Proficiency",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1585,
+        "HP": 7788.71,
+        "DEF": 611.527,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 165,
+        "Anomaly Mastery": 112,
+        "Impact": 86,
+        "Energy Regen": 1.8,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Ye Shunguang",
@@ -1402,7 +1462,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1680.905,
+        "HP": 7673.585,
+        "DEF": 605.491,
+        "CRIT Rate": 19.4,
+        "CRIT DMG": 114,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 83,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Dialyn",
@@ -1633,7 +1705,19 @@
       "relevant": [
         "CRIT Rate",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1470.861,
+        "HP": 8250,
+        "DEF": 611.314,
+        "CRIT Rate": 51.4,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 110,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Astra Yao",
@@ -1865,7 +1949,19 @@
       "relevant": [
         "ATK",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1733.155,
+        "HP": 8609.565,
+        "DEF": 599.86,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 92,
+        "Anomaly Mastery": 93,
+        "Impact": 83,
+        "Energy Regen": 1.75,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Miyabi",
@@ -2098,7 +2194,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1775.472,
+        "HP": 7673.786,
+        "DEF": 606,
+        "CRIT Rate": 29,
+        "CRIT DMG": 66,
+        "Anomaly Proficiency": 238,
+        "Anomaly Mastery": 115.385,
+        "Impact": 86,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Aria",
@@ -2330,7 +2438,19 @@
         "ATK",
         "Anomaly Mastery",
         "Anomaly Proficiency"
-      ]
+      ],
+      "base": {
+        "ATK": 1575.806,
+        "HP": 7749.565,
+        "DEF": 618.715,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 146,
+        "Anomaly Mastery": 194.615,
+        "Impact": 87,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Cissia",
@@ -2563,7 +2683,19 @@
         "CRIT Rate",
         "CRIT DMG",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1650.394,
+        "HP": 7673.214,
+        "DEF": 605.645,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 93,
+        "Energy Regen": 2.337,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Evelyn",
@@ -2796,7 +2928,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1641.912,
+        "HP": 7788.35,
+        "DEF": 611.577,
+        "CRIT Rate": 51.4,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 90,
+        "Anomaly Mastery": 92,
+        "Impact": 93,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Seed",
@@ -3028,7 +3172,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1641.566,
+        "HP": 7673,
+        "DEF": 611.527,
+        "CRIT Rate": 37,
+        "CRIT DMG": 78.8,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 93,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Soldier 0 Anby",
@@ -3261,7 +3417,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1641.549,
+        "HP": 7673.214,
+        "DEF": 611.314,
+        "CRIT Rate": 19.4,
+        "CRIT DMG": 98,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 93,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Burnice",
@@ -3494,7 +3662,19 @@
         "ATK",
         "Anomaly Proficiency",
         "Anomaly Mastery"
-      ]
+      ],
+      "base": {
+        "ATK": 1957.258,
+        "HP": 7368.807,
+        "DEF": 599.65,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 180,
+        "Anomaly Mastery": 117.692,
+        "Impact": 83,
+        "Energy Regen": 1.56,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Trigger",
@@ -3727,7 +3907,19 @@
         "Impact",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1462.264,
+        "HP": 7923.478,
+        "DEF": 599.832,
+        "CRIT Rate": 29,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 95,
+        "Anomaly Mastery": 96,
+        "Impact": 137.288,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Sunna",
@@ -3958,7 +4150,19 @@
       "relevant": [
         "ATK",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1641.279,
+        "HP": 8477.686,
+        "DEF": 599.754,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 95,
+        "Anomaly Mastery": 96,
+        "Impact": 98,
+        "Energy Regen": 1.625,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Yuzuha",
@@ -4190,7 +4394,19 @@
         "ATK",
         "Anomaly Mastery",
         "Anomaly Proficiency"
-      ]
+      ],
+      "base": {
+        "ATK": 1559.036,
+        "HP": 8829.565,
+        "DEF": 611.888,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 131.538,
+        "Impact": 86,
+        "Energy Regen": 1.92,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Lucia",
@@ -4421,7 +4637,19 @@
       "relevant": [
         "HP",
         "Energy Regen"
-      ]
+      ],
+      "base": {
+        "ATK": 1470.536,
+        "HP": 10262.105,
+        "DEF": 593.96,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 95,
+        "Anomaly Mastery": 96,
+        "Impact": 83,
+        "Energy Regen": 1.75,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Vivian",
@@ -4653,7 +4881,19 @@
         "ATK",
         "Anomaly Mastery",
         "Anomaly Proficiency"
-      ]
+      ],
+      "base": {
+        "ATK": 1592.647,
+        "HP": 7673.043,
+        "DEF": 605.645,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 238,
+        "Anomaly Mastery": 152.308,
+        "Impact": 86,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Ellen",
@@ -4886,7 +5126,19 @@
         "ATK",
         "CRIT Rate",
         "CRIT DMG"
-      ]
+      ],
+      "base": {
+        "ATK": 1758.451,
+        "HP": 7673.228,
+        "DEF": 605.839,
+        "CRIT Rate": 22.6,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 93,
+        "Anomaly Mastery": 94,
+        "Impact": 93,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 8
+      }
     },
     {
       "name": "Ju Fufu",
@@ -5119,7 +5371,19 @@
         "ATK",
         "CRIT Rate",
         "Impact"
-      ]
+      ],
+      "base": {
+        "ATK": 1726.966,
+        "HP": 8250,
+        "DEF": 596.715,
+        "CRIT Rate": 19.4,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 96,
+        "Anomaly Mastery": 93,
+        "Impact": 117.797,
+        "Energy Regen": 1.44,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Lighter",
@@ -5351,7 +5615,19 @@
       "relevant": [
         "Impact",
         "CRIT Rate"
-      ]
+      ],
+      "base": {
+        "ATK": 1480.473,
+        "HP": 8253.571,
+        "DEF": 611.314,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 90,
+        "Anomaly Mastery": 91,
+        "Impact": 164.407,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     },
     {
       "name": "Nangong Yu",
@@ -5583,7 +5859,19 @@
         "ATK",
         "Anomaly Proficiency",
         "Anomaly Mastery"
-      ]
+      ],
+      "base": {
+        "ATK": 1458.491,
+        "HP": 8373.043,
+        "DEF": 621.508,
+        "CRIT Rate": 5,
+        "CRIT DMG": 50,
+        "Anomaly Proficiency": 123,
+        "Anomaly Mastery": 162.308,
+        "Impact": 120,
+        "Energy Regen": 1.2,
+        "PEN Ratio": 0
+      }
     }
   ]
 }

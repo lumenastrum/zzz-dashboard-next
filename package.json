@@ -12,7 +12,8 @@
     "frames": "python scripts/measure-frames.py",
     "seed": "tsx scripts/seed.ts",
     "stage": "tsx scripts/stage-assets.ts",
-    "sync-stats": "tsx scripts/sync-stats.ts"
+    "sync-stats": "tsx scripts/sync-stats.ts",
+    "derive-bases": "node scripts/derive-bases.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

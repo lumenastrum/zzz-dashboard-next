@@ -10,7 +10,7 @@ import { useState } from "react";
 import Link from "next/link";
 import type { Agent } from "@/lib/types";
 import type { RosterEntry } from "@/lib/roster";
-import { gradeBuild, computeStats, resolveWengine, GRADING_CONFIG } from "@/lib/grading";
+import { gradeBuild, computeStats, computeSheet, resolveWengine, GRADING_CONFIG } from "@/lib/grading";
 import type { SyncStatus } from "@/lib/data-context";
 import {
   elementIcon,
@@ -22,6 +22,7 @@ import {
   VOID_HUNTER_ICON,
   elementGradient,
   isSignatureEngine,
+  fmtStat,
 } from "@/lib/deck-config";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
@@ -63,6 +64,12 @@ export function AgentDeck({
     : undefined;
   const stats = hasBuild ? computeStats(agent as Agent, GRADING_CONFIG, statsOpts) : null;
   const pieces = agent?.discs?.pieces ?? [];
+  // Live-recomputed character screen: editing a disc moves the sheet (and the gold-relevant rows).
+  // Overlay the computed values onto the seeded rows, preserving order + any non-computed rows.
+  const liveSheet = hasBuild && agent?.base ? computeSheet(agent as Agent, GRADING_CONFIG) : null;
+  const mainRows = agent?.mainStats?.map((r) =>
+    liveSheet && liveSheet[r.stat] != null ? { stat: r.stat, value: fmtStat(r.stat, liveSheet[r.stat]) } : r,
+  );
 
   const disc = grade ? grade.discs.find((d) => d.slot === selSlot) ?? grade.discs[0] : undefined;
   const piece = disc ? pieces.find((p) => p.slot === disc.slot) : undefined;
@@ -194,7 +201,7 @@ export function AgentDeck({
                     </div>
                   )}
                   <div className="modlbl mstats-lbl"><span className="dot" />Main Stats</div>
-                  <MainStats rows={agent?.mainStats} relevant={agent?.relevant} />
+                  <MainStats rows={mainRows} relevant={agent?.relevant} />
                 </div>
                 <div>
                   <div className="modlbl"><span className="dot" />Levels</div>

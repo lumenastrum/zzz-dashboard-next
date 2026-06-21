@@ -185,7 +185,8 @@ export function gradeBuild(agent, cfg) {
  * Sheet     = the character-screen number = base + disc mains/subs + W-Engine base/advanced + sheet-scope set bonuses
  * Effective = Sheet + combat-only buffs    = W-Engine passive + combat-scope set bonuses
  * DMG% / Buildup effects never touch the sheet — returned as `buffs` for display.
- * agent.base    = { atkPool, AP, AM }  (illustrative calibration constants — refine to exact ZZZ later)
+ * agent.base    = back-solved hidden base stats keyed by stat (ATK/HP/DEF/CRIT Rate/.../Anomaly Mastery)
+ *                 from scripts/derive-bases — computeSheet recomputes the screen from base + live discs.
  * agent.wengine = { name, base:{ATK}, advanced:{label}, passive:[ mod ] }   mod = {label,kind,stat,value,scope}
  */
 const _num = (v) => (typeof v === "number" ? v : parseFloat(String(v).replace(/[^0-9.\-]/g, "")) || 0);
@@ -198,41 +199,79 @@ export function resolveWengine(we, cfg) {
   return { ...(cfg?.wengines?.[we.name] || {}), ...we };
 }
 
-export function computeStats(agent, cfg, opts = {}) {
-  const rv = cfg.rollValues || {};
-  const pieces = agent.discs?.pieces || [];
-  let atkPct = 0, flatAtk = 0, apDiscs = 0, amDiscs = 0;
-  for (const p of pieces) {
-    const ms = p.main?.stat, mv = p.main?.value;
-    if (ms === "ATK%") atkPct += _num(mv);
-    else if (ms === "ATK") flatAtk += _num(mv);
-    else if (ms === "Anomaly Proficiency") apDiscs += _num(mv);
-    else if (ms === "Anomaly Mastery") amDiscs += _num(mv);
-    for (const s of p.subs || []) {
-      const amt = (s.rolls || 0) * (rv[s.stat] || 0);
-      if (s.stat === "ATK%") atkPct += amt;
-      else if (s.stat === "ATK") flatAtk += amt;
-      else if (s.stat === "Anomaly Proficiency") apDiscs += amt;
+/** Accumulate disc main + substat contributions into stat pools, using cfg.discMains (S-rank +15
+ *  main values) and cfg.rollValues (per-roll substat values). Percentage pools carry the % number
+ *  (30 = 30%); flat pools are raw. Element DMG mains collapse to "Attribute DMG" (skipped — not a
+ *  sheet stat). Shared by computeStats (forward sheet) and scripts/derive-bases (inverse). */
+export function discAccum(pieces, cfg) {
+  const dm = cfg.discMains || {}, rv = cfg.rollValues || {};
+  const a = { atkPct: 0, flatAtk: 0, hpPct: 0, flatHp: 0, defPct: 0, flatDef: 0, crPct: 0, cdPct: 0,
+    apFlat: 0, amPct: 0, impactPct: 0, erPct: 0, penRatio: 0, flatPen: 0 };
+  const route = {
+    "ATK%": "atkPct", "ATK": "flatAtk", "HP%": "hpPct", "HP": "flatHp", "DEF%": "defPct", "DEF": "flatDef",
+    "CRIT Rate": "crPct", "CRIT DMG": "cdPct", "Anomaly Proficiency": "apFlat", "Anomaly Mastery": "amPct",
+    "Impact": "impactPct", "Energy Regen": "erPct", "PEN Ratio": "penRatio", "Flat PEN": "flatPen",
+  };
+  for (const p of (pieces || [])) {
+    const ms = mainKey(p.main?.stat);
+    const mv = dm[String(p.slot)]?.[ms];
+    if (mv != null && route[ms]) a[route[ms]] += mv;
+    for (const s of (p.subs || [])) {
+      if (route[s.stat]) a[route[s.stat]] += (rv[s.stat] || 0) * (s.rolls || 0);
     }
   }
-  const base = agent.base || {}, we = resolveWengine(agent.wengine, cfg) || {};
-  // The Sheet baseline. Prefer the REAL character-screen values (opts.sheet — the seeded main
-  // stats); fall back to the illustrative base+disc computation for pre-seed agents. The stats
-  // we report = opts.stats (the agent's relevant/goalposted stats), default to the anomaly trio.
-  const legacy = {
-    "ATK": Math.round(((base.atkPool || 0) + (we.base?.ATK || 0)) * (1 + atkPct / 100) + flatAtk),
-    "Anomaly Proficiency": Math.round((base.AP || 0) + apDiscs),
-    "Anomaly Mastery": Math.round((base.AM || 0) + amDiscs),
+  return a;
+}
+
+/** Recompute the character-screen (unconditional) sheet from agent.base + current discs, applying the
+ *  researched ZZZ formulas (docs/stat-formulas.md): ATK/HP/DEF multiply (base × (1+%) + flat); AM /
+ *  Impact / Energy Regen multiply base by (1+%); CRIT Rate/DMG, Anomaly Proficiency, PEN Ratio add;
+ *  Sheer Force = 0.3·ATK + 0.1·HP (Rupture). base folds in W-Engine/core/sheet-set sources. This is
+ *  what makes live disc edits flow into the stats — edit a disc, the sheet (and goalposts) move. */
+export function computeSheet(agent, cfg) {
+  const b = agent.base || {};
+  const d = discAccum(agent.discs?.pieces || [], cfg);
+  const ATK = (b.ATK || 0) * (1 + d.atkPct / 100) + d.flatAtk;
+  const HP = (b.HP || 0) * (1 + d.hpPct / 100) + d.flatHp;
+  const DEF = (b.DEF || 0) * (1 + d.defPct / 100) + d.flatDef;
+  const sheet = {
+    "ATK": Math.round(ATK),
+    "HP": Math.round(HP),
+    "DEF": Math.round(DEF),
+    "CRIT Rate": +((b["CRIT Rate"] || 0) + d.crPct).toFixed(1),
+    "CRIT DMG": +((b["CRIT DMG"] || 0) + d.cdPct).toFixed(1),
+    "Anomaly Proficiency": Math.round((b["Anomaly Proficiency"] || 0) + d.apFlat),
+    "Anomaly Mastery": Math.round((b["Anomaly Mastery"] || 0) * (1 + d.amPct / 100)),
+    "Impact": Math.round((b["Impact"] || 0) * (1 + d.impactPct / 100)),
+    "Energy Regen": +((b["Energy Regen"] || 0) * (1 + d.erPct / 100)).toFixed(2),
+    "PEN Ratio": +((b["PEN Ratio"] || 0) + d.penRatio).toFixed(1),
   };
-  const override = opts.sheet || {};
+  if (String(agent.section || "").toUpperCase() === "RUPTURE") {
+    sheet["Sheer Force"] = Math.round(0.3 * ATK + 0.1 * HP);
+  }
+  return sheet;
+}
+
+export function computeStats(agent, cfg, opts = {}) {
+  const pieces = agent.discs?.pieces || [];
+  const we = resolveWengine(agent.wengine, cfg) || {};
   const statKeys = (opts.stats && opts.stats.length)
     ? opts.stats
     : ["ATK", "Anomaly Proficiency", "Anomaly Mastery"];
+  // The SHEET (character screen) is COMPUTED from base + current discs (computeSheet), so editing a
+  // disc flows straight into the stats and goalposts. opts.sheet (the seeded snapshot) is only a
+  // fallback — for an agent without a derived base, or a stat key computeSheet doesn't produce.
+  const computed = agent.base ? computeSheet(agent, cfg) : {};
+  const override = opts.sheet || {};
   const sheet = {};
-  for (const k of statKeys) sheet[k] = override[k] != null ? _num(override[k]) : (legacy[k] ?? 0);
-  // Seeded (override) values ARE the character screen — sheet-scope set/W-Engine bonuses are
-  // already baked in, so don't re-add them (double-count). Only combat-scope buffs layer on.
-  const overridden = new Set(statKeys.filter((k) => override[k] != null));
+  for (const k of statKeys) {
+    sheet[k] = computed[k] != null ? computed[k] : (override[k] != null ? _num(override[k]) : 0);
+  }
+  // Computed/seeded sheet already folds in all unconditional sources (W-Engine/core/sheet-set are
+  // absorbed into base), so don't re-add sheet-scope set bonuses onto a complete key — only
+  // combat-scope buffs layer on for Effective. (Set-swaps don't retro-adjust sheet-scope set stats
+  // baked into base — a v1 limitation; disc main/substat edits recompute exactly.)
+  const overridden = new Set(statKeys.filter((k) => computed[k] != null || override[k] != null));
 
   const sets = computeSets(pieces, cfg);
   const combat = {};
@@ -272,4 +311,4 @@ export function swapDiscSet(agent, slot, newSet, cfg) {
   return { agent: next, grade: gradeBuild(next, cfg) };
 }
 
-export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet };
+export default { resolveArchetype, resolveWengine, gradeDisc, computeSets, gradeBuild, computeStats, swapDiscSet, discAccum, computeSheet };

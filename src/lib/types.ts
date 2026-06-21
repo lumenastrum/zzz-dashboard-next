@@ -52,8 +52,10 @@ export interface Agent {
   rank?: string; // S / A
   mindscape?: string; // M0 … M6
   level?: number;
-  // illustrative stat baseline for the Sheet/Effective sheet — refine to exact ZZZ later
-  base?: { atkPool?: number; AP?: number; AM?: number };
+  // Derived hidden base stats (back-solved from the seed by scripts/derive-bases) keyed by stat name
+  // — ATK/HP/DEF/CRIT Rate/CRIT DMG/Anomaly Proficiency/Anomaly Mastery/Impact/Energy Regen/PEN Ratio.
+  // computeSheet recomputes the character screen from base + live discs. See docs/stat-formulas.md.
+  base?: Record<string, number>;
   wengine?: WEngine;
   discs?: { pieces: DiscPiece[] };
   // Character-screen main stats + the agent's scaling stats. Lives on the agent object so the

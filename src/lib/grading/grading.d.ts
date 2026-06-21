@@ -97,6 +97,10 @@ export interface ComputeStatsOpts {
   stats?: string[];
 }
 export function computeStats(agent: Agent, cfg: GradingConfig, opts?: ComputeStatsOpts): StatsResult;
+/** Accumulate disc main+substat contributions into stat pools (cfg.discMains + cfg.rollValues). */
+export function discAccum(pieces: unknown[], cfg: GradingConfig): Record<string, number>;
+/** Recompute the character-screen (unconditional) sheet from agent.base + current discs. */
+export function computeSheet(agent: Agent, cfg: GradingConfig): Record<string, number>;
 export function swapDiscSet(
   agent: Agent,
   slot: number,

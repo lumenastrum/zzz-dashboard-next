@@ -227,6 +227,16 @@
     } }
   },
 
+  "discMains": {
+    "_comment": "S-rank +15 disc MAIN-stat values by slot, for the live sheet recompute (computeStats). Percentage keys (ATK%, AM, Impact, ER, CRIT Rate/DMG, PEN Ratio, Attribute DMG) carry the % number; flat keys (HP/ATK/DEF slots 1-3, Anomaly Proficiency) are raw. AM/Impact/ER are MULTIPLICATIVE on base; CRIT Rate/DMG/PEN Ratio are ADDITIVE; ATK%/HP%/DEF% multiply (base+WE). Element DMG mains collapse to 'Attribute DMG'. Researched 2026-06-21 — see docs/stat-formulas.md.",
+    "1": { "HP": 2200 },
+    "2": { "ATK": 316 },
+    "3": { "DEF": 184 },
+    "4": { "HP%": 30, "ATK%": 30, "DEF%": 48, "CRIT Rate": 24, "CRIT DMG": 48, "Anomaly Proficiency": 92 },
+    "5": { "HP%": 30, "ATK%": 30, "DEF%": 48, "PEN Ratio": 24, "Attribute DMG": 30 },
+    "6": { "HP%": 30, "ATK%": 30, "DEF%": 48, "Anomaly Mastery": 30, "Impact": 18, "Energy Regen": 60 }
+  },
+
   "rollValues": {
     "_comment": "Approx per-roll value for an S-rank disc substat (one PropertyLevel). Used to turn rolls → stat values for the Sheet/Effective stat sheet. Illustrative — refine to exact ZZZ tuning later.",
     "ATK%": 3.0, "ATK": 19, "HP%": 3.0, "HP": 112, "DEF%": 4.8, "DEF": 15,

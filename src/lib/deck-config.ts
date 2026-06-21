@@ -72,6 +72,16 @@ export const STAT_SHEET = [
 ] as const;
 export const statIcon = (stat: string) => `stat_${slugify(stat)}`;
 
+// Format a computed sheet value (number) back into the character-screen string style: thousands
+// commas for big stats, a trailing % for ratio stats, plain otherwise. Mirrors the seeded format
+// so the live-recomputed MainStats panel reads identically to the in-game screen.
+const STAT_COMMA = new Set(["HP", "ATK", "DEF", "Sheer Force"]);
+const STAT_PCT = new Set(["CRIT Rate", "CRIT DMG", "PEN Ratio"]);
+export const fmtStat = (stat: string, value: number): string =>
+  STAT_COMMA.has(stat) ? Number(value).toLocaleString("en-US")
+    : STAT_PCT.has(stat) ? `${value}%`
+    : String(value);
+
 // Standard-channel S-rank W-engines — generic, not any agent's signature. The cartridge only
 // claims "Signature" for engines NOT in this set, so a standard engine (e.g. an agent running
 // The Brimstone or Hellfire Gears) reads as "Standard". Extend as new standard engines ship.

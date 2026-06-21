@@ -1,6 +1,13 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
 **Last updated:** 2026-06-21 (session 5) · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped.
+**★ LIVE STAT RECOMPUTE (session 5g):** the deck is no longer a snapshot — editing a disc now recomputes the
+character screen AND the goalpost meters live. Deciphered ZZZ's real stat formulas (`docs/stat-formulas.md`):
+`computeSheet` recomputes the sheet from a back-solved `agent.base` + current discs (ATK `(base+WE)(1+%)+flat`;
+**AM is `base×(1+AM%)`** not flat — was a bug; Sheer Force `0.3·ATK + 0.1·HP`). `scripts/derive-bases.mjs` back-solves
+every agent's hidden base from their seed (validated: base CRIT pops to 5.0%, base CDMG 50.0%, Miyabi base CR =
+5+24 engine). `base` synced to the blob. **Validated on Andres's live Yuzuha edit:** his slot-3 AP×4 sub edit now
+flows to her screen (AP 129→147 = +2 rolls×9). Pending: his in-game cross-check of the recomputed numbers.
 **Session 5:** (a) drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
 calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM (synced).
 (b) **Systemic slot-main grading fix** — per-agent `mainStatPoints` merge in `resolveArchetype` un-breaks kit-specific
