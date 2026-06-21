@@ -1,23 +1,28 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-21 (session 5) · **Status:** deck + Supabase + 25-agent roster + Enka builds shipped.
-**★ LIVE STAT RECOMPUTE (session 5g):** the deck is no longer a snapshot — editing a disc now recomputes the
-character screen AND the goalpost meters live. Deciphered ZZZ's real stat formulas (`docs/stat-formulas.md`):
-`computeSheet` recomputes the sheet from a back-solved `agent.base` + current discs (ATK `(base+WE)(1+%)+flat`;
-**AM is `base×(1+AM%)`** not flat — was a bug; Sheer Force `0.3·ATK + 0.1·HP`). `scripts/derive-bases.mjs` back-solves
-every agent's hidden base from their seed (validated: base CRIT pops to 5.0%, base CDMG 50.0%, Miyabi base CR =
-5+24 engine). `base` synced to the blob. **Validated on Andres's live Yuzuha edit:** his slot-3 AP×4 sub edit now
-flows to her screen (AP 129→147 = +2 rolls×9). Pending: his in-game cross-check of the recomputed numbers.
-**Session 5:** (a) drop-in DPS calibration — Cissia + Velina/Burnice/Vivian goalposted from Prydwen (15/24 DPS now
-calibrated); Cissia's mechanically-exact Energy-Regen cap (3.68) renders gold/MAX; Burnice `relevant` ER→AM (synced).
-(b) **Systemic slot-main grading fix** — per-agent `mainStatPoints` merge in `resolveArchetype` un-breaks kit-specific
-mains for 5 agents (Rupture HP%, Miyabi CRIT Rate, Cissia/Velina ER). (c) **Miyabi mains corrected** (r/MiyabiMains).
-(d) **Stunner batch** — all 5 calibrated across 4 axes (bearings: Prydwen + 5 chibi WebFetch sweeps); reused the
-CRIT-cap (Trigger 90), slot-6 merge (Dialyn ER / Nangong Yu AM), anomaly archetype (Nangong Yu). (e) **Game-rule fix**:
-removed impossible AP-on-slot-6 mains (anomaly+support), pinned `_mainStatRule`. (f) **Support batch** — all 4 done on
-buff-scaling axes with breakpoint caps (Astra/Sunna ATK, Yuzuha ATK+AM, Lucia HP); the cap now reads "buff maxed".
-**🎉 ROSTER COMPLETE — 24/24 calibrated.** First 3 commits PUSHED; `fc96fdf` (stunners), `7576dc7` (game-rule),
-+ the support commit are local. See docs/grading-calibration.md.
+**Last updated:** 2026-06-21 (session 5 — SHIPPED, PUSHED, IN-GAME VALIDATED) · master @ `2480d5b`, GH Pages deploying.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute**.
+
+**★ LIVE STAT RECOMPUTE (the headline) — VALIDATED AGAINST THE ACTUAL GAME, DEPLOYED.** The deck is no longer a
+snapshot: editing a disc recomputes the character screen AND the goalpost meters live, on ZZZ's real stat formulas
+(reverse-engineered from scratch — `docs/stat-formulas.md`). `computeSheet` recomputes from a back-solved `agent.base`
++ current discs: ATK `(base+WE)·(1+Σ%)+flat`; **AM is `base·(1+AM%)`** (percentage, NOT flat — this was a bug); Sheer
+Force `0.3·ATK + 0.1·HP`; CR/CDMG additive off innate 5%/50%. `scripts/derive-bases.mjs` (`npm run derive-bases`)
+back-solves every agent's hidden base from their seed — proven correct because base CRIT falls out to exactly 5.0%,
+base CDMG to 50.0%, and Miyabi's base CR = 5 + 24 (her engine). `base` lives on the andres-zzz blob.
+**CROSS-CHECKED VS ANDRES'S LIVE GAME SCREEN: recomputed Yuzuha matched in-game exactly** as he edited her discs
+(Anomaly Prof 129 → 147 → 156, exactly +9 per AP roll). Disc roll badge now shows the in-game upgrade count (rolls-1;
+base = +0). **Known v1 limit:** set-swaps don't retro-adjust the few sheet-scope set stats folded into base — disc
+main/substat edits recompute exactly.
+
+**Session 5 calibration — 🎉 ROSTER COMPLETE, 24/24:** (a) drop-in DPS (Cissia + Velina/Burnice/Vivian from Prydwen);
+Cissia's exact ER cap 3.68 → gold/MAX. (b) systemic slot-main `mainStatPoints` merge in `resolveArchetype` (Rupture
+HP%, Miyabi CR, Cissia/Velina ER). (c) Miyabi mains corrected (r/MiyabiMains: AM⇄ATK% comp-dependent, never CDMG-s4).
+(d) Stunner batch — 5 agents across 4 axes (Trigger CR-cap 90, Dialyn ER, Nangong Yu anomaly). (e) Game-rule fix:
+impossible AP-on-slot-6 mains removed, `_mainStatRule` pinned (slot 4 = AP-only, slot 6 = AM-only). (f) Support batch —
+4 buff-scaling agents with breakpoint caps (Astra/Sunna ATK, Yuzuha ATK+AM, Lucia HP). **All 5 session-5 commits
+pushed** (`fc96fdf` stunners · `7576dc7` game-rule · `3f2ac19` supports · `0a6930c` live-recompute · `2480d5b` roll-fix).
+See `docs/grading-calibration.md` + `docs/stat-formulas.md`.
 **This session (3):** factions 100% filled, deck polish (in-game slot order, big grade letters, faction
 in header, bigger W-Engine core), **slug diacritic bugfix**, **Main Stats panel** (character-screen sheet,
 gold = relevant), **stats flow into the Levels goalposts** (Sheet vs Effective restored via `wengines`
@@ -309,20 +314,21 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 
 ## Next steps (next session)
 
-1. ✅ **CALIBRATION COMPLETE — 24/24 built agents** (drop-in DPS + slot-main fix + Miyabi mains + stunners + game-rule
-   + supports). Goalposts/grades are real for every built agent; only Zhao is uncalibrated (buildless, intentionally
-   out). Game-rule fix done (slot 4 = AP-only, slot 6 = AM-only; impossible AP-on-s6 removed, pinned `_mainStatRule`).
-   Future non-calibration candidates: other faceplate tabs (Levels/Teams/Pulls routes); optionally tighten AM `full`
-   values (AM is low-mobility — main + engine/set only, no substat rolls).
-2. **Per-agent `wengines` configs** — only Alice has one, so the other 23 cartridges show the engine name but no
-   ATK/advanced/passive line, and no combat Sheet→Effective. Add each engine's base ATK + advanced + combat
-   passive to `grading-config.json` `wengines` (web-sourceable from the engine description). Keyed by name.
-3. **Confirm Ellen's PEN Ratio** — excluded as a likely kit-value (Evelyn precedent); Andres to verify.
-4. **Other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes + build them.
-5. **GitHub Pages workflow** — remote is live + pushed, but there's **no `.github/workflows/`** yet, so it's not
-   auto-deploying. Copy WuWa's `pages.yml`. `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
-6. **Zhao** — buildless (no discs), so her deck shows no build/stat panel. Build her in-game + `npm run import`,
-   then seed her stats, if ever wanted. Otherwise the roster is effectively complete at 24/25.
+**The two big arcs are DONE:** ✅ calibration (24/24) and ✅ live disc→sheet→goalpost recompute (in-game validated).
+✅ GH Pages auto-deploys on push (`.github/workflows/` live; `basePath` `/zzz-dashboard-next`). Remaining = polish/breadth:
+
+1. **Set-swap sheet stats (the v1 limit).** `computeSheet` folds W-Engine/core/sheet-set sources into `agent.base`, so
+   swapping a disc SET doesn't retro-adjust the few sheet-scope set stats (Woodpecker +8% CR, Astral Voice +10% ATK,
+   Freedom Blues +30 AP). Fix = model those set/WE % explicitly so `base` is char-only, then add them at compute time.
+   Disc main/substat edits already recompute exactly. Needs (2).
+2. **Per-agent `wengines` configs** — only Alice + Miyabi have one, so the other 22 cartridges show the engine name but
+   no ATK/advanced/passive line + no combat Sheet→Effective. Add each engine's base ATK + advanced + combat passive to
+   `grading-config.json` `wengines` (keyed by name). Also unlocks (1) + engine-swap recompute.
+3. **Other faceplate tabs** — wire the home tabs (Levels / Teams / Pulls) to real routes + build them.
+4. **AM `full` goalposts (optional)** — tighten them; AM is low-mobility (main + engine/set only, no substat rolls), so
+   the meters otherwise read perpetually partial.
+5. **Loose ends** — confirm Ellen's PEN Ratio (kit-value, excluded; Evelyn precedent); Zhao is buildless (no discs → no
+   build panel; `npm run import` + seed if ever wanted). Roster effectively complete at 24/25.
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).
