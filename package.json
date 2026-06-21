@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "grade": "tsx scripts/grade.ts"
+    "grade": "tsx scripts/grade.ts",
+    "seed": "tsx scripts/seed.ts",
+    "stage": "tsx scripts/stage-assets.ts"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

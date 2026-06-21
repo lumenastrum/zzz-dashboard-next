@@ -1,6 +1,7 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-20 · **Status:** prototype validated, ready to scaffold into its own repo.
+**Last updated:** 2026-06-20 · **Status:** Next.js repo scaffolded; **Now Playing deck ported +
+Supabase wired live** (verified end-to-end). Remaining: real stat curves, other tabs, Python CLI, GH remote.
 
 ---
 
@@ -105,26 +106,43 @@ re-roll verdict instead.
 
 ---
 
+## DONE (2026-06-20 — this session)
+
+- ✅ **Stack decision:** Next.js (matches WuWa). Modal → **route per agent** (`/r/[slug]`), since the
+  scaffold + WuWa both use routes (deep-linkable, static-export-friendly). Deck *visual* is 1:1 with C.
+- ✅ **Engine ported** earlier (scaffold): `src/lib/grading/` imported as `@/lib/grading`.
+- ✅ **Deck ported** → `src/components/deck/` (`AgentDeck` orchestrator + `Levels` · `EquipStack` ·
+  `TrackInspector` · `DeckFoot` + `DeckImg`/`Segs`). Presentation maps in `src/lib/deck-config.ts`
+  (SET_META, CONE coords, MAINS/SUBSTATS, LEVEL_CFG, icon resolvers). Equipment frame is an `<img>`,
+  not a CSS `url()`, so `withBase()` prefixes it for GH Pages.
+- ✅ **Supabase wired live** — `src/lib/data-context.tsx` (WuWa pattern, but **non-blocking** so the
+  static roster home doesn't wait on the fetch). Loads row `andres-zzz` → falls back to `/data.json`
+  seed → seeds Supabase. `updateAgent(name, mutator)` → debounced save (650ms). Seed generated from
+  `ALICE` via `npm run seed` → `public/data.json`. Layout wraps `<DataProvider>`; `/r/[name]` split
+  into server `page.tsx` (generateStaticParams from ROSTER) + client `client.tsx` (useData bridge).
+- ✅ **Verified end-to-end:** `npm run build` clean (12 agent pages), lint clean, 0 console errors,
+  21/21 deck images load. Live edit through real controls moved Slot 3 **C 43.3% → SSS 100%**, build
+  **70.5% A → 80% S**, verdict auto-retargeted to Slot 6; reload re-loads the saved build from Supabase
+  (then reverted to pristine). ATK reads 2,769 / AP 300→345 / AM 195→255 — matches the engine exactly.
+
 ## Next steps (next session)
 
-1. **Scaffold the new repo** — own folder (proposed `Gacha Dashboards/zzz-dashboard-next/`), parallel to
-   the WuWa next dashboard; legacy untouched. STACK DECISION PENDING (Next.js to match WuWa vs vanilla
-   to preserve the mockup 1:1 — see open question).
-2. **Port the engine** — `grading/` drops in nearly as-is (already clean ESM → `lib/grading/`).
-3. **Port Mockup C** — the modal markup + CSS → components (or straight HTML if vanilla). Preserve the
-   exact visual tuning (equipment frame geometry, VU bars, cone positions).
-4. **Wire Supabase** — extend the agent JSONB blob with the structured `discs.pieces` schema
-   (GRADING_SPEC §1); debounced optimistic writes on edit; keep `andres`/`wife` profiles.
-5. **Port `gradeBuild`/`computeStats` to Python** for `zzz_update.py` (`grade`/`setdisc`/`swapdisc`) so
-   CLI matches the dashboard headless.
-6. **Real stat data** — replace the calibrated base/W-Engine numbers with exact ZZZ base-stat curves +
-   real W-Engine passive values; map Enka `PropertyId` → stat keys if we ever auto-import from a UID.
-7. **Roster + other tabs** — build out the album-tile roster, Stat Audit, Teams, Pulls in the new shell.
-8. **Conditional effect toggles** (stretch) — "in rotation" switch so Fanged 4pc / Phaethon 4pc
+1. **Real stat data** — replace the calibrated base/W-Engine numbers (`agent.base` atkPool/AP/AM +
+   `rollValues` in grading-config) with exact ZZZ base-stat curves + real W-Engine passive values;
+   map Enka `PropertyId` → stat keys if we ever auto-import from a UID. Refine `LEVEL_CFG` full/target.
+2. **Roster + other tabs** — wire the home faceplate tabs (Levels / Teams / Pulls) to real routes;
+   build Stat Audit / Teams / Pulls in the new shell. Home roster is still static `ROSTER` chrome.
+3. **More agent builds** — only Alice has a full build. Enter the rest (they show a "build not entered"
+   state until their `discs.pieces` land in the Supabase blob). Fill `agentOverrides` for hybrids
+   (Miyabi crit-anom, etc.).
+4. **Port `gradeBuild`/`computeStats` to Python** for `zzz_update.py` (`grade`/`setdisc`/`swapdisc`) so
+   the CLI matches the dashboard headless — OR build a `tsx` CLI like WuWa's `scripts/update.ts`.
+5. **GitHub remote + Pages** — add the remote, `.github/workflows/pages.yml` (copy WuWa's), push.
+   `basePath`/`assetPrefix` already set to `/zzz-dashboard-next`.
+6. **Conditional effect toggles** (stretch) — "in rotation" switch so Fanged 4pc / Phaethon 4pc
    conditional buffs flip Effective on/off.
-9. Fill `agentOverrides` for hybrids (Miyabi crit-anom, etc.); B's roster element badges are placeholder.
 
-## How to run the prototype
-`cd Claude Space/zzz-redesign-mockups` → double-click `View Mockups.bat` (or `py -m http.server 8091`),
-open `http://localhost:8091/c-soundsystem.html`, click a disc, edit away. Node smoke test:
-`node grading/demo.mjs`.
+## How to run
+- **App:** `npm run dev` → http://localhost:3000 → roster → click Alice → `/r/alice/` (the deck).
+  `npm run build` for static export; `npm run grade` headless; `npm run seed` to regenerate data.json.
+- **Reference prototype:** `cd ../zzz-redesign-mockups` → `View Mockups.bat`, open `c-soundsystem.html`.

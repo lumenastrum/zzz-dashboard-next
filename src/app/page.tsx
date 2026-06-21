@@ -9,7 +9,7 @@ export default function Home() {
           <span className="led" />
           <div>
             <h1>
-              Zenless <b>//</b> Soundsystem
+              Zenless <b>{"//"}</b> Soundsystem
             </h1>
             <div className="sub">New Eridu · Hi-Fi Proxy Deck</div>
           </div>

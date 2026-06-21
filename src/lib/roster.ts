@@ -14,7 +14,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Alice", slug: "alice", section: "Anomaly", attribute: "Physical", mindscape: 1, el: "#ffb43c" },
   { name: "Miyabi", slug: "miyabi", section: "Anomaly", attribute: "Frost", mindscape: 1, el: "#6cc6ff" },
   { name: "Evelyn", slug: "evelyn", section: "Attack", attribute: "Fire", mindscape: 1, el: "#ff6a4d" },
-  { name: "Yixuan", slug: "yixuan", section: "Rapture", attribute: "Auric", mindscape: 0, el: "#b06bff" },
+  { name: "Yixuan", slug: "yixuan", section: "Rupture", attribute: "Auric Ink", mindscape: 0, el: "#b06bff" },
   { name: "Vivian", slug: "vivian", section: "Anomaly", attribute: "Ether", mindscape: 1, el: "#caa6ff" },
   { name: "Ju Fufu", slug: "jufufu", section: "Stun", attribute: "Fire", mindscape: 0, el: "#ff5a6e" },
   { name: "Ellen", slug: "ellen", section: "Attack", attribute: "Ice", mindscape: 2, el: "#6cc6ff" },
