@@ -7,8 +7,12 @@
 import { GRADING_CONFIG } from "@/lib/grading";
 
 // ---- slug + asset paths --------------------------------------------------
+// NFD-normalize + strip combining marks so accented names fold to ASCII (é→e, ô→o) the way
+// the wiki-sourced art filenames do — otherwise "Joyau Doré" slugs to "joyau_dor" (é dropped as
+// a separator) and misses the staged "joyau_dore" icon. Keep in lockstep with stage-assets.ts.
 export const slugify = (s: string) =>
-  s.toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  s.toLowerCase().normalize("NFD").replace(/\p{M}/gu, "")
+    .replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 
 export const iconPath = (name: string) => `/assets/icons/${name}.webp`;
 export const tallPath = (slug: string) => `/assets/tall/${slug}.webp`;

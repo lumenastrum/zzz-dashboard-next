@@ -11,8 +11,11 @@ const SRC = path.join(ROOT, ".."); // Gacha Dashboards/
 const ICONS = path.join(ROOT, "public", "assets", "icons");
 const TALL = path.join(ROOT, "public", "assets", "tall");
 
+// Lockstep with deck-config.ts slugify: NFD-normalize + strip combining marks so accents fold
+// to ASCII (é→e), matching how the deck resolvers slug the live data names.
 const slug = (s: string) =>
-  decodeURIComponent(s).toLowerCase().replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
+  decodeURIComponent(s).toLowerCase().normalize("NFD").replace(/\p{M}/gu, "")
+    .replace(/['’]/g, "").replace(/[^a-z0-9]+/g, "_").replace(/^_+|_+$/g, "");
 const strip = (f: string, pre: string, suf: string) => f.slice(pre.length, f.length - suf.length);
 
 // Tall-portrait file core (Agent_<core>_Portrait.webp) → roster slug. Multi-word agents
