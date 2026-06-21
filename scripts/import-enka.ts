@@ -135,7 +135,9 @@ function decodeAvatar(av: any, c: Record<string, any>): DecodedAgent {
     level: av.Level ?? 60,
     discs: { pieces: pieces.sort((a, b) => a.slot - b.slot) },
   };
-  if (weapon) agent.wengine = { name: weapon, rank: "S", refine: `R${(av.Weapon?.UpgradeLevel ?? 0) + 1}` };
+  // Enka `UpgradeLevel` is the 1-indexed W-engine refinement (1=R1 … 5=R5), NOT 0-indexed — do NOT
+  // add 1. The old `+ 1` inflated every R1 engine to R2 across the whole roster (fixed 2026-06-21).
+  if (weapon) agent.wengine = { name: weapon, rank: "S", refine: `R${av.Weapon?.UpgradeLevel ?? 1}` };
 
   return { id, agent, resolved: Boolean(ident), weapon };
 }

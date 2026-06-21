@@ -187,7 +187,7 @@
       "wengine": {
         "name": "Practiced Perfection",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Physical",
       "mindscape": "M1",
@@ -420,7 +420,7 @@
       "wengine": {
         "name": "Sharpened Stinger",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Physical",
       "mindscape": "M3",
@@ -653,7 +653,7 @@
       "wengine": {
         "name": "Qingming Birdcage",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Auric Ink",
       "mindscape": "M1",
@@ -886,7 +886,7 @@
       "wengine": {
         "name": "Kraken's Cradle",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Ice",
       "mindscape": "M0",
@@ -1119,7 +1119,7 @@
       "wengine": {
         "name": "Joyau Doré",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Wind",
       "mindscape": "M1",
@@ -1352,7 +1352,7 @@
       "wengine": {
         "name": "Cloudcleave Radiance",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Honed Edge",
       "mindscape": "M1",
@@ -1584,7 +1584,7 @@
       "wengine": {
         "name": "Yesterday Calls",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Physical",
       "mindscape": "M0",
@@ -1816,7 +1816,7 @@
       "wengine": {
         "name": "Elegant Vanity",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Ether",
       "mindscape": "M1",
@@ -2048,7 +2048,7 @@
       "wengine": {
         "name": "Hailstorm Shrine",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Frost",
       "mindscape": "M1",
@@ -2280,7 +2280,7 @@
       "wengine": {
         "name": "Angel in the Shell",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Ether",
       "mindscape": "M0",
@@ -2512,7 +2512,7 @@
       "wengine": {
         "name": "Serpentine Seeker",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Electric",
       "mindscape": "M0",
@@ -2746,7 +2746,7 @@
       "wengine": {
         "name": "Heartstring Nocturne",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Fire",
       "mindscape": "M3",
@@ -2978,7 +2978,7 @@
       "wengine": {
         "name": "Cordis Germina",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Electric",
       "mindscape": "M0",
@@ -3211,7 +3211,7 @@
       "wengine": {
         "name": "Severed Innocence",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Electric",
       "mindscape": "M1",
@@ -3444,7 +3444,7 @@
       "wengine": {
         "name": "Flamemaker Shaker",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Fire",
       "mindscape": "M0",
@@ -3677,7 +3677,7 @@
       "wengine": {
         "name": "Spectral Gaze",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Electric",
       "mindscape": "M0",
@@ -3909,7 +3909,7 @@
       "wengine": {
         "name": "Thoughtbop",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Physical",
       "mindscape": "M0",
@@ -4140,7 +4140,7 @@
       "wengine": {
         "name": "Metanukimorphosis",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "attribute": "Physical",
       "mindscape": "M0",
@@ -4373,7 +4373,7 @@
       "wengine": {
         "name": "Dreamlit Hearth",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "mainStats": [
         {
@@ -4603,7 +4603,7 @@
       "wengine": {
         "name": "Flight of Fancy",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "mainStats": [
         {
@@ -4835,7 +4835,7 @@
       "wengine": {
         "name": "The Brimstone",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "faction": "Victoria Housekeeping Co.",
       "mainStats": [
@@ -5068,7 +5068,7 @@
       "wengine": {
         "name": "Roaring Fur-nace",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "faction": "Yunkui Summit",
       "mainStats": [
@@ -5301,7 +5301,7 @@
       "wengine": {
         "name": "Hellfire Gears",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "faction": "Sons of Calydon",
       "mainStats": [
@@ -5532,7 +5532,7 @@
       "wengine": {
         "name": "Neon Fantasies",
         "rank": "S",
-        "refine": "R2"
+        "refine": "R1"
       },
       "mainStats": [
         {
