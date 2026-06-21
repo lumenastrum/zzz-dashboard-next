@@ -133,13 +133,16 @@ export const MAINS: Record<number, string[]> = {
 };
 
 // ---- equipment-frame cone geometry (%[left, top] on equip_frame.webp) ----
+// In-game slot order: 1-2-3 down the LEFT column (top→bottom), 4-5-6 up the RIGHT column
+// (bottom→top). The six physical cone positions are fixed by the frame art; only which slot
+// number sits where changes here. Slot identity (main-stat rules, grading) is unaffected.
 export const CONE: Record<number, [number, number]> = {
-  1: [28.7, 18.5],
-  2: [71.3, 18.5],
-  3: [15.6, 50.5],
-  4: [84.4, 50.5],
-  5: [28.7, 82.5],
-  6: [71.3, 82.5],
+  1: [28.7, 18.5], // top-left
+  2: [15.6, 50.5], // mid-left
+  3: [28.7, 82.5], // bottom-left
+  4: [71.3, 82.5], // bottom-right
+  5: [84.4, 50.5], // mid-right
+  6: [71.3, 18.5], // top-right
 };
 
 // ---- VU-meter scaling for the Levels panel -------------------------------

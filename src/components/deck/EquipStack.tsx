@@ -59,12 +59,8 @@ export function EquipStack({
               {Array.from({ length: 5 }).map((_, i) => (
                 <i key={i} className={i < onN ? "on" : ""} />
               ))}
-              <b>{d.letter}</b>
             </div>
-            <div className="lvl">
-              <DeckImg src={iconPath("coin_S")} alt="" />
-              <span>Lv. {piece?.level ?? 15}/15</span>
-            </div>
+            <div className="gletter"><b>{d.letter}</b></div>
           </div>
         );
       })}
