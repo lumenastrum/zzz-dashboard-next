@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Oswald, Rajdhani, Inter } from "next/font/google";
 import "./globals.css";
 import { DataProvider } from "@/lib/data-context";
+import { withBase } from "@/lib/base-path";
 
 const oswald = Oswald({ variable: "--font-oswald", subsets: ["latin"], weight: ["400", "500", "600", "700"] });
 const rajdhani = Rajdhani({ variable: "--font-rajdhani", subsets: ["latin"], weight: ["500", "600", "700"] });
@@ -18,6 +19,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className={fontVars}>
       <body>
+        <div
+          className="site-bg"
+          aria-hidden
+          style={{ backgroundImage: `url(${withBase("/assets/site-bg-dark.webp")})` }}
+        />
         <DataProvider>{children}</DataProvider>
       </body>
     </html>

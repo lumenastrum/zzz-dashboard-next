@@ -20,10 +20,12 @@ import {
   iconPath,
   tallPath,
   VOID_HUNTER_ICON,
+  elementColor,
   elementGradient,
   isSignatureEngine,
   fmtStat,
 } from "@/lib/deck-config";
+import { withBase } from "@/lib/base-path";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
 import { MainStats } from "./MainStats";
@@ -102,6 +104,11 @@ export function AgentDeck({
   const level = agent?.level ?? 60;
   const rank = agent?.rank ?? "S";
   const { title, voidHunter } = entry;
+  // Film-strip backdrop (ripped from ZZZ's RoleInfo agent screen): tinted to the agent's
+  // element hue, scroll variant keyed to elite tier. Grandmasters and Void Hunters get the
+  // in-game special strips; everyone else gets the standard reel.
+  const filmVariant = !voidHunter ? "standard" : title === "Grandmaster" ? "grandmaster" : "voidhunter";
+  const filmUrl = withBase(`/assets/filmstrip-${filmVariant}.png`);
   const we = resolveWengine(agent?.wengine ?? null, GRADING_CONFIG);
   const sync = SYNC_LABEL[syncStatus];
 
@@ -153,8 +160,16 @@ export function AgentDeck({
       </div>
 
       <div className="deck-body">
-        <div className="tt">
-          <div className="platter" />
+        <div
+          className="tt"
+          style={{
+            "--ec": elementColor(attribute),
+            "--film": `url(${filmUrl})`,
+            "--reel": `url(${withBase("/assets/filmstrip-reel.png")})`,
+          } as React.CSSProperties}
+        >
+          <div className="filmreel" aria-hidden />
+          <div className="filmstrip" aria-hidden />
           <DeckImg className="pimg" src={tallPath(entry.slug)} alt={name} />
           <div className="plate">
             <div className="big">{name}</div>

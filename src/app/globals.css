@@ -20,13 +20,34 @@
 html, body { height: 100%; }
 body {
   margin: 0;
-  background:
-    radial-gradient(900px 500px at 80% -5%, rgba(255,77,82,.08), transparent 60%),
-    radial-gradient(700px 500px at 10% 105%, rgba(154,107,255,.07), transparent 60%),
-    var(--bg);
+  background: var(--bg);
   color: var(--ink);
   font-family: var(--body);
   -webkit-font-smoothing: antialiased;
+}
+
+/* ===== fixed New Eridu wordmark backdrop ===== */
+/* image URL is set inline in layout.tsx via withBase() (survives the prod basePath). */
+.site-bg {
+  position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  /* fit full image width (image is 2500×1080) so the whole New Eridu wordmark renders instead of
+     cover cropping to the middle; the wall's own edge tone (#111) fills the small top/bottom gaps so
+     they blend seamlessly instead of reading as bands. */
+  background-color: #121212;
+  background-size: 100% auto; background-position: center; background-repeat: no-repeat;
+}
+/* vignette: keeps the center calm for content, darkens the edges so panels pop */
+.site-bg::before {
+  content: ""; position: absolute; inset: 0;
+  background: radial-gradient(125% 95% at 50% 38%,
+    transparent 0%, rgba(11,8,14,.50) 76%, rgba(8,5,11,.86) 100%);
+}
+/* Soundsystem accent glows, layered back on TOP of the wordmark texture */
+.site-bg::after {
+  content: ""; position: absolute; inset: 0;
+  background:
+    radial-gradient(900px 500px at 80% -5%, rgba(255,77,82,.10), transparent 60%),
+    radial-gradient(700px 500px at 10% 105%, rgba(154,107,255,.09), transparent 60%);
 }
 * { box-sizing: border-box; }
 img { user-select: none; -webkit-user-drag: none; }
@@ -167,9 +188,28 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 /* left: album / turntable */
 .tt { position:relative; overflow:hidden; padding:18px; border-right:1px solid var(--bezel1); min-height:500px;
   background:radial-gradient(120% 90% at 50% 10%,rgba(255,77,82,.12),transparent 55%),linear-gradient(180deg,#1a141f,#0c090f); }
-.platter { position:absolute; left:50%; top:46%; transform:translate(-50%,-50%); width:104%; aspect-ratio:1; border-radius:50%;
-  background:repeating-radial-gradient(circle,#0c0c0e 0 3px,#161618 3px 6px); opacity:.5;
-  -webkit-mask:radial-gradient(circle,#000 60%,transparent 62%); mask:radial-gradient(circle,#000 60%,transparent 62%); }
+/* film-strip backdrop v4 — two layers behind the deck portrait (floating glyphs, no fill, no vinyl
+   platter). The CONTENT reel (rank glyphs, --film) is tinted to the agent's element hue (--ec) via
+   multiply + mask. The plain FILM reel (--reel, rotated so its perforations run vertically) stays
+   NEUTRAL BLACK and sits in the gaps, offset half a period (111px), counter-scrolling. .tt clips. */
+.filmstrip, .filmreel { position:absolute; inset:-40%; z-index:0; pointer-events:none;
+  transform:rotate(-9deg); background-repeat:repeat; background-size:auto 800px; }
+.filmstrip { opacity:.4;
+  background-color:var(--ec,#9a6bff); background-image:var(--film); background-blend-mode:multiply;
+  -webkit-mask-image:var(--film); mask-image:var(--film);
+  -webkit-mask-repeat:repeat; mask-repeat:repeat;
+  -webkit-mask-size:auto 800px; mask-size:auto 800px;
+  animation:filmscroll 22s linear infinite; }
+.filmreel { opacity:.5; background-image:var(--reel); background-position-x:111px;
+  animation:filmscroll-reel 22s linear infinite; }
+@keyframes filmscroll {
+  from { background-position:0 0; -webkit-mask-position:0 0; mask-position:0 0; }
+  to   { background-position:0 -800px; -webkit-mask-position:0 -800px; mask-position:0 -800px; } }
+/* counter-scroll: the film reel drifts DOWN while the content reel climbs UP (parallax depth) */
+@keyframes filmscroll-reel {
+  from { background-position:111px 0; }
+  to   { background-position:111px 800px; } }
+@media (prefers-reduced-motion:reduce) { .filmstrip, .filmreel { animation:none; } }
 /* width:auto + max-width:none cancels the Tailwind preflight `img{max-width:100%}` clamp so the
    portrait keeps its aspect ratio and bleeds past the 340px column (cropped by .tt overflow:hidden)
    instead of being squished horizontally. */
