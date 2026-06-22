@@ -196,7 +196,17 @@ const _num = (v) => (typeof v === "number" ? v : parseFloat(String(v).replace(/[
  *  refine win). The cartridge card and the Sheet-vs-Effective layer both read through this. */
 export function resolveWengine(we, cfg) {
   if (!we) return null;
-  return { ...(cfg?.wengines?.[we.name] || {}), ...we };
+  const ref = cfg?.wengines?.[we.name] || {};
+  const out = { ...ref, ...we };
+  // Refine-aware passive: a catalog entry may list per-refine passives under `refines` (R1..R5) for
+  // engines actually run at varying refinements (e.g. Courtney's A-ranks — Weeping Gemini R1 on Yanagi,
+  // R2 on Vivian). base ATK + advanced stat are LEVEL-based (refine-independent); only the passive scales.
+  // Falls back R<refine> → R1 → the flat `passive`. Entries without `refines` are unchanged (back-compat).
+  if (ref.refines) {
+    out.passive = ref.refines[we.refine] || ref.refines.R1 || ref.passive || [];
+    delete out.refines;
+  }
+  return out;
 }
 
 /** Accumulate disc main + substat contributions into stat pools, using cfg.discMains (S-rank +15

@@ -170,6 +170,12 @@
       "Anomaly Mastery": { "target": 198, "full": 290 },
       "Anomaly Proficiency": { "target": 410, "full": 480 }
     } },
+    "_yanagi_note": "Courtney's roster. Yanagi is a pure AP-scaling Electric anomaly — Disorder CANNOT crit, so she has NO CRIT mechanic (unlike Miyabi's CRIT->buildup conversion); CRIT is a dead stat and gets no goalpost (the anomaly archetype already zeroes CRIT weight). Slots track the anomaly default (4=AP, 5=Electric DMG/PEN, 6=AM or ATK%). Targets PROPOSED from a WebFetch sweep (Game8 + Prydwen-via-proxy) on the Alice/Jane AP-anomaly scale; the one hard in-game number is the 375 AP Disorder-DMG breakpoint on her signature Timeweaver. ⚠️ Pending Andres's Prydwen cross-check.",
+    "Yanagi": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2800, "full": 3300 },
+      "Anomaly Proficiency": { "target": 400, "full": 475 },
+      "Anomaly Mastery": { "target": 190, "full": 280 }
+    } },
     "Yixuan": { "archetype": "attack", "weights": { "HP%": 3.0, "PEN Ratio": 0, "Flat PEN": 0 }, "mainStatPoints": { "6": { "HP%": 3 } }, "targets": {
       "ATK": { "target": 1900, "full": 2400 },
       "CRIT Rate": { "target": 85, "cap": 90, "full": 95 },
@@ -577,6 +583,57 @@
         { "label": "Squad DMG +15%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true },
         { "label": "Anomaly Prof +60 (2 stk)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 60, "unit": "", "scope": "combat", "cond": true }
       ]
+    },
+    "Weeping Gemini": {
+      "_comment": "A-rank Anomaly engine (Courtney: Vivian R2, Yanagi R1). Secondary stat is ATK +25% (NOT Anomaly Proficiency). Passive 'Lingering Cries': when a squad member inflicts an Attribute Anomaly, equipper gains Anomaly Proficiency per stack (x4). base ATK 594 (A-rank). Sourced Game8 + zzz.gg + bittopup + senpailife; AP/stk R1->R5 = 30/34/38/42/48 (x4 = 120/136/152/168/192).",
+      "base": { "ATK": 594 },
+      "advanced": { "label": "ATK +25%" },
+      "refines": {
+        "R1": [{ "label": "+30 Anomaly Proficiency/stk (x4)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 120, "unit": "", "scope": "combat", "cond": true }],
+        "R2": [{ "label": "+34 Anomaly Proficiency/stk (x4)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 136, "unit": "", "scope": "combat", "cond": true }],
+        "R3": [{ "label": "+38 Anomaly Proficiency/stk (x4)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 152, "unit": "", "scope": "combat", "cond": true }],
+        "R4": [{ "label": "+42 Anomaly Proficiency/stk (x4)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 168, "unit": "", "scope": "combat", "cond": true }],
+        "R5": [{ "label": "+48 Anomaly Proficiency/stk (x4)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 192, "unit": "", "scope": "combat", "cond": true }]
+      }
+    },
+    "Kaboom the Cannon": {
+      "_comment": "A-rank Support engine (Courtney: Lucia R3). Secondary Energy Regen +50%. Passive 'Stampede Accident': squad ATK% buff per stack (x4) on any squad hit (%-mult -> buff chip). base ATK 624. Sourced Game8 + zzz.gg; ATK%/stk R1->R5 = 2.5/2.8/3.2/3.6/4.0.",
+      "base": { "ATK": 624 },
+      "advanced": { "label": "Energy Regen +50%" },
+      "refines": {
+        "R1": [{ "label": "Squad ATK +2.5%/stk (x4)", "kind": "buff", "stat": "ATK", "value": 2.5, "unit": "%", "scope": "combat", "cond": true }],
+        "R2": [{ "label": "Squad ATK +2.8%/stk (x4)", "kind": "buff", "stat": "ATK", "value": 2.8, "unit": "%", "scope": "combat", "cond": true }],
+        "R3": [{ "label": "Squad ATK +3.2%/stk (x4)", "kind": "buff", "stat": "ATK", "value": 3.2, "unit": "%", "scope": "combat", "cond": true }],
+        "R4": [{ "label": "Squad ATK +3.6%/stk (x4)", "kind": "buff", "stat": "ATK", "value": 3.6, "unit": "%", "scope": "combat", "cond": true }],
+        "R5": [{ "label": "Squad ATK +4.0%/stk (x4)", "kind": "buff", "stat": "ATK", "value": 4.0, "unit": "%", "scope": "combat", "cond": true }]
+      }
+    },
+    "Precious Fossilized Core": {
+      "_comment": "A-rank Stun engine (Courtney: Ju Fufu R5). Secondary Impact +15%. Passive 'Behemoth Hunter': +Daze vs high-HP targets (>=50%, plus an additional bonus >=75%). base ATK 594. Sourced Game8 + senpailife + korometa; Daze/tier R1->R5 = 10/11.5/13/14.5/16.",
+      "base": { "ATK": 594 },
+      "advanced": { "label": "Impact +15%" },
+      "refines": {
+        "R1": [
+          { "label": "+10% Daze (target HP>=50%)", "kind": "buildup", "stat": "Daze", "value": 10, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "+10% Daze (additional, HP>=75%)", "kind": "buildup", "stat": "Daze", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+        ],
+        "R2": [
+          { "label": "+11.5% Daze (target HP>=50%)", "kind": "buildup", "stat": "Daze", "value": 11.5, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "+11.5% Daze (additional, HP>=75%)", "kind": "buildup", "stat": "Daze", "value": 11.5, "unit": "%", "scope": "combat", "cond": true }
+        ],
+        "R3": [
+          { "label": "+13% Daze (target HP>=50%)", "kind": "buildup", "stat": "Daze", "value": 13, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "+13% Daze (additional, HP>=75%)", "kind": "buildup", "stat": "Daze", "value": 13, "unit": "%", "scope": "combat", "cond": true }
+        ],
+        "R4": [
+          { "label": "+14.5% Daze (target HP>=50%)", "kind": "buildup", "stat": "Daze", "value": 14.5, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "+14.5% Daze (additional, HP>=75%)", "kind": "buildup", "stat": "Daze", "value": 14.5, "unit": "%", "scope": "combat", "cond": true }
+        ],
+        "R5": [
+          { "label": "+16% Daze (target HP>=50%)", "kind": "buildup", "stat": "Daze", "value": 16, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "+16% Daze (additional, HP>=75%)", "kind": "buildup", "stat": "Daze", "value": 16, "unit": "%", "scope": "combat", "cond": true }
+        ]
+      }
     }
   }
 }
