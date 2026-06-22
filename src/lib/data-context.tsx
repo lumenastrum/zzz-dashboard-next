@@ -54,6 +54,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   const latest = useRef<DashboardData | null>(null);
   const dirty = useRef(false); // unsaved edits pending (cleared only on confirmed save)
   const version = useRef(0); // bumped per edit, so an in-flight save knows if it's been superseded
+  const loadedAt = useRef<string | null>(null); // the updated_at we loaded — optimistic-lock token
   const supa = getSupabase();
   // Which Supabase row this route reads/writes — root → andres-zzz, /wife → wife-zzz.
   const { key: profileKey, isWife } = useProfile();
@@ -68,13 +69,14 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         if (supa) {
           const { data: row, error } = await supa
             .from(SUPABASE_TABLE)
-            .select("data")
+            .select("data,updated_at")
             .eq("profile", profileKey)
             .maybeSingle();
           if (error) {
             console.warn("Supabase load error, falling back to JSON seed", error);
           } else if (row?.data) {
             loaded = row.data as DashboardData;
+            loadedAt.current = (row as { updated_at?: string }).updated_at ?? null;
           }
         }
 
@@ -85,12 +87,14 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
           if (!resp.ok) throw new Error("HTTP " + resp.status);
           loaded = (await resp.json()) as DashboardData;
           if (supa) {
+            const stamp = new Date().toISOString();
             await supa
               .from(SUPABASE_TABLE)
               .upsert(
-                { profile: profileKey, data: loaded, updated_at: new Date().toISOString() },
+                { profile: profileKey, data: loaded, updated_at: stamp },
                 { onConflict: "profile" },
               );
+            loadedAt.current = stamp;
           }
         }
 
@@ -109,22 +113,55 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     };
   }, [supa, profileKey, isWife]);
 
-  // The actual persist (debounced path). Uses the supabase-js client with full error handling.
-  // `dirty` is cleared ONLY on confirmed success, and only if no newer edit landed during the
-  // round-trip (version guard) — so an edit made mid-save is never silently dropped.
+  // Reload the live row into local state — also the conflict-recovery path. Resets the optimistic-lock
+  // token and clears dirty (local unsaved edits are intentionally dropped; we reload precisely to
+  // replace stale local state with the authoritative row).
+  const reload = useCallback(async () => {
+    if (!supa) return;
+    setSyncStatus("loading");
+    const { data: row, error } = await supa
+      .from(SUPABASE_TABLE)
+      .select("data,updated_at")
+      .eq("profile", profileKey)
+      .maybeSingle();
+    if (!error && row?.data) {
+      latest.current = row.data as DashboardData;
+      loadedAt.current = (row as { updated_at?: string }).updated_at ?? null;
+      dirty.current = false;
+      setData(row.data as DashboardData);
+      setSyncStatus("live");
+    } else {
+      setSyncStatus("error");
+    }
+  }, [supa, profileKey]);
+
+  // The actual persist (debounced path). OPTIMISTIC CONCURRENCY: the UPDATE is conditional on the
+  // row's updated_at still matching what we loaded, so a STALE surface (a second tab / Couch-Clio
+  // holding an old blob) can't clobber newer data — its write matches 0 rows and we reload instead of
+  // overwriting. `dirty` clears only on confirmed success, version-guarded so a mid-save edit isn't lost.
   const commit = useCallback(async () => {
     if (!supa || !latest.current || !dirty.current) return;
     if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
     const v = version.current;
+    const stamp = new Date().toISOString();
     setSyncStatus("saving");
     try {
-      const { error } = await supa
+      let q = supa
         .from(SUPABASE_TABLE)
-        .upsert(
-          { profile: profileKey, data: latest.current, updated_at: new Date().toISOString() },
-          { onConflict: "profile" },
-        );
+        .update({ data: latest.current, updated_at: stamp })
+        .eq("profile", profileKey);
+      if (loadedAt.current) q = q.eq("updated_at", loadedAt.current);
+      const { data: rows, error } = await q.select("updated_at");
       if (error) throw error;
+      if (!rows || rows.length === 0) {
+        // The row changed under us (another surface wrote). Don't clobber — pull the fresh state.
+        console.warn("Save conflict: row changed elsewhere; reloading instead of overwriting");
+        await reload();
+        return;
+      }
+      // Re-arm the lock token from the row's CANONICAL updated_at (DB format), so the next
+      // conditional write matches exactly rather than relying on our generated ISO string.
+      loadedAt.current = (rows[0] as { updated_at?: string }).updated_at ?? stamp;
       if (version.current === v) {
         dirty.current = false;
         setSyncStatus("live");
@@ -133,26 +170,29 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       console.error("Save failed", e);
       setSyncStatus("error"); // dirty stays true → retried by the next edit / flush
     }
-  }, [supa, profileKey]);
+  }, [supa, profileKey, reload]);
 
   // Land a pending edit synchronously when the page is hidden / refreshed / closed. The supabase-js
   // client's fetch is NOT keepalive, so a debounced (or in-flight) save is cancelled on unload — that
-  // is the disc-edit rollback. A raw keepalive POST survives teardown (the blob is well under the
-  // ~64KB keepalive cap). Fire-and-forget by design; clears dirty since we've dispatched the freshest.
+  // was the disc-edit rollback. A raw keepalive PATCH survives teardown (blob << ~64KB keepalive cap)
+  // and is ALSO conditioned on updated_at, so a stale tab's unload-flush can't clobber newer data either.
   const flush = useCallback(() => {
     if (!supa || !latest.current || !dirty.current) return;
     if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
     dirty.current = false;
+    const stamp = new Date().toISOString();
+    const filter = `profile=eq.${encodeURIComponent(profileKey)}`
+      + (loadedAt.current ? `&updated_at=eq.${encodeURIComponent(loadedAt.current)}` : "");
     try {
-      fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?on_conflict=profile`, {
-        method: "POST",
+      fetch(`${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?${filter}`, {
+        method: "PATCH",
         headers: {
           apikey: SUPABASE_ANON_KEY,
           Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
           "Content-Type": "application/json",
-          Prefer: "resolution=merge-duplicates,return=minimal",
+          Prefer: "return=minimal",
         },
-        body: JSON.stringify({ profile: profileKey, data: latest.current, updated_at: new Date().toISOString() }),
+        body: JSON.stringify({ data: latest.current, updated_at: stamp }),
         keepalive: true,
       });
     } catch {
@@ -210,24 +250,6 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     },
     [update],
   );
-
-  const reload = useCallback(async () => {
-    if (!supa) return;
-    setSyncStatus("loading");
-    const { data: row, error } = await supa
-      .from(SUPABASE_TABLE)
-      .select("data")
-      .eq("profile", profileKey)
-      .maybeSingle();
-    if (!error && row?.data) {
-      const fresh = row.data as DashboardData;
-      latest.current = fresh;
-      setData(fresh);
-      setSyncStatus("live");
-    } else {
-      setSyncStatus("error");
-    }
-  }, [supa, profileKey]);
 
   const { agents, agentByName } = deriveAgents(data);
 
