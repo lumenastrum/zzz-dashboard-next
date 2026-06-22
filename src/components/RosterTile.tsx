@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { RosterEntry } from "@/lib/roster";
+import { displayMindscape } from "@/lib/roster";
+import { profileFromPath } from "@/lib/profile";
 import { withBase } from "@/lib/base-path";
 import { iconPath, tallPath, elementIcon, typeIcon, VOID_HUNTER_ICON, elementColor, elementGradient } from "@/lib/deck-config";
 import { portraitFrame } from "@/lib/portrait-frames";
@@ -47,6 +49,7 @@ export function RosterTile({ a, base = "" }: { a: RosterEntry; base?: string }) 
     yixuan: { dx: -25, dy: 25, dz: 1.1 },
     yidhari: { dx: 25, dy: 20 },
   };
+  const ms = displayMindscape(profileFromPath(base || "/").key, a.mindscape);
   const m = portraitFrame(a.slug);
   const n = NUDGE[a.slug] ?? {};
   const z = ZOOM * (n.dz ?? 1);
@@ -83,7 +86,7 @@ export function RosterTile({ a, base = "" }: { a: RosterEntry; base?: string }) 
             {a.name}
             {a.title ? <small className="title">{a.title}</small> : <small>{a.section}</small>}
           </div>
-          <div className="me">M{a.mindscape}</div>
+          <div className="me">{ms}</div>
         </div>
         <div className="strip">
           {Array.from({ length: 8 }).map((_, i) => (

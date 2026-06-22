@@ -1,4 +1,5 @@
 import { RosterTile } from "@/components/RosterTile";
+import { TopNav } from "@/components/TopNav";
 import type { RosterEntry } from "@/lib/roster";
 
 // Shared roster home (the "S-Rank Agents" album wall). Parameterized by the roster slice +
@@ -7,23 +8,7 @@ import type { RosterEntry } from "@/lib/roster";
 export function RosterHome({ roster, base = "" }: { roster: RosterEntry[]; base?: string }) {
   return (
     <div className="wrap">
-      <header className="face">
-        <div className="brand">
-          <span className="led" />
-          <div>
-            <h1>
-              Zenless <b>{"//"}</b> Soundsystem
-            </h1>
-            <div className="sub">New Eridu · Hi-Fi Proxy Deck</div>
-          </div>
-        </div>
-        <nav className="tnav">
-          <a className="on" href="#">Agents</a>
-          <a href="#">Levels</a>
-          <a href="#">Teams</a>
-          <a href="#">Pulls</a>
-        </nav>
-      </header>
+      <TopNav base={base} active="agents" />
 
       <div className="shead">
         <h2>S-Rank Agents</h2>

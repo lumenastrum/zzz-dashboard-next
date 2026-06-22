@@ -1,7 +1,9 @@
 // Which roster/Supabase profile the current route is showing. Profile is a RUNTIME concern
 // (which Supabase row the client fetches), derived from the URL — so a single static build
 // serves both Andres (root) and his wife (/wife) off one Supabase project. No env, no rebuild.
-import { usePathname } from "next/navigation";
+//
+// This module is PURE / server-safe (no React hooks) so server components — e.g. TopNav — can
+// import it. The client-only `useProfile` hook lives in ./use-profile to avoid tainting this.
 import { PROFILE_KEY, PROFILE_WIFE } from "./supabase";
 
 export interface ProfileInfo {
@@ -17,11 +19,6 @@ export function profileFromPath(pathname: string | null | undefined): ProfileInf
   return isWife
     ? { key: PROFILE_WIFE, base: "/wife", isWife: true }
     : { key: PROFILE_KEY, base: "", isWife: false };
-}
-
-// Client hook — the live profile for the current route. Only call inside client components.
-export function useProfile(): ProfileInfo {
-  return profileFromPath(usePathname());
 }
 
 // Prefix an app-internal path with the active profile's base. next/link applies basePath on

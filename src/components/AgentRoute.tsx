@@ -7,7 +7,8 @@
 import Link from "next/link";
 import { ROSTER } from "@/lib/roster";
 import { useData } from "@/lib/data-context";
-import { useProfile, profileHref } from "@/lib/profile";
+import { profileHref } from "@/lib/profile";
+import { useProfile } from "@/lib/use-profile";
 import { AgentDeck } from "@/components/deck/AgentDeck";
 
 function StatePanel({ base, title, children }: { base: string; title: string; children: React.ReactNode }) {

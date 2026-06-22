@@ -411,3 +411,89 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .foot { grid-template-columns:1fr; }
   .rtop { grid-template-columns:1fr; }
 }
+
+/* ===== Pull Priority — wishlist crates =====================================
+   Her-exclusive tab. Each pick is a flippable record sleeve: front = cover art
+   (emote sticker + rank + VU priority meter), back = liner notes (why + teams).
+   --ec = the agent's ELEMENT accent (art halo + name hover); --heat = the TIER
+   priority color (rank + meter + badge), so element and urgency read separately. */
+.crate-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(216px,1fr)); gap:18px; }
+
+.crate { position:relative; height:336px; perspective:1300px; cursor:pointer; outline:none; }
+.crate[data-tier="5"] { --heat:var(--red); }
+.crate[data-tier="4"] { --heat:var(--amber); }
+.crate[data-tier="3"] { --heat:var(--yellow); }
+.crate[data-tier="2"] { --heat:#6f86c9; }
+.crate[data-tier="1"] { --heat:var(--mut2); }
+
+.crate .ci { position:absolute; inset:0; transform-style:preserve-3d;
+  transition:transform .6s cubic-bezier(.4,.15,.2,1); }
+@media (hover:hover){ .crate:hover .ci, .crate:focus-visible .ci { transform:rotateY(180deg); } }
+.crate.flipped .ci { transform:rotateY(180deg); }
+@media (prefers-reduced-motion:reduce){ .crate .ci { transition:none; } }
+
+.crate .cf { position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  border-radius:14px; border:1px solid var(--bezel1); border-top:2px solid var(--heat); overflow:hidden;
+  box-shadow:0 10px 26px rgba(0,0,0,.45); }
+.crate:focus-visible .cf { box-shadow:0 10px 26px rgba(0,0,0,.5), 0 0 0 2px color-mix(in srgb, var(--ec) 60%, transparent); }
+
+/* --- FRONT: cover art --- */
+.crate .front { display:flex; flex-direction:column; padding:13px 13px 0;
+  background:linear-gradient(180deg, var(--panel), var(--panel2)); }
+.crate-top { display:flex; align-items:center; justify-content:space-between; }
+.crate .rank { font-family:var(--disp); font-weight:700; font-size:16px; letter-spacing:1px; color:var(--heat); }
+.meter { display:flex; gap:3px; align-items:flex-end; }
+.meter i { width:5px; height:14px; border-radius:1px; background:rgba(255,255,255,.09); }
+.meter i.on { background:var(--heat); box-shadow:0 0 7px var(--heat); }
+
+.cover { position:relative; flex:1; display:grid; place-items:center; margin:6px 0 2px; }
+.cover .halo { position:absolute; width:135px; height:135px; border-radius:50%;
+  background:radial-gradient(circle, color-mix(in srgb, var(--ec) 42%, transparent), transparent 68%); filter:blur(3px); }
+.stickers { position:relative; display:flex; place-items:center; justify-content:center; }
+.stickers .emote { width:auto; max-width:none; height:120px; object-fit:contain;
+  filter:drop-shadow(0 5px 11px rgba(0,0,0,.55)); transition:transform .35s; }
+@media (hover:hover){ .crate:hover .stickers .emote { transform:translateY(-3px) scale(1.04); } }
+.stickers.duo .emote { height:98px; }
+.stickers.duo .emote:first-child { transform:rotate(-7deg) translateX(12px); z-index:1; }
+.stickers.duo .emote:last-child { transform:rotate(7deg) translateX(-12px); }
+@media (hover:hover){
+  .crate:hover .stickers.duo .emote:first-child { transform:rotate(-9deg) translate(8px,-3px) scale(1.04); }
+  .crate:hover .stickers.duo .emote:last-child  { transform:rotate(9deg) translate(-8px,-3px) scale(1.04); }
+}
+
+.crate-id { text-align:center; }
+.crate-id .cn { font-family:var(--disp); font-weight:600; font-size:16.5px; letter-spacing:.5px; line-height:1.1; }
+.crate-id .cm { display:flex; align-items:center; justify-content:center; gap:5px; flex-wrap:wrap; margin-top:4px;
+  font-family:var(--led); font-size:9.5px; letter-spacing:1.4px; color:var(--mut); text-transform:uppercase; }
+.crate-id .cm .ci-ico { width:14px; height:14px; object-fit:contain; }
+.crate-id .cm em { opacity:.45; font-style:normal; }
+
+.prio { margin:9px -13px 0; padding:9px 12px; text-align:center;
+  font-family:var(--led); font-weight:700; font-size:11px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--heat); background:color-mix(in srgb, var(--heat) 13%, var(--panel2));
+  border-top:1px solid color-mix(in srgb, var(--heat) 32%, transparent); }
+
+/* --- BACK: liner notes --- */
+.crate .back { transform:rotateY(180deg); display:flex; flex-direction:column; padding:15px 15px 16px;
+  background:linear-gradient(165deg, var(--panel2), var(--bg2)); }
+.back-head { display:flex; align-items:baseline; gap:9px; margin-bottom:10px; padding-bottom:10px;
+  border-bottom:1px solid var(--bezel1); }
+.back-head .bn { font-family:var(--disp); font-weight:600; font-size:15.5px; letter-spacing:.4px; }
+.crate .why { margin:0; flex:1; overflow:auto; font-family:var(--body); font-size:11.5px; line-height:1.5; color:var(--chrome); }
+.crate .team { margin-top:11px; font-family:var(--body); font-size:10.5px; line-height:1.45; color:var(--mut); }
+.crate .team .tk { display:block; margin-bottom:3px; font-family:var(--led); font-size:8.5px; letter-spacing:2px;
+  text-transform:uppercase; color:var(--heat); }
+
+/* --- upcoming / leaked picks (e.g. Norma) --- */
+.crate.soon .cf { border-top-style:dashed; }
+.soon-tag { position:absolute; top:8px; left:50%; transform:translateX(-50%); z-index:2;
+  padding:3px 9px; border-radius:20px; font-family:var(--led); font-weight:700; font-size:8px;
+  letter-spacing:1.6px; text-transform:uppercase; color:#120c16; white-space:nowrap;
+  background:var(--heat); box-shadow:0 2px 8px rgba(0,0,0,.4); }
+.eta { display:flex; align-items:center; justify-content:center; gap:6px;
+  padding:6px 12px; background:var(--bg2); border-top:1px solid var(--bezel2);
+  font-family:var(--led); font-size:8.5px; letter-spacing:1.4px; text-transform:uppercase; color:var(--mut); }
+.eta .leak { padding:1px 6px; border-radius:4px; font-size:7.5px; letter-spacing:1px; color:var(--amber);
+  background:color-mix(in srgb, var(--amber) 14%, transparent); border:1px solid color-mix(in srgb, var(--amber) 30%, transparent); }
+
+@media (max-width:560px){ .crate-grid { grid-template-columns:repeat(2,1fr); } }

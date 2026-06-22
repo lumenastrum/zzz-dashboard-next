@@ -23,7 +23,7 @@ import {
   SUPABASE_URL,
   SUPABASE_ANON_KEY,
 } from "./supabase";
-import { useProfile } from "./profile";
+import { useProfile } from "./use-profile";
 import { BASE_PATH } from "./base-path";
 import type { Agent, DashboardData } from "./types";
 

@@ -26,7 +26,8 @@ import {
   fmtStat,
 } from "@/lib/deck-config";
 import { withBase } from "@/lib/base-path";
-import { profileHref } from "@/lib/profile";
+import { profileHref, profileFromPath } from "@/lib/profile";
+import { displayMindscape } from "@/lib/roster";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
 import { MainStats } from "./MainStats";
@@ -103,7 +104,7 @@ export function AgentDeck({
   const attribute = agent?.attribute ?? entry.attribute;
   const section = agent?.section ?? entry.section;
   const specialty = agent?.specialty || titleCase(section);
-  const mindscape = agent?.mindscape ?? `M${entry.mindscape}`;
+  const mindscape = displayMindscape(profileFromPath(base || "/").key, agent?.mindscape ?? entry.mindscape);
   const level = agent?.level ?? 60;
   const rank = agent?.rank ?? "S";
   const { title, voidHunter } = entry;

@@ -1,4 +1,5 @@
 import type { Agent } from "./types";
+import { PROFILE_WIFE } from "./supabase";
 
 export interface RosterEntry {
   name: string;
@@ -69,6 +70,16 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
     "yixuan", "yidhari",
   ],
 };
+
+// Courtney's account runs every agent at base mindscape (M0). Both the static ROSTER and her
+// cloned blob builds inherited Andres's mindscapes, so her views display M0 across the board.
+// Centralized here so the rule lives in one place if her account ever varies per-agent later.
+// `raw` accepts the roster number (e.g. 1) or a blob string (e.g. "M0"); returns a display string.
+export function displayMindscape(profileKey: string, raw: number | string | undefined): string {
+  if (profileKey === PROFILE_WIFE) return "M0";
+  if (typeof raw === "number") return `M${raw}`;
+  return raw ?? "M0";
+}
 
 // Roster slice for a profile: its owned slugs (in ROSTER order), or the full roster if unlisted.
 export function rosterFor(profileKey: string): RosterEntry[] {
