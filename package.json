@@ -13,6 +13,7 @@
     "seed": "tsx scripts/seed.ts",
     "stage": "tsx scripts/stage-assets.ts",
     "sync-stats": "tsx scripts/sync-stats.ts",
+    "seed-profile": "tsx scripts/seed-profile.ts",
     "derive-bases": "node scripts/derive-bases.mjs"
   },
   "dependencies": {

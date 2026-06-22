@@ -18,10 +18,10 @@ import {
 } from "react";
 import {
   getSupabase,
-  PROFILE_KEY,
   SAVE_DEBOUNCE_MS,
   SUPABASE_TABLE,
 } from "./supabase";
+import { useProfile } from "./profile";
 import { BASE_PATH } from "./base-path";
 import type { Agent, DashboardData } from "./types";
 
@@ -51,9 +51,12 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef<DashboardData | null>(null);
   const supa = getSupabase();
+  // Which Supabase row this route reads/writes — root → andres-zzz, /wife → wife-zzz.
+  const { key: profileKey, isWife } = useProfile();
 
   useEffect(() => {
     let mounted = true;
+    setSyncStatus("loading");
     (async () => {
       try {
         let loaded: DashboardData | null = null;
@@ -62,7 +65,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
           const { data: row, error } = await supa
             .from(SUPABASE_TABLE)
             .select("data")
-            .eq("profile", PROFILE_KEY)
+            .eq("profile", profileKey)
             .maybeSingle();
           if (error) {
             console.warn("Supabase load error, falling back to JSON seed", error);
@@ -71,16 +74,17 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
           }
         }
 
-        if (!loaded) {
+        if (!loaded && !isWife) {
+          // Default profile only: the bundled data.json is ANDRES's seed, so never auto-seed a
+          // secondary profile (e.g. wife) from it. Her blob is seeded out-of-band (seed-profile).
           const resp = await fetch(`${BASE_PATH}/data.json`, { cache: "no-store" });
           if (!resp.ok) throw new Error("HTTP " + resp.status);
           loaded = (await resp.json()) as DashboardData;
-          // Seed the Supabase row so the next load is live (and CLI/other surfaces share it).
           if (supa) {
             await supa
               .from(SUPABASE_TABLE)
               .upsert(
-                { profile: PROFILE_KEY, data: loaded, updated_at: new Date().toISOString() },
+                { profile: profileKey, data: loaded, updated_at: new Date().toISOString() },
                 { onConflict: "profile" },
               );
           }
@@ -89,7 +93,8 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         if (!mounted) return;
         latest.current = loaded;
         setData(loaded);
-        setSyncStatus(supa ? "live" : "local");
+        // A missing secondary-profile row isn't an error per se, but there's no build data to show.
+        setSyncStatus(loaded ? (supa ? "live" : "local") : "error");
       } catch (e) {
         console.error("Data load failed", e);
         if (mounted) setSyncStatus("error");
@@ -98,7 +103,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     return () => {
       mounted = false;
     };
-  }, [supa]);
+  }, [supa, profileKey, isWife]);
 
   const scheduleSave = useCallback(() => {
     if (!supa) {
@@ -113,7 +118,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         const { error } = await supa
           .from(SUPABASE_TABLE)
           .upsert(
-            { profile: PROFILE_KEY, data: latest.current, updated_at: new Date().toISOString() },
+            { profile: profileKey, data: latest.current, updated_at: new Date().toISOString() },
             { onConflict: "profile" },
           );
         if (error) throw error;
@@ -123,7 +128,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         setSyncStatus("error");
       }
     }, SAVE_DEBOUNCE_MS);
-  }, [supa]);
+  }, [supa, profileKey]);
 
   const update = useCallback(
     (mutator: (draft: DashboardData) => void) => {
@@ -155,7 +160,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     const { data: row, error } = await supa
       .from(SUPABASE_TABLE)
       .select("data")
-      .eq("profile", PROFILE_KEY)
+      .eq("profile", profileKey)
       .maybeSingle();
     if (!error && row?.data) {
       const fresh = row.data as DashboardData;
@@ -165,7 +170,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
     } else {
       setSyncStatus("error");
     }
-  }, [supa]);
+  }, [supa, profileKey]);
 
   const { agents, agentByName } = deriveAgents(data);
 

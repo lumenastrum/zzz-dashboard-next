@@ -26,6 +26,7 @@ import {
   fmtStat,
 } from "@/lib/deck-config";
 import { withBase } from "@/lib/base-path";
+import { profileHref } from "@/lib/profile";
 import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
 import { MainStats } from "./MainStats";
@@ -49,11 +50,13 @@ export function AgentDeck({
   entry,
   onChange,
   syncStatus = "local",
+  base = "",
 }: {
   agent: Agent | null;
   entry: RosterEntry;
   onChange: (mutator: (a: Agent) => void) => void;
   syncStatus?: SyncStatus;
+  base?: string;
 }) {
   const [selSlot, setSelSlot] = useState(4);
 
@@ -155,7 +158,7 @@ export function AgentDeck({
             />
             {sync.text}
           </span>
-          <Link href="/" className="xbtn" aria-label="Back to roster">✕</Link>
+          <Link href={profileHref(base, "/")} className="xbtn" aria-label="Back to roster">✕</Link>
         </div>
       </div>
 

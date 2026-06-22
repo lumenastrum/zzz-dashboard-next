@@ -10,6 +10,7 @@ export interface RosterEntry {
   faction?: string;
   title?: string; // custom pill title (e.g. "Void Hunter: Qingming Arbiter")
   voidHunter?: boolean; // elite tier — gradient accent + void-hunter badge
+  wifeOnly?: boolean; // in the shared roster for her view, but hidden from the default (Andres) view
 }
 
 // Full roster — imported from the legacy `andres` Supabase row (real mindscapes), with
@@ -27,6 +28,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Burnice", slug: "burnice", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
   { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" },
   { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff", faction: "Roscaelifer External Strategy Department" },
+  { name: "Yanagi", slug: "yanagi", section: "Anomaly", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Hollow Special Operations Section 6", wifeOnly: true }, // wife-only; mindscape placeholder (she edits)
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",
     faction: "Yunkui Summit", title: "Void Hunter: Qingming Arbiter", voidHunter: true },
@@ -52,6 +54,29 @@ export const ROSTER: RosterEntry[] = [
     faction: "Yunkui Summit", title: "Grandmaster", voidHunter: true },
   { name: "Yidhari", slug: "yidhari", section: "Rupture", attribute: "Ice", mindscape: 0, el: "#00dada", faction: "Spook Shack" },
 ];
+
+// Per-profile ownership → which roster slugs appear on a profile's home (and get static agent
+// pages). Profiles NOT listed here get the full ROSTER (the default Andres view). Slug order
+// here is cosmetic; the home renders in ROSTER order via rosterFor's filter.
+export const PROFILE_ROSTER: Record<string, string[]> = {
+  // Wife's roster — derived from her legacy `wife` Supabase row (minus base Anby + Nicole),
+  // plus Yanagi. Yanagi + Zhao have no build on Andres's side → identity-only until filled.
+  "wife-zzz": [
+    "alice", "miyabi", "vivian", "yanagi",
+    "yeshunguang", "cissia",
+    "jufufu",
+    "astra", "yuzuha", "lucia", "zhao",
+    "yixuan", "yidhari",
+  ],
+};
+
+// Roster slice for a profile: its owned slugs (in ROSTER order), or the full roster if unlisted.
+export function rosterFor(profileKey: string): RosterEntry[] {
+  const slugs = PROFILE_ROSTER[profileKey];
+  if (!slugs) return ROSTER.filter((a) => !a.wifeOnly); // default (Andres) view hides wife-only agents
+  const owned = new Set(slugs);
+  return ROSTER.filter((a) => owned.has(a.slug));
+}
 
 // Full Alice build (ported from Mockup C) — drives the engine until Supabase is wired.
 export const ALICE: Agent = {

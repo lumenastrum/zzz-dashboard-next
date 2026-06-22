@@ -9,7 +9,7 @@ import { DeckImg } from "@/components/deck/DeckImg";
 // the art's top-left corner. Void Hunter agents get a third badge (a white-filled mask of
 // the void-hunter icon so it reads on the dark backing) + a gradient accent derived from
 // their element's color (--vh-grad). A missing icon self-hides via DeckImg. CSS: globals.css.
-export function RosterTile({ a }: { a: RosterEntry }) {
+export function RosterTile({ a, base = "" }: { a: RosterEntry; base?: string }) {
   const style: React.CSSProperties = a.voidHunter
     ? ({ "--ec": elementColor(a.attribute), "--vh-grad": elementGradient(a.attribute) } as React.CSSProperties)
     : ({ "--ec": a.el } as React.CSSProperties);
@@ -58,7 +58,7 @@ export function RosterTile({ a }: { a: RosterEntry }) {
 
 
   return (
-    <Link href={`/r/${a.slug}/`} className={`alb${a.voidHunter ? " vh" : ""}`} style={style}>
+    <Link href={`${base}/r/${a.slug}/`} className={`alb${a.voidHunter ? " vh" : ""}`} style={style}>
       <div className="vinyl" />
       <div className="sleeve">
         <div className="art">

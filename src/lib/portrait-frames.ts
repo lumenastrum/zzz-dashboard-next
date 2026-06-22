@@ -106,6 +106,11 @@ export const PORTRAIT_FRAMES: Record<string, PortraitFrame> = {
     "left": 23.3,
     "height": 294.0
   },
+  "yanagi": {
+    "top": -0.0,
+    "left": 87.5,
+    "height": 294.3
+  },
   "yeshunguang": {
     "top": -0.0,
     "left": 62.2,
