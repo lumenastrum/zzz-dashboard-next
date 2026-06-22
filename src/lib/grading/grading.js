@@ -14,7 +14,7 @@
  * main is more valuable as a substat. Roll count = ZZZ PropertyLevel (1–6).
  */
 
-const ELEMENT_DMG = /(Physical|Fire|Ice|Electric|Ether|Frost|Auric|Lunar) DMG$/i;
+const ELEMENT_DMG = /(Physical|Fire|Ice|Electric|Ether|Wind|Frost|Auric|Lunar) DMG$/i;
 
 /** Resolve an agent's archetype config (section map → override → merged weights). */
 export function resolveArchetype(agent, cfg) {

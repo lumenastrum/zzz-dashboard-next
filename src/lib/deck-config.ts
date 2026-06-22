@@ -147,10 +147,16 @@ export const SUBSTATS = [
   "CRIT Rate", "CRIT DMG", "Flat PEN", "Anomaly Proficiency",
 ];
 
+// Selectable MAIN stats per slot, mirroring the in-game Partition rules (slots 1-3 are fixed flat
+// HP/ATK/DEF and aren't editable). GAME RULE: slot 4 rolls Anomaly Proficiency but NEVER Anomaly
+// Mastery; slot 6 rolls Anomaly Mastery but NEVER Anomaly Proficiency; PEN Ratio is a slot-5 main only.
+// Slot 5 DMG-bonus mains are the 6 real attributes — Physical/Fire/Ice/Electric/Ether/Wind; the variant
+// attributes inherit a core element's DMG main (Frost→Ice, Auric Ink→Ether, Honed Edge→Physical), so
+// they get no own option.
 export const MAINS: Record<number, string[]> = {
-  4: ["CRIT Rate", "CRIT DMG", "ATK%", "HP%", "DEF%", "Anomaly Proficiency"],
-  5: ["Physical DMG", "ATK%", "HP%", "DEF%", "PEN Ratio"],
-  6: ["ATK%", "HP%", "DEF%", "Anomaly Proficiency", "Anomaly Mastery", "Impact", "Energy Regen", "PEN Ratio"],
+  4: ["HP%", "ATK%", "DEF%", "CRIT Rate", "CRIT DMG", "Anomaly Proficiency"],
+  5: ["HP%", "ATK%", "DEF%", "PEN Ratio", "Physical DMG", "Fire DMG", "Ice DMG", "Electric DMG", "Ether DMG", "Wind DMG"],
+  6: ["HP%", "ATK%", "DEF%", "Anomaly Mastery", "Impact", "Energy Regen"],
 };
 
 // ---- equipment-frame cone geometry (%[left, top] on equip_frame.webp) ----
