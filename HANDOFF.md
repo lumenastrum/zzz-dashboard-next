@@ -1,7 +1,7 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-24 (Teams tab — benchmarked setlists) · master @ `f7b26c1`+1, GH Pages deploying.
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)**.
+**Last updated:** 2026-06-24 (Shiyu Defense tab) · master @ `0ab33cb`+1, GH Pages deploying.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)**.
 
 > ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
 
@@ -394,15 +394,37 @@ The dead **Teams** nav tab is now a real route (`/teams`, Andres-side; gated by 
   `npm run build` clobbers the shared `.next` — wipe `.next` + restart dev to see CSS (the prod build was always
   correct). Verified all 9 shells + the live toggle flip via camoufox.
 
+## DONE — Shiyu Defense tab (2026-06-24)
+
+New **Shiyu** nav tab (Andres-side, gated by `hasShiyu`) → `/shiyu`. The endgame counterpart to Teams.
+
+- **`src/lib/shiyu.ts`** — editorial cycle data (profile-keyed). A `ShiyuCycle` = season header (best total, rank %,
+  highest rating, B/A/S/S+ challenge ladder) + `rooms[]`. Each `ShiyuRoom` records only what Andres asked for:
+  recommended attribute(s) + an `anomaly` flag + enemy `resistance`, plus boss, the 3-agent `team` + a `bangboo`, and
+  `{total,damage,elimination}` scores. `ratingClass()` maps `"S+" → "splus"` for the `.rate.r-*` colors.
+- **Rating ladder** (ZZZ's, Soundsystem chrome): bold-italic letters — **B** blue, **A** magenta, **S** orange,
+  **S+** the cyan-white iridescent gradient (background-clip text). Reused across season badge / targets / room cards.
+- **`ShiyuSeason`** = the "master readout" panel; **`ShiyuRoomCard`** = scores on the left (element-accented by the
+  recommended attribute), a boss/team sub-panel on the right (boss icon + rec/resist chips + circular endgame portraits +
+  bangboo). **Elimination caps at 5,000** → its bar fills to 100% gold + a "MAX" tag (app's cap idiom); damage bar is
+  proportional to total. Bangboo is a non-link `<span>` (full-body sprite → `contain`, not the agents' face `cover`).
+- **`scripts/stage-shiyu.py`** (`npm run stage-shiyu`) → 22 circular `endgame/<slug>.webp` + 9 `bosses/<slug>.webp`
+  (IconMonster_X → lowercase X) + bangboos `bangboo/<slug>.webp` (GarageRole id → friendly slug in a `BANGBOO` map:
+  07=sharkboo, 43=sprout, 47=ultrajet).
+- **Seeded:** the most recent **Critical Node** cycle (124,968 / rank 2.4% / S+), all 3 rooms — R1 Miyabi/Nangong/Astra
+  +Sharkboo vs Norano Slime; R2 YSG/Dialyn/Sunna +Sprout vs Covenant Guardian; R3 Burnice/Velina/Yuzuha +Ultra Jet vs
+  Isolde Slime. All S-rated. Build clean (45 pages), every image load-verified live.
+
 ## Next steps (next session)
 
-**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres). **Levels** is still a dead `#` link. Remaining for Teams:
+**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres). **Levels** is still a dead `#` link. Remaining:
 
-1. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
-2. **Courtney's `/wife` Teams** — needs her own staged cards + shells (gate already supports it per-profile).
-3. **Score-logging helper** — a tiny `npm run log-score` so Recent Benchmarks don't need hand-editing (offered).
-4. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded; Evelyn precedent); Zhao
-   buildless (no discs → no panel). Roster effectively complete at 24/25.
+1. **More Shiyu cycles/rooms** — drop new screenshots → seed in `shiyu.ts`. A **cycle selector** (client toggle) once
+   there's >1 cycle. Bangboo names come from Andres (GarageRole ids are opaque).
+2. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
+3. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
+4. **Score-logging helper** — a tiny CLI so Recent Benchmarks + Shiyu scores don't need hand-editing (offered).
+5. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded); Zhao buildless. Roster 24/25.
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).
