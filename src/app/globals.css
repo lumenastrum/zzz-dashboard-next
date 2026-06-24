@@ -497,3 +497,108 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   background:color-mix(in srgb, var(--amber) 14%, transparent); border:1px solid color-mix(in srgb, var(--amber) 30%, transparent); }
 
 @media (max-width:560px){ .crate-grid { grid-template-columns:repeat(2,1fr); } }
+
+/* ===================== TEAMS · SETLISTS ===================== */
+.setlists { display:flex; flex-direction:column; gap:22px; }
+
+.setlist { position:relative; border:1px solid var(--bezel1); border-radius:18px; overflow:hidden;
+  padding:20px 22px 20px 26px; background:linear-gradient(180deg, var(--panel2), var(--panel)), var(--brush); }
+.setlist::before { content:""; position:absolute; left:0; top:0; bottom:0; width:4px;
+  background:linear-gradient(180deg, var(--ec, var(--red)), color-mix(in srgb, var(--ec, var(--red)) 8%, transparent));
+  box-shadow:0 0 20px var(--ec, var(--red)); }
+
+.set-head { display:flex; align-items:flex-start; gap:14px; margin-bottom:15px; }
+.set-id h3 { margin:0; font-family:var(--disp); font-weight:600; font-size:21px; letter-spacing:1.5px;
+  text-transform:uppercase; color:var(--ink); }
+.set-arche { margin-top:3px; font-family:var(--led); font-size:11px; letter-spacing:1px;
+  text-transform:uppercase; color:var(--mut); }
+.bench-badge { margin-left:auto; flex-shrink:0; align-self:center; white-space:nowrap;
+  font-family:var(--led); font-weight:700; font-size:10px; letter-spacing:1.5px; text-transform:uppercase;
+  color:#160b16; background:var(--vh-grad); padding:6px 12px; border-radius:20px; box-shadow:0 0 16px rgba(255,200,90,.32); }
+.src-tag { margin-left:auto; flex-shrink:0; align-self:center; white-space:nowrap;
+  font-family:var(--led); font-weight:700; font-size:9px; letter-spacing:1.5px; text-transform:uppercase;
+  color:var(--mut); background:var(--bg2); border:1px solid var(--bezel1); padding:5px 11px; border-radius:20px; }
+
+/* two-column body: the shell (cards + info) on the left, Recent Benchmarks sidebar filling the right */
+.set-body { display:grid; grid-template-columns:minmax(0,1fr) 320px; gap:22px; align-items:start; }
+.set-main { min-width:0; }
+
+/* the three glossy diagonal agent cards */
+.tcards { display:grid; grid-template-columns:repeat(3,1fr); gap:13px; }
+.tcard { position:relative; display:block; isolation:isolate; text-decoration:none;
+  clip-path:polygon(4% 0%, 76% 0%, 98% 100%, 26% 100%); /* snapped: hug the portrait's diagonal */
+  background:
+    radial-gradient(125% 75% at 50% 4%, color-mix(in srgb, var(--ec, var(--red)) 30%, transparent), transparent 68%),
+    linear-gradient(180deg, var(--panelhi), var(--bg2));
+  filter:drop-shadow(0 6px 16px rgba(0,0,0,.5));
+  transition:transform .18s ease, filter .18s ease; }
+.tcard:hover { transform:translateY(-4px);
+  filter:drop-shadow(0 11px 22px rgba(0,0,0,.55)) drop-shadow(0 0 10px color-mix(in srgb, var(--ec, var(--red)) 50%, transparent)); }
+.tcard.role-carry::before { content:"★ LEAD"; position:absolute; top:8px; right:25%; z-index:4;
+  font-family:var(--led); font-weight:700; font-size:8px; letter-spacing:1.5px; color:#120c16;
+  background:var(--ec, var(--red)); padding:3px 7px; border-radius:20px; box-shadow:0 2px 8px rgba(0,0,0,.45); }
+/* glossy sheen */
+.tcard::after { content:""; position:absolute; inset:0; z-index:2; pointer-events:none;
+  background:linear-gradient(157deg, rgba(255,255,255,.16) 0%, rgba(255,255,255,.04) 30%, transparent 46%); }
+.tc-pic { display:block; width:100%; height:auto; max-width:none; } /* beat Tailwind preflight max-width:100% clamp */
+.tc-badges { position:absolute; top:8px; left:16px; z-index:3; display:flex; gap:5px; }
+.tc-ico { width:21px; height:21px; object-fit:contain; filter:drop-shadow(0 1px 2px rgba(0,0,0,.6)); }
+.tc-plate { position:absolute; left:0; right:0; bottom:0; z-index:3; display:flex; flex-direction:column; gap:2px;
+  padding:24px 7% 11px 30%; background:linear-gradient(0deg, rgba(8,5,12,.93) 14%, rgba(8,5,12,.5) 55%, transparent); }
+.tc-role { font-family:var(--led); font-weight:700; font-size:9.5px; letter-spacing:2.5px; text-transform:uppercase; color:var(--ec, var(--red)); }
+.tc-name { font-family:var(--disp); font-weight:600; font-size:15.5px; letter-spacing:.4px; text-transform:uppercase; color:var(--ink); line-height:1; }
+
+/* benchmark VU bar + score */
+.set-bench { display:flex; align-items:center; gap:16px; margin:16px 0 2px; flex-wrap:wrap; }
+.sb-meter { display:flex; gap:2px; align-items:flex-end; }
+.sb-meter i { width:5px; height:15px; border-radius:1px; background:var(--bezel1); }
+.sb-meter i.on { background:var(--ec, var(--red)); box-shadow:0 0 6px var(--ec, var(--red)); }
+.sb-score { display:flex; flex-direction:column; line-height:1; }
+.sb-score b { font-family:var(--disp); font-weight:700; font-size:24px; color:var(--ec, var(--red)); }
+.sb-score small { font-family:var(--led); font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--mut2); margin-top:3px; }
+.sb-meta { margin-left:auto; text-align:right; }
+.sb-label { display:block; font-family:var(--led); font-weight:600; font-size:11px; letter-spacing:.4px; color:var(--chrome); }
+.sb-phase { display:block; font-family:var(--led); font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--mut2); margin-top:2px; }
+
+/* room / why / variants / caution */
+.set-info { margin-top:14px; padding-top:14px; border-top:1px solid var(--bezel1);
+  display:flex; flex-direction:column; gap:9px; }
+.set-row { display:grid; grid-template-columns:64px 1fr; gap:12px; align-items:start; }
+.set-row .sk { font-family:var(--led); font-weight:700; font-size:9px; letter-spacing:2px; text-transform:uppercase;
+  color:var(--mut2); padding-top:2px; }
+.set-row .sv { font-family:var(--body); font-size:12px; line-height:1.5; color:var(--chrome); }
+.set-row.caution .sk { color:var(--amber); }
+.set-row.caution .sv { color:color-mix(in srgb, var(--amber) 76%, var(--chrome)); }
+.set-row .variants { display:flex; flex-direction:column; gap:4px; }
+.variant b { font-family:var(--led); font-weight:700; color:var(--ink); letter-spacing:.3px; }
+
+/* --- Recent Benchmarks sidebar (fills the right of each shell) --- */
+.set-recent { align-self:stretch; display:flex; flex-direction:column; gap:11px;
+  padding:14px 15px 15px; border-radius:13px; border:1px solid var(--bezel1);
+  background:linear-gradient(180deg, var(--bg2), var(--panel)); }
+.rb-head { font-family:var(--led); font-weight:700; font-size:10px; letter-spacing:2.5px; text-transform:uppercase; color:var(--mut); }
+.rb-switch { display:flex; align-items:center; justify-content:center; gap:9px; cursor:pointer;
+  background:none; border:0; padding:2px 0 9px; border-bottom:1px solid var(--bezel1); }
+.rb-mode { font-family:var(--led); font-weight:700; font-size:9.5px; letter-spacing:1px; text-transform:uppercase;
+  color:var(--mut2); transition:color .15s ease; white-space:nowrap; }
+.rb-mode.on { color:var(--ec, var(--red)); text-shadow:0 0 8px color-mix(in srgb, var(--ec, var(--red)) 50%, transparent); }
+.rb-knob { width:46px; height:auto; flex-shrink:0; filter:drop-shadow(0 1px 2px rgba(0,0,0,.5)); }
+.rb-list { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:8px; }
+.rb-row { display:grid; grid-template-columns:16px auto 1fr; align-items:baseline; gap:9px; }
+.rb-rank { font-family:var(--disp); font-weight:700; font-size:12px; color:var(--mut2); text-align:center; }
+.rb-score { font-family:var(--disp); font-weight:700; font-size:17px; color:var(--ec, var(--red)); line-height:1; }
+.rb-ctx { font-family:var(--led); font-size:9.5px; letter-spacing:.5px; text-transform:uppercase; color:var(--mut); text-align:right; }
+.rb-ctx em { font-style:normal; color:var(--mut2); }
+.rb-empty { margin-top:2px; padding:16px 6px; text-align:center; font-family:var(--led); font-size:10.5px;
+  letter-spacing:.5px; color:var(--mut2); border:1px dashed var(--bezel1); border-radius:8px; }
+
+/* (the snapped diagonal frame is the default now — baked into .tcard above) */
+
+@media (max-width:920px){ .set-body { grid-template-columns:1fr; } }
+@media (max-width:680px){
+  .tcards { gap:9px; }
+  .tc-name { font-size:15px; }
+  .tc-plate { padding:20px 6% 9px 28%; }
+  .set-row { grid-template-columns:1fr; gap:3px; }
+  .sb-meta { margin-left:0; text-align:left; width:100%; }
+}

@@ -1,15 +1,17 @@
 import Link from "next/link";
 import { profileFromPath, profileHref } from "@/lib/profile";
 import { hasPullPriority } from "@/lib/pull-priority";
+import { hasSetlists } from "@/lib/setlists";
 
 // Shared dashboard header (wordmark + tab nav), used by every top-level view so the chrome is
 // identical across the roster home and the per-profile sub-tabs. Pure/server-safe — `active`
-// highlights the current tab, `base` keeps links in-profile. The Pulls tab only renders for
-// profiles that actually have a pull-priority list (Courtney) — it's her-exclusive.
+// highlights the current tab, `base` keeps links in-profile. Teams renders for profiles with a
+// benchmarked setlist bible (Andres); Pulls renders for profiles with a pull-priority list (Courtney).
 type Tab = "agents" | "levels" | "teams" | "pulls";
 
 export function TopNav({ base = "", active = "agents" }: { base?: string; active?: Tab }) {
   const { key } = profileFromPath(base || "/");
+  const showTeams = hasSetlists(key);
   const showPulls = hasPullPriority(key);
   const cls = (t: Tab) => (t === active ? "on" : undefined);
 
@@ -29,7 +31,13 @@ export function TopNav({ base = "", active = "agents" }: { base?: string; active
           Agents
         </Link>
         <a href="#">Levels</a>
-        <a href="#">Teams</a>
+        {showTeams ? (
+          <Link className={cls("teams")} href={profileHref(base, "/teams/")}>
+            Teams
+          </Link>
+        ) : (
+          <a href="#">Teams</a>
+        )}
         {showPulls && (
           <Link className={cls("pulls")} href={profileHref(base, "/pulls/")}>
             Pulls

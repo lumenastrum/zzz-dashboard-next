@@ -1,7 +1,9 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-21 (session 7 — DISC-SET COVERAGE + SET-SWAP RECOMPUTE) · master @ `c8ce305`+1, GH Pages deploying.
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + **live stat recompute (now incl. SET-swaps)** + all 24 W-engine cartridges + **all 18 disc sets (2pc+4pc) accounted for & reflected**.
+**Last updated:** 2026-06-24 (Teams tab — benchmarked setlists) · master @ `f7b26c1`+1, GH Pages deploying.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)**.
+
+> ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
 
 **★ LIVE STAT RECOMPUTE (the headline) — VALIDATED AGAINST THE ACTUAL GAME, DEPLOYED.** The deck is no longer a
 snapshot: editing a disc recomputes the character screen AND the goalpost meters live, on ZZZ's real stat formulas
@@ -371,19 +373,36 @@ pages), live-verified through the real deck (a UI set-swap moved the sheet, then
   **exact 3301** (live-verified); 8/10 stats exact. (Residual DEF +15 / Impact +2 are pre-engine-advance — approximate
   `rollValues` + the seed-snapshot base vs his edited blob discs; untracked stats, not a regression.)
 
+## DONE — Teams tab (2026-06-24): benchmarked "Setlists"
+
+The dead **Teams** nav tab is now a real route (`/teams`, Andres-side; gated by `hasSetlists`).
+
+- **`src/lib/setlists.ts`** — editorial shell data (like pull-priority.ts), profile-keyed. 9 shells ported from
+  `../zzz-dashboard/docs/zzz-roster-meta-team-comps.md`: 3 carry a `benchmark` (the comps Andres actually ran — gold
+  ★ badge + score/meter), 6 are guide-sourced (muted "Guide-sourced" tag, no fake numbers). Roles:
+  Carry / Sub-DPS / Stun / Support / Flex. Lead is `role: "Carry"` → gets the ★LEAD tag.
+- **Glossy diagonal cards** — `scripts/stage-teamcards.py` (`npm run stage-teams`) normalizes the per-agent
+  transparent cards to 256×250 → `public/assets/teamcards/<slug>.webp` (slug-remaps: yeshenguang→yeshunguang,
+  astrayao→astra, ligher→lighter). Each card is **clip-path'd to the portrait's measured parallelogram**
+  (`polygon(4% 0,76% 0,98% 100%,26% 100%)`, the cards lean right ~22% top→bottom). Snapped is the DEFAULT now;
+  box-shadow→drop-shadow because clip-path eats box-shadows.
+- **Recent Benchmarks sidebar** (`RecentBenchmarks.tsx`, the only client leaf) fills the right of each full-width
+  shell: last ~5 scores, **Shiyu ⇄ Deadly Assault** toggle using the in-game pill switch
+  (`public/assets/ui/switch-shiyu|da.webp`; knob points at the active mode). Add runs via each shell's
+  `recent: { shiyu: [], deadlyAssault: [] }` (newest first, `{score, where, date?}`).
+- **Gotcha re-confirmed:** `globals.css` edits don't reliably hot-reload into a running `next dev`, ESPECIALLY after a
+  `npm run build` clobbers the shared `.next` — wipe `.next` + restart dev to see CSS (the prod build was always
+  correct). Verified all 9 shells + the live toggle flip via camoufox.
+
 ## Next steps (next session)
 
-**Four big arcs DONE:** ✅ calibration (24/24) · ✅ live recompute (disc **+ set** swaps) · ✅ all 24 W-engine cartridges
-· ✅ all 18 disc sets + set-swap sheet. ✅ GH Pages auto-deploys on push. Remaining = polish/breadth:
+**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres). **Levels** is still a dead `#` link. Remaining for Teams:
 
-1. ✅ ~~Set-swap sheet stats (the v1 limit)~~ — **DONE session 7** (`setSheetAccum`; see above). Note W-Engine **advanced**
-   is still in `base` (display label only) — fine until/unless W-engine swap becomes a UI feature.
-2. ✅ ~~Per-agent `wengines` configs~~ — **DONE session 6** (all 24 cartridges).
-3. **Other faceplate tabs** — wire the home tabs (Levels / Teams / Pulls) to real routes + build them.
-4. **AM `full` goalposts (optional)** — tighten them; AM is low-mobility (main + engine/set only, no substat rolls), so
-   the meters otherwise read perpetually partial.
-5. **Loose ends** — confirm Ellen's PEN Ratio (kit-value, excluded; Evelyn precedent); Zhao is buildless (no discs → no
-   build panel; `npm run import` + seed if ever wanted). Roster effectively complete at 24/25.
+1. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
+2. **Courtney's `/wife` Teams** — needs her own staged cards + shells (gate already supports it per-profile).
+3. **Score-logging helper** — a tiny `npm run log-score` so Recent Benchmarks don't need hand-editing (offered).
+4. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded; Evelyn precedent); Zhao
+   buildless (no discs → no panel). Roster effectively complete at 24/25.
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).

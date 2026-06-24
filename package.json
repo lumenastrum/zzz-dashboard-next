@@ -12,6 +12,7 @@
     "frames": "python scripts/measure-frames.py",
     "seed": "tsx scripts/seed.ts",
     "stage": "tsx scripts/stage-assets.ts",
+    "stage-teams": "python scripts/stage-teamcards.py",
     "sync-stats": "tsx scripts/sync-stats.ts",
     "seed-profile": "tsx scripts/seed-profile.ts",
     "derive-bases": "node scripts/derive-bases.mjs"
