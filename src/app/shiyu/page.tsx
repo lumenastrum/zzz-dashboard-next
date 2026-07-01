@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { PROFILE_KEY } from "@/lib/supabase";
-import { shiyuCyclesFor } from "@/lib/shiyu";
+import { shiyuCyclesFor, shiyuHistoryFor } from "@/lib/shiyu";
 import { TopNav } from "@/components/TopNav";
 import { ShiyuSeason } from "@/components/ShiyuSeason";
 import { ShiyuRoomCard } from "@/components/ShiyuRoomCard";
+import { ShiyuHistory } from "@/components/ShiyuHistory";
 
 export const metadata: Metadata = {
   title: "Shiyu Defense · ZZZ · Soundsystem",
@@ -11,10 +12,12 @@ export const metadata: Metadata = {
 };
 
 // Shiyu Defense tab — the endgame counterpart to Teams. Static page; cycles are editorial data
-// (shiyu.ts). Shows the most recent cycle's season readout + its room cards. TopNav lights "Shiyu".
+// (shiyu.ts). The most recent cycle gets the full marquee (season readout + boss-poster rooms);
+// older cycles auto-demote to the compact clear-history shelf. TopNav lights "Shiyu".
 export default function Shiyu() {
   const cycles = shiyuCyclesFor(PROFILE_KEY);
-  const cycle = cycles[0]; // most recent
+  const cycle = cycles[0]; // most recent — the marquee
+  const history = shiyuHistoryFor(PROFILE_KEY);
 
   return (
     <div className="wrap">
@@ -44,8 +47,10 @@ export default function Shiyu() {
         <div className="hint">No Shiyu cycles logged yet</div>
       )}
 
+      <ShiyuHistory entries={history} />
+
       <div className="hint">
-        ▸ Most recent cycle · <b>Room 1</b> seeded — more rooms &amp; cycles to come
+        ▸ Newest cycle gets the full treatment · older clears file into the history shelf
       </div>
     </div>
   );

@@ -1,6 +1,6 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-06-24 (Shiyu Defense tab) · master @ `0ab33cb`+1, GH Pages deploying.
+**Last updated:** 2026-07-01 (Shiyu "Marquee" redesign + clear-history shelf) · shipped to master, GH Pages deploying.
 **Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)**.
 
 > ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
@@ -415,12 +415,57 @@ New **Shiyu** nav tab (Andres-side, gated by `hasShiyu`) → `/shiyu`. The endga
   +Sharkboo vs Norano Slime; R2 YSG/Dialyn/Sunna +Sprout vs Covenant Guardian; R3 Burnice/Velina/Yuzuha +Ultra Jet vs
   Isolde Slime. All S-rated. Build clean (45 pages), every image load-verified live.
 
+## DONE — Shiyu "Marquee" redesign (2026-07-01)
+
+Andres flagged the Shiyu tab as "basic" — the endgame tab had zero art presence (98×55 boss thumbs,
+46px agent circles, dead air). Three mockups built in `../zzz-redesign-mockups/shiyu/` (A Marquee /
+B Node Rail / C After Dark Stage — README + `_shots/` there; `View Shiyu Mockups.bat` serves :8092).
+**Andres picked A — Marquee.** Ported into the app, build clean (45 pages), live-verified vs the mockup.
+
+- **Room cards are boss posters** (`ShiyuRoomCard.tsx` rewritten): full-body enemy render bottom-anchored
+  right, popping 8% above the card top (no `overflow:hidden`); giant outlined rating-letter watermark;
+  hazard strip on the top edge; 58px element-tinted total; **VU-segment bars** (20 segs, damage ∝ total,
+  elimination ∝ 5,000 cap, maxed = gold + MAX); team = the Teams-tab **diagonal cards** (118px, clip-path,
+  name plate, links to `/r/<slug>/`) + bangboo circle.
+- **Season readout** (`ShiyuSeason.tsx` rewritten): house **medal** + 52px best total + rank + highest
+  rating on one row, B→A→S→S+ targets as a connected horizontal **stepper**, in-game Shiyu badge ghosted
+  top-right. `ShiyuCycle.medal?: ShiyuMedal` ("silver"…"legend") — OUR award, the game doesn't medal
+  Shiyu rank (Andres-approved flourish); Critical Node wears "legend".
+- **Assets** — `stage-shiyu.py` extended: full-body renders → `public/assets/enemies/<boss.slug>.webp`
+  (straight-copy, already webp), Shiyu badge + 5 medals → `public/assets/ui/`. ⚠️ Canon note: the wiki
+  files Norano Slime's render as "Miasmic Doppelganger Komano Manato" — same beast, name flip-flops
+  (Andres-confirmed). **Burnice's missing team card** dropped by Andres + added to `stage-teamcards.py`
+  (23 cards now). A boss without a staged render degrades gracefully (DeckImg self-hides).
+- **CSS** — the whole SHIYU section of `globals.css` replaced (season + marquee rooms); `.rate` ladder
+  colors untouched. Responsive: <1000px the render fades to .25 + content takes full width; <820px the
+  ladder wraps (connectors hidden).
+
+**Same session — Clear History shelf (`ShiyuHistory.tsx`):** compact archive cards under the marquee,
+echoing the in-game history screen. **Auto-demotion:** `CYCLES[0]` = the marquee; `shiyuHistoryFor()` =
+`CYCLES.slice(1).map(toHistory)` + the pre-editorial `HISTORY` array, merged newest-first — so logging
+a new cycle at the top of `CYCLES` demotes the old one with zero extra authoring (score/rating/teams
+come along; grade counts prefer the authored `ShiyuCycle.grades`). New types: `ShiyuGradeCounts`
+(**authored, not derived** — the game grades ALL floors, we log 3 rooms, so derived counts would lie;
+current cycle carries `grades:{s:5,a:0,b:0}`) + `ShiyuHistoryEntry` (date/label/score/rating/grades +
+**optional `teams: ShiyuMember[][]`** — per-room 3-agent clears, NO enemy data by design). Card =
+"MM/DD Unlocked" + season badge, frontier + amber score, S/A/B grade chips (zeros dimmed .38), teams
+strip (R1/R2/R3 + 28px endgame minis) when compiled. **Seeded 4 legacy cycles** from Andres's in-game
+screenshots (14-day cadence, all S+ Fifth Frontier full-S): 05/29 106,942 · 05/15 113,718 · 05/01
+116,923 · 04/17 112,162. Cycle `date` is now full ISO (2026-06-12) + `frontier: "Fifth Frontier"`.
+Teams-strip render path pixel-verified via a temp QA injection (reverted). Build + tsc clean (45 pages).
+✅ **Legacy teams DELIVERED + seeded same day** — all 4 history entries carry their per-room trios
+(verified live: 36/36 mini portraits load). **Zhao (05/01 R1) had no endgame circle** (buildless, never
+cut) — `stage-shiyu.py` now **synthesizes `endgame/zhao.webp`** from the tall roster portrait
+(`ZHAO_FACE` hand-tuned face box; the measured portrait-frame center misses — he's posed off-axis).
+A real `zhaoendgame.png` in the stash takes precedence over the synth.
+
 ## Next steps (next session)
 
 **Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres). **Levels** is still a dead `#` link. Remaining:
 
-1. **More Shiyu cycles/rooms** — drop new screenshots → seed in `shiyu.ts`. A **cycle selector** (client toggle) once
-   there's >1 cycle. Bangboo names come from Andres (GarageRole ids are opaque).
+1. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
+   auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
+   (GarageRole ids are opaque).
 2. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
 3. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
 4. **Score-logging helper** — a tiny CLI so Recent Benchmarks + Shiyu scores don't need hand-editing (offered).

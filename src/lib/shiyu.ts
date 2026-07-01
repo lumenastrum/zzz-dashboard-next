@@ -8,6 +8,10 @@ import { PROFILE_KEY } from "./supabase";
 
 export type ShiyuRating = "B" | "A" | "S" | "S+";
 
+// House award for a cycle's rank — the game doesn't medal Shiyu rank; WE do (Andres-approved
+// flourish). Renders /assets/ui/medal-<medal>.webp on the season readout.
+export type ShiyuMedal = "silver" | "gold" | "diamond" | "master" | "legend";
+
 export interface ShiyuMember {
   slug: string; // roster slug -> /assets/endgame/<slug>.webp + /r/<slug>/
   name: string;
@@ -39,26 +43,55 @@ export interface ShiyuTarget {
   done: boolean;
 }
 
+// In-game grade-card counts from the clear-history screen (S ×5 / A ×0 / B ×0). Authored, not
+// derived: the game grades ALL floors while we only log the interesting rooms editorially, so a
+// count derived from `rooms` would under-report.
+export interface ShiyuGradeCounts {
+  s: number;
+  a: number;
+  b: number;
+}
+
 export interface ShiyuCycle {
   id: string;
   label: string; // cycle/season name
-  date?: string; // YYYY-MM
+  date?: string; // unlock date, YYYY-MM-DD (drives the history card's "MM/DD Unlocked")
+  frontier?: string; // in-game frontier name, e.g. "Fifth Frontier" — shown once demoted to history
   bestTotal: number;
   rank: string; // percentile string, e.g. "2.4%"
+  medal?: ShiyuMedal; // our house award for the rank (see ShiyuMedal)
   highestRating: ShiyuRating;
+  grades?: ShiyuGradeCounts; // in-game grade cards; falls back to counting `rooms` when absent
   targets: ShiyuTarget[]; // the B/A/S/S+ challenge ladder
   rooms: ShiyuRoom[];
 }
 
-// Newest cycle first. Start with the most recent Critical Node; Room 1 seeded as the test.
+// A compact clear-history entry — cycles cleared BEFORE the editorial era (no enemy/score-breakdown
+// data, per Andres) plus every demoted full cycle. `teams` = the 3 clearing agents per room, in room
+// order; optional until Andres compiles the roster history.
+export interface ShiyuHistoryEntry {
+  id: string;
+  date: string; // unlock date, YYYY-MM-DD
+  label: string; // frontier name on the card
+  score: number;
+  rating: ShiyuRating; // the badge (season rating)
+  grades: ShiyuGradeCounts;
+  teams?: ShiyuMember[][];
+}
+
+// Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
+// clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
   {
-    id: "critical-node-2026-06",
+    id: "critical-node-2026-06-12",
     label: "Critical Node",
-    date: "2026-06",
+    date: "2026-06-12",
+    frontier: "Fifth Frontier",
     bestTotal: 124968,
     rank: "2.4%",
+    medal: "legend",
     highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
     targets: [
       { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
       { rating: "S", desc: "S-rating in all rooms", done: true },
@@ -116,12 +149,82 @@ const CYCLES: ShiyuCycle[] = [
   },
 ];
 
+// Pre-editorial clear history (from Andres's in-game history screen, 2026-07-01). 14-day cadence,
+// every one an S+ Fifth Frontier full-S clear. `teams` = Andres's compiled roster history (2026-07-01).
+// NB: Zhao (05/01 R1) has no stash circle — stage-shiyu.py synthesizes his from the tall portrait.
+const HISTORY: ShiyuHistoryEntry[] = [
+  {
+    id: "fifth-frontier-2026-05-29", date: "2026-05-29", label: "Fifth Frontier", score: 106942, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+      [{ slug: "miyabi", name: "Miyabi" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "yuzuha", name: "Yuzuha" }],
+      [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+    ],
+  },
+  {
+    id: "fifth-frontier-2026-05-15", date: "2026-05-15", label: "Fifth Frontier", score: 113718, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "miyabi", name: "Miyabi" }, { slug: "vivian", name: "Vivian" }, { slug: "astra", name: "Astra Yao" }],
+      [{ slug: "alice", name: "Alice" }, { slug: "janedoe", name: "Jane Doe" }, { slug: "yuzuha", name: "Yuzuha" }],
+      [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "sunna", name: "Sunna" }],
+    ],
+  },
+  {
+    id: "fifth-frontier-2026-05-01", date: "2026-05-01", label: "Fifth Frontier", score: 116923, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "zhao", name: "Zhao" }],
+      [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+      [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "sunna", name: "Sunna" }],
+    ],
+  },
+  {
+    id: "fifth-frontier-2026-04-17", date: "2026-04-17", label: "Fifth Frontier", score: 112162, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "sunna", name: "Sunna" }],
+      [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+      [{ slug: "yixuan", name: "Yixuan" }, { slug: "dialyn", name: "Dialyn" }, { slug: "lucia", name: "Lucia" }],
+    ],
+  },
+];
+
 const BY_PROFILE: Record<string, ShiyuCycle[]> = {
   [PROFILE_KEY]: CYCLES,
 };
 
+const HISTORY_BY_PROFILE: Record<string, ShiyuHistoryEntry[]> = {
+  [PROFILE_KEY]: HISTORY,
+};
+
 export function shiyuCyclesFor(profileKey: string): ShiyuCycle[] {
   return BY_PROFILE[profileKey] ?? [];
+}
+
+// Demote a full editorial cycle to a history card. Grade counts prefer the authored in-game
+// `grades` (the game grades all floors; we log fewer rooms); teams come along for free.
+function toHistory(c: ShiyuCycle): ShiyuHistoryEntry {
+  const counted: ShiyuGradeCounts = { s: 0, a: 0, b: 0 };
+  for (const r of c.rooms) {
+    if (r.rating === "S") counted.s += 1;
+    else if (r.rating === "A") counted.a += 1;
+    else if (r.rating === "B") counted.b += 1;
+  }
+  return {
+    id: c.id,
+    date: c.date ?? "",
+    label: c.frontier ?? c.label,
+    score: c.bestTotal,
+    rating: c.highestRating,
+    grades: c.grades ?? counted,
+    teams: c.rooms.length ? c.rooms.map((r) => r.team) : undefined,
+  };
+}
+
+// Everything below the marquee: demoted full cycles + the pre-editorial scorebook, newest first.
+// (ISO dates sort lexicographically.)
+export function shiyuHistoryFor(profileKey: string): ShiyuHistoryEntry[] {
+  const demoted = (BY_PROFILE[profileKey] ?? []).slice(1).map(toHistory);
+  const legacy = HISTORY_BY_PROFILE[profileKey] ?? [];
+  return [...demoted, ...legacy].sort((x, y) => y.date.localeCompare(x.date));
 }
 
 export function hasShiyu(profileKey: string): boolean {

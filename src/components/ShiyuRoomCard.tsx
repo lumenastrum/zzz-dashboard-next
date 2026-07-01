@@ -6,11 +6,35 @@ import { elementColor, elementIcon, iconPath } from "@/lib/deck-config";
 import { profileHref } from "@/lib/profile";
 import { DeckImg } from "@/components/deck/DeckImg";
 
-// One cleared Shiyu room: scores on the left, a "team" sub-panel on the right (boss + recommended /
-// resistance attributes + the clearing agents). Element-accented (--ec) by the recommended attribute.
+// One cleared Shiyu room, Marquee edition — a boss poster. The full-body enemy render
+// (/assets/enemies/<boss.slug>.webp, staged by stage-shiyu.py) anchors the right edge and
+// pops above the card top; a giant outlined rating letter watermarks behind it. Left column:
+// score + VU-segment bars + attribute chips + the team as Teams-tab diagonal cards.
+// Element-accented (--ec) by the recommended attribute. A boss without a staged render
+// degrades gracefully (DeckImg self-hides; the nameplate still identifies the room).
 const fmt = (n: number) => n.toLocaleString("en-US");
-const pct = (part: number, whole: number) => (whole > 0 ? Math.round((part / whole) * 100) : 0);
 const ELIM_MAX = 5000; // elimination caps at 5,000 per room — a maxed bar reads as "can't go higher"
+const SEGS = 20; // VU bar resolution
+
+const litSegs = (part: number, whole: number) =>
+  Math.max(0, Math.min(SEGS, Math.round((whole > 0 ? part / whole : 0) * SEGS)));
+
+function VuBar({ label, value, lit, maxed }: { label: string; value: number; lit: number; maxed?: boolean }) {
+  return (
+    <div className={`sr-bar${maxed ? " maxed" : ""}`}>
+      <span className="sr-bl">{label}</span>
+      <span className="sr-segs">
+        {Array.from({ length: SEGS }, (_, i) => (
+          <i key={i} className={i < lit ? "on" : undefined} />
+        ))}
+      </span>
+      <span className="sr-bv">
+        {fmt(value)}
+        {maxed && <em className="sr-max">MAX</em>}
+      </span>
+    </div>
+  );
+}
 
 export function ShiyuRoomCard({ room, base = "" }: { room: ShiyuRoom; base?: string }) {
   const accent = room.recommended[0] ?? "Ice";
@@ -19,89 +43,70 @@ export function ShiyuRoomCard({ room, base = "" }: { room: ShiyuRoom; base?: str
 
   return (
     <article className="shiyu-room" style={style}>
-      <header className="sr-head">
-        <span className="sr-no">Room {room.room}</span>
-        {room.time && <span className="sr-time">◷ {room.time}</span>}
-        <span className={`rate big r-${ratingClass(room.rating)}`}>{room.rating}</span>
-      </header>
+      <i className="sr-hz" aria-hidden />
+      <span className="sr-wm" aria-hidden>{room.rating}</span>
+      <DeckImg className="sr-render" src={`/assets/enemies/${room.boss.slug}.webp`} alt={room.boss.name} />
+      <div className="sr-boss-tag">
+        <span className="sr-lv">LV {room.boss.level}</span>
+        <span className="sr-bn">{room.boss.name}</span>
+        {room.boss.tag && <span className="sr-tag">{room.boss.tag}</span>}
+      </div>
 
-      <div className="sr-body">
-        {/* left — score breakdown */}
-        <div className="sr-scores">
-          <div className="sr-total">
-            <span className="sr-k">Total Score</span>
-            <span className="sr-tv">{fmt(room.scores.total)}</span>
+      <div className="sr-in">
+        <header className="sr-head">
+          <span className="sr-no">Room {room.room}</span>
+          {room.time && <span className="sr-time">◷ {room.time}</span>}
+          <span className={`rate sr-rate r-${ratingClass(room.rating)}`}>{room.rating}</span>
+        </header>
+
+        <div className="sr-total">
+          <span className="sr-k">Total Score</span>
+          <b>{fmt(room.scores.total)}</b>
+        </div>
+
+        <div className="sr-vu">
+          <VuBar label="Damage" value={room.scores.damage} lit={litSegs(room.scores.damage, room.scores.total)} />
+          <VuBar label="Elimination" value={room.scores.elimination} lit={litSegs(room.scores.elimination, ELIM_MAX)} maxed={elimMaxed} />
+        </div>
+
+        <div className="sr-attrs">
+          <div className="sr-attr">
+            <span className="sr-al">Recommended</span>
+            <span className="sr-chips">
+              {room.recommended.map((a) => (
+                <span key={a} className="sr-chip">
+                  <DeckImg src={iconPath(elementIcon(a))} alt={a} className="sr-ai" />
+                  {a}
+                </span>
+              ))}
+              {room.anomaly && <span className="sr-chip anom">Anomaly</span>}
+            </span>
           </div>
-          <div className="sr-bars">
-            <div className="sr-bar">
-              <span className="sr-bl">Damage</span>
-              <span className="sr-track">
-                <i style={{ width: `${pct(room.scores.damage, room.scores.total)}%` }} />
-              </span>
-              <span className="sr-bv">{fmt(room.scores.damage)}</span>
-            </div>
-            <div className={`sr-bar${elimMaxed ? " maxed" : ""}`}>
-              <span className="sr-bl">Elimination</span>
-              <span className="sr-track">
-                <i style={{ width: `${Math.min(100, pct(room.scores.elimination, ELIM_MAX))}%` }} />
-              </span>
-              <span className="sr-bv">
-                {fmt(room.scores.elimination)}
-                {elimMaxed && <em className="sr-max">MAX</em>}
-              </span>
-            </div>
+          <div className="sr-attr">
+            <span className="sr-al">Resistance</span>
+            <span className="sr-chips">
+              {room.resistance.map((a) => (
+                <span key={a} className="sr-chip res">
+                  <DeckImg src={iconPath(elementIcon(a))} alt={a} className="sr-ai" />
+                  {a}
+                </span>
+              ))}
+            </span>
           </div>
         </div>
 
-        {/* right — team / boss panel */}
-        <div className="sr-team">
-          <div className="sr-boss">
-            <DeckImg className="sr-boss-img" src={`/assets/bosses/${room.boss.slug}.webp`} alt={room.boss.name} />
-            <div className="sr-boss-id">
-              <span className="sr-lv">Lv {room.boss.level}</span>
-              <span className="sr-bn">{room.boss.name}</span>
-              {room.boss.tag && <span className="sr-tag">{room.boss.tag}</span>}
-            </div>
-          </div>
-
-          <div className="sr-attrs">
-            <div className="sr-attr">
-              <span className="sr-al">Recommended</span>
-              <span className="sr-chips">
-                {room.recommended.map((a) => (
-                  <span key={a} className="sr-chip">
-                    <DeckImg src={iconPath(elementIcon(a))} alt={a} className="sr-ai" />
-                    {a}
-                  </span>
-                ))}
-                {room.anomaly && <span className="sr-chip anom">Anomaly</span>}
-              </span>
-            </div>
-            <div className="sr-attr">
-              <span className="sr-al">Resistance</span>
-              <span className="sr-chips">
-                {room.resistance.map((a) => (
-                  <span key={a} className="sr-chip res">
-                    <DeckImg src={iconPath(elementIcon(a))} alt={a} className="sr-ai" />
-                    {a}
-                  </span>
-                ))}
-              </span>
-            </div>
-          </div>
-
-          <div className="sr-agents">
-            {room.team.map((m) => (
-              <Link key={m.slug} href={profileHref(base, `/r/${m.slug}/`)} className="sr-agent" title={m.name}>
-                <DeckImg src={`/assets/endgame/${m.slug}.webp`} alt={m.name} className="sr-aimg" />
-              </Link>
-            ))}
-            {room.bangboo && (
-              <span className="sr-agent sr-boo" title={`${room.bangboo.name} (Bangboo)`}>
-                <DeckImg src={`/assets/bangboo/${room.bangboo.slug}.webp`} alt={room.bangboo.name} className="sr-aimg" />
-              </span>
-            )}
-          </div>
+        <div className="sr-crew">
+          {room.team.map((m) => (
+            <Link key={m.slug} href={profileHref(base, `/r/${m.slug}/`)} className="sr-card" title={m.name}>
+              <DeckImg src={`/assets/teamcards/${m.slug}.webp`} alt={m.name} className="sr-cp" />
+              <span className="sr-cn">{m.name}</span>
+            </Link>
+          ))}
+          {room.bangboo && (
+            <span className="sr-boo" title={`${room.bangboo.name} (Bangboo)`}>
+              <DeckImg src={`/assets/bangboo/${room.bangboo.slug}.webp`} alt={room.bangboo.name} className="sr-bimg" />
+            </span>
+          )}
         </div>
       </div>
     </article>

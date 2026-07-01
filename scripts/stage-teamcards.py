@@ -39,6 +39,7 @@ CARDS = {
     "soldier0anbyteam.png": "soldier0anby",
     "ligherteam.png": "lighter",            # source filename typo -> canonical slug
     "velinateam.png": "velina",
+    "burniceteam.png": "burnice",           # cut later than the rest (2026-07, for the Shiyu marquee)
 }
 
 CW, CH = 256, 250  # uniform card canvas (all sources are 250 tall, <=255 wide)
