@@ -3,10 +3,11 @@ import { AssaultPips } from "@/components/AssaultSeason";
 import { DeckImg } from "@/components/deck/DeckImg";
 
 // The rotation-history shelf under the Deadly Assault marquee — ShiyuHistory's sh-* card
-// language, with the mode's own vitals: pip tally (of 9) instead of grade cards, ranking
-// instead of a season rating. Empty until a second rotation is logged (cycles auto-demote).
+// language, but richer rows: the in-game DA history screen keeps per-target boss + pips +
+// team + score, so (unlike Shiyu's shelf, which drops enemy data) each card lists its three
+// target rows in full. Entries without compiled targets fall back to the aggregate pip tally.
 const fmt = (n: number) => n.toLocaleString("en-US");
-const startDate = (iso: string) => {
+const unlockDate = (iso: string) => {
   const [, m, d] = iso.split("-");
   return m && d ? `${m}/${d}` : iso || "—";
 };
@@ -27,8 +28,8 @@ export function AssaultHistory({ entries }: { entries: AssaultHistoryEntry[] }) 
         {entries.map((e) => (
           <article className="sh-card" key={e.id}>
             <header className="sh-top">
-              <b className="sh-date">{startDate(e.date)}</b>
-              <span className="sh-unl">Rotation</span>
+              <b className="sh-date">{unlockDate(e.date)}</b>
+              <span className="sh-unl">Unlocked</span>
               <span className="sh-rank">{e.rank}</span>
             </header>
             <div className="sh-score">
@@ -37,22 +38,35 @@ export function AssaultHistory({ entries }: { entries: AssaultHistoryEntry[] }) 
                 {fmt(e.score)} <small>Score</small>
               </span>
             </div>
-            <div className="da-hist-pips">
-              <AssaultPips earned={e.pips} max={9} size={15} />
-              <em>
-                {e.pips}/9
-              </em>
-            </div>
-            {e.teams && e.teams.length > 0 && (
-              <div className="sh-teams">
-                {e.teams.map((team, i) => (
-                  <span className="sh-room" key={i}>
-                    <small>T{i + 1}</small>
-                    {team.map((m) => (
-                      <DeckImg key={m.slug} className="sh-tp" src={`/assets/endgame/${m.slug}.webp`} alt={m.name} />
-                    ))}
-                  </span>
+            {e.targets && e.targets.length > 0 ? (
+              <div className="da-hts">
+                {e.targets.map((t, i) => (
+                  <div className="da-ht" key={i}>
+                    <div className="da-ht-top">
+                      <small>T{i + 1}</small>
+                      <span className="da-ht-boss">{t.boss}</span>
+                      <AssaultPips earned={t.pips} max={3} size={12} />
+                    </div>
+                    <div className="da-ht-row">
+                      {t.team.map((m) => (
+                        <DeckImg key={m.slug} className="sh-tp" src={`/assets/endgame/${m.slug}.webp`} alt={m.name} />
+                      ))}
+                      {t.bangboo && (
+                        <span className="da-ht-boo" title={`${t.bangboo.name} (Bangboo)`}>
+                          <DeckImg src={`/assets/bangboo/${t.bangboo.slug}.webp`} alt={t.bangboo.name} />
+                        </span>
+                      )}
+                      <b className="da-ht-score">{fmt(t.score)}</b>
+                    </div>
+                  </div>
                 ))}
+              </div>
+            ) : (
+              <div className="da-hist-pips">
+                <AssaultPips earned={e.pips} max={9} size={15} />
+                <em>
+                  {e.pips}/9
+                </em>
               </div>
             )}
           </article>

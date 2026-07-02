@@ -147,26 +147,147 @@ const CYCLES: AssaultCycle[] = [
   },
 ];
 
-// A compact history entry — demoted full cycles (and, eventually, any pre-editorial scorebook
-// Andres compiles, same as Shiyu's).
+// One target row on a history card — the in-game history screen shows boss + pips + team + score
+// per target, so (unlike Shiyu's history, which drops enemy data) we keep the full row.
+export interface AssaultHistoryTarget {
+  boss: string; // display name as the history card shows it, e.g. "Discordant Solo - ???"
+  score: number;
+  pips: number; // 0–3
+  team: AssaultMember[];
+  bangboo?: { name: string; slug: string };
+}
+
+// A compact history entry — demoted full cycles + the pre-editorial scorebook below.
 export interface AssaultHistoryEntry {
   id: string;
-  date: string; // cycle start date, YYYY-MM-DD ("" until supplied)
-  label: string;
+  date: string; // cycle unlock date, YYYY-MM-DD
+  label: string; // our rotation name (headline = first target's boss)
   score: number;
   rank: string;
   pips: number; // of 9
-  teams?: AssaultMember[][]; // per-room trios, in room order
+  targets?: AssaultHistoryTarget[]; // per-target rows, in target order
 }
+
+// Pre-editorial scorebook (Andres's in-game history screen + compiled rosters, 2026-07-01).
+// 14-day cadence, every target 3-pipped across all five rotations. NB: Andres's notes said
+// "05/28" for one cycle — the screenshot reads 05/08 Unlocked and the cadence + team match
+// confirm it, so 05/08 is canon. Per-cycle score sums verified against Best Total, all five.
+const HISTORY: AssaultHistoryEntry[] = [
+  {
+    id: "da-miasmicfiend-2026-06", date: "2026-06-05", label: "Miasmic Fiend Rotation", score: 117112, rank: "4.05%", pips: 9,
+    targets: [
+      {
+        boss: "Miasmic Fiend - Unfathomable", score: 42366, pips: 3,
+        team: [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
+        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+      },
+      {
+        boss: "Ye Shiyuan the Thrall", score: 38238, pips: 3,
+        team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+      {
+        boss: "The Defiler", score: 36508, pips: 3,
+        team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Snap", slug: "snap" },
+      },
+    ],
+  },
+  {
+    id: "da-deadendbutcher-2026-05", date: "2026-05-22", label: "Dead End Butcher Rotation", score: 97949, rank: "5.51%", pips: 9,
+    targets: [
+      {
+        boss: "Notorious - Dead End Butcher", score: 31160, pips: 3,
+        team: [{ slug: "miyabi", name: "Miyabi" }, { slug: "vivian", name: "Vivian" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Robin", slug: "robin" },
+      },
+      {
+        boss: "Ye Shiyuan the Thrall", score: 30295, pips: 3,
+        team: [{ slug: "yidhari", name: "Yidhari" }, { slug: "dialyn", name: "Dialyn" }, { slug: "lucia", name: "Lucia" }],
+        bangboo: { name: "Ms. Esme", slug: "msesme" },
+      },
+      {
+        boss: "Discordant Solo - ???", score: 36494, pips: 3,
+        team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "yuzuha", name: "Yuzuha" }],
+        bangboo: { name: "Biggest Fan", slug: "biggestfan" },
+      },
+    ],
+  },
+  {
+    id: "da-scorchedhorizon-2026-05", date: "2026-05-08", label: "Scorched Horizon Rotation", score: 98817, rank: "7.78%", pips: 9,
+    targets: [
+      {
+        boss: "??? of the Scorched Horizon", score: 32792, pips: 3,
+        team: [{ slug: "miyabi", name: "Miyabi" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Robin", slug: "robin" },
+      },
+      {
+        boss: "Wandering Hunter", score: 32490, pips: 3,
+        team: [{ slug: "yidhari", name: "Yidhari" }, { slug: "dialyn", name: "Dialyn" }, { slug: "lucia", name: "Lucia" }],
+        bangboo: { name: "Ms. Esme", slug: "msesme" },
+      },
+      {
+        boss: "The Defiler", score: 33535, pips: 3,
+        team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Snap", slug: "snap" },
+      },
+    ],
+  },
+  {
+    id: "da-sanguinesweeper-2026-04", date: "2026-04-24", label: "Sanguine Sweeper Rotation", score: 104840, rank: "3.91%", pips: 9,
+    targets: [
+      {
+        boss: "Sanguine Sweeper", score: 37122, pips: 3,
+        team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Biggest Fan", slug: "biggestfan" },
+      },
+      {
+        boss: 'Primordial Nightmare - "The Creator"', score: 29461, pips: 3,
+        team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "zhao", name: "Zhao" }],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+      {
+        boss: "The Defiler", score: 38257, pips: 3,
+        team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+      },
+    ],
+  },
+  {
+    id: "da-discordantsolo-2026-04", date: "2026-04-10", label: "Discordant Solo Rotation", score: 124329, rank: "2.58%", pips: 9,
+    targets: [
+      {
+        boss: "Discordant Solo - ???", score: 40414, pips: 3,
+        team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "yuzuha", name: "Yuzuha" }],
+        bangboo: { name: "Biggest Fan", slug: "biggestfan" },
+      },
+      {
+        boss: "Unknown Corruption Complex", score: 40572, pips: 3,
+        team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+      },
+      {
+        boss: "Ye Shiyuan the Thrall", score: 43343, pips: 3,
+        team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+    ],
+  },
+];
 
 const BY_PROFILE: Record<string, AssaultCycle[]> = {
   [PROFILE_KEY]: CYCLES,
+};
+
+const HISTORY_BY_PROFILE: Record<string, AssaultHistoryEntry[]> = {
+  [PROFILE_KEY]: HISTORY,
 };
 
 export function assaultCyclesFor(profileKey: string): AssaultCycle[] {
   return BY_PROFILE[profileKey] ?? [];
 }
 
+// Demote a full editorial cycle to a history card — target rows come along for free.
 function toHistory(c: AssaultCycle): AssaultHistoryEntry {
   return {
     id: c.id,
@@ -175,13 +296,24 @@ function toHistory(c: AssaultCycle): AssaultHistoryEntry {
     score: c.bestTotal,
     rank: c.rank,
     pips: c.rooms.reduce((n, r) => n + r.pips, 0),
-    teams: c.rooms.length ? c.rooms.map((r) => r.team) : undefined,
+    targets: c.rooms.length
+      ? c.rooms.map((r) => ({
+          boss: r.boss.tag ? `${r.boss.tag} - ${r.boss.name}` : r.boss.name,
+          score: r.scores.total,
+          pips: r.pips,
+          team: r.team,
+          bangboo: r.bangboo,
+        }))
+      : undefined,
   };
 }
 
-// Everything below the marquee, newest first. (ISO dates sort lexicographically.)
+// Everything below the marquee: demoted full cycles + the pre-editorial scorebook, newest first.
+// (ISO dates sort lexicographically.)
 export function assaultHistoryFor(profileKey: string): AssaultHistoryEntry[] {
-  return (BY_PROFILE[profileKey] ?? []).slice(1).map(toHistory).sort((x, y) => y.date.localeCompare(x.date));
+  const demoted = (BY_PROFILE[profileKey] ?? []).slice(1).map(toHistory);
+  const legacy = HISTORY_BY_PROFILE[profileKey] ?? [];
+  return [...demoted, ...legacy].sort((x, y) => y.date.localeCompare(x.date));
 }
 
 export function hasAssault(profileKey: string): boolean {

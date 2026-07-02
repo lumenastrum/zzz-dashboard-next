@@ -483,8 +483,15 @@ live, zero console errors.
   **6k/14k/20k challenge-goal ladder** as pip chips, `Performance` bar (maxed = gold + MAX),
   dashed "None" resistance chip, element-tinted gimmick line. Reuses `VuBar`/`litSegs` (now
   exported from `ShiyuRoomCard`).
-- **`AssaultHistory.tsx`** — rotation-history shelf (sh-* cards): rank + pip tally (of 9) instead
-  of grades. Renders empty now; the machinery is live (author cycle 2 at the top → this one demotes).
+- **`AssaultHistory.tsx`** — rotation-history shelf (sh-* cards), now POPULATED: **5 legacy
+  rotations seeded** (04/10 → 06/05 2026, 14-day cadence, 9/9 pips every one) from Andres's
+  in-game history + compiled rosters. Richer than Shiyu's shelf by design: the in-game DA history
+  card keeps per-target boss + pips + team + score, so `AssaultHistoryTarget` rows carry all of it
+  (endgame minis + 28px bangboo circle + score per row). Demotion produces the same rows for free.
+  ⚠️ Canon note: Andres's notes said "05/28" for one cycle — the screenshot reads **05/08
+  Unlocked** and cadence + team match confirm it; 05/08 is canon. All five per-cycle score sums
+  verified against Best Total. 5 new bangboos staged (biggestfan/plugboo/robin/msesme/snap
+  ← GarageRole 46/19/31/37/30; Belion=36 earlier — 6 total via stage-assault.py).
 - **Assets** — `scripts/stage-assault.py` (`npm run stage-assault`): `IconDeadly.png` → `ui/da-logo`,
   `IconChallengeGoal.png` → `ui/da-pip`, 3 full-body renders → `enemies/{girtablullu,
   notoriousmarionette,yeshiyuanthethrall}.webp` (484×668, same spec as the Shiyu set).

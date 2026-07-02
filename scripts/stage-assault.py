@@ -22,6 +22,11 @@ BOO_DST = os.path.join(ROOT, "public", "assets", "bangboo")
 # merge). Generic GarageRole ids -> friendly slug, names from Andres.
 BANGBOO = {
     "BangbooGarageRole36.png": "belion",
+    "BangbooGarageRole46.png": "biggestfan",
+    "BangbooGarageRole19.png": "plugboo",
+    "BangbooGarageRole31.png": "robin",
+    "BangbooGarageRole37.png": "msesme",
+    "BangbooGarageRole30.png": "snap",
 }
 
 # Full-body enemy renders (transparent, 484x668 — same spec as the Shiyu set) for the room
