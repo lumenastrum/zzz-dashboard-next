@@ -1,7 +1,7 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-07-01 (Shiyu "Marquee" redesign + clear-history shelf) · shipped to master, GH Pages deploying.
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)**.
+**Last updated:** 2026-07-01 evening (Deadly Assault tab — foundation; placeholder lineups pending Andres's list).
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)** + **Deadly Assault tab (rotation + 3 targets)**.
 
 > ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
 
@@ -459,17 +459,53 @@ cut) — `stage-shiyu.py` now **synthesizes `endgame/zhao.webp`** from the tall 
 (`ZHAO_FACE` hand-tuned face box; the measured portrait-frame center misses — he's posed off-axis).
 A real `zhaoendgame.png` in the stash takes precedence over the synth.
 
+## DONE — Deadly Assault tab (2026-07-01, foundation)
+
+New **Assault** nav tab (Andres-side, gated by `hasAssault`) → `/assault`. The second, rotating
+endgame mode — Shiyu's sibling, same editorial pattern, its own fingerprints. Seeded from Andres's
+2026-06 result screenshots (Girtablullu 47,282 · Notorious-Marionette 45,086 · Ye Shiyuan the
+Thrall 41,005 = 133,373 best total, 2.47% ranking, 9/9 pips). Build clean (46 pages), pixel-QA'd
+live, zero console errors.
+
+- **`src/lib/assault.ts`** — editorial cycles (profile-keyed, newest first, auto-demote via
+  `assaultHistoryFor`). An `AssaultRoom` = boss + time LIMIT (not clear time) + recommended
+  attrs + specialty ("Suitable for Agents with X specialty") + powerful-enemy resistance ([] =
+  None) + one-line `gimmick` + `pips` (0–3) + damage/performance score split (perf caps 5,000)
+  + team. `ASSAULT_TARGETS = [6000, 14000, 20000]` (per-room `targets` override ready).
+  `medals?: {crown, shield}` = the result screen's CAREER tallies (18/9), account-wide.
+- **`AssaultSeason.tsx`** — best total + ranking + pip tally (9/9, real `da-pip` icons, unearned
+  pips go dark) + career-medal chips (typographic ♛/⛨ until real medal icons land in the stash —
+  numbers baked over the art in screenshots, no clean crop) + the in-game bottom-of-screen **boss
+  trio as anchor tiles** (name · pips · score → `#da-room-N`). DA fang wordmark ghosted top-right.
+- **`AssaultRoomCard.tsx`** — Shiyu marquee language (render poster, VU bars, chips, diagonal
+  team cards) + DA-only: vertical **DEADLY ASSAULT rail** down the left edge (in-game frame),
+  giant outlined **target number** watermark (DA doesn't grade — no rating letter), the
+  **6k/14k/20k challenge-goal ladder** as pip chips, `Performance` bar (maxed = gold + MAX),
+  dashed "None" resistance chip, element-tinted gimmick line. Reuses `VuBar`/`litSegs` (now
+  exported from `ShiyuRoomCard`).
+- **`AssaultHistory.tsx`** — rotation-history shelf (sh-* cards): rank + pip tally (of 9) instead
+  of grades. Renders empty now; the machinery is live (author cycle 2 at the top → this one demotes).
+- **Assets** — `scripts/stage-assault.py` (`npm run stage-assault`): `IconDeadly.png` → `ui/da-logo`,
+  `IconChallengeGoal.png` → `ui/da-pip`, 3 full-body renders → `enemies/{girtablullu,
+  notoriousmarionette,yeshiyuanthethrall}.webp` (484×668, same spec as the Shiyu set).
+- ⚠️ **PLACEHOLDER LINEUPS** — the 9 agents in `assault.ts` are thumbnail best-guesses; **Andres is
+  supplying the real per-boss rosters + bangboos** (bangboos omitted entirely until then). Also
+  pending from Andres: cycle start date, buff names/icons (type field `buff?` is data-ready), and
+  confirmation of the crown/shield medal semantics.
+
 ## Next steps (next session)
 
-**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres). **Levels** is still a dead `#` link. Remaining:
+**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres) · ✅ Assault (Andres, foundation). **Levels** is still a dead `#` link. Remaining:
 
-1. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
+1. **Deadly Assault real lineups** — swap the placeholder teams in `assault.ts` when Andres's list
+   lands (+ bangboos, cycle date, buff names). Medal icons → stage via `stage-assault.py` if mined.
+2. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
    auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
    (GarageRole ids are opaque).
-2. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
-3. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
-4. **Score-logging helper** — a tiny CLI so Recent Benchmarks + Shiyu scores don't need hand-editing (offered).
-5. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded); Zhao buildless. Roster 24/25.
+3. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
+4. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
+5. **Score-logging helper** — a tiny CLI so Recent Benchmarks + Shiyu/DA scores don't need hand-editing (offered).
+6. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded); Zhao buildless. Roster 24/25.
 
 ## How to run
 - **App:** `npm run dev` → http://localhost:3000 → click an agent → `/r/<slug>/` (the deck).

@@ -772,3 +772,85 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .ss-lnk { display:none; }
   .sr-crew { flex-wrap:wrap; }
 }
+
+/* ===================== DEADLY ASSAULT ===================== */
+/* Shiyu's marquee language (ss- and sr- classes reused) + the mode's own fingerprints:
+   challenge-goal pips, the in-game frame's vertical rail, and the boss-trio score strip. */
+.da-wm { width:400px; height:auto; right:-30px; top:-52px; } /* the fang wordmark is wide, not square */
+
+/* challenge-goal pips (ui/da-pip.webp) — unearned pips go dark, like a dead VU segment */
+.da-pips { display:inline-flex; align-items:center; gap:4px; }
+.da-pip { width:var(--pip, 18px); height:var(--pip, 18px); object-fit:contain;
+  filter:grayscale(1) brightness(.5); opacity:.4; }
+.da-pip.on { filter:none; opacity:1; }
+.da-pipline { display:flex; align-items:center; gap:9px; }
+.da-pipline em, .da-hist-pips em { font-style:normal; font-family:var(--disp); font-weight:700; font-size:22px;
+  line-height:1; color:var(--amber); }
+
+/* career medal tallies — typographic until real medal icons land in the stash */
+.da-medals { display:flex; gap:9px; }
+.da-medal { display:inline-flex; align-items:center; gap:6px; padding:6px 11px; border-radius:9px;
+  border:1px solid var(--bezel1); background:var(--bg2);
+  font-family:var(--disp); font-weight:700; font-size:19px; line-height:1; color:var(--ink); }
+.da-medal i { font-style:normal; font-size:15px; }
+.da-medal.crown i { color:var(--amber); }
+.da-medal.shield i { color:var(--violet); }
+
+/* the boss-trio strip — the in-game bottom rail as anchor tiles (name · pips · score) */
+.da-rail-row { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:20px;
+  padding-top:17px; border-top:1px solid var(--bezel1); }
+.da-boss-tile { display:flex; flex-direction:column; gap:7px; padding:11px 14px 10px;
+  border:1px solid var(--bezel1); border-radius:11px; text-decoration:none;
+  background:
+    radial-gradient(120% 120% at 50% -20%, color-mix(in srgb, var(--ec, var(--violet)) 14%, transparent), transparent 60%),
+    var(--bg2);
+  transition:transform .18s ease, border-color .18s ease; }
+.da-boss-tile:hover { transform:translateY(-2px);
+  border-color:color-mix(in srgb, var(--ec, var(--violet)) 45%, var(--bezel1)); }
+.da-bt-name { font-family:var(--disp); font-weight:600; font-size:13.5px; letter-spacing:.5px;
+  text-transform:uppercase; color:var(--ink); line-height:1.15; }
+.da-bt-name small { font-size:9px; letter-spacing:1.5px; color:var(--mut); }
+.da-bt-score { font-family:var(--disp); font-weight:700; font-size:21px; line-height:1; color:var(--amber); }
+
+/* target cards: the vertical DEADLY ASSAULT rail down the left edge (in-game frame language) */
+.da-room { scroll-margin-top:24px; }
+.da-rail { position:absolute; left:10px; top:24px; bottom:24px; z-index:0; pointer-events:none; user-select:none;
+  writing-mode:vertical-rl; transform:rotate(180deg); text-align:center;
+  font-family:var(--disp); font-weight:800; font-style:italic; font-size:17px; letter-spacing:6px;
+  text-transform:uppercase; white-space:nowrap; color:transparent;
+  -webkit-text-stroke:1px color-mix(in srgb, var(--ec, var(--violet)) 45%, transparent); opacity:.55; }
+.da-in { padding-left:58px; }
+/* giant outlined target number ("01") — two glyphs, so tighter + smaller than Shiyu's letter */
+.da-no-wm { font-size:230px; letter-spacing:-8px; top:24px; }
+.da-head-pips { margin-left:6px; }
+
+/* challenge-goal ladder: 6k / 14k / 20k chips, lit in pip order */
+.da-goals { display:flex; gap:8px; margin-top:14px; }
+.da-goal { display:inline-flex; align-items:center; gap:7px; padding:5px 11px 5px 7px;
+  border:1px solid var(--bezel1); border-radius:8px; background:var(--bg2);
+  font-family:var(--disp); font-weight:600; font-size:13px; color:var(--mut); }
+.da-goal .da-pip { width:17px; height:17px; }
+.da-goal.hit { color:var(--amber); border-color:color-mix(in srgb, var(--amber) 35%, var(--bezel1)); }
+
+/* the one-line Enemy Details gimmick */
+.da-gimmick { margin:14px 0 0; max-width:520px; padding-left:11px;
+  border-left:2px solid color-mix(in srgb, var(--ec, var(--violet)) 45%, transparent);
+  font-family:var(--led); font-size:11px; letter-spacing:.3px; color:var(--mut); line-height:1.55; }
+
+/* "no resistance" chip — present but powerless */
+.sr-chip.none { color:var(--mut2); border-style:dashed; opacity:.75; }
+
+/* rotation-history shelf extras (sh-* reused) */
+.sh-rank { margin-left:auto; font-family:var(--disp); font-weight:700; font-size:17px; color:var(--amber); }
+.da-hist-pips { display:flex; align-items:center; gap:9px; margin-top:11px; padding:8px 12px;
+  border:1px solid var(--bezel1); border-radius:9px; background:var(--bg2); }
+.da-hist-pips em { font-size:16px; margin-left:auto; }
+
+@media (max-width:1000px){
+  .da-no-wm { display:none; }
+}
+@media (max-width:820px){
+  .da-rail { display:none; }
+  .da-in { padding-left:30px; }
+  .da-rail-row { grid-template-columns:1fr; }
+}

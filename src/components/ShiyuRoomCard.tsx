@@ -16,10 +16,11 @@ const fmt = (n: number) => n.toLocaleString("en-US");
 const ELIM_MAX = 5000; // elimination caps at 5,000 per room — a maxed bar reads as "can't go higher"
 const SEGS = 20; // VU bar resolution
 
-const litSegs = (part: number, whole: number) =>
+export const litSegs = (part: number, whole: number) =>
   Math.max(0, Math.min(SEGS, Math.round((whole > 0 ? part / whole : 0) * SEGS)));
 
-function VuBar({ label, value, lit, maxed }: { label: string; value: number; lit: number; maxed?: boolean }) {
+// Shared with AssaultRoomCard — one VU language across both endgame tabs.
+export function VuBar({ label, value, lit, maxed }: { label: string; value: number; lit: number; maxed?: boolean }) {
   return (
     <div className={`sr-bar${maxed ? " maxed" : ""}`}>
       <span className="sr-bl">{label}</span>
