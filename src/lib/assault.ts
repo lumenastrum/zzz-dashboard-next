@@ -60,9 +60,8 @@ export const ASSAULT_TARGETS: [number, number, number] = [6000, 14000, 20000];
 // Newest cycle first. CYCLES[0] gets the marquee; older entries demote to the history shelf
 // (via toHistory). To log a new rotation: author it HERE at the top — done.
 //
-// ⚠ PLACEHOLDER LINEUPS (2026-07-01): the teams below are thumbnail best-guesses from Andres's
-// result screenshots — he's supplying the real per-boss rosters + bangboos; swap them when the
-// list lands. Scores/pips/attributes/gimmicks are screenshot-exact.
+// Lineups Andres-confirmed 2026-07-01; still pending from him: bangboos (thumbnails are opaque),
+// cycle start date, and buff names/icons. Scores/pips/attributes/gimmicks are screenshot-exact.
 const CYCLES: AssaultCycle[] = [
   {
     id: "da-girtablullu-2026-06",
@@ -83,9 +82,9 @@ const CYCLES: AssaultCycle[] = [
         pips: 3,
         scores: { total: 47282, damage: 42282, performance: 5000 },
         team: [
-          { slug: "alice", name: "Alice" },
-          { slug: "vivian", name: "Vivian" },
-          { slug: "burnice", name: "Burnice" },
+          { slug: "aria", name: "Aria" },
+          { slug: "velina", name: "Velina" },
+          { slug: "yuzuha", name: "Yuzuha" },
         ],
       },
       {
@@ -99,9 +98,9 @@ const CYCLES: AssaultCycle[] = [
         pips: 3,
         scores: { total: 45086, damage: 40886, performance: 4200 },
         team: [
-          { slug: "miyabi", name: "Miyabi" },
           { slug: "yixuan", name: "Yixuan" },
-          { slug: "astra", name: "Astra Yao" },
+          { slug: "jufufu", name: "Ju Fufu" },
+          { slug: "lucia", name: "Lucia" },
         ],
       },
       {
@@ -116,9 +115,9 @@ const CYCLES: AssaultCycle[] = [
         pips: 3,
         scores: { total: 41005, damage: 36005, performance: 5000 },
         team: [
-          { slug: "aria", name: "Aria" },
-          { slug: "jufufu", name: "Ju Fufu" },
-          { slug: "nangongyu", name: "Nangong Yu" },
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
         ],
       },
     ],

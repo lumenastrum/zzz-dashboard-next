@@ -488,17 +488,18 @@ live, zero console errors.
 - **Assets** — `scripts/stage-assault.py` (`npm run stage-assault`): `IconDeadly.png` → `ui/da-logo`,
   `IconChallengeGoal.png` → `ui/da-pip`, 3 full-body renders → `enemies/{girtablullu,
   notoriousmarionette,yeshiyuanthethrall}.webp` (484×668, same spec as the Shiyu set).
-- ⚠️ **PLACEHOLDER LINEUPS** — the 9 agents in `assault.ts` are thumbnail best-guesses; **Andres is
-  supplying the real per-boss rosters + bangboos** (bangboos omitted entirely until then). Also
-  pending from Andres: cycle start date, buff names/icons (type field `buff?` is data-ready), and
-  confirmation of the crown/shield medal semantics.
+- ✅ **Real lineups DELIVERED + seeded same evening** (Andres's list): T1 Aria/Velina/Yuzuha ·
+  T2 Yixuan/Ju Fufu/Lucia · T3 Ye Shunguang/Dialyn/Sunna. (Eyeball scorecard: 1/9 exact — the
+  thumbnails are 46px circles, mercy requested.) Still pending from Andres: **bangboos**, cycle
+  start date, buff names/icons (type field `buff?` is data-ready), and confirmation of the
+  crown/shield medal semantics.
 
 ## Next steps (next session)
 
 **Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres) · ✅ Assault (Andres, foundation). **Levels** is still a dead `#` link. Remaining:
 
-1. **Deadly Assault real lineups** — swap the placeholder teams in `assault.ts` when Andres's list
-   lands (+ bangboos, cycle date, buff names). Medal icons → stage via `stage-assault.py` if mined.
+1. **Deadly Assault loose ends** — lineups ✅ seeded; still wanted: bangboos, cycle date, buff
+   names. Medal icons → stage via `stage-assault.py` if mined.
 2. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
    auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
    (GarageRole ids are opaque).
