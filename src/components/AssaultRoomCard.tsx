@@ -103,6 +103,17 @@ export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?:
               )}
             </span>
           </div>
+          {room.buff && (
+            <div className="sr-attr">
+              <span className="sr-al">Buff</span>
+              <span className="sr-chips">
+                <span className="sr-chip da-buff" title={room.buff.desc}>
+                  <DeckImg src={`/assets/ui/da-buff-${room.buff.slug}.webp`} alt="" className="sr-ai da-bi" />
+                  {room.buff.name}
+                </span>
+              </span>
+            </div>
+          )}
         </div>
 
         {room.gimmick && <p className="da-gimmick">{room.gimmick}</p>}

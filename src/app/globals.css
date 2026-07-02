@@ -840,6 +840,11 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 /* "no resistance" chip — present but powerless */
 .sr-chip.none { color:var(--mut2); border-style:dashed; opacity:.75; }
 
+/* the Current Buff chip — hover for the wiki effect text */
+.sr-chip.da-buff { color:var(--ink); cursor:help;
+  border-color:color-mix(in srgb, var(--ec, var(--violet)) 40%, var(--bezel1)); }
+.da-bi { width:17px; height:17px; }
+
 /* rotation-history shelf extras (sh-* reused) */
 .sh-rank { margin-left:auto; font-family:var(--disp); font-weight:700; font-size:17px; color:var(--amber); }
 .da-hist-pips { display:flex; align-items:center; gap:9px; margin-top:11px; padding:8px 12px;

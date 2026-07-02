@@ -28,7 +28,10 @@ export interface AssaultRoom {
   specialty?: string; // "Suitable for Agents with X specialty" — e.g. "Anomaly", "Stun"
   resistance: string[]; // powerful-enemy resistance(s); [] renders as "None"
   gimmick?: string; // one-line Enemy Details mechanic, abridged
-  buff?: { name: string; slug: string }; // chosen Current Buff (icons not staged yet — data-ready)
+  // The Current Buff Andres ran. slug -> /assets/ui/da-buff-<slug>.webp — an icon ARCHETYPE
+  // (element/atk/ruin) the game reuses across rotations under fresh names; desc = wiki effect
+  // text (fandom Deadly_Assault/<date> page), surfaced as the chip's tooltip.
+  buff?: { name: string; slug: string; desc?: string };
   pips: number; // challenge-target pips earned, 0–3
   targets?: [number, number, number]; // score thresholds; defaults to ASSAULT_TARGETS
   scores: { total: number; damage: number; performance: number };
@@ -60,12 +63,14 @@ export const ASSAULT_TARGETS: [number, number, number] = [6000, 14000, 20000];
 // Newest cycle first. CYCLES[0] gets the marquee; older entries demote to the history shelf
 // (via toHistory). To log a new rotation: author it HERE at the top — done.
 //
-// Lineups Andres-confirmed 2026-07-01; still pending from him: bangboos (thumbnails are opaque),
-// cycle start date, and buff names/icons. Scores/pips/attributes/gimmicks are screenshot-exact.
+// Lineups Andres-confirmed 2026-07-01; buffs + dates wiki-confirmed same night (icons matched
+// against his result screenshots). Still pending: bangboos (thumbnails are opaque to me).
+// Scores/pips/attributes/gimmicks are screenshot-exact.
 const CYCLES: AssaultCycle[] = [
   {
     id: "da-girtablullu-2026-06",
     label: "Girtablullu Rotation",
+    date: "2026-06-19", // runs 06/19 04:00 → 07/03 03:59 server time (fandom wiki)
     bestTotal: 133373,
     rank: "2.47%",
     medals: { crown: 18, shield: 9 },
@@ -79,6 +84,11 @@ const CYCLES: AssaultCycle[] = [
         resistance: [],
         gimmick:
           "Each Anomaly inflicted stacks Shadow — the boss takes +7.5% Anomaly DMG and +5% Vortex DMG per stack, up to 3.",
+        buff: {
+          name: "Northern Wind",
+          slug: "element",
+          desc: "Agent ATK +10%. Inflicting Vortex raises the squad's ATK +5% and Anomaly Proficiency +10 for 15s (stacks ×3). Wind/Ice Anomalies cut the enemy's DEF 10% for 20s.",
+        },
         pips: 3,
         scores: { total: 47282, damage: 42282, performance: 5000 },
         team: [
@@ -94,7 +104,12 @@ const CYCLES: AssaultCycle[] = [
         recommended: ["Ice", "Ether"],
         resistance: [],
         gimmick:
-          "Boss DMG +25%; destroying a clone (or stunning the main body) stacks On Thin Ice — each cuts boss DMG 5% and raises its Ice/Ether DMG taken.",
+          "Boss DMG +25%; destroying a clone (or stunning the main body) stacks On Thin Ice — each cuts boss DMG 5% and raises its Ice/Ether DMG taken 10%.",
+        buff: {
+          name: "Shatter",
+          slug: "ruin",
+          desc: "Agent Sheer DMG +20%, HP +15%. After an EX Special, Rupture agents deal +40% CRIT DMG and their EX Special/Ultimate ignore 15% of enemy Physical and Ether RES for 15s.",
+        },
         pips: 3,
         scores: { total: 45086, damage: 40886, performance: 4200 },
         team: [
@@ -111,7 +126,12 @@ const CYCLES: AssaultCycle[] = [
         specialty: "Stun",
         resistance: ["Electric"],
         gimmick:
-          "As Sobek and the Thrall alternate turns, the Thrall stacks Contract (+15% Anomaly Buildup RES each) and Self-Sacrifice, up to 3.",
+          "As Sobek and the Thrall alternate turns, the Thrall stacks Contract (+15% Anomaly Buildup RES each) and Self-Sacrifice, up to 3; stunned, he takes +50% CRIT DMG.",
+        buff: {
+          name: "Onslaught",
+          slug: "atk",
+          desc: "Attack agents' Ether and Ice DMG +35%. Basic Attacks and Ultimates deal +20% DMG ignoring 10% DEF. After a Chain or EX Special, CRIT DMG +45% for 20s.",
+        },
         pips: 3,
         scores: { total: 41005, damage: 36005, performance: 5000 },
         team: [

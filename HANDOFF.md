@@ -490,16 +490,23 @@ live, zero console errors.
   notoriousmarionette,yeshiyuanthethrall}.webp` (484×668, same spec as the Shiyu set).
 - ✅ **Real lineups DELIVERED + seeded same evening** (Andres's list): T1 Aria/Velina/Yuzuha ·
   T2 Yixuan/Ju Fufu/Lucia · T3 Ye Shunguang/Dialyn/Sunna. (Eyeball scorecard: 1/9 exact — the
-  thumbnails are 46px circles, mercy requested.) Still pending from Andres: **bangboos**, cycle
-  start date, buff names/icons (type field `buff?` is data-ready), and confirmation of the
-  crown/shield medal semantics.
+  thumbnails are 46px circles, mercy requested.)
+- ✅ **Buffs + cycle date wiki-mined same night** (fandom `Deadly_Assault/2026-06-19` — WebFetch
+  402'd, camoufox walked in): cycle runs 06/19→07/03; per-room Current Buff chips with icon +
+  name + full effect text as tooltip. Icons matched 1:1 against Andres's result screenshots:
+  T1 **Northern Wind** (element swirl), T2 **Shatter** (gold ruin — Yixuan's Sheer buff), T3
+  **Onslaught** (red fist, Attack). Icons staged into the stash under wiki filenames →
+  `ui/da-buff-{element,atk,ruin}.webp` — the slugs are icon ARCHETYPES the game reuses across
+  rotations under fresh buff names, so future cycles just point `buff.slug` at one of the three.
+  Still pending from Andres: **bangboos** + confirmation of the crown/shield medal semantics.
 
 ## Next steps (next session)
 
 **Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres) · ✅ Assault (Andres, foundation). **Levels** is still a dead `#` link. Remaining:
 
-1. **Deadly Assault loose ends** — lineups ✅ seeded; still wanted: bangboos, cycle date, buff
-   names. Medal icons → stage via `stage-assault.py` if mined.
+1. **Deadly Assault loose ends** — lineups ✅ · buffs ✅ · date ✅; still wanted: bangboos +
+   medal semantics. Medal icons → stage via `stage-assault.py` if mined. New rotations: wiki
+   page `Deadly_Assault/<start-date>` has buffs/dates/mechanics (camoufox — fandom 402s WebFetch).
 2. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
    auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
    (GarageRole ids are opaque).

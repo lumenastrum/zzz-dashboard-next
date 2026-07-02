@@ -26,10 +26,16 @@ ENEMIES = {
 }
 
 # Mode chrome: the in-game Deadly Assault wordmark (black-on-transparent, ghosted via invert
-# like the Shiyu badge) + the challenge-goal pip (each room grants up to 3).
+# like the Shiyu badge) + the challenge-goal pip (each room grants up to 3) + the three buff
+# icons. Buff icons are ARCHETYPES (element/atk/ruin) reused across rotations under different
+# buff names — AssaultRoom.buff.slug points at the archetype. Sourced from the fandom wiki
+# (Deadly_Assault/<cycle-date> page) into the stash under their wiki filenames.
 UI = {
     "IconDeadly.png": "da-logo",
     "IconChallengeGoal.png": "da-pip",
+    "Icon_Deadly_Assault_Buff_(Element).png": "da-buff-element",
+    "Icon_Deadly_Assault_Buff_(ATK).png": "da-buff-atk",
+    "Icon_Deadly_Assault_Buff_(Ruin).png": "da-buff-ruin",
 }
 
 
