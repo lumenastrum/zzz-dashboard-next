@@ -18,6 +18,8 @@
 }
 
 html, body { height: 100%; }
+/* stop mobile browsers from auto-inflating text on the dense LED labels */
+html { -webkit-text-size-adjust:100%; text-size-adjust:100%; }
 body {
   margin: 0;
   background: var(--bg);
@@ -143,6 +145,19 @@ a { color: inherit; text-decoration: none; }
 .hint { text-align:center; margin-top:28px; font-family:var(--led); font-size:12px; letter-spacing:3px;
   text-transform:uppercase; color:var(--mut2); }
 .hint b { color:var(--red); }
+
+/* ===== phone pass: the faceplate stacks and the nav becomes a full-width tab strip.
+   The fixed-width pill nav (~412px) was wider than a phone viewport and dragged EVERY
+   page into sideways scroll — the tabs past "Levels" were literally unreachable. */
+@media (max-width:800px){
+  .wrap { padding:18px 14px 64px; }
+  .face { flex-direction:column; align-items:stretch; gap:12px; padding:14px 16px; }
+  .face h1 { font-size:17px; letter-spacing:2px; }
+  .tnav { width:100%; }
+  .tnav a { flex:1 1 0; text-align:center; padding:8px 0; font-size:10.5px; letter-spacing:1px; }
+  .shead { flex-wrap:wrap; }
+  .roster { gap:12px; }
+}
 
 /* temporary agent-page proof panel (deck UI ports next) */
 .proof { max-width:760px; margin:0 auto; background:linear-gradient(180deg,var(--panel2),var(--bg2));
@@ -411,6 +426,21 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .foot { grid-template-columns:1fr; }
   .rtop { grid-template-columns:1fr; }
 }
+/* phone: the header row never wrapped, so the deck's overflow:hidden AMPUTATED the spec
+   chips + the ✕ close button past the right edge. Chips get their own wrapping row; the
+   ✕ pins to the corner so there's always a way back to the roster. */
+@media (max-width:800px){
+  .deck-wrap { padding:14px 10px 36px; }
+  .deck-top { flex-wrap:wrap; position:relative; padding:12px 56px 12px 16px; gap:10px 12px; }
+  .deck-top .np-id { min-width:0; }
+  .deck-top .spec { margin-left:0; width:100%; flex-wrap:wrap; }
+  .deck-top .xbtn { position:absolute; top:11px; right:12px; }
+  .rack { padding:16px 14px; }
+  /* the main-stat select could bleed past its pill at narrow widths */
+  .mainstat { gap:10px; }
+  .mainstat .v { display:flex; min-width:0; }
+  .mainstat .v select.ed { max-width:100%; }
+}
 
 /* ===== Pull Priority — wishlist crates =====================================
    Her-exclusive tab. Each pick is a flippable record sleeve: front = cover art
@@ -602,6 +632,14 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .set-row { grid-template-columns:1fr; gap:3px; }
   .sb-meta { margin-left:0; text-align:left; width:100%; }
 }
+/* phone: at ~96px per diagonal card the LEAD pill sat on top of the role text and long
+   names (Ye Shunguang) clipped — the role label already says CARRY, so the pill goes. */
+@media (max-width:480px){
+  .tcard.role-carry::before { display:none; }
+  .tc-role { font-size:8px; letter-spacing:1.5px; }
+  .tc-name { font-size:11.5px; line-height:1.05; white-space:normal; }
+  .tc-plate { padding:14px 5% 8px 27%; }
+}
 
 /* ===================== SHIYU DEFENSE ===================== */
 /* rating badges — ZZZ's B→A→S→S+ ladder (S+ is the iridescent gradient) */
@@ -772,6 +810,21 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .ss-lnk { display:none; }
   .sr-crew { flex-wrap:wrap; }
 }
+/* phone: tighten the season readout + room cards so the numbers keep their headroom */
+@media (max-width:560px){
+  .shiyu-season { padding:18px 16px; }
+  .ss-top { gap:16px; }
+  .ss-medal { width:72px; height:72px; }
+  .ss-best b { font-size:42px; }
+  .ss-cells { flex-wrap:wrap; gap:18px 28px; }
+  .sr-in { padding:20px 16px 20px 24px; }
+  /* the boss tag is absolute in the top-right corner here — keep the head row out of it */
+  .sr-head { flex-wrap:wrap; padding-right:72px; }
+  .sr-total b { font-size:44px; }
+  .sr-attrs { flex-wrap:wrap; gap:12px 22px; }
+  .sr-bar { grid-template-columns:74px 1fr auto; gap:8px; }
+  .shiyu-rooms { gap:28px; margin-top:28px; }
+}
 
 /* ===================== DEADLY ASSAULT ===================== */
 /* Shiyu's marquee language (ss- and sr- classes reused) + the mode's own fingerprints:
@@ -870,4 +923,11 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .da-rail { display:none; }
   .da-in { padding-left:30px; }
   .da-rail-row { grid-template-columns:1fr; }
+}
+/* phone: the 6k/14k/20k goal ladder + career medals sat on one fixed row */
+@media (max-width:560px){
+  .da-in { padding-left:24px; }
+  .da-goals { flex-wrap:wrap; }
+  .da-medals { flex-wrap:wrap; }
+  .da-pipline { flex-wrap:wrap; }
 }
