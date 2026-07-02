@@ -4,7 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
+    "prebuild": "tsx scripts/export-endgame.ts",
     "build": "next build",
+    "peek": "tsx scripts/peek.ts",
+    "export-endgame": "tsx scripts/export-endgame.ts",
     "start": "next start",
     "lint": "eslint",
     "grade": "tsx scripts/grade.ts",

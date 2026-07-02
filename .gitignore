@@ -28,6 +28,9 @@ yarn-debug.log*
 # local Supabase row backups
 /backups/
 
+# generated endgame JSON (export-endgame.ts, rebuilt on every `npm run build`)
+/public/data/
+
 # frame-measurement QA artifacts
 scripts/.frames-contact.png
 scripts/.probe_*.png

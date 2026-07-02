@@ -29,6 +29,10 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
 ## Where things are
 - Full interactive reference UI: `../zzz-redesign-mockups/c-soundsystem.html` (the look/feel spec).
 - `HANDOFF.md` — status + numbered next steps. Read first when resuming.
+- `npm run peek` — read-only CLI over everything (roster/agent/shiyu/assault/blob/profiles,
+  `--json`, `--profile`). Curl recipes for no-clone access: `docs/couch-clio-data-access.md`.
+- `npm run build` auto-runs `export-endgame.ts` (prebuild) → publishes `data/shiyu.json` +
+  `data/assault.json` on GH Pages (gitignored locally; endgame truth stays in the TS source).
 
 ## Gotchas
 - Static export: no server-side Supabase at request time — data loads client-side (port the WuWa
