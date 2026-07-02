@@ -16,6 +16,13 @@ SRC = r"C:\Users\pined\Documents\Claude Space\Macbook Air Share\zzz-design-ideas
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENEMY_DST = os.path.join(ROOT, "public", "assets", "enemies")
 UI_DST = os.path.join(ROOT, "public", "assets", "ui")
+BOO_DST = os.path.join(ROOT, "public", "assets", "bangboo")
+
+# Bangboo full-body sprites new to this mode (Shiyu's trio came via stage-shiyu.py; the folders
+# merge). Generic GarageRole ids -> friendly slug, names from Andres.
+BANGBOO = {
+    "BangbooGarageRole36.png": "belion",
+}
 
 # Full-body enemy renders (transparent, 484x668 — same spec as the Shiyu set) for the room
 # posters, keyed by the AssaultBoss slug they render. Already .webp -> straight copy.
@@ -55,6 +62,19 @@ def main():
         print(f"  enemies/{slug:20} <- {fn}")
         e += 1
     print(f"[ok] staged {e} enemy render(s) -> {ENEMY_DST}\n")
+
+    os.makedirs(BOO_DST, exist_ok=True)
+    g = 0
+    for fn, slug in BANGBOO.items():
+        path = os.path.join(SRC, fn)
+        if not os.path.exists(path):
+            print(f"  [skip] missing {fn}")
+            continue
+        im = Image.open(path).convert("RGBA")
+        save_webp(im, os.path.join(BOO_DST, f"{slug}.webp"))
+        print(f"  bangboo/{slug:14} {im.size[0]}x{im.size[1]}")
+        g += 1
+    print(f"[ok] staged {g} bangboo(s) -> {BOO_DST}\n")
 
     os.makedirs(UI_DST, exist_ok=True)
     u = 0

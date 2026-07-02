@@ -39,8 +39,8 @@ export interface AssaultRoom {
   bangboo?: { name: string; slug: string }; // 4th slot -> /assets/bangboo/<slug>.webp
 }
 
-// Career medal tallies from the result screen's badge plate (crown = round top-tier medal,
-// shield = the second-tier shield). Account-wide totals, not per-cycle — semantics per Andres.
+// Career medal tallies from the result screen's badge plate — crown = top-tier medal, shield =
+// second tier (Andres-confirmed 2026-07-01). Account-wide totals, not per-cycle.
 export interface AssaultMedals {
   crown: number;
   shield: number;
@@ -63,9 +63,9 @@ export const ASSAULT_TARGETS: [number, number, number] = [6000, 14000, 20000];
 // Newest cycle first. CYCLES[0] gets the marquee; older entries demote to the history shelf
 // (via toHistory). To log a new rotation: author it HERE at the top — done.
 //
-// Lineups Andres-confirmed 2026-07-01; buffs + dates wiki-confirmed same night (icons matched
-// against his result screenshots). Still pending: bangboos (thumbnails are opaque to me).
-// Scores/pips/attributes/gimmicks are screenshot-exact.
+// Girtablullu rotation fully authored 2026-07-01: lineups + bangboos + medal semantics from
+// Andres, buffs + dates from the fandom wiki (icons matched against his result screenshots).
+// Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
   {
     id: "da-girtablullu-2026-06",
@@ -96,6 +96,7 @@ const CYCLES: AssaultCycle[] = [
           { slug: "velina", name: "Velina" },
           { slug: "yuzuha", name: "Yuzuha" },
         ],
+        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
       },
       {
         room: 2,
@@ -117,6 +118,7 @@ const CYCLES: AssaultCycle[] = [
           { slug: "jufufu", name: "Ju Fufu" },
           { slug: "lucia", name: "Lucia" },
         ],
+        bangboo: { name: "Belion", slug: "belion" },
       },
       {
         room: 3,
@@ -139,6 +141,7 @@ const CYCLES: AssaultCycle[] = [
           { slug: "dialyn", name: "Dialyn" },
           { slug: "sunna", name: "Sunna" },
         ],
+        bangboo: { name: "Sprout", slug: "sprout" },
       },
     ],
   },

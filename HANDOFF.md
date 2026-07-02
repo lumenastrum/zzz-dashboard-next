@@ -498,15 +498,20 @@ live, zero console errors.
   **Onslaught** (red fist, Attack). Icons staged into the stash under wiki filenames →
   `ui/da-buff-{element,atk,ruin}.webp` — the slugs are icon ARCHETYPES the game reuses across
   rotations under fresh buff names, so future cycles just point `buff.slug` at one of the three.
-  Still pending from Andres: **bangboos** + confirmation of the crown/shield medal semantics.
+- ✅ **Bangboos + medal semantics DELIVERED (same night — rotation fully authored, nothing
+  pending):** T1 Ultra Jet · T2 **Belion** (new: `BangbooGarageRole36.png` → staged via
+  stage-assault.py's own BANGBOO dict, folders merge with Shiyu's trio) · T3 Sprout. Medals
+  confirmed: **crown = top tier, shield = second tier**, account-wide career tallies.
 
 ## Next steps (next session)
 
 **Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres) · ✅ Assault (Andres, foundation). **Levels** is still a dead `#` link. Remaining:
 
-1. **Deadly Assault loose ends** — lineups ✅ · buffs ✅ · date ✅; still wanted: bangboos +
-   medal semantics. Medal icons → stage via `stage-assault.py` if mined. New rotations: wiki
-   page `Deadly_Assault/<start-date>` has buffs/dates/mechanics (camoufox — fandom 402s WebFetch).
+1. **Deadly Assault: COMPLETE for this rotation** (lineups/buffs/date/bangboos/medals ✅). Per
+   new cycle: author at the top of `CYCLES` in `assault.ts` (old one auto-demotes); wiki page
+   `Deadly_Assault/<start-date>` has buffs/dates/mechanics (camoufox — fandom 402s WebFetch);
+   buff icons are archetypes (element/atk/ruin), just set `buff.slug`. Real crown/shield medal
+   icons → stage via `stage-assault.py` if ever mined (typographic chips until then).
 2. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
    auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
    (GarageRole ids are opaque).
