@@ -23,6 +23,7 @@ UI_DST = os.path.join(ROOT, "public", "assets", "ui")
 # Bangboo full-body sprites (the 4th team slot). Filenames are generic GarageRole ids -> friendly slug.
 BANGBOO = {
     "BangbooGarageRole07.png": "sharkboo",
+    "BangbooGarageRole24.png": "baddieboo",
     "BangbooGarageRole43.png": "sprout",
     "BangbooGarageRole47.png": "ultrajet",
 }
@@ -35,6 +36,8 @@ ENEMIES = {
     "Enemy_Miasmic_Doppelganger_Komano_Manato.webp": "miasmanoranoslime",
     "Enemy_Sacrifice_-_Covenant_Guardian.webp": "covenantguardian",
     "Enemy_Miasmic_-_Doppelganger_-_Isolde.webp": "miasmaisoldeslime",
+    "Enemy_Miasmic_-_Doppelganger_-_Abyssal_Enforcer.webp": "miasmaabyssalenforcer",
+    "Enemy_A-H0L0_Type_Intelligent_Tactical_Construct_-_Mirage_Archer_Unit.webp": "miragearcherunit",
 }
 
 # Season chrome: the in-game Shiyu Defense badge + the five season rank medals. The medal is OUR

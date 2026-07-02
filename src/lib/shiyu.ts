@@ -82,6 +82,78 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
+  // 2026-06-26 cycle authored 2026-07-01 from Andres's result screenshots (his best season to
+  // date: 132,385 at 1.9%). Scores/attributes/resistances/times screenshot-exact; R1+R3
+  // anomaly-recommended, the S×5 grade card, and R3's slow 02m 20s clock all Andres-confirmed
+  // 2026-07-01. Nothing pending.
+  {
+    id: "critical-node-2026-06-26",
+    label: "Critical Node",
+    date: "2026-06-26",
+    frontier: "Fifth Frontier",
+    bestTotal: 132385,
+    rank: "1.9%",
+    medal: "legend",
+    highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
+    targets: [
+      { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
+      { rating: "S", desc: "S-rating in all rooms", done: true },
+      { rating: "A", desc: "A-rating in all rooms", done: true },
+      { rating: "B", desc: "B-rating in all rooms", done: true },
+    ],
+    rooms: [
+      {
+        room: 1,
+        rating: "S",
+        recommended: ["Wind", "Physical"],
+        anomaly: true,
+        resistance: ["Ether"],
+        boss: { name: "Abyssal Enforcer", tag: "Miasma", slug: "miasmaabyssalenforcer", level: 70 },
+        team: [
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+          { slug: "yuzuha", name: "Yuzuha" },
+        ],
+        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+        scores: { total: 45215, damage: 40215, elimination: 5000 },
+        time: "01m 20s",
+      },
+      {
+        room: 2,
+        rating: "S",
+        recommended: ["Ether", "Physical"],
+        resistance: ["Fire"],
+        boss: { name: "Mirage Archer Unit", tag: "A-H0L0 Construct", slug: "miragearcherunit", level: 70 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 42393, damage: 37393, elimination: 5000 },
+        time: "01m 30s",
+      },
+      {
+        room: 3,
+        rating: "S",
+        recommended: ["Ice"],
+        anomaly: true,
+        resistance: ["Physical"],
+        // In-game name this cycle is "Komano Manato" — same beast/render as 06-12's "Norano
+        // Slime" (the assets flip-flop on the name, Andres-confirmed canon; see stage-shiyu.py).
+        boss: { name: "Komano Manato", tag: "Miasma", slug: "miasmanoranoslime", level: 70 },
+        team: [
+          { slug: "miyabi", name: "Miyabi" },
+          { slug: "nangongyu", name: "Nangong Yu" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "BaddieBoo", slug: "baddieboo" },
+        scores: { total: 44777, damage: 39777, elimination: 5000 },
+        time: "02m 20s",
+      },
+    ],
+  },
   {
     id: "critical-node-2026-06-12",
     label: "Critical Node",
