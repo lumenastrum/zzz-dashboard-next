@@ -1,7 +1,34 @@
 # ZZZ Dashboard Redesign — "Soundsystem" · Handoff
 
-**Last updated:** 2026-07-01 evening (Deadly Assault tab — foundation; placeholder lineups pending Andres's list).
-**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)** + **Deadly Assault tab (rotation + 3 targets)**.
+**Last updated:** 2026-07-03 (Disc-Audit facelift + roster VU strips + DA boss mugshots).
+
+**2026-07-03 (later) — three enhancement tweaks:** (1) `.site-bg` → `background-size:contain`
+(the 100%-auto fit cropped the wordmark top/bottom on wide-short viewports; wall tone fills
+whichever axis has slack). (2) Roster tile strips are REAL now: `RosterHome` is a client
+component grading every build from the live blob (`gradeBuild`, non-blocking — strips sit dark
+until Supabase lands), 10 segments lit ∝ build %, in the grade-letter color; tooltip = exact
+`Build N% · letter`; no build = dark strip. `TileGrade` prop on `RosterTile`. (3) In-game DA
+target-rail head banners (IconMonster_*) wired in: `stage-assault.py` gained `BOSS_ICONS`
+(→ `public/assets/bosses/<slug>.webp`, 8 staged incl. Girtablu→girtablullu,
+Awakener→yeshiyuanthethrall [face-matched], ComplexCorrupted, Nineveh). Marquee rail tiles
+ghost the banner along their right edge (mask fade); history target rows carry optional
+`bossSlug` → 19px mugshot chip (`toHistory` passes room slugs through, so demoted cycles get
+chips free). ALL 12 bosses mapped — Andres supplied the last four codenames (GraymaneCenturion=
+Sanguine Sweeper, Vesper=Discordant Solo, Mutant=Scorched Horizon, NamelessOne=Miasmic Fiend);
+the full decoder ring lives on stage-assault.py's BOSS_ICONS. Every history row (15/15) has its
+mugshot, pixel-verified, 0 broken. NOT yet committed.
+**Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)** + **Deadly Assault tab (rotation + 3 targets)** + **all-visible 6-Disc Audit grid**.
+
+**2026-07-03 — Disc-Audit redesign (Andres's ask: no click-per-disc + sleeker stat boxes):**
+`TrackInspector` (single click-to-inspect panel) retired → **`DiscCard.tsx`**: all six discs render at
+once in `.audit-grid` (2-col, 1-col ≤700px) under the equip frame, every control still live-editable
+(same `onChange` → re-grade → debounced save). Cones are now wayfinding: click → set-color spotlight
+flash + scroll to the card (transient `selSlot`, 1.6s timer). Facelift: substat quality = **metal ramp**
+(gold hot / chrome good / dim filler / faded dead) replacing red-green; main-stat plate = quiet gold;
+per-card score meter lights in the **grade color** (SSS = gold bar); card top-strip + slot chip = set
+color; selects quiet-until-hover. NEW: surfaces `GradedDisc.mainStatOk` — slots 4–6 with an off-profile
+main get a red **OFF-PROFILE** tag in the main plate. Verified: build clean, pixel QA at 1440px + phone
+width (no overflow), spotlight ring computed-style-confirmed. NOT yet committed/pushed.
 
 > ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
 

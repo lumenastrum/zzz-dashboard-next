@@ -71,12 +71,18 @@ export function AssaultSeason({ cycle }: { cycle: AssaultCycle }) {
             className="da-boss-tile"
             style={{ "--ec": elementColor(r.recommended[0] ?? "Ether") } as CSSProperties}
           >
-            <span className="da-bt-name">
-              {r.boss.tag && <small>{r.boss.tag} · </small>}
-              {r.boss.name}
+            {/* the in-game DA rail's own head banner (IconMonster art), ghosted right */}
+            <span className="da-bt-ico" aria-hidden>
+              <DeckImg src={`/assets/bosses/${r.boss.slug}.webp`} alt="" />
             </span>
-            <Pips earned={r.pips} max={3} size={14} />
-            <b className="da-bt-score">{fmt(r.scores.total)}</b>
+            <span className="da-bt-body">
+              <span className="da-bt-name">
+                {r.boss.tag && <small>{r.boss.tag} · </small>}
+                {r.boss.name}
+              </span>
+              <Pips earned={r.pips} max={3} size={14} />
+              <b className="da-bt-score">{fmt(r.scores.total)}</b>
+            </span>
           </a>
         ))}
       </div>

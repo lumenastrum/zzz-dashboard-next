@@ -151,6 +151,9 @@ const CYCLES: AssaultCycle[] = [
 // per target, so (unlike Shiyu's history, which drops enemy data) we keep the full row.
 export interface AssaultHistoryTarget {
   boss: string; // display name as the history card shows it, e.g. "Discordant Solo - ???"
+  // -> /assets/bosses/<slug>.webp — the in-game target-rail head banner (staged by
+  // stage-assault.py). Optional: unmapped bosses just render without a mugshot.
+  bossSlug?: string;
   score: number;
   pips: number; // 0–3
   team: AssaultMember[];
@@ -177,17 +180,17 @@ const HISTORY: AssaultHistoryEntry[] = [
     id: "da-miasmicfiend-2026-06", date: "2026-06-05", label: "Miasmic Fiend Rotation", score: 117112, rank: "4.05%", pips: 9,
     targets: [
       {
-        boss: "Miasmic Fiend - Unfathomable", score: 42366, pips: 3,
+        boss: "Miasmic Fiend - Unfathomable", bossSlug: "miasmicfiend", score: 42366, pips: 3,
         team: [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
         bangboo: { name: "Ultra Jet", slug: "ultrajet" },
       },
       {
-        boss: "Ye Shiyuan the Thrall", score: 38238, pips: 3,
+        boss: "Ye Shiyuan the Thrall", bossSlug: "yeshiyuanthethrall", score: 38238, pips: 3,
         team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
         bangboo: { name: "Sprout", slug: "sprout" },
       },
       {
-        boss: "The Defiler", score: 36508, pips: 3,
+        boss: "The Defiler", bossSlug: "isoldethedefiler", score: 36508, pips: 3,
         team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
         bangboo: { name: "Snap", slug: "snap" },
       },
@@ -197,17 +200,17 @@ const HISTORY: AssaultHistoryEntry[] = [
     id: "da-deadendbutcher-2026-05", date: "2026-05-22", label: "Dead End Butcher Rotation", score: 97949, rank: "5.51%", pips: 9,
     targets: [
       {
-        boss: "Notorious - Dead End Butcher", score: 31160, pips: 3,
+        boss: "Notorious - Dead End Butcher", bossSlug: "notoriousdeadendbutcher", score: 31160, pips: 3,
         team: [{ slug: "miyabi", name: "Miyabi" }, { slug: "vivian", name: "Vivian" }, { slug: "astra", name: "Astra Yao" }],
         bangboo: { name: "Robin", slug: "robin" },
       },
       {
-        boss: "Ye Shiyuan the Thrall", score: 30295, pips: 3,
+        boss: "Ye Shiyuan the Thrall", bossSlug: "yeshiyuanthethrall", score: 30295, pips: 3,
         team: [{ slug: "yidhari", name: "Yidhari" }, { slug: "dialyn", name: "Dialyn" }, { slug: "lucia", name: "Lucia" }],
         bangboo: { name: "Ms. Esme", slug: "msesme" },
       },
       {
-        boss: "Discordant Solo - ???", score: 36494, pips: 3,
+        boss: "Discordant Solo - ???", bossSlug: "discordantsolo", score: 36494, pips: 3,
         team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "yuzuha", name: "Yuzuha" }],
         bangboo: { name: "Biggest Fan", slug: "biggestfan" },
       },
@@ -217,17 +220,17 @@ const HISTORY: AssaultHistoryEntry[] = [
     id: "da-scorchedhorizon-2026-05", date: "2026-05-08", label: "Scorched Horizon Rotation", score: 98817, rank: "7.78%", pips: 9,
     targets: [
       {
-        boss: "??? of the Scorched Horizon", score: 32792, pips: 3,
+        boss: "??? of the Scorched Horizon", bossSlug: "scorchedhorizon", score: 32792, pips: 3,
         team: [{ slug: "miyabi", name: "Miyabi" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "astra", name: "Astra Yao" }],
         bangboo: { name: "Robin", slug: "robin" },
       },
       {
-        boss: "Wandering Hunter", score: 32490, pips: 3,
+        boss: "Wandering Hunter", bossSlug: "wanderinghunter", score: 32490, pips: 3,
         team: [{ slug: "yidhari", name: "Yidhari" }, { slug: "dialyn", name: "Dialyn" }, { slug: "lucia", name: "Lucia" }],
         bangboo: { name: "Ms. Esme", slug: "msesme" },
       },
       {
-        boss: "The Defiler", score: 33535, pips: 3,
+        boss: "The Defiler", bossSlug: "isoldethedefiler", score: 33535, pips: 3,
         team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "sunna", name: "Sunna" }],
         bangboo: { name: "Snap", slug: "snap" },
       },
@@ -237,17 +240,17 @@ const HISTORY: AssaultHistoryEntry[] = [
     id: "da-sanguinesweeper-2026-04", date: "2026-04-24", label: "Sanguine Sweeper Rotation", score: 104840, rank: "3.91%", pips: 9,
     targets: [
       {
-        boss: "Sanguine Sweeper", score: 37122, pips: 3,
+        boss: "Sanguine Sweeper", bossSlug: "sanguinesweeper", score: 37122, pips: 3,
         team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "sunna", name: "Sunna" }],
         bangboo: { name: "Biggest Fan", slug: "biggestfan" },
       },
       {
-        boss: 'Primordial Nightmare - "The Creator"', score: 29461, pips: 3,
+        boss: 'Primordial Nightmare - "The Creator"', bossSlug: "nineveh", score: 29461, pips: 3,
         team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "zhao", name: "Zhao" }],
         bangboo: { name: "Sprout", slug: "sprout" },
       },
       {
-        boss: "The Defiler", score: 38257, pips: 3,
+        boss: "The Defiler", bossSlug: "isoldethedefiler", score: 38257, pips: 3,
         team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
         bangboo: { name: "Plugboo", slug: "plugboo" },
       },
@@ -257,17 +260,17 @@ const HISTORY: AssaultHistoryEntry[] = [
     id: "da-discordantsolo-2026-04", date: "2026-04-10", label: "Discordant Solo Rotation", score: 124329, rank: "2.58%", pips: 9,
     targets: [
       {
-        boss: "Discordant Solo - ???", score: 40414, pips: 3,
+        boss: "Discordant Solo - ???", bossSlug: "discordantsolo", score: 40414, pips: 3,
         team: [{ slug: "aria", name: "Aria" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "yuzuha", name: "Yuzuha" }],
         bangboo: { name: "Biggest Fan", slug: "biggestfan" },
       },
       {
-        boss: "Unknown Corruption Complex", score: 40572, pips: 3,
+        boss: "Unknown Corruption Complex", bossSlug: "complexcorrupted", score: 40572, pips: 3,
         team: [{ slug: "seed", name: "Seed" }, { slug: "cissia", name: "Cissia" }, { slug: "astra", name: "Astra Yao" }],
         bangboo: { name: "Plugboo", slug: "plugboo" },
       },
       {
-        boss: "Ye Shiyuan the Thrall", score: 43343, pips: 3,
+        boss: "Ye Shiyuan the Thrall", bossSlug: "yeshiyuanthethrall", score: 43343, pips: 3,
         team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
         bangboo: { name: "Sprout", slug: "sprout" },
       },
@@ -299,6 +302,9 @@ function toHistory(c: AssaultCycle): AssaultHistoryEntry {
     targets: c.rooms.length
       ? c.rooms.map((r) => ({
           boss: r.boss.tag ? `${r.boss.tag} - ${r.boss.name}` : r.boss.name,
+          // room slugs double as boss-icon slugs (stage-assault.py stages both under them),
+          // so demoted cycles keep their history mugshots for free
+          bossSlug: r.boss.slug,
           score: r.scores.total,
           pips: r.pips,
           team: r.team,

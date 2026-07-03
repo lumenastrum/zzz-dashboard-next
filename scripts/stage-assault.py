@@ -17,6 +17,7 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 ENEMY_DST = os.path.join(ROOT, "public", "assets", "enemies")
 UI_DST = os.path.join(ROOT, "public", "assets", "ui")
 BOO_DST = os.path.join(ROOT, "public", "assets", "bangboo")
+BOSS_ICON_DST = os.path.join(ROOT, "public", "assets", "bosses")
 
 # Bangboo full-body sprites new to this mode (Shiyu's trio came via stage-shiyu.py; the folders
 # merge). Generic GarageRole ids -> friendly slug, names from Andres.
@@ -35,6 +36,29 @@ ENEMIES = {
     "Enemy_Girtablullu.webp": "girtablullu",
     "Enemy_Notorious_-_Marionette.webp": "notoriousmarionette",
     "Enemy_Ye_Shiyuan_the_Thrall.webp": "yeshiyuanthethrall",
+}
+
+# In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA
+# bottom rail shows), keyed by the slug the dashboard knows the boss under (boss.slug on the
+# marquee rail; AssaultHistoryTarget.bossSlug on history rows). In-game codenames often differ
+# from display names — the full ??? decoder ring (Andres-confirmed 2026-07-03): Awakener IS
+# Ye Shiyuan (face-matched against his render), ComplexCorrupted = "Unknown Corruption Complex",
+# GraymaneCenturion = "Sanguine Sweeper", Vesper = "Discordant Solo - ???", Mutant = "??? of
+# the Scorched Horizon", NamelessOne = "Miasmic Fiend - Unfathomable". New codenames live in
+# the asset rip's ui_raw (174 candidates).
+BOSS_ICONS = {
+    "IconMonster_Girtablu.png": "girtablullu",
+    "IconMonster_NotoriousMarionette.png": "notoriousmarionette",
+    "IconMonster_Awakener.png": "yeshiyuanthethrall",
+    "IconMonster_NotoriousDeadEndButcher.png": "notoriousdeadendbutcher",
+    "IconMonster_ComplexCorrupted.png": "complexcorrupted",
+    "IconMonster_IsoldetheDefiler.png": "isoldethedefiler",
+    "IconMonster_WanderingHunter.png": "wanderinghunter",
+    "IconMonster_Nineveh.png": "nineveh",  # 'Primordial Nightmare - "The Creator"'
+    "IconMonster_GraymaneCenturion.png": "sanguinesweeper",
+    "IconMonster_Vesper.png": "discordantsolo",
+    "IconMonster_Mutant.png": "scorchedhorizon",
+    "IconMonster_NamelessOne.png": "miasmicfiend",
 }
 
 # Mode chrome: the in-game Deadly Assault wordmark (black-on-transparent, ghosted via invert
@@ -80,6 +104,19 @@ def main():
         print(f"  bangboo/{slug:14} {im.size[0]}x{im.size[1]}")
         g += 1
     print(f"[ok] staged {g} bangboo(s) -> {BOO_DST}\n")
+
+    os.makedirs(BOSS_ICON_DST, exist_ok=True)
+    b = 0
+    for fn, slug in BOSS_ICONS.items():
+        path = os.path.join(SRC, fn)
+        if not os.path.exists(path):
+            print(f"  [skip] missing {fn}")
+            continue
+        im = Image.open(path).convert("RGBA")
+        save_webp(im, os.path.join(BOSS_ICON_DST, f"{slug}.webp"))
+        print(f"  bosses/{slug:24} {im.size[0]}x{im.size[1]}")
+        b += 1
+    print(f"[ok] staged {b} boss icon(s) -> {BOSS_ICON_DST}\n")
 
     os.makedirs(UI_DST, exist_ok=True)
     u = 0

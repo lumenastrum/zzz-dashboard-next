@@ -44,6 +44,11 @@ export function AssaultHistory({ entries }: { entries: AssaultHistoryEntry[] }) 
                   <div className="da-ht" key={i}>
                     <div className="da-ht-top">
                       <small>T{i + 1}</small>
+                      {t.bossSlug && (
+                        <span className="da-ht-ico" aria-hidden>
+                          <DeckImg src={`/assets/bosses/${t.bossSlug}.webp`} alt="" />
+                        </span>
+                      )}
                       <span className="da-ht-boss">{t.boss}</span>
                       <AssaultPips earned={t.pips} max={3} size={12} />
                     </div>
