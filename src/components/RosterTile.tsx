@@ -7,11 +7,20 @@ import { iconPath, tallPath, elementIcon, typeIcon, VOID_HUNTER_ICON, elementCol
 import { portraitFrame } from "@/lib/portrait-frames";
 import { DeckImg } from "@/components/deck/DeckImg";
 
+// The tile's live build reading — drives the VU strip along the sleeve's bottom edge.
+export interface TileGrade {
+  pct: number;
+  letter: string;
+  color: string;
+}
+
 // Album-sleeve roster tile (vinyl slides out on hover). Element + type icon badges sit in
 // the art's top-left corner. Void Hunter agents get a third badge (a white-filled mask of
 // the void-hunter icon so it reads on the dark backing) + a gradient accent derived from
 // their element's color (--vh-grad). A missing icon self-hides via DeckImg. CSS: globals.css.
-export function RosterTile({ a, base = "" }: { a: RosterEntry; base?: string }) {
+// The bottom strip is a real meter: segments lit ∝ build %, in the GRADE color (identity =
+// element, achievement = grade — same split as the deck's audit cards). No build = dark strip.
+export function RosterTile({ a, base = "", grade }: { a: RosterEntry; base?: string; grade?: TileGrade | null }) {
   const style: React.CSSProperties = a.voidHunter
     ? ({ "--ec": elementColor(a.attribute), "--vh-grad": elementGradient(a.attribute) } as React.CSSProperties)
     : ({ "--ec": a.el } as React.CSSProperties);
@@ -88,9 +97,13 @@ export function RosterTile({ a, base = "" }: { a: RosterEntry; base?: string }) 
           </div>
           <div className="me">{ms}</div>
         </div>
-        <div className="strip">
-          {Array.from({ length: 8 }).map((_, i) => (
-            <i key={i} />
+        <div
+          className="strip"
+          style={grade ? ({ "--gc": grade.color } as React.CSSProperties) : undefined}
+          title={grade ? `Build ${grade.pct}% · ${grade.letter}` : "No build entered yet"}
+        >
+          {Array.from({ length: 10 }).map((_, i) => (
+            <i key={i} className={grade && i < Math.max(1, Math.round((grade.pct / 100) * 10)) ? "on" : ""} />
           ))}
         </div>
       </div>
