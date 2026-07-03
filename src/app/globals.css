@@ -32,11 +32,12 @@ body {
 /* image URL is set inline in layout.tsx via withBase() (survives the prod basePath). */
 .site-bg {
   position: fixed; inset: 0; z-index: -1; pointer-events: none;
-  /* fit full image width (image is 2500×1080) so the whole New Eridu wordmark renders instead of
-     cover cropping to the middle; the wall's own edge tone (#111) fills the small top/bottom gaps so
-     they blend seamlessly instead of reading as bands. */
+  /* contain-fit the 2500×1080 wall so the whole New Eridu wordmark ALWAYS renders — 100% auto
+     used to crop it top/bottom on wide-short viewports. Whichever dimension binds, the wall's
+     own edge tone (≈#111) fills the slack (top/bottom on tall windows, sides on ultra-wide)
+     and blends seamlessly instead of reading as bands. */
   background-color: #121212;
-  background-size: 100% auto; background-position: center; background-repeat: no-repeat;
+  background-size: contain; background-position: center; background-repeat: no-repeat;
 }
 /* vignette: keeps the center calm for content, darkens the edges so panels pop */
 .site-bg::before {
@@ -107,8 +108,6 @@ a { color: inherit; text-decoration: none; }
 /* ===== Void Hunter tier (gradient accents) ===== */
 .alb.vh .sleeve { box-shadow:0 10px 26px rgba(0,0,0,.55), 0 0 0 1px rgba(255,150,190,.25), 0 0 22px rgba(255,110,160,.26); }
 .alb.vh .vinyl::after { background:var(--vh-grad); }
-.alb.vh .strip i { background:var(--vh-grad); }
-.alb.vh .strip i:nth-child(-n+3) { box-shadow:0 0 6px rgba(255,110,160,.6); }
 .alb.vh .lab .nm small.title { background:var(--vh-grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
 .alb.vh .lab .me { border-color:transparent; background:var(--vh-grad); color:#180d16; font-weight:700; }
 .alb.vh:hover .lab .nm { color:var(--ec); }
@@ -136,9 +135,13 @@ a { color: inherit; text-decoration: none; }
   text-transform:uppercase; margin-top:2px; }
 .alb .lab .me { font-family:var(--led); font-size:11px; color:var(--ec, var(--red));
   border:1px solid var(--bezel1); border-radius:5px; padding:2px 6px; }
+/* build-grade VU strip — segments lit ∝ build %, in the grade-letter color (--gc, set per
+   tile from the grading engine). Unlit = faint element tint; a fully dark strip = no build. */
 .alb .strip { height:4px; display:flex; gap:2px; padding:0 11px 9px; background:var(--panel2); }
-.alb .strip i { flex:1; height:4px; border-radius:2px; background:var(--ec, var(--red)); opacity:.25; }
-.alb .strip i:nth-child(-n+3) { opacity:.9; box-shadow:0 0 6px var(--ec, var(--red)); }
+.alb .strip i { flex:1; height:4px; border-radius:2px; background:var(--ec, var(--red)); opacity:.14;
+  transition:opacity .4s ease, background .4s ease; }
+.alb .strip i.on { background:var(--gc, var(--ec)); opacity:.95;
+  box-shadow:0 0 6px color-mix(in srgb, var(--gc, var(--ec)) 65%, transparent); }
 .alb:hover .vinyl { transform:translateX(34%) rotate(22deg); }
 .alb:hover .sleeve { transform:translateY(-6px); }
 .alb:hover .lab .nm { color:var(--ec, var(--red)); }
@@ -326,9 +329,11 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .buffs .bf.dmg b { color:var(--red); }
 .modnote { font-family:var(--led); font-size:9px; letter-spacing:1px; text-transform:uppercase; color:var(--mut2); margin:2px 0 0; }
 
-/* the stack */
-.stack { display:grid; grid-template-columns:1fr 300px; gap:20px; align-items:start; }
-.equip { position:relative; width:100%; max-width:440px; margin:4px auto 6px; aspect-ratio:870/778; }
+/* the stack — the equip frame up top (grade letters = the at-a-glance read), then ALL SIX
+   disc cards in a grid below it. No click-to-inspect gate: every disc's stats are visible
+   and editable at once; cones are wayfinding (click → spotlight-flash the matching card). */
+.stack { display:flex; flex-direction:column; }
+.equip { position:relative; width:100%; max-width:410px; margin:4px auto 12px; aspect-ratio:870/778; }
 .equip-frame { position:absolute; inset:0; width:100%; height:100%; object-fit:contain; z-index:0; pointer-events:none;
   filter:drop-shadow(0 16px 32px rgba(0,0,0,.55)); }
 .cone { position:absolute; width:23%; aspect-ratio:1; transform:translate(-50%,-50%); cursor:pointer; transition:transform .18s; z-index:2; }
@@ -345,9 +350,10 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .cone .gvu i.on { background:var(--gc); }
 .cone:hover { transform:translate(-50%,-50%) scale(1.07); z-index:6; }
 .cone:hover .disc { filter:drop-shadow(0 0 10px var(--dc)); }
-.cone.sel .disc { filter:drop-shadow(0 0 4px var(--red)) drop-shadow(0 0 12px rgba(255,77,82,.7)); }
-.cone.sel::after { content:""; position:absolute; inset:-6%; border-radius:50%; border:2px solid var(--red);
-  box-shadow:0 0 14px rgba(255,77,82,.5); pointer-events:none; }
+/* spotlight pulse — set-colored (matches the card it points to), transient */
+.cone.sel .disc { filter:drop-shadow(0 0 4px var(--dc)) drop-shadow(0 0 12px color-mix(in srgb, var(--dc) 70%, transparent)); }
+.cone.sel::after { content:""; position:absolute; inset:-6%; border-radius:50%; border:2px solid var(--dc);
+  box-shadow:0 0 14px color-mix(in srgb, var(--dc) 55%, transparent); pointer-events:none; }
 .wcore { position:absolute; left:50%; top:49%; transform:translate(-50%,-50%); width:34%; aspect-ratio:1; z-index:1; }
 .wcore img { width:100%; height:100%; object-fit:contain; filter:drop-shadow(0 0 11px rgba(255,77,82,.5)); }
 .wcore .lvl { position:absolute; left:50%; bottom:-15px; transform:translateX(-50%); display:flex; align-items:center; gap:4px;
@@ -355,46 +361,87 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .wcore .lvl img { width:16px; height:16px; }
 .wcore .lvl span { font-family:var(--disp); font-weight:600; font-size:11px; color:#fff; text-shadow:0 1px 2px #000; }
 
-/* track listing (disc detail) */
-.track { background:linear-gradient(180deg,var(--panel2),var(--bg2)); border:1px solid var(--bezel1); border-radius:14px; overflow:hidden; }
-.track .th { display:flex; align-items:center; gap:10px; padding:12px 13px; background:linear-gradient(180deg,var(--panelhi),var(--panel2)); border-bottom:1px solid var(--bezel1); }
-.track .th .sn { width:30px; height:30px; border-radius:50%; border:2px solid var(--dc); display:grid; place-items:center;
-  font-family:var(--disp); font-weight:700; color:var(--dc); font-size:14px; }
-.track .th .nm { font-family:var(--disp); font-weight:600; font-size:14px; text-transform:uppercase; line-height:1; }
-.track .th .nm small { display:block; font-family:var(--led); font-size:9px; letter-spacing:1.5px; color:var(--mut); }
-.track .th .gr { margin-left:auto; text-align:center; }
-.track .th .gr b { font-family:var(--disp); font-weight:700; font-size:24px; color:var(--gc); line-height:.8; }
-.track .th .gr small { font-family:var(--led); font-size:8px; letter-spacing:1px; color:var(--mut); display:block; }
-.track .body { padding:12px 13px; }
-.mainstat { display:flex; justify-content:space-between; align-items:center; background:rgba(255,77,82,.08);
-  border:1px solid rgba(255,77,82,.25); border-radius:9px; padding:8px 11px; margin-bottom:11px; }
-.mainstat .l { font-family:var(--led); font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--mut); }
-.mainstat .v { font-family:var(--disp); font-weight:600; font-size:15px; color:var(--amber); }
-.eqsub { display:flex; flex-direction:column; gap:9px; }
-.eqsub .row { display:grid; grid-template-columns:118px 1fr 64px; align-items:center; gap:9px; }
-.eqsub .row .k { font-family:var(--led); font-size:11px; font-weight:600; letter-spacing:.5px; color:var(--mut); }
-.eqsub .row .sl { height:7px; border-radius:4px; background:#241d2c; position:relative; overflow:hidden; }
-.eqsub .row .sl i { position:absolute; left:0; top:0; bottom:0; border-radius:4px; background:#3a3142; }
-.eqsub .row .v { font-family:var(--disp); font-weight:600; font-size:13px; text-align:right; color:var(--mut); }
-.eqsub .row.good .k { color:var(--ink); } .eqsub .row.good .sl i { background:linear-gradient(90deg,#2f9d66,var(--green)); } .eqsub .row.good .v { color:var(--green); }
-.eqsub .row.hot .k { color:var(--red); font-weight:700; } .eqsub .row.hot .sl i { background:linear-gradient(90deg,var(--reddeep),var(--red)); } .eqsub .row.hot .v { color:var(--red); }
-.eqsub .row.dead { opacity:.4; }
-.eqsub .row .roll { display:flex; align-items:center; gap:6px; justify-content:flex-end; }
-.eqsub .row .roll b { font-family:var(--disp); font-size:14px; min-width:12px; text-align:center; color:var(--ink); }
-.eqsub .row .roll .stp { width:18px; height:18px; border-radius:5px; border:1px solid var(--bezel1); background:var(--panelhi);
-  color:var(--ink); font-size:13px; line-height:1; cursor:pointer; display:grid; place-items:center; padding:0; }
-.eqsub .row .roll .stp:hover { background:var(--red); border-color:var(--red); color:#fff; }
-.eqsub .row.dead .roll b { color:var(--mut2); }
-.score { margin-top:12px; display:flex; align-items:center; gap:9px; }
-.score .segs { flex:1; } .score .pc { font-family:var(--disp); font-weight:700; font-size:14px; color:var(--amber); }
-.edhint { margin-top:9px; font-family:var(--led); font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--mut2); text-align:center; }
+/* ===== the 6-Disc Audit grid — every disc, every stat, at a single glance ============
+   One "track card" per disc. Identity color = the SET color (--dc, top strip + slot chip),
+   achievement color = the GRADE color (--gc, letter + score). Substat quality reads as a
+   metal ramp — gold (hot, weight ≥3) → chrome (useful) → dim (filler) → faded (dead) —
+   instead of the old red/green christmas tree. */
+.audit-grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:14px; }
+
+.dcard { position:relative; min-width:0; border:1px solid var(--bezel1); border-radius:14px; overflow:hidden;
+  background:linear-gradient(180deg,var(--panel2),var(--bg2)); box-shadow:0 8px 20px rgba(0,0,0,.35); }
+.dcard::before { content:""; position:absolute; left:0; right:0; top:0; height:2px; z-index:1;
+  background:linear-gradient(90deg, var(--dc), color-mix(in srgb, var(--dc) 8%, transparent)); }
+/* spotlight flash (cone click) — set-colored ring that fades out */
+.dcard.sel { animation:dflash 1.5s ease-out; }
+@keyframes dflash {
+  0%   { box-shadow:0 0 0 2px var(--dc), 0 0 26px color-mix(in srgb, var(--dc) 60%, transparent); }
+  100% { box-shadow:0 0 0 2px transparent, 0 0 26px transparent; } }
+
+.dhead { display:flex; align-items:center; gap:9px; padding:10px 12px 9px;
+  background:linear-gradient(180deg,var(--panelhi),var(--panel2)); border-bottom:1px solid var(--bezel1); }
+.dhead .dslot { width:21px; height:21px; flex:0 0 21px; border-radius:6px; display:grid; place-items:center;
+  font-family:var(--disp); font-weight:700; font-size:11px; color:var(--dc);
+  background:color-mix(in srgb, var(--dc) 12%, transparent);
+  border:1px solid color-mix(in srgb, var(--dc) 45%, transparent); }
+.dhead .dset-ico { width:26px; height:26px; object-fit:contain; flex-shrink:0;
+  filter:drop-shadow(0 1px 3px rgba(0,0,0,.5)); }
+.dhead .dset { min-width:0; display:flex; flex-direction:column; gap:1px; }
+.dhead .dset small { font-family:var(--led); font-size:8px; letter-spacing:1.5px; color:var(--mut2);
+  text-transform:uppercase; padding-left:4px; }
+.dhead .dgr { margin-left:auto; text-align:right; line-height:1; flex-shrink:0; }
+.dhead .dgr b { font-family:var(--disp); font-weight:700; font-size:21px; color:var(--gc); }
+.dhead .dgr small { display:block; font-family:var(--led); font-size:9px; letter-spacing:1px; color:var(--mut); margin-top:2px; }
+
+/* main stat — quiet gold plate (same "gold = the stats that matter" language as Main Stats) */
+.dmain { display:flex; align-items:center; gap:8px; margin:10px 12px 10px;
+  background:rgba(255,180,60,.06); border:1px solid rgba(255,180,60,.18); border-radius:8px; padding:6px 10px; }
+.dmain .l { font-family:var(--led); font-weight:700; font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--mut); }
+.dmain .mn { font-family:var(--disp); font-weight:600; font-size:13.5px; color:var(--amber); }
+.dmain .mv { margin-left:auto; font-family:var(--disp); font-weight:600; font-size:13.5px; color:var(--amber); }
+/* the grader says this main isn't on the agent's profile — flag it */
+.dmain.off { background:rgba(255,77,82,.05); border-color:rgba(255,77,82,.25); }
+.dmain .offtag { margin-left:auto; cursor:help; font-family:var(--led); font-weight:700; font-size:8px;
+  letter-spacing:1.2px; text-transform:uppercase; color:var(--red);
+  border:1px solid rgba(255,77,82,.4); border-radius:4px; padding:2px 5px; }
+
+/* substat rows — select · contribution bar · roll stepper */
+.dsubs { display:flex; flex-direction:column; gap:7px; padding:0 12px; }
+.drow { display:grid; grid-template-columns:126px minmax(0,1fr) 74px; align-items:center; gap:8px; }
+.drow .sl { height:5px; border-radius:3px; background:#241d2c; position:relative; overflow:hidden; }
+.drow .sl i { position:absolute; left:0; top:0; bottom:0; border-radius:3px; background:#3a3142; }
+.drow select.ed { color:var(--mut); }
+.drow.good select.ed { color:var(--chrome); }
+.drow.good .sl i { background:linear-gradient(90deg,#5f576b,#b9b3c6); }
+.drow.hot select.ed { color:var(--amber); font-weight:700; }
+.drow.hot .sl i { background:linear-gradient(90deg,#c77b14,var(--amber)); box-shadow:0 0 8px rgba(255,180,60,.4); }
+.drow.dead { opacity:.35; }
+.drow .roll { display:flex; align-items:center; gap:5px; justify-content:flex-end; }
+.drow .roll b { font-family:var(--led); font-weight:700; font-size:11.5px; min-width:20px; text-align:center; color:var(--ink); }
+.drow.dead .roll b { color:var(--mut2); }
+.drow .roll .stp { width:17px; height:17px; border-radius:5px; border:1px solid var(--bezel1); background:transparent;
+  color:var(--mut); font-size:12px; line-height:1; cursor:pointer; display:grid; place-items:center; padding:0;
+  transition:border-color .12s, color .12s; }
+.drow .roll .stp:hover { border-color:var(--amber); color:var(--amber); }
+
+/* score meter footer — lit segments sing in the GRADE color (an SSS meter is gold,
+   not a green bar tipping into red like a warning) */
+.dscore { display:flex; align-items:center; gap:9px; padding:10px 12px 12px; }
+.dscore .segs { flex:1; height:9px; }
+.dscore .segs i.on, .dscore .segs i.on.amber, .dscore .segs i.on.red { background:var(--gc); }
+.dscore .pc { font-family:var(--disp); font-weight:700; font-size:13px; color:var(--gc); }
+
+.edhint { margin-top:12px; font-family:var(--led); font-size:10px; letter-spacing:1px; text-transform:uppercase; color:var(--mut2); text-align:center; }
 .edhint b { color:var(--red); }
-/* live-editing controls */
-.track select.ed { font-family:var(--led); font-weight:600; font-size:12px; color:var(--ink); background:var(--bg2);
-  border:1px solid var(--bezel1); border-radius:6px; padding:3px 5px; cursor:pointer; outline:none; max-width:128px; }
-.track select.ed:hover { border-color:var(--red); }
-.track .th .nm select.ed { font-size:13px; letter-spacing:.3px; }
-.track .mainstat .v select.ed { color:var(--amber); font-family:var(--disp); font-size:14px; border-color:var(--red); }
+
+/* live-editing controls — quiet until touched */
+.dcard select.ed { font-family:var(--led); font-weight:600; font-size:12px; color:var(--ink); background:transparent;
+  border:1px solid transparent; border-radius:6px; padding:2px 4px; cursor:pointer; outline:none;
+  max-width:100%; min-width:0; transition:border-color .12s, background .12s; }
+.dcard select.ed:hover, .dcard select.ed:focus-visible { border-color:var(--bezel1); background:var(--bg2); }
+.dcard select.ed option { background:var(--panel2); color:var(--ink); }
+.dhead select.setSel { font-family:var(--disp); font-weight:600; font-size:13.5px; letter-spacing:.3px; }
+.dmain select.ed { color:var(--amber); font-family:var(--disp); font-weight:600; font-size:13.5px; flex:0 1 auto; }
 
 /* footer: sets + master */
 .foot { display:grid; grid-template-columns:1fr 1fr 300px; gap:14px; margin-top:20px; align-items:stretch; }
@@ -422,9 +469,12 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .deck-body { grid-template-columns:1fr; }
   .tt { height:300px; }
   .rack { overflow-y:visible; }
-  .stack { grid-template-columns:1fr; }
   .foot { grid-template-columns:1fr; }
   .rtop { grid-template-columns:1fr; }
+}
+/* audit grid folds to one column once two cards can't breathe side by side */
+@media (max-width:700px){
+  .audit-grid { grid-template-columns:1fr; }
 }
 /* phone: the header row never wrapped, so the deck's overflow:hidden AMPUTATED the spec
    chips + the ✕ close button past the right edge. Chips get their own wrapping row; the
@@ -436,10 +486,9 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   .deck-top .spec { margin-left:0; width:100%; flex-wrap:wrap; }
   .deck-top .xbtn { position:absolute; top:11px; right:12px; }
   .rack { padding:16px 14px; }
-  /* the main-stat select could bleed past its pill at narrow widths */
-  .mainstat { gap:10px; }
-  .mainstat .v { display:flex; min-width:0; }
-  .mainstat .v select.ed { max-width:100%; }
+  /* tighter substat rows so select · bar · stepper all fit a phone card
+     (114px keeps "Anomaly Proficiency" clear of its dropdown arrow) */
+  .drow { grid-template-columns:114px minmax(0,1fr) 70px; gap:7px; }
 }
 
 /* ===== Pull Priority — wishlist crates =====================================
@@ -849,10 +898,12 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .da-medal.crown i { color:var(--amber); }
 .da-medal.shield i { color:var(--violet); }
 
-/* the boss-trio strip — the in-game bottom rail as anchor tiles (name · pips · score) */
+/* the boss-trio strip — the in-game bottom rail as anchor tiles (mugshot · name · pips · score).
+   The mugshot is the game's own IconMonster head banner, ghosted along the tile's right edge
+   behind the content (masked so it dissolves toward the text). */
 .da-rail-row { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:20px;
   padding-top:17px; border-top:1px solid var(--bezel1); }
-.da-boss-tile { display:flex; flex-direction:column; gap:7px; padding:11px 14px 10px;
+.da-boss-tile { position:relative; overflow:hidden; display:flex; padding:11px 14px 10px;
   border:1px solid var(--bezel1); border-radius:11px; text-decoration:none;
   background:
     radial-gradient(120% 120% at 50% -20%, color-mix(in srgb, var(--ec, var(--violet)) 14%, transparent), transparent 60%),
@@ -860,6 +911,13 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   transition:transform .18s ease, border-color .18s ease; }
 .da-boss-tile:hover { transform:translateY(-2px);
   border-color:color-mix(in srgb, var(--ec, var(--violet)) 45%, var(--bezel1)); }
+.da-bt-ico { position:absolute; right:-8px; top:50%; transform:translateY(-50%); height:86%;
+  opacity:.9; pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg, transparent 0%, #000 38%); mask-image:linear-gradient(90deg, transparent 0%, #000 38%);
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.55)); transition:opacity .18s ease, transform .18s ease; }
+.da-bt-ico img { height:100%; width:auto; max-width:none; }
+.da-boss-tile:hover .da-bt-ico { opacity:1; transform:translateY(-50%) scale(1.04); }
+.da-bt-body { position:relative; z-index:1; display:flex; flex-direction:column; gap:7px; min-width:0; }
 .da-bt-name { font-family:var(--disp); font-weight:600; font-size:13.5px; letter-spacing:.5px;
   text-transform:uppercase; color:var(--ink); line-height:1.15; }
 .da-bt-name small { font-size:9px; letter-spacing:1.5px; color:var(--mut); }
@@ -908,6 +966,10 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 .da-ht { padding:9px 0 10px; border-top:1px solid var(--bezel1); }
 .da-ht-top { display:flex; align-items:center; gap:7px; }
 .da-ht-top small { font-family:var(--led); font-weight:700; font-size:8.5px; letter-spacing:1px; color:var(--mut2); }
+/* the in-game head banner as a tiny target chip before the boss name */
+.da-ht-ico { height:19px; flex-shrink:0; border-radius:4px; overflow:hidden;
+  background:var(--bg2); border:1px solid var(--bezel2); }
+.da-ht-ico img { height:100%; width:auto; max-width:none; display:block; }
 .da-ht-boss { flex:1; min-width:0; font-family:var(--led); font-weight:700; font-size:10px; letter-spacing:.6px;
   text-transform:uppercase; color:var(--mut); line-height:1.3; }
 .da-ht-row { display:flex; align-items:center; gap:4px; margin-top:7px; }

@@ -16,7 +16,8 @@ export function EquipStack({
 }: {
   agent: Agent;
   grade: BuildGrade;
-  selSlot: number;
+  /** transient spotlight slot (null = nothing pulsed) — mirrors the audit card flash */
+  selSlot: number | null;
   onSelect: (slot: number) => void;
 }) {
   const pieces = agent.discs?.pieces ?? [];

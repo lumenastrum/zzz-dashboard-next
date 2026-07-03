@@ -6,7 +6,7 @@
 // in the Supabase blob. Identity falls back to the static roster chrome, so a newly-seeded
 // agent (no build yet) still gets a real agent screen. Every disc edit routes through
 // `onChange` → the DataProvider's debounced save.
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import type { Agent } from "@/lib/types";
 import type { RosterEntry } from "@/lib/roster";
@@ -32,7 +32,7 @@ import { DeckImg } from "./DeckImg";
 import { Levels } from "./Levels";
 import { MainStats } from "./MainStats";
 import { EquipStack } from "./EquipStack";
-import { TrackInspector } from "./TrackInspector";
+import { DiscCard } from "./DiscCard";
 import { DeckFoot } from "./DeckFoot";
 
 const titleCase = (s: string) =>
@@ -59,7 +59,17 @@ export function AgentDeck({
   syncStatus?: SyncStatus;
   base?: string;
 }) {
-  const [selSlot, setSelSlot] = useState(4);
+  // transient spotlight: clicking a cone flashes + scrolls to its audit card (all six
+  // cards are always visible now, so "selection" is a wayfinding pulse, not a gate)
+  const [selSlot, setSelSlot] = useState<number | null>(null);
+  const flashTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  useEffect(() => () => { if (flashTimer.current) clearTimeout(flashTimer.current); }, []);
+  const spotlight = (slot: number) => {
+    setSelSlot(slot);
+    if (flashTimer.current) clearTimeout(flashTimer.current);
+    flashTimer.current = setTimeout(() => setSelSlot(null), 1600);
+    document.getElementById(`disc-card-${slot}`)?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+  };
 
   const hasBuild = !!agent?.discs?.pieces?.length;
   const grade = hasBuild ? gradeBuild(agent as Agent, GRADING_CONFIG) : null;
@@ -76,9 +86,6 @@ export function AgentDeck({
   const mainRows = agent?.mainStats?.map((r) =>
     liveSheet && liveSheet[r.stat] != null ? { stat: r.stat, value: fmtStat(r.stat, liveSheet[r.stat]) } : r,
   );
-
-  const disc = grade ? grade.discs.find((d) => d.slot === selSlot) ?? grade.discs[0] : undefined;
-  const piece = disc ? pieces.find((p) => p.slot === disc.slot) : undefined;
 
   // edit helpers — locate the piece in a draft and mutate it (re-grades + saves)
   const editPiece = (slot: number, fn: (p: typeof pieces[number]) => void) =>
@@ -232,19 +239,27 @@ export function AgentDeck({
 
               <div className="modlbl"><span className="dot" />The Stack · 6-Disc Audit</div>
               <div className="stack">
-                <EquipStack agent={agent as Agent} grade={grade} selSlot={disc?.slot ?? selSlot} onSelect={setSelSlot} />
-                {disc && piece ? (
-                  <TrackInspector
-                    disc={disc}
-                    piece={piece}
-                    onSetSet={onSetSet}
-                    onSetMain={onSetMain}
-                    onSetSub={onSetSub}
-                    onStepRoll={onStepRoll}
-                  />
-                ) : (
-                  <div className="track" />
-                )}
+                <EquipStack agent={agent as Agent} grade={grade} selSlot={selSlot} onSelect={spotlight} />
+                <div className="audit-grid">
+                  {[...grade.discs].sort((a, b) => a.slot - b.slot).map((d) => {
+                    const p = pieces.find((x) => x.slot === d.slot);
+                    return p ? (
+                      <DiscCard
+                        key={d.slot}
+                        disc={d}
+                        piece={p}
+                        sel={d.slot === selSlot}
+                        onSetSet={onSetSet}
+                        onSetMain={onSetMain}
+                        onSetSub={onSetSub}
+                        onStepRoll={onStepRoll}
+                      />
+                    ) : null;
+                  })}
+                </div>
+                <div className="edhint">
+                  ▸ edit <b>set</b> · <b>main</b> · <b>substat</b> · <b>rolls</b> — grades move live · tap a cone to spotlight its disc
+                </div>
               </div>
 
               <DeckFoot grade={grade} />
