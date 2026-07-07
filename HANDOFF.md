@@ -13,13 +13,13 @@ target-rail head banners (IconMonster_*) wired in: `stage-assault.py` gained `BO
 Awakener→yeshiyuanthethrall [face-matched], ComplexCorrupted, Nineveh). Marquee rail tiles
 ghost the banner along their right edge (mask fade); history target rows carry optional
 `bossSlug` → 19px mugshot chip (`toHistory` passes room slugs through, so demoted cycles get
-chips free). ALL 12 bosses mapped — Andres supplied the last four codenames (GraymaneCenturion=
+chips free). ALL 12 bosses mapped — A. supplied the last four codenames (GraymaneCenturion=
 Sanguine Sweeper, Vesper=Discordant Solo, Mutant=Scorched Horizon, NamelessOne=Miasmic Fiend);
 the full decoder ring lives on stage-assault.py's BOSS_ICONS. Every history row (15/15) has its
 mugshot, pixel-verified, 0 broken. NOT yet committed.
 **Status:** deck + Supabase + 25-agent roster + Enka builds + full calibration + live stat recompute (disc + set swaps) + all 24 W-engine cartridges + all 18 disc sets + **multi-tenant `/wife` dashboard** + **Teams tab (9 benchmarked setlists)** + **Shiyu Defense tab (cycle + 3 rooms)** + **Deadly Assault tab (rotation + 3 targets)** + **all-visible 6-Disc Audit grid**.
 
-**2026-07-03 — Disc-Audit redesign (Andres's ask: no click-per-disc + sleeker stat boxes):**
+**2026-07-03 — Disc-Audit redesign (A.'s ask: no click-per-disc + sleeker stat boxes):**
 `TrackInspector` (single click-to-inspect panel) retired → **`DiscCard.tsx`**: all six discs render at
 once in `.audit-grid` (2-col, 1-col ≤700px) under the equip frame, every control still live-editable
 (same `onChange` → re-grade → debounced save). Cones are now wayfinding: click → set-color spotlight
@@ -39,7 +39,7 @@ snapshot: editing a disc recomputes the character screen AND the goalpost meters
 Force `0.3·ATK + 0.1·HP`; CR/CDMG additive off innate 5%/50%. `scripts/derive-bases.mjs` (`npm run derive-bases`)
 back-solves every agent's hidden base from their seed — proven correct because base CRIT falls out to exactly 5.0%,
 base CDMG to 50.0%, and Miyabi's base CR = 5 + 24 (her engine). `base` lives on the andres-zzz blob.
-**CROSS-CHECKED VS ANDRES'S LIVE GAME SCREEN: recomputed Yuzuha matched in-game exactly** as he edited her discs
+**CROSS-CHECKED VS A.'S LIVE GAME SCREEN: recomputed Yuzuha matched in-game exactly** as he edited her discs
 (Anomaly Prof 129 → 147 → 156, exactly +9 per AP roll). Disc roll badge now shows the in-game upgrade count (rolls-1;
 base = +0). **Known v1 limit:** set-swaps don't retro-adjust the few sheet-scope set stats folded into base — disc
 main/substat edits recompute exactly.
@@ -64,7 +64,7 @@ rough globals), per-agent `wengines` configs (cartridge effects), other tabs, GH
 
 ## The vision
 
-A ground-up redesign of Andres's ZZZ roster/stat dashboard, **deliberately distinct from the WuWa
+A ground-up redesign of A.'s ZZZ roster/stat dashboard, **deliberately distinct from the WuWa
 dashboard**. Direction chosen: **"Soundsystem"** — New Eridu hi-fi/vinyl identity. Disc drives ARE
 records, the equipment screen IS a speaker stack, stats read as VU meters, the agent sheet is a
 "Now Playing" deck. The headline feature is **disc-drive grading** (like we grade WuWa echoes), with
@@ -147,7 +147,7 @@ pct = clamp(discScore / idealForSlot × 100) → letter (SSS≥92.5 … E)
 Reverse-engineered its live API. **Two-layer system:** (1) per-disc letter grade = weighted-substat-roll
 (per-agent/per-slot weights, partner boost, roll count = Enka `PropertyLevel`); (2) overall agent rank
 = full DPS-sim percentile ("TOP x%"). We **adopt layer 1** with our own weights and the SSS…E scale
-(Andres's call — "a little vanity doesn't hurt"); we **skip the DPS sim** and use an honest build-% +
+(A.'s call — "a little vanity doesn't hurt"); we **skip the DPS sim** and use an honest build-% +
 re-roll verdict instead.
 
 ---
@@ -221,7 +221,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 - ✅ **24 of 25 agents have real builds** (4 showcase pulls of 6 — the in-game showcase caps at 6). Only
   **Zhao** is left. Grades + sets + W-engines all live. `Yidhari` got an `agentOverrides` entry (attack +
   HP% 3.0, like Yixuan). PropertyId `12202` = Impact (stun slot-6 main).
-- ⚠️ **Nangong Yu = hybrid Stunner** (Andres-confirmed — do NOT flip her to Anomaly): section stays **Stun**,
+- ⚠️ **Nangong Yu = hybrid Stunner** (A.-confirmed — do NOT flip her to Anomaly): section stays **Stun**,
   but she scales off **Anomaly Prof, not Impact**, so she runs an anomaly disc build (AP/AM mains, Phaethon +
   Freedom Blues, Ether DMG). Graded via an `agentOverrides` entry (`"Nangong Yu": {archetype: "anomaly"}`) so
   her AP build scores on anomaly weights despite the Stun section. (A wrong section drives the wrong archetype,
@@ -237,7 +237,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   beats Tailwind's preflight clamp), per-agent positioned. Composition outliers (Miyabi's wolf companion)
   hand-framed via the `OVERRIDES` map in the script.
 - ✅ **`ZOOM` + `NUDGE` art-direction layer** in `RosterTile.tsx` — global zoom (currently 2.1875) + per-agent
-  `{dx,dy,dz}` nudges, hand-tuned with Andres ("boyfriend-eyeball pass"). `HOLD = 1/1.4` pins agents out of
+  `{dx,dy,dz}` nudges, hand-tuned with A. ("boyfriend-eyeball pass"). `HOLD = 1/1.4` pins agents out of
   a global zoom round. This is the human-tuned layer; `portrait-frames.ts` is the regenerable measured layer.
 - ✅ **Deck portrait squish fixed** (`globals.css .tt .pimg`: `width:auto; max-width:none`) — same Tailwind
   preflight `max-width:100%` clamp bug as the WuWa tall portraits.
@@ -272,7 +272,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   `relevant` stats. **Sheet vs Effective restored**: W-Engine base/advanced/passive (stripped by the Enka
   import) now live in a name-keyed **`wengines` config** + `resolveWengine()` — feeds both the cartridge AND the
   combat layer. ⚠️ **Only Alice has a `wengines` entry so far** — the other 23 cartridges show name only.
-- ✅ **Single source of truth** (Andres's call) — `mainStats` + `relevant` live **on the agent object** in the
+- ✅ **Single source of truth** (A.'s call) — `mainStats` + `relevant` live **on the agent object** in the
   andres-zzz blob; **`main-stats.ts` retired**. Authored in `data.json` (seed), pushed to the blob via
   **`npm run sync-stats -- --write`** (mirrors the import's seed→blob write). The "JSON seed is bait" rule holds.
 - ✅ **All 24 built agents seeded** with real character-screen stats + gold highlights (read off in-game shots,
@@ -282,7 +282,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   skips re-adding them for overridden stats (Dialyn CRIT was 107.4% vs real 99.4%); only combat-scope buffs layer.
 - ⚠️ **Gold-detection caveat:** a kit-given non-default value (Evelyn's PEN 24%, Ellen's PEN 32%) can render in a
   shade that reads as "gold" but is NOT a relevant highlight. Evelyn confirmed/fixed; **Ellen's PEN excluded,
-  pending Andres confirm.**
+  pending A. confirm.**
 
 ## DONE — session 4 (2026-06-21): per-agent grade calibration + CRIT hard-clamp
 
@@ -293,7 +293,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
   (evidence-only, cite-or-omit). **Prydwen is the only site with hard endgame *numbers*** — I hand-drove the single
   camoufox browser through all 11 Prydwen build tabs (slug gotchas: S0 Anby = `anby-demara-soldier-0`, Alice =
   `alice`; build data is lazy-rendered behind the BUILD react-tab). Full report → **`docs/grading-calibration.md`**.
-- ✅ **Decisions (Andres):** **full per-agent** targets · **hard clamp** past CRIT cap · **keep lenient** scale (SSS≥92.5).
+- ✅ **Decisions (A.):** **full per-agent** targets · **hard clamp** past CRIT cap · **keep lenient** scale (SSS≥92.5).
 - ✅ **Per-agent targets** live in `grading-config.json` `agentOverrides[name].targets` (single source: the engine reads
   the CRIT `cap`, the Levels meter reads target/full via `levelCfgFor` in deck-config). 11 agents seeded with
   Prydwen-calibrated ATK/HP/CRIT/AP/AM/Sheer-Force goalposts.
@@ -328,7 +328,7 @@ dashboard — no disc builds). NEW `andres-zzz` / `wife-zzz` rows = THIS dashboa
 - ⚠️ **Burnice `relevant` is the ONE delta vs the live blob** — diffed the andres-zzz Supabase blob against the edited
   seed: only Burnice differs, everything else identical. Needs `npm run sync-stats -- --write` to surface live (targets
   already live — they're bundled in the build, not the blob). **Not yet synced/committed/pushed.**
-- ✅ **Slot-main grading fix (systemic — Andres's catch).** A roster audit found the off-meta `?? 1` main-stat
+- ✅ **Slot-main grading fix (systemic — A.'s catch).** A roster audit found the off-meta `?? 1` main-stat
   fallback hit **5 calibrated agents**, not just ER: **Yixuan/Yidhari** HP% s6 (Rupture offense), **Miyabi** CRIT
   Rate s4 (her signature disc was grading **D**), **Cissia/Velina** ER s6. Fixed by deep-merging a per-agent
   `mainStatPoints` over the archetype default in `resolveArchetype` (grading.js) + overrides for the 5. Verified
@@ -348,7 +348,7 @@ live-verified through the real deck (Ellen + Yixuan screenshots in `Claude Space
 
 - ✅ **Research swarm** — 3 parallel WebFetch agents (the blessed gacha-research pattern, no camoufox) cross-checked
   all 22 engines across ≥2 sources (zzz.gg / senpailife / Game8 / Prydwen / genshin.gg). **Two systemic traps caught:**
-  (a) **zzz.gg serves Phase-5 passive text by default, not R1** — every signature is R1 (Andres's pref), so R5 numbers
+  (a) **zzz.gg serves Phase-5 passive text by default, not R1** — every signature is R1 (A.'s pref), so R5 numbers
   would've been ~2× too strong; re-pulled R1 from Game8's per-phase tables. (b) **Game8's base ATK is the Lv1 figure**
   (638/665/611), not Lv60 — real Lv60 is 713/714, or **684** for the two standard ATK%-engines (Brimstone, Hellfire Gears).
 - ✅ **22 `wengines` entries** added to `grading-config.json` (now 24 incl. Alice + Miyabi). Each = `base.ATK` +
@@ -362,7 +362,7 @@ live-verified through the real deck (Ellen + Yixuan screenshots in `Claude Space
 - ✅ **Verified live:** Ellen `ATK 684 · ATK +30%` + passive `ATK +3.5%/stk (x8)` → chip (not faked on the ATK meter);
   Yixuan `Qingming Birdcage` + CRIT RATE meter `53.8%→73.8%` ghost-segment sourced `+20 · QINGMING BIRDCAGE (COMBAT)`.
   Smoke-tested all 24 through the real engine: no throws, no additive-on-mult deltas, all names resolve.
-- ✅ **In-game truth pass (Andres) — all 3 flags cleared:** Cloudcleave base ATK = **743**; **Flight of Fancy** R1 =
+- ✅ **In-game truth pass (A.) — all 3 flags cleared:** Cloudcleave base ATK = **743**; **Flight of Fancy** R1 =
   **40% Anomaly Buildup + 20 AP/stk (x6)** — my halve-the-R5 derivation was wrong (R5 = R1×1.6, not ×2), patched;
   **Dreamlit Hearth** confirmed (ER 0.4/s, Ether Veil → squad +25% DMG + 15% Max HP) — matched the Game8 single source
   exactly, no change. Every W-engine entry is now sourced or in-game-confirmed.
@@ -391,7 +391,7 @@ pages), live-verified through the real deck (a UI set-swap moved the sheet, then
   across a `derive-bases`+`sync-stats`**, it can clobber the push back to the old base (I hit this — base CR reverted to
   10.6, double-counting +8 live). Fix = close/park the deck (about:blank) before re-syncing. Fresh production loads are
   unaffected. After any re-derive, re-sync with **no deck open**, then verify the blob.
-- 🐛 **Multiplicative-stat recompute fix (Andres caught: Ju Fufu ATK).** On an ATK%-advanced engine (Roaring Fur-nace
+- 🐛 **Multiplicative-stat recompute fix (A. caught: Ju Fufu ATK).** On an ATK%-advanced engine (Roaring Fur-nace
   ATK +30%), editing disc ATK% drifted the sheet ATK (−15 vs in-game 3301) — the engine's always-on 30% was folded into
   `agent.base` **multiplicatively**, but ZZZ SUMS every %, so `base×(1+newDisc%)` ≠ `P×(1+30%+newDisc%)`. Fix: new
   `weaponAdvanceAccum(we)` parses the engine's MULTIPLICATIVE advanced stat (ATK%/HP%/DEF%/AM%/Impact%/ER%) and SUMS it
@@ -402,10 +402,10 @@ pages), live-verified through the real deck (a UI set-swap moved the sheet, then
 
 ## DONE — Teams tab (2026-06-24): benchmarked "Setlists"
 
-The dead **Teams** nav tab is now a real route (`/teams`, Andres-side; gated by `hasSetlists`).
+The dead **Teams** nav tab is now a real route (`/teams`, A.-side; gated by `hasSetlists`).
 
 - **`src/lib/setlists.ts`** — editorial shell data (like pull-priority.ts), profile-keyed. 9 shells ported from
-  `../zzz-dashboard/docs/zzz-roster-meta-team-comps.md`: 3 carry a `benchmark` (the comps Andres actually ran — gold
+  `../zzz-dashboard/docs/zzz-roster-meta-team-comps.md`: 3 carry a `benchmark` (the comps A. actually ran — gold
   ★ badge + score/meter), 6 are guide-sourced (muted "Guide-sourced" tag, no fake numbers). Roles:
   Carry / Sub-DPS / Stun / Support / Flex. Lead is `role: "Carry"` → gets the ★LEAD tag.
 - **Glossy diagonal cards** — `scripts/stage-teamcards.py` (`npm run stage-teams`) normalizes the per-agent
@@ -423,10 +423,10 @@ The dead **Teams** nav tab is now a real route (`/teams`, Andres-side; gated by 
 
 ## DONE — Shiyu Defense tab (2026-06-24)
 
-New **Shiyu** nav tab (Andres-side, gated by `hasShiyu`) → `/shiyu`. The endgame counterpart to Teams.
+New **Shiyu** nav tab (A.-side, gated by `hasShiyu`) → `/shiyu`. The endgame counterpart to Teams.
 
 - **`src/lib/shiyu.ts`** — editorial cycle data (profile-keyed). A `ShiyuCycle` = season header (best total, rank %,
-  highest rating, B/A/S/S+ challenge ladder) + `rooms[]`. Each `ShiyuRoom` records only what Andres asked for:
+  highest rating, B/A/S/S+ challenge ladder) + `rooms[]`. Each `ShiyuRoom` records only what A. asked for:
   recommended attribute(s) + an `anomaly` flag + enemy `resistance`, plus boss, the 3-agent `team` + a `bangboo`, and
   `{total,damage,elimination}` scores. `ratingClass()` maps `"S+" → "splus"` for the `.rate.r-*` colors.
 - **Rating ladder** (ZZZ's, Soundsystem chrome): bold-italic letters — **B** blue, **A** magenta, **S** orange,
@@ -444,10 +444,10 @@ New **Shiyu** nav tab (Andres-side, gated by `hasShiyu`) → `/shiyu`. The endga
 
 ## DONE — Shiyu "Marquee" redesign (2026-07-01)
 
-Andres flagged the Shiyu tab as "basic" — the endgame tab had zero art presence (98×55 boss thumbs,
+A. flagged the Shiyu tab as "basic" — the endgame tab had zero art presence (98×55 boss thumbs,
 46px agent circles, dead air). Three mockups built in `../zzz-redesign-mockups/shiyu/` (A Marquee /
 B Node Rail / C After Dark Stage — README + `_shots/` there; `View Shiyu Mockups.bat` serves :8092).
-**Andres picked A — Marquee.** Ported into the app, build clean (45 pages), live-verified vs the mockup.
+**A. picked A — Marquee.** Ported into the app, build clean (45 pages), live-verified vs the mockup.
 
 - **Room cards are boss posters** (`ShiyuRoomCard.tsx` rewritten): full-body enemy render bottom-anchored
   right, popping 8% above the card top (no `overflow:hidden`); giant outlined rating-letter watermark;
@@ -457,11 +457,11 @@ B Node Rail / C After Dark Stage — README + `_shots/` there; `View Shiyu Mocku
 - **Season readout** (`ShiyuSeason.tsx` rewritten): house **medal** + 52px best total + rank + highest
   rating on one row, B→A→S→S+ targets as a connected horizontal **stepper**, in-game Shiyu badge ghosted
   top-right. `ShiyuCycle.medal?: ShiyuMedal` ("silver"…"legend") — OUR award, the game doesn't medal
-  Shiyu rank (Andres-approved flourish); Critical Node wears "legend".
+  Shiyu rank (A.-approved flourish); Critical Node wears "legend".
 - **Assets** — `stage-shiyu.py` extended: full-body renders → `public/assets/enemies/<boss.slug>.webp`
   (straight-copy, already webp), Shiyu badge + 5 medals → `public/assets/ui/`. ⚠️ Canon note: the wiki
   files Norano Slime's render as "Miasmic Doppelganger Komano Manato" — same beast, name flip-flops
-  (Andres-confirmed). **Burnice's missing team card** dropped by Andres + added to `stage-teamcards.py`
+  (A.-confirmed). **Burnice's missing team card** dropped by A. + added to `stage-teamcards.py`
   (23 cards now). A boss without a staged render degrades gracefully (DeckImg self-hides).
 - **CSS** — the whole SHIYU section of `globals.css` replaced (season + marquee rooms); `.rate` ladder
   colors untouched. Responsive: <1000px the render fades to .25 + content takes full width; <820px the
@@ -476,7 +476,7 @@ come along; grade counts prefer the authored `ShiyuCycle.grades`). New types: `S
 current cycle carries `grades:{s:5,a:0,b:0}`) + `ShiyuHistoryEntry` (date/label/score/rating/grades +
 **optional `teams: ShiyuMember[][]`** — per-room 3-agent clears, NO enemy data by design). Card =
 "MM/DD Unlocked" + season badge, frontier + amber score, S/A/B grade chips (zeros dimmed .38), teams
-strip (R1/R2/R3 + 28px endgame minis) when compiled. **Seeded 4 legacy cycles** from Andres's in-game
+strip (R1/R2/R3 + 28px endgame minis) when compiled. **Seeded 4 legacy cycles** from A.'s in-game
 screenshots (14-day cadence, all S+ Fifth Frontier full-S): 05/29 106,942 · 05/15 113,718 · 05/01
 116,923 · 04/17 112,162. Cycle `date` is now full ISO (2026-06-12) + `frontier: "Fifth Frontier"`.
 Teams-strip render path pixel-verified via a temp QA injection (reverted). Build + tsc clean (45 pages).
@@ -488,8 +488,8 @@ A real `zhaoendgame.png` in the stash takes precedence over the synth.
 
 ## DONE — Deadly Assault tab (2026-07-01, foundation)
 
-New **Assault** nav tab (Andres-side, gated by `hasAssault`) → `/assault`. The second, rotating
-endgame mode — Shiyu's sibling, same editorial pattern, its own fingerprints. Seeded from Andres's
+New **Assault** nav tab (A.-side, gated by `hasAssault`) → `/assault`. The second, rotating
+endgame mode — Shiyu's sibling, same editorial pattern, its own fingerprints. Seeded from A.'s
 2026-06 result screenshots (Girtablullu 47,282 · Notorious-Marionette 45,086 · Ye Shiyuan the
 Thrall 41,005 = 133,373 best total, 2.47% ranking, 9/9 pips). Build clean (46 pages), pixel-QA'd
 live, zero console errors.
@@ -511,23 +511,23 @@ live, zero console errors.
   dashed "None" resistance chip, element-tinted gimmick line. Reuses `VuBar`/`litSegs` (now
   exported from `ShiyuRoomCard`).
 - **`AssaultHistory.tsx`** — rotation-history shelf (sh-* cards), now POPULATED: **5 legacy
-  rotations seeded** (04/10 → 06/05 2026, 14-day cadence, 9/9 pips every one) from Andres's
+  rotations seeded** (04/10 → 06/05 2026, 14-day cadence, 9/9 pips every one) from A.'s
   in-game history + compiled rosters. Richer than Shiyu's shelf by design: the in-game DA history
   card keeps per-target boss + pips + team + score, so `AssaultHistoryTarget` rows carry all of it
   (endgame minis + 28px bangboo circle + score per row). Demotion produces the same rows for free.
-  ⚠️ Canon note: Andres's notes said "05/28" for one cycle — the screenshot reads **05/08
+  ⚠️ Canon note: A.'s notes said "05/28" for one cycle — the screenshot reads **05/08
   Unlocked** and cadence + team match confirm it; 05/08 is canon. All five per-cycle score sums
   verified against Best Total. 5 new bangboos staged (biggestfan/plugboo/robin/msesme/snap
   ← GarageRole 46/19/31/37/30; Belion=36 earlier — 6 total via stage-assault.py).
 - **Assets** — `scripts/stage-assault.py` (`npm run stage-assault`): `IconDeadly.png` → `ui/da-logo`,
   `IconChallengeGoal.png` → `ui/da-pip`, 3 full-body renders → `enemies/{girtablullu,
   notoriousmarionette,yeshiyuanthethrall}.webp` (484×668, same spec as the Shiyu set).
-- ✅ **Real lineups DELIVERED + seeded same evening** (Andres's list): T1 Aria/Velina/Yuzuha ·
+- ✅ **Real lineups DELIVERED + seeded same evening** (A.'s list): T1 Aria/Velina/Yuzuha ·
   T2 Yixuan/Ju Fufu/Lucia · T3 Ye Shunguang/Dialyn/Sunna. (Eyeball scorecard: 1/9 exact — the
   thumbnails are 46px circles, mercy requested.)
 - ✅ **Buffs + cycle date wiki-mined same night** (fandom `Deadly_Assault/2026-06-19` — WebFetch
   402'd, camoufox walked in): cycle runs 06/19→07/03; per-room Current Buff chips with icon +
-  name + full effect text as tooltip. Icons matched 1:1 against Andres's result screenshots:
+  name + full effect text as tooltip. Icons matched 1:1 against A.'s result screenshots:
   T1 **Northern Wind** (element swirl), T2 **Shatter** (gold ruin — Yixuan's Sheer buff), T3
   **Onslaught** (red fist, Attack). Icons staged into the stash under wiki filenames →
   `ui/da-buff-{element,atk,ruin}.webp` — the slugs are icon ARCHETYPES the game reuses across
@@ -539,7 +539,7 @@ live, zero console errors.
 
 ## Next steps (next session)
 
-**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (Andres) · ✅ Shiyu (Andres) · ✅ Assault (Andres, foundation). **Levels** is still a dead `#` link. Remaining:
+**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (A.) · ✅ Shiyu (A.) · ✅ Assault (A., foundation). **Levels** is still a dead `#` link. Remaining:
 
 1. **Deadly Assault: COMPLETE for this rotation** (lineups/buffs/date/bangboos/medals ✅). Per
    new cycle: author at the top of `CYCLES` in `assault.ts` (old one auto-demotes); wiki page
@@ -547,7 +547,7 @@ live, zero console errors.
    buff icons are archetypes (element/atk/ruin), just set `buff.slug`. Real crown/shield medal
    icons → stage via `stage-assault.py` if ever mined (typographic chips until then).
 2. **More Shiyu cycles/rooms** — author new clears at the TOP of `CYCLES` in `shiyu.ts` (the old one
-   auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from Andres
+   auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from A.
    (GarageRole ids are opaque).
 3. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
 4. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).

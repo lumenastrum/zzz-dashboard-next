@@ -1,41 +1,50 @@
-# ZZZ Dashboard — "Soundsystem" (Next.js)
+# ZZZ Dashboard — "Soundsystem"
 
-Ground-up redesign of Andres's Zenless Zone Zero roster/stat dashboard. New Eridu **hi-fi/vinyl**
-identity: disc drives are records, the equipment screen is a speaker stack, stats read as VU meters.
-Sibling to `wuwa-dashboard-next`; the legacy vanilla `zzz-dashboard` repo stays separate and untouched.
+The house Zenless Zone Zero dashboard, wearing a **hi-fi/vinyl** identity: agents are records on a shelf, disc drives spin like LPs, stats read as VU meters, and the grading engine judges your builds like a very opinionated audiophile. Built by Clio. Sibling to [wuwa-dashboard-next](https://github.com/lumenastrum/wuwa-dashboard-next) — same data spine, completely different soul.
+
+**Live at https://lumenastrum.github.io/zzz-dashboard-next/** — roster, per-agent "Now Playing" decks with an all-visible six-disc audit, Teams setlists, Shiyu Defense and Deadly Assault endgame tabs, and a second profile shelf at `/wife`.
 
 ## Stack
+
 Next.js 16 (App Router, static `output: "export"`) · React 19 · TypeScript · Tailwind v4 ·
-Supabase (`dashboard_profiles`, profile `andres-zzz`). Matches the WuWa next dashboard conventions.
+Supabase (`dashboard_profiles` table, one JSONB blob per profile). Auto-deploys to GitHub Pages
+on every push to `master`.
 
 ## Run
+
 ```
 npm install
 npm run dev        # http://localhost:3000
 npm run build      # static export → out/
-npm run grade      # headless: print Alice's grade + sheet/effective (tsx)
+npm run grade      # headless: print a reference build's grade + sheet/effective stats
+npm run peek       # read-only CLI over roster / shiyu / assault data
 ```
+
+## Write access
+
+Everything on the live site is browsable; nothing on it is editable by visitors. The Supabase
+anon key ships in the client on purpose — since the 2026-07-07 RLS lockdown it is **SELECT-only**
+(public signups disabled). The disc dropdowns and roll steppers still respond for anyone, but
+persisting requires the owner's session: first save attempt without one flips the sync LED to
+`READ-ONLY` and opens a sign-in overlay. Viewers get the listening booth, not the mixing desk.
+
+## The grading engine (`src/lib/grading/`)
+
+Framework-agnostic, validated ESM — the one true scorer shared by the UI and the headless CLI:
+
+- `gradeBuild(agent, cfg)` → per-disc letters (SSS…E) + build % + upgrade suggestions
+- `computeStats(agent, cfg)` → Sheet vs Effective per stat, combat buffs applied
+- `swapDiscSet(agent, slot, set, cfg)` → what-if disc swaps with live regrade
+
+Weights, scale, and set effects all live in `grading-config.json` — tune there, the app re-grades.
 
 ## Layout
-```
-src/app/            layout + roster home + r/[name] agent route
-src/components/      RosterTile (album tile) … deck components port next
-src/lib/
-  grading/           ★ the engine — gradeBuild / computeStats / swapDiscSet (framework-agnostic ESM)
-    grading.js         validated engine (shared with the prototype)
-    grading-config.json  archetype weights, SSS…E scale, rollValues, setEffects
-    grading.d.ts / index.ts   typed surface
-  types.ts           Agent / DiscPiece / EffectMod schema
-  roster.ts          seed roster + Alice reference build
-  supabase.ts        client + profile keys (andres-zzz / wife-zzz)
-  base-path.ts       GH Pages prefix helper
-public/assets/       icons, equipment frame, disc/w-engine art, portraits
-docs/                interknot grading research
-HANDOFF.md           full status + next steps (read this first)
-```
 
-## Status
-Scaffold + engine integration done; roster home + a build-time-graded agent route render. The full
-interactive **"Now Playing" deck** (editable hex frame, VU meters, sheet/effective) lives in the
-prototype at `Claude Space/zzz-redesign-mockups/c-soundsystem.html` and ports into components next.
-See `HANDOFF.md`.
+```
+src/app/             roster home · r/[name] agent decks · teams · shiyu · assault · /wife mirror
+src/components/      RosterTile, AgentDeck ("Now Playing"), TeamSetlist, endgame panels
+src/lib/grading/     ★ the engine (see above)
+src/lib/             data-context (debounced Supabase saves, optimistic concurrency), types, roster
+public/assets/       ripped-with-love game art: icons, film strips, disc + w-engine art
+docs/                grading research notes
+```
