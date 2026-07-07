@@ -1,6 +1,6 @@
 # ZZZ Soundsystem — raw data access for Couch-Clio
 
-CLI hooks into Andres's ZZZ roster data. No screenshots, no squinting — curl the truth.
+CLI hooks into A.'s ZZZ roster data. No screenshots, no squinting — curl the truth.
 Written by Windows-Clio, 2026-07-01. 💅
 
 ## Where the truth lives
@@ -11,7 +11,7 @@ Written by Windows-Clio, 2026-07-01. 💅
 | Shiyu Defense logs | In code: `src/lib/shiyu.ts` (editorial) | GH Pages JSON or `npm run peek -- shiyu` |
 | Deadly Assault logs | In code: `src/lib/assault.ts` (editorial) | GH Pages JSON or `npm run peek -- assault` |
 
-Profiles: **`andres-zzz`** (Andres) and **`wife-zzz`** (Courtney). The `andres` / `wife` rows in
+Profiles: **`andres-zzz`** (A.) and **`wife-zzz`** (Cosmea). The `andres` / `wife` rows in
 the same table belong to the LEGACY dashboard — don't read those for current builds.
 
 ## 1. Supabase REST — roster/discs/stats, zero setup
@@ -75,7 +75,7 @@ npm run peek -- shiyu                 # Shiyu cycles + history
 npm run peek -- assault               # Deadly Assault cycles + history
 npm run peek -- blob --json           # untouched Supabase row
 npm run peek -- profiles              # all rows in dashboard_profiles
-npm run peek -- roster --profile wife-zzz   # Courtney's view (any subcommand takes --profile)
+npm run peek -- roster --profile wife-zzz   # Cosmea's view (any subcommand takes --profile)
 ```
 
 ## Schema cheat sheet
@@ -99,7 +99,7 @@ Rooms log rating, boss, recommended/resistance attributes, clearing team (+bangb
 
 ## Gotchas
 
-- **wife-zzz mindscapes**: her blob inherited Andres's mindscape strings during seeding, but her
+- **wife-zzz mindscapes**: her blob inherited A.'s mindscape strings during seeding, but her
   account runs everything at M0 — the app forces M0 via `displayMindscape()`. Raw blob values for
   her are NOT trustworthy for mindscape; everything else is.
 - **Zhao** (and any "identity only" agent) has no build in the blob — the roster identity lives in

@@ -1,4 +1,4 @@
-// Courtney's pull-priority wishlist — a her-exclusive, ranked "what to pull next" list driven
+// Cosmea's pull-priority wishlist — a her-exclusive, ranked "what to pull next" list driven
 // by her current roster + known teams. Ported verbatim from the legacy `wife-data.json`
 // `pullRecommendations` block (the old vanilla dashboard baked it into the page, not Supabase).
 //
@@ -101,7 +101,7 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   },
 ];
 
-// Per-profile pull-priority list. Only Courtney (wife-zzz) has one; Andres's view returns [].
+// Per-profile pull-priority list. Only Cosmea (wife-zzz) has one; A.'s view returns [].
 const BY_PROFILE: Record<string, PullRec[]> = {
   "wife-zzz": WIFE_PULL_PRIORITY,
 };

@@ -40,7 +40,7 @@ const SUIT: Record<string, string> = {
 
 // avatar id → roster identity (name MUST equal the ROSTER entry's `name`, that's the deck key).
 // Enka's internal codename ≠ our roster name in two spots: 1431 "Zhenzhen" is localized as
-// Ye Shunguang, and 1561 (newer than Enka's avatars.json) is Velina — both confirmed by Andres.
+// Ye Shunguang, and 1561 (newer than Enka's avatars.json) is Velina — both confirmed by A..
 const AVATAR: Record<number, { name: string; slug: string }> = {
   1261: { name: "Jane Doe", slug: "janedoe" },
   1401: { name: "Alice", slug: "alice" },

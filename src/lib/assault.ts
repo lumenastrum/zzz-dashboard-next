@@ -2,7 +2,7 @@
 // pattern: in-code, profile-keyed, newest cycle first). A cycle is a boss trio; each room is a
 // 3-minute score attack against one boss. Score = Damage Score + Performance Points (perf caps
 // at 5,000). Each room's Challenge Target ladder (6,000 / 14,000 / 20,000 pts) awards up to 3
-// pips (ui/da-pip.webp); a full cycle is 9. Per Andres, each room records the recommended
+// pips (ui/da-pip.webp); a full cycle is 9. Per A., each room records the recommended
 // attribute(s) + the powerful-enemy resistance(s) + the boss's specialty suitability + a one-line
 // gimmick — not the full Enemy Details text.
 
@@ -28,7 +28,7 @@ export interface AssaultRoom {
   specialty?: string; // "Suitable for Agents with X specialty" — e.g. "Anomaly", "Stun"
   resistance: string[]; // powerful-enemy resistance(s); [] renders as "None"
   gimmick?: string; // one-line Enemy Details mechanic, abridged
-  // The Current Buff Andres ran. slug -> /assets/ui/da-buff-<slug>.webp — an icon ARCHETYPE
+  // The Current Buff A. ran. slug -> /assets/ui/da-buff-<slug>.webp — an icon ARCHETYPE
   // (element/atk/ruin) the game reuses across rotations under fresh names; desc = wiki effect
   // text (fandom Deadly_Assault/<date> page), surfaced as the chip's tooltip.
   buff?: { name: string; slug: string; desc?: string };
@@ -40,7 +40,7 @@ export interface AssaultRoom {
 }
 
 // Career medal tallies from the result screen's badge plate — crown = top-tier medal, shield =
-// second tier (Andres-confirmed 2026-07-01). Account-wide totals, not per-cycle.
+// second tier (A.-confirmed 2026-07-01). Account-wide totals, not per-cycle.
 export interface AssaultMedals {
   crown: number;
   shield: number;
@@ -49,7 +49,7 @@ export interface AssaultMedals {
 export interface AssaultCycle {
   id: string;
   label: string; // rotation name — we name cycles by the headline boss
-  date?: string; // cycle start date, YYYY-MM-DD (when Andres supplies it)
+  date?: string; // cycle start date, YYYY-MM-DD (when A. supplies it)
   bestTotal: number; // sum of the trio's best scores
   rank: string; // percentile string, e.g. "2.47%"
   medals?: AssaultMedals;
@@ -64,7 +64,7 @@ export const ASSAULT_TARGETS: [number, number, number] = [6000, 14000, 20000];
 // (via toHistory). To log a new rotation: author it HERE at the top — done.
 //
 // Girtablullu rotation fully authored 2026-07-01: lineups + bangboos + medal semantics from
-// Andres, buffs + dates from the fandom wiki (icons matched against his result screenshots).
+// A., buffs + dates from the fandom wiki (icons matched against his result screenshots).
 // Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
   {
@@ -171,8 +171,8 @@ export interface AssaultHistoryEntry {
   targets?: AssaultHistoryTarget[]; // per-target rows, in target order
 }
 
-// Pre-editorial scorebook (Andres's in-game history screen + compiled rosters, 2026-07-01).
-// 14-day cadence, every target 3-pipped across all five rotations. NB: Andres's notes said
+// Pre-editorial scorebook (A.'s in-game history screen + compiled rosters, 2026-07-01).
+// 14-day cadence, every target 3-pipped across all five rotations. NB: A.'s notes said
 // "05/28" for one cycle — the screenshot reads 05/08 Unlocked and the cadence + team match
 // confirm it, so 05/08 is canon. Per-cycle score sums verified against Best Total, all five.
 const HISTORY: AssaultHistoryEntry[] = [

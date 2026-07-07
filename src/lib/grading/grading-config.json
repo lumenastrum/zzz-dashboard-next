@@ -170,7 +170,7 @@
       "Anomaly Mastery": { "target": 198, "full": 290 },
       "Anomaly Proficiency": { "target": 410, "full": 480 }
     } },
-    "_yanagi_note": "Courtney's roster. Yanagi is a pure AP-scaling Electric anomaly — Disorder CANNOT crit, so she has NO CRIT mechanic (unlike Miyabi's CRIT->buildup conversion); CRIT is a dead stat and gets no goalpost (the anomaly archetype already zeroes CRIT weight). Slots track the anomaly default (4=AP, 5=Electric DMG/PEN, 6=AM or ATK%). Targets PROPOSED from a WebFetch sweep (Game8 + Prydwen-via-proxy) on the Alice/Jane AP-anomaly scale; the one hard in-game number is the 375 AP Disorder-DMG breakpoint on her signature Timeweaver. ⚠️ Pending Andres's Prydwen cross-check.",
+    "_yanagi_note": "Cosmea's roster. Yanagi is a pure AP-scaling Electric anomaly — Disorder CANNOT crit, so she has NO CRIT mechanic (unlike Miyabi's CRIT->buildup conversion); CRIT is a dead stat and gets no goalpost (the anomaly archetype already zeroes CRIT weight). Slots track the anomaly default (4=AP, 5=Electric DMG/PEN, 6=AM or ATK%). Targets PROPOSED from a WebFetch sweep (Game8 + Prydwen-via-proxy) on the Alice/Jane AP-anomaly scale; the one hard in-game number is the 375 AP Disorder-DMG breakpoint on her signature Timeweaver. ⚠️ Pending A.'s Prydwen cross-check.",
     "Yanagi": { "archetype": "anomaly", "targets": {
       "ATK": { "target": 2800, "full": 3300 },
       "Anomaly Proficiency": { "target": 400, "full": 475 },
@@ -367,7 +367,7 @@
       ]
     },
     "Hailstorm Shrine": {
-      "_comment": "Miyabi signature (S), R1 (Andres runs ALL signatures at R1). base ATK + advanced CRIT Rate 24% are on the character screen (baked into the seeded sheet); refine scales ONLY the passive, not base/advanced. Passive CRIT DMG +50% (R1) is NOT on screen — reconciled against Miyabi's real substats (base50 + B&BS-2pc16 + 12 CDMG rolls = her 123.6 sheet) — so it layers on Effective. Ice DMG is a conditional dmg chip. R-scaling for reference: CRIT DMG 50/57/65/72/80, Ice DMG/stack 20/23/26/29/32.",
+      "_comment": "Miyabi signature (S), R1 (A. runs ALL signatures at R1). base ATK + advanced CRIT Rate 24% are on the character screen (baked into the seeded sheet); refine scales ONLY the passive, not base/advanced. Passive CRIT DMG +50% (R1) is NOT on screen — reconciled against Miyabi's real substats (base50 + B&BS-2pc16 + 12 CDMG rolls = her 123.6 sheet) — so it layers on Effective. Ice DMG is a conditional dmg chip. R-scaling for reference: CRIT DMG 50/57/65/72/80, Ice DMG/stack 20/23/26/29/32.",
       "base": { "ATK": 713 },
       "advanced": { "label": "CRIT Rate +24%" },
       "passive": [
@@ -414,7 +414,7 @@
       ]
     },
     "Cloudcleave Radiance": {
-      "_comment": "Ye Shunguang signature, R1. base ATK 743 (confirmed in-game by Andres).",
+      "_comment": "Ye Shunguang signature, R1. base ATK 743 (confirmed in-game by A.).",
       "base": { "ATK": 743 },
       "advanced": { "label": "CRIT DMG +48%" },
       "passive": [
@@ -530,7 +530,7 @@
       ]
     },
     "Dreamlit Hearth": {
-      "_comment": "Lucia signature, R1. Support/Ether. R1 confirmed in-game by Andres (ER 0.4/s; Ether Veil -> squad +25% DMG + 15% Max HP, 45s) — matched the Game8 single-source data exactly.",
+      "_comment": "Lucia signature, R1. Support/Ether. R1 confirmed in-game by A. (ER 0.4/s; Ether Veil -> squad +25% DMG + 15% Max HP, 45s) — matched the Game8 single-source data exactly.",
       "base": { "ATK": 713 },
       "advanced": { "label": "HP +30%" },
       "passive": [
@@ -540,7 +540,7 @@
       ]
     },
     "Flight of Fancy": {
-      "_comment": "Vivian signature, R1. Anomaly/Ether. R1 confirmed in-game by Andres: 40% Anomaly Buildup + 20 AP (flat)/stk on Ether DMG, 5s, x6 (so R5=R1x1.6, NOT x2 — zzz.gg's R5 misled the earlier derivation).",
+      "_comment": "Vivian signature, R1. Anomaly/Ether. R1 confirmed in-game by A.: 40% Anomaly Buildup + 20 AP (flat)/stk on Ether DMG, 5s, x6 (so R5=R1x1.6, NOT x2 — zzz.gg's R5 misled the earlier derivation).",
       "base": { "ATK": 713 },
       "advanced": { "label": "Anomaly Prof +90" },
       "passive": [
@@ -585,7 +585,7 @@
       ]
     },
     "Weeping Gemini": {
-      "_comment": "A-rank Anomaly engine (Courtney: Vivian R2, Yanagi R1). Secondary stat is ATK +25% (NOT Anomaly Proficiency). Passive 'Lingering Cries': when a squad member inflicts an Attribute Anomaly, equipper gains Anomaly Proficiency per stack (x4). base ATK 594 (A-rank). Sourced Game8 + zzz.gg + bittopup + senpailife; AP/stk R1->R5 = 30/34/38/42/48 (x4 = 120/136/152/168/192).",
+      "_comment": "A-rank Anomaly engine (Cosmea: Vivian R2, Yanagi R1). Secondary stat is ATK +25% (NOT Anomaly Proficiency). Passive 'Lingering Cries': when a squad member inflicts an Attribute Anomaly, equipper gains Anomaly Proficiency per stack (x4). base ATK 594 (A-rank). Sourced Game8 + zzz.gg + bittopup + senpailife; AP/stk R1->R5 = 30/34/38/42/48 (x4 = 120/136/152/168/192).",
       "base": { "ATK": 594 },
       "advanced": { "label": "ATK +25%" },
       "refines": {
@@ -597,7 +597,7 @@
       }
     },
     "Kaboom the Cannon": {
-      "_comment": "A-rank Support engine (Courtney: Lucia R3). Secondary Energy Regen +50%. Passive 'Stampede Accident': squad ATK% buff per stack (x4) on any squad hit (%-mult -> buff chip). base ATK 624. Sourced Game8 + zzz.gg; ATK%/stk R1->R5 = 2.5/2.8/3.2/3.6/4.0.",
+      "_comment": "A-rank Support engine (Cosmea: Lucia R3). Secondary Energy Regen +50%. Passive 'Stampede Accident': squad ATK% buff per stack (x4) on any squad hit (%-mult -> buff chip). base ATK 624. Sourced Game8 + zzz.gg; ATK%/stk R1->R5 = 2.5/2.8/3.2/3.6/4.0.",
       "base": { "ATK": 624 },
       "advanced": { "label": "Energy Regen +50%" },
       "refines": {
@@ -609,7 +609,7 @@
       }
     },
     "Precious Fossilized Core": {
-      "_comment": "A-rank Stun engine (Courtney: Ju Fufu R5). Secondary Impact +15%. Passive 'Behemoth Hunter': +Daze vs high-HP targets (>=50%, plus an additional bonus >=75%). base ATK 594. Sourced Game8 + senpailife + korometa; Daze/tier R1->R5 = 10/11.5/13/14.5/16.",
+      "_comment": "A-rank Stun engine (Cosmea: Ju Fufu R5). Secondary Impact +15%. Passive 'Behemoth Hunter': +Daze vs high-HP targets (>=50%, plus an additional bonus >=75%). base ATK 594. Sourced Game8 + senpailife + korometa; Daze/tier R1->R5 = 10/11.5/13/14.5/16.",
       "base": { "ATK": 594 },
       "advanced": { "label": "Impact +15%" },
       "refines": {

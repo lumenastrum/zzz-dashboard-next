@@ -7,10 +7,10 @@ import { TeamSetlist } from "@/components/TeamSetlist";
 export const metadata: Metadata = {
   title: "Teams · ZZZ · Soundsystem",
   description:
-    "Andres's benchmarked ZZZ team setlists — curated, in-game-verified squad shells with archetype, room signal, and real Shiyu benchmark scores.",
+    "A.'s benchmarked ZZZ team setlists — curated, in-game-verified squad shells with archetype, room signal, and real Shiyu benchmark scores.",
 };
 
-// Andres's Teams tab — benchmarked team "setlists" from the meta-comps bible, rendered as glossy
+// A.'s Teams tab — benchmarked team "setlists" from the meta-comps bible, rendered as glossy
 // diagonal-card panels. Static page; the shells are editorial data (setlists.ts). TopNav lights "Teams".
 export default function Teams() {
   const sets = setlistsFor(PROFILE_KEY);

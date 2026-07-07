@@ -41,9 +41,9 @@ Final = ( Base × (1 + Σ%_unconditional) + Σflat_unconditional ) × (1 + Σ%_c
 
 ## The "AP → AM" claim — RESOLVED: they are independent (3 confirmations)
 
-Andres' hypothesis was that AM is produced from a certain amount of AP. It does not hold:
+A.' hypothesis was that AM is produced from a certain amount of AP. It does not hold:
 1. **Wiki** (both the AM and AP pages): no derivation; each is `1% buildup-rate` (AM) / `1% anomaly DMG` (AP), parallel stats.
-2. **Andres' own seed data:** no-AM-source agents — **Trigger AP 212 → AM 96** vs **Sunna AP 131 → AM 96**. AP swings 1.6×, AM is identical. If AM came from AP, Trigger's would tower.
+2. **A.' own seed data:** no-AM-source agents — **Trigger AP 212 → AM 96** vs **Sunna AP 131 → AM 96**. AP swings 1.6×, AM is identical. If AM came from AP, Trigger's would tower.
 3. **arkkus damage-calc gist:** `AM Bonus = 1 + AM/100` (buildup-rate multiplier), `AP Bonus = AP/100` (anomaly-DMG addend) — independent.
 
 The directionally-correct kernel of the intuition: **AM is a special % stat** (`base × (1+AM%)`, no substat) while **AP is flat** — that asymmetry is real; the cross-derivation isn't.
@@ -57,7 +57,7 @@ The directionally-correct kernel of the intuition: **AM is a special % stat** (`
    - Store as `agent.base = {ATK,HP,DEF,AM,AP,Impact,CRIT Rate,CRIT DMG,Energy Regen,...}` (script: derive-bases).
 2. **Rewire `computeStats`** to COMPUTE the sheet from `base + current discs + WE + uncond sets` (drop the `opts.sheet`
    snapshot-passthrough for stats we can compute). Editing a disc → recompute → goalposts move.
-3. **Validate vs Yuzuha** (Andres edited her discs in-game/on the live site): recompute her sheet from her discs, compare
+3. **Validate vs Yuzuha** (A. edited her discs in-game/on the live site): recompute her sheet from her discs, compare
    to her real character screen. Tune `rollValues`/base derivation until it matches. Yuzuha is the ground-truth oracle.
 
 **Engine corrections this surfaces:** (a) AM main is **%** not flat (current `computeStats` adds it flat — bug); (b) ATK is

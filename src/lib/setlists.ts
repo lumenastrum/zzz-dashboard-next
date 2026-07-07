@@ -1,9 +1,9 @@
-// Andres's ZZZ team "setlists" — curated squad shells that drive the Teams tab. Like
+// A.'s ZZZ team "setlists" — curated squad shells that drive the Teams tab. Like
 // pull-priority.ts, this is EDITORIAL roster analysis (not live-edited gear), so it lives in
 // version-controlled code rather than the Supabase blob.
 //
 // Sourced from the legacy dashboard's bible (`../zzz-dashboard/docs/zzz-roster-meta-team-comps.md`
-// + `…technical-notes.md`). A shell carries a `benchmark` block ONLY when Andres actually ran it on
+// + `…technical-notes.md`). A shell carries a `benchmark` block ONLY when A. actually ran it on
 // his account (Shiyu Critical Node, 2026-06-14) — those numbers are PHASE-SPECIFIC (that cycle's
 // room buffs/resistances) and shown with their phase context. Shells without a benchmark are
 // guide-sourced (Prydwen / Icy Veins) recommendations, tagged as such — no invented scores.
@@ -52,7 +52,7 @@ export interface Setlist {
   archetype: string; // role grammar / damage plan
   attribute: string; // shell accent element (the carry's)
   members: SetlistMember[]; // 3 agents, lead first
-  benchmark?: SetlistBenchmark; // present only for comps Andres benchmarked himself
+  benchmark?: SetlistBenchmark; // present only for comps A. benchmarked himself
   roomSignal: string; // when to bring it
   why: string; // why it matters
   variants?: SetlistVariant[];
@@ -263,8 +263,8 @@ export const ANDRES_SETLISTS: Setlist[] = [
   },
 ];
 
-// Per-profile setlists. Only Andres (andres-zzz) has a benchmarked bible so far; Courtney's
-// shells follow once her cards are staged. Andres's view → these; everyone else → [].
+// Per-profile setlists. Only A. (andres-zzz) has a benchmarked bible so far; Cosmea's
+// shells follow once her cards are staged. A.'s view → these; everyone else → [].
 const BY_PROFILE: Record<string, Setlist[]> = {
   [PROFILE_KEY]: ANDRES_SETLISTS,
 };

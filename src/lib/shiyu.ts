@@ -1,6 +1,6 @@
-// Shiyu Defense logs — Andres's cleared cycles, the endgame counterpart to the Teams setlists.
+// Shiyu Defense logs — A.'s cleared cycles, the endgame counterpart to the Teams setlists.
 // Editorial data (in code, like setlists.ts), profile-keyed. ZZZ's rating ladder is B → A → S → S+
-// (S+ is season-only: an S in every room plus a total ≥ 100,000). Per Andres, each room records only
+// (S+ is season-only: an S in every room plus a total ≥ 100,000). Per A., each room records only
 // the recommended attribute(s) + whether it's anomaly-recommended + the enemy resistance(s) — not the
 // full scoring rules — plus the boss, the clearing team, and the run's scores.
 
@@ -8,7 +8,7 @@ import { PROFILE_KEY } from "./supabase";
 
 export type ShiyuRating = "B" | "A" | "S" | "S+";
 
-// House award for a cycle's rank — the game doesn't medal Shiyu rank; WE do (Andres-approved
+// House award for a cycle's rank — the game doesn't medal Shiyu rank; WE do (A.-approved
 // flourish). Renders /assets/ui/medal-<medal>.webp on the season readout.
 export type ShiyuMedal = "silver" | "gold" | "diamond" | "master" | "legend";
 
@@ -67,8 +67,8 @@ export interface ShiyuCycle {
 }
 
 // A compact clear-history entry — cycles cleared BEFORE the editorial era (no enemy/score-breakdown
-// data, per Andres) plus every demoted full cycle. `teams` = the 3 clearing agents per room, in room
-// order; optional until Andres compiles the roster history.
+// data, per A.) plus every demoted full cycle. `teams` = the 3 clearing agents per room, in room
+// order; optional until A. compiles the roster history.
 export interface ShiyuHistoryEntry {
   id: string;
   date: string; // unlock date, YYYY-MM-DD
@@ -82,9 +82,9 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
-  // 2026-06-26 cycle authored 2026-07-01 from Andres's result screenshots (his best season to
+  // 2026-06-26 cycle authored 2026-07-01 from A.'s result screenshots (his best season to
   // date: 132,385 at 1.9%). Scores/attributes/resistances/times screenshot-exact; R1+R3
-  // anomaly-recommended, the S×5 grade card, and R3's slow 02m 20s clock all Andres-confirmed
+  // anomaly-recommended, the S×5 grade card, and R3's slow 02m 20s clock all A.-confirmed
   // 2026-07-01. Nothing pending.
   {
     id: "critical-node-2026-06-26",
@@ -141,7 +141,7 @@ const CYCLES: ShiyuCycle[] = [
         anomaly: true,
         resistance: ["Physical"],
         // In-game name this cycle is "Komano Manato" — same beast/render as 06-12's "Norano
-        // Slime" (the assets flip-flop on the name, Andres-confirmed canon; see stage-shiyu.py).
+        // Slime" (the assets flip-flop on the name, A.-confirmed canon; see stage-shiyu.py).
         boss: { name: "Komano Manato", tag: "Miasma", slug: "miasmanoranoslime", level: 70 },
         team: [
           { slug: "miyabi", name: "Miyabi" },
@@ -221,8 +221,8 @@ const CYCLES: ShiyuCycle[] = [
   },
 ];
 
-// Pre-editorial clear history (from Andres's in-game history screen, 2026-07-01). 14-day cadence,
-// every one an S+ Fifth Frontier full-S clear. `teams` = Andres's compiled roster history (2026-07-01).
+// Pre-editorial clear history (from A.'s in-game history screen, 2026-07-01). 14-day cadence,
+// every one an S+ Fifth Frontier full-S clear. `teams` = A.'s compiled roster history (2026-07-01).
 // NB: Zhao (05/01 R1) has no stash circle — stage-shiyu.py synthesizes his from the tall portrait.
 const HISTORY: ShiyuHistoryEntry[] = [
   {

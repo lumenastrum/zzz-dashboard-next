@@ -30,7 +30,7 @@ color; selects quiet-until-hover. NEW: surfaces `GradedDisc.mainStatOk` — slot
 main get a red **OFF-PROFILE** tag in the main plate. Verified: build clean, pixel QA at 1440px + phone
 width (no overflow), spotlight ring computed-style-confirmed. NOT yet committed/pushed.
 
-> ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Courtney `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
+> ⚠️ HANDOFF gap: several sessions between the disc-set work and here were never logged in this doc — they DID ship (see git log): the agent-screen **film-strip backdrop** (`db7a233`), the entire **Cosmea `/wife` multi-tenant dashboard** + her **Pull Priority tab** (`42cc96e`…`f7b26c1`), **disc-edit save hardening + optimistic concurrency** (`5885475`/`50dd14a`), and the **slot-main selector fix** (`1e01582`). The memory note `zzz-dashboard-next` is the fuller record for those.
 
 **★ LIVE STAT RECOMPUTE (the headline) — VALIDATED AGAINST THE ACTUAL GAME, DEPLOYED.** The deck is no longer a
 snapshot: editing a disc recomputes the character screen AND the goalpost meters live, on ZZZ's real stat formulas
@@ -539,7 +539,7 @@ live, zero console errors.
 
 ## Next steps (next session)
 
-**Tabs:** ✅ Pulls (Courtney) · ✅ Teams (A.) · ✅ Shiyu (A.) · ✅ Assault (A., foundation). **Levels** is still a dead `#` link. Remaining:
+**Tabs:** ✅ Pulls (Cosmea) · ✅ Teams (A.) · ✅ Shiyu (A.) · ✅ Assault (A., foundation). **Levels** is still a dead `#` link. Remaining:
 
 1. **Deadly Assault: COMPLETE for this rotation** (lineups/buffs/date/bangboos/medals ✅). Per
    new cycle: author at the top of `CYCLES` in `assault.ts` (old one auto-demotes); wiki page
@@ -550,7 +550,7 @@ live, zero console errors.
    auto-demotes to the history shelf; legacy teams all seeded ✅). Bangboo names come from A.
    (GarageRole ids are opaque).
 3. **Lockout Packages** — the bible's A/B/C/D 3-team "albums" (Shiyu/DA lockout drafts) as a second Teams section/tab.
-4. **Courtney's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
+4. **Cosmea's `/wife` Teams + Shiyu** — needs her own staged cards/clears (both gates already support per-profile).
 5. **Score-logging helper** — a tiny CLI so Recent Benchmarks + Shiyu/DA scores don't need hand-editing (offered).
 6. **AM `full` goalposts (optional)** · **Loose ends** — Ellen's PEN (kit-value, excluded); Zhao buildless. Roster 24/25.
 

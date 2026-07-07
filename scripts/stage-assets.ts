@@ -1,7 +1,7 @@
 // Copy + rename the seeded ZZZ art from the parent `Gacha Dashboards/ZZZ *` folders
 // into public/assets/{icons,tall} with slugified names the deck resolvers expect
 // (element_*, type_*, faction_*, set_*, wengine_*, rank_*, wrank_*, equip_frame, <slug>.webp).
-// `npm run stage`. Re-run whenever Andres seeds more art — it's idempotent (overwrites).
+// `npm run stage`. Re-run whenever A. seeds more art — it's idempotent (overwrites).
 // Source filenames are wiki-style + URL-encoded (%26 = &, %27 = '); we decode then slugify.
 import { promises as fs } from "fs";
 import path from "path";

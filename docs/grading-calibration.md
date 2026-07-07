@@ -64,7 +64,7 @@ PEN Ratio t20/f60 · Anomaly Proficiency t330/f460 · Anomaly Mastery t184/f320.
 6. **Mechanic gates the highlighter can't show:** Miyabi AM≥115 (set 4pc), Alice AM≥140 → 1.6 AP conversion,
    pre-combat vs in-combat CRIT (Yidhari 62→97). These are footnotes/tooltips, not gradeable bars.
 
-## Proposed calibration (for Andres's sign-off — NOT yet implemented)
+## Proposed calibration (for A.'s sign-off — NOT yet implemented)
 **Hybrid: per-archetype target defaults + per-agent CRIT overrides.** (Per-archetype alone can't capture CRIT;
 Ye caps at 50 but Ellen wants 90 — both "crit" archetype. CRIT is irreducibly per-agent.)
 
@@ -185,7 +185,7 @@ Verified: all 5 grade clean, targets resolve, Trigger's cap shows but doesn't tr
 & Ju Fufu ATK%-s4/5 & Nangong Yu AM-s6 all → pts3 BiS; build clean; live-confirmed on Trigger's deck. Builds land C/D
 honestly (under-farmed stunners — e.g. Lighter's CR 14.6% screams "missing your KotS floor").
 
-**Game-rule fix (DONE — Andres's correction).** The flag above turned out to be a hard game rule, not a taste call:
+**Game-rule fix (DONE — A.'s correction).** The flag above turned out to be a hard game rule, not a taste call:
 **slot 4 can roll Anomaly Proficiency but NEVER Anomaly Mastery; slot 6 can roll Anomaly Mastery but NEVER Anomaly
 Proficiency** (slot 5 rolls neither). So the `anomaly` archetype's `s6: {AP:3, ...}` listed an **impossible main** —
 a build the game can't produce. Fixed `anomaly` s6 → `{ATK%:2.5, AM:3}` (AP removed, AM is the only anomaly s6 main)

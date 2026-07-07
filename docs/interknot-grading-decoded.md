@@ -86,4 +86,4 @@ theorycraft engine — **not worth rebuilding for a personal dashboard.**
   weights are standard theorycraft we can define ourselves and hand-tune.
 - **Skip the DPS percentile.** Replace their "TOP x%" with our own honest **build-quality %**
   (achieved weighted rolls ÷ theoretical max) + the re-roll verdict. Cheaper, still useful.
-- Open question for Andres: grade scale — mirror their `SSS…E`, or keep our cleaner `S/A/B/C/D`?
+- Open question for A.: grade scale — mirror their `SSS…E`, or keep our cleaner `S/A/B/C/D`?

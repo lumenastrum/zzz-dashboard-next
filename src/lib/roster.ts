@@ -11,12 +11,12 @@ export interface RosterEntry {
   faction?: string;
   title?: string; // custom pill title (e.g. "Void Hunter: Qingming Arbiter")
   voidHunter?: boolean; // elite tier — gradient accent + void-hunter badge
-  wifeOnly?: boolean; // in the shared roster for her view, but hidden from the default (Andres) view
+  wifeOnly?: boolean; // in the shared roster for her view, but hidden from the default (A.) view
 }
 
 // Full roster — imported from the legacy `andres` Supabase row (real mindscapes), with
 // element corrections (Frost/Auric Ink/Honed Edge), accents = each element's sampled color,
-// and canonical factions where known (others left for Andres). Grouped by section.
+// and canonical factions where known (others left for A.). Grouped by section.
 // Build data (discs/W-Engine) is NOT in the legacy row, so decks render the identity card
 // until a build lands in the andres-zzz blob. el accents mirror ELEMENT_COLOR (deck-config).
 export const ROSTER: RosterEntry[] = [
@@ -57,11 +57,11 @@ export const ROSTER: RosterEntry[] = [
 ];
 
 // Per-profile ownership → which roster slugs appear on a profile's home (and get static agent
-// pages). Profiles NOT listed here get the full ROSTER (the default Andres view). Slug order
+// pages). Profiles NOT listed here get the full ROSTER (the default A. view). Slug order
 // here is cosmetic; the home renders in ROSTER order via rosterFor's filter.
 export const PROFILE_ROSTER: Record<string, string[]> = {
   // Wife's roster — derived from her legacy `wife` Supabase row (minus base Anby + Nicole),
-  // plus Yanagi. Yanagi + Zhao have no build on Andres's side → identity-only until filled.
+  // plus Yanagi. Yanagi + Zhao have no build on A.'s side → identity-only until filled.
   "wife-zzz": [
     "alice", "miyabi", "vivian", "yanagi",
     "yeshunguang", "cissia",
@@ -71,8 +71,8 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
   ],
 };
 
-// Courtney's account runs every agent at base mindscape (M0). Both the static ROSTER and her
-// cloned blob builds inherited Andres's mindscapes, so her views display M0 across the board.
+// Cosmea's account runs every agent at base mindscape (M0). Both the static ROSTER and her
+// cloned blob builds inherited A.'s mindscapes, so her views display M0 across the board.
 // Centralized here so the rule lives in one place if her account ever varies per-agent later.
 // `raw` accepts the roster number (e.g. 1) or a blob string (e.g. "M0"); returns a display string.
 export function displayMindscape(profileKey: string, raw: number | string | undefined): string {
@@ -84,7 +84,7 @@ export function displayMindscape(profileKey: string, raw: number | string | unde
 // Roster slice for a profile: its owned slugs (in ROSTER order), or the full roster if unlisted.
 export function rosterFor(profileKey: string): RosterEntry[] {
   const slugs = PROFILE_ROSTER[profileKey];
-  if (!slugs) return ROSTER.filter((a) => !a.wifeOnly); // default (Andres) view hides wife-only agents
+  if (!slugs) return ROSTER.filter((a) => !a.wifeOnly); // default (A.) view hides wife-only agents
   const owned = new Set(slugs);
   return ROSTER.filter((a) => owned.has(a.slug));
 }

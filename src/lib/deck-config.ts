@@ -90,7 +90,7 @@ export const STANDARD_WENGINES = new Set([
   "Fusion Compiler", "Weeping Cradle",
 ]);
 // "Signature" = an S-rank limited engine that isn't a standard-channel S. A/B-rank engines (battle-pass
-// / craftable, e.g. Courtney's Weeping Gemini, Kaboom the Cannon) are NEVER signatures → "Standard".
+// / craftable, e.g. Cosmea's Weeping Gemini, Kaboom the Cannon) are NEVER signatures → "Standard".
 // An unknown rank falls back to name-only (back-compat). Pass the resolved engine's rank.
 export const isSignatureEngine = (name: string | undefined | null, rank?: string | null) =>
   !!name && rank !== "A" && rank !== "B" && !STANDARD_WENGINES.has(name);

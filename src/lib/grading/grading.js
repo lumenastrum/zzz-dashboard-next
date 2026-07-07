@@ -199,7 +199,7 @@ export function resolveWengine(we, cfg) {
   const ref = cfg?.wengines?.[we.name] || {};
   const out = { ...ref, ...we };
   // Refine-aware passive: a catalog entry may list per-refine passives under `refines` (R1..R5) for
-  // engines actually run at varying refinements (e.g. Courtney's A-ranks — Weeping Gemini R1 on Yanagi,
+  // engines actually run at varying refinements (e.g. Cosmea's A-ranks — Weeping Gemini R1 on Yanagi,
   // R2 on Vivian). base ATK + advanced stat are LEVEL-based (refine-independent); only the passive scales.
   // Falls back R<refine> → R1 → the flat `passive`. Entries without `refines` are unchanged (back-compat).
   if (ref.refines) {

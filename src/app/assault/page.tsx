@@ -9,7 +9,7 @@ import { AssaultHistory } from "@/components/AssaultHistory";
 export const metadata: Metadata = {
   title: "Deadly Assault · ZZZ · Soundsystem",
   description:
-    "Andres's Deadly Assault rotations — best total, ranking, challenge-goal pips, and per-boss score / team logs.",
+    "A.'s Deadly Assault rotations — best total, ranking, challenge-goal pips, and per-boss score / team logs.",
 };
 
 // Deadly Assault tab — the second, rotating endgame mode (Shiyu's sibling). Static page; cycles

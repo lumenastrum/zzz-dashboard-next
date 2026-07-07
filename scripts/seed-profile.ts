@@ -5,15 +5,15 @@
 //
 // Ownership comes from PROFILE_ROSTER[to] in roster.ts (a slug list). Only agents that BOTH
 // (a) appear in that list AND (b) have a real build in --from get cloned. Owned agents with no
-// source build (e.g. Yanagi — not on Andres's account — or Zhao — never imported) are left out
+// source build (e.g. Yanagi — not on A.'s account — or Zhao — never imported) are left out
 // of the blob → their decks render the identity card until real discs are entered/imported.
 import { getSupabase, SUPABASE_TABLE } from "../src/lib/supabase";
 import { ROSTER, PROFILE_ROSTER } from "../src/lib/roster";
 import type { Agent, DashboardData } from "../src/lib/types";
 
-// Browser-tab / blob title per target profile (hers reads "Courtney's", his stays default).
+// Browser-tab / blob title per target profile (hers reads "Cosmea's", his stays default).
 const META_TITLE: Record<string, string> = {
-  "wife-zzz": "Courtney's ZZZ · Soundsystem",
+  "wife-zzz": "Cosmea's ZZZ · Soundsystem",
 };
 
 // Replace an agent's W-engine WHOLESALE (drops the source signature's base/passive/advanced so a
@@ -23,12 +23,12 @@ function setWengine(a: Agent | undefined, name: string, rank: string, refine: st
 }
 
 // Target-specific seed adjustments applied AFTER cloning the source builds: real gear on the
-// target account that differs from the source (Andres), plus placeholder builds for agents the
+// target account that differs from the source (A.), plus placeholder builds for agents the
 // source doesn't own. One-time bootstrap — she edits the rest in-app.
 const SEED_ADJUST: Record<string, (agents: Agent[]) => void> = {
   "wife-zzz": (agents) => {
     const by = (n: string) => agents.find((a) => a.name === n);
-    // Courtney's A-rank W-engines (not Andres's signatures).
+    // Cosmea's A-rank W-engines (not A.'s signatures).
     setWengine(by("Lucia"), "Kaboom the Cannon", "A", "R3");
     setWengine(by("Vivian"), "Weeping Gemini", "A", "R2");
     setWengine(by("Ju Fufu"), "Precious Fossilized Core", "A", "R5");

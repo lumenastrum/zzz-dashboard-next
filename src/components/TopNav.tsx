@@ -8,7 +8,7 @@ import { hasAssault } from "@/lib/assault";
 // Shared dashboard header (wordmark + tab nav), used by every top-level view so the chrome is
 // identical across the roster home and the per-profile sub-tabs. Pure/server-safe — `active`
 // highlights the current tab, `base` keeps links in-profile. Teams/Shiyu render for profiles with
-// that data (Andres); Pulls renders for profiles with a pull-priority list (Courtney).
+// that data (A.); Pulls renders for profiles with a pull-priority list (Cosmea).
 type Tab = "agents" | "levels" | "teams" | "shiyu" | "assault" | "pulls";
 
 export function TopNav({ base = "", active = "agents" }: { base?: string; active?: Tab }) {

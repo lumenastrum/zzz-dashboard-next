@@ -5,11 +5,11 @@ import { TopNav } from "@/components/TopNav";
 import { PullCrate } from "@/components/PullCrate";
 
 export const metadata: Metadata = {
-  title: "Pull Priority · Courtney's ZZZ · Soundsystem",
-  description: "Courtney's ranked ZZZ pull-priority wishlist — what to convene next, ranked by how it fits her roster and teams.",
+  title: "Pull Priority · Cosmea's ZZZ · Soundsystem",
+  description: "Cosmea's ranked ZZZ pull-priority wishlist — what to convene next, ranked by how it fits her roster and teams.",
 };
 
-// Courtney's pull-priority wishlist (her-exclusive tab). Static page — the list is editorial data
+// Cosmea's pull-priority wishlist (her-exclusive tab). Static page — the list is editorial data
 // from pull-priority.ts, rendered as flippable record-sleeve crates. TopNav highlights "Pulls".
 export default function WifePulls() {
   const recs = pullPriorityFor(PROFILE_WIFE);

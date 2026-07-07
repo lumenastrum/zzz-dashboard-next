@@ -8,7 +8,7 @@ import { ShiyuHistory } from "@/components/ShiyuHistory";
 
 export const metadata: Metadata = {
   title: "Shiyu Defense · ZZZ · Soundsystem",
-  description: "Andres's Shiyu Defense clears — best total, rating ladder, and per-room boss / team / score logs.",
+  description: "A.'s Shiyu Defense clears — best total, rating ladder, and per-room boss / team / score logs.",
 };
 
 // Shiyu Defense tab — the endgame counterpart to Teams. Static page; cycles are editorial data

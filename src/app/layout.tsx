@@ -10,7 +10,7 @@ const inter = Inter({ variable: "--font-inter", subsets: ["latin"], weight: ["40
 
 export const metadata: Metadata = {
   title: "Zenless Zone Zero · Soundsystem",
-  description: "Andres's ZZZ agent roster, disc-drive grading, and stat audits — New Eridu hi-fi.",
+  description: "A.'s ZZZ agent roster, disc-drive grading, and stat audits — New Eridu hi-fi.",
 };
 
 const fontVars = [oswald.variable, rajdhani.variable, inter.variable].join(" ");

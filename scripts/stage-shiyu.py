@@ -31,7 +31,7 @@ BANGBOO = {
 # Full-body enemy renders (transparent, ~484x668) for the marquee room cards, keyed by the
 # ShiyuBoss slug they render. Already .webp in the stash -> straight copy (no recompress).
 # NB: the wiki files Norano Slime under "Miasmic Doppelganger Komano Manato" — same beast,
-# the game's assets flip-flop on the name (Andres-confirmed canon).
+# the game's assets flip-flop on the name (A.-confirmed canon).
 ENEMIES = {
     "Enemy_Miasmic_Doppelganger_Komano_Manato.webp": "miasmanoranoslime",
     "Enemy_Sacrifice_-_Covenant_Guardian.webp": "covenantguardian",

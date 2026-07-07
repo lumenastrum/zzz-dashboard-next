@@ -4,7 +4,7 @@ import { PROFILE_WIFE } from "@/lib/supabase";
 import { AgentRoute } from "@/components/AgentRoute";
 
 export const metadata: Metadata = {
-  title: "Courtney's ZZZ · Soundsystem",
+  title: "Cosmea's ZZZ · Soundsystem",
 };
 
 // Pre-render a static page per agent on the wife roster (output: "export"). Build data is live

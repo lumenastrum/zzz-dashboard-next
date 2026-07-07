@@ -1,7 +1,7 @@
-# Courtney's Pull Priority — update runbook
+# Cosmea's Pull Priority — update runbook
 
 The **Pulls** tab on her side (`/wife/pulls`) is her ranked "what to convene next" wishlist. It's
-**her-exclusive** (Andres's view has no Pulls tab) and it's **editorial data in code**, not Supabase —
+**her-exclusive** (A.'s view has no Pulls tab) and it's **editorial data in code**, not Supabase —
 so updating it is an edit + a rebuild, nothing live to sync.
 
 > One-line mental model: *a pull pick is worth ranking by how it slots into the teams she ALREADY runs,
@@ -80,7 +80,7 @@ specific ("Low · Off-archetype", "High · Upcoming").
 
 ## Researching a pick — the method
 
-**Division of labor** (our standing rule): Andres = Prydwen manual; Clio = r/mains megathreads;
+**Division of labor** (our standing rule): A. = Prydwen manual; Clio = r/mains megathreads;
 chibi-Clio subagents = **WebFetch/WebSearch only, NEVER camoufox** (it's solo-only and dogpiles).
 
 **Released / current-meta units** — Prydwen + Game8 + a recent tier list. Pull: element/type/faction,

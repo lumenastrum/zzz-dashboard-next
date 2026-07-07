@@ -5,7 +5,7 @@
 # Sources live OUTSIDE the repo (the Macbook Air Share design stash). Idempotent, same
 # conventions as stage-shiyu.py: PNGs -> lossless WebP, stash .webp renders -> straight copy.
 # NB: the two career-medal badges (ui/da-medal-*.webp) are NOT staged here — they were
-# hand-cropped from Andres's 2026-06 result screenshot (no clean asset in the stash yet);
+# hand-cropped from A.'s 2026-06 result screenshot (no clean asset in the stash yet);
 # a real IconMedal_*.png landing in the stash should take over this job.
 import os
 import glob
@@ -20,7 +20,7 @@ BOO_DST = os.path.join(ROOT, "public", "assets", "bangboo")
 BOSS_ICON_DST = os.path.join(ROOT, "public", "assets", "bosses")
 
 # Bangboo full-body sprites new to this mode (Shiyu's trio came via stage-shiyu.py; the folders
-# merge). Generic GarageRole ids -> friendly slug, names from Andres.
+# merge). Generic GarageRole ids -> friendly slug, names from A..
 BANGBOO = {
     "BangbooGarageRole36.png": "belion",
     "BangbooGarageRole46.png": "biggestfan",
@@ -41,7 +41,7 @@ ENEMIES = {
 # In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA
 # bottom rail shows), keyed by the slug the dashboard knows the boss under (boss.slug on the
 # marquee rail; AssaultHistoryTarget.bossSlug on history rows). In-game codenames often differ
-# from display names — the full ??? decoder ring (Andres-confirmed 2026-07-03): Awakener IS
+# from display names — the full ??? decoder ring (A.-confirmed 2026-07-03): Awakener IS
 # Ye Shiyuan (face-matched against his render), ComplexCorrupted = "Unknown Corruption Complex",
 # GraymaneCenturion = "Sanguine Sweeper", Vesper = "Discordant Solo - ???", Mutant = "??? of
 # the Scorched Horizon", NamelessOne = "Miasmic Fiend - Unfathomable". New codenames live in
