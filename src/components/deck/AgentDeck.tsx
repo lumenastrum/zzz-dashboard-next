@@ -44,6 +44,7 @@ const SYNC_LABEL: Record<SyncStatus, { dot: string; text: string }> = {
   saving: { dot: "var(--amber)", text: "SAVING" },
   local: { dot: "var(--mut)", text: "LOCAL" },
   error: { dot: "var(--red)", text: "OFFLINE" },
+  locked: { dot: "var(--amber)", text: "READ-ONLY" },
 };
 
 export function AgentDeck({

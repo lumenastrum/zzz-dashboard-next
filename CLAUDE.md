@@ -9,7 +9,12 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
   Tailwind v4 (`@tailwindcss/postcss`), `tsx` for `scripts/`.
 - `@/*` → `src/*`. Plain `<img>`/`fetch` paths need `withBase()` (base-path.ts) for prod prefixing.
 - Supabase: shared `dashboard_profiles` table, **new** profile rows `andres-zzz` / `wife-zzz` so the
-  legacy `andres`/`wife` ZZZ rows are untouched. Anon key public by design.
+  legacy `andres`/`wife` ZZZ rows are untouched. Anon key public by design — but **read-only since
+  the 2026-07-07 RLS lockdown**: writes need the owner's session. The always-on disc/roll controls
+  still edit local state for anyone, but `commit()` gates on a session — no session → syncStatus
+  `"locked"` + `<AuthGate>` sign-in overlay (`src/components/auth-gate.tsx`), which resumes the save
+  on success. The unload `flush()` PATCH rides the session JWT (mirrored in `accessToken` ref), not
+  the anon key, and skips (keeping `dirty`) when signed out.
 
 ## The grading engine (`src/lib/grading/`)
 - `grading.js` is the **single source of truth**, validated, framework-agnostic ESM. Don't fork it —

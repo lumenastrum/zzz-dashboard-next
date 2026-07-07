@@ -26,8 +26,11 @@ import {
 import { useProfile } from "./use-profile";
 import { BASE_PATH } from "./base-path";
 import type { Agent, DashboardData } from "./types";
+import { AuthGate } from "@/components/auth-gate";
 
-export type SyncStatus = "loading" | "live" | "saving" | "local" | "error";
+// "locked": an edit is pending but there's no owner session — anon is read-only
+// under RLS (2026-07-07 lockdown). The AuthGate overlay opens; sign-in resumes the save.
+export type SyncStatus = "loading" | "live" | "saving" | "local" | "error" | "locked";
 
 interface DataContextValue {
   data: DashboardData | null;
@@ -50,12 +53,27 @@ function deriveAgents(data: DashboardData | null) {
 export function DataProvider({ children }: { children: React.ReactNode }) {
   const [data, setData] = useState<DashboardData | null>(null);
   const [syncStatus, setSyncStatus] = useState<SyncStatus>("loading");
+  const [authNeeded, setAuthNeeded] = useState(false);
   const saveTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
   const latest = useRef<DashboardData | null>(null);
   const dirty = useRef(false); // unsaved edits pending (cleared only on confirmed save)
   const version = useRef(0); // bumped per edit, so an in-flight save knows if it's been superseded
   const loadedAt = useRef<string | null>(null); // the updated_at we loaded — optimistic-lock token
+  const accessToken = useRef<string | null>(null); // owner JWT, mirrored sync for the keepalive flush
   const supa = getSupabase();
+
+  // Track the owner session. supabase-js persists/refreshes it; the ref gives the
+  // synchronous unload flush a token without an async getSession() call.
+  useEffect(() => {
+    if (!supa) return;
+    void supa.auth.getSession().then(({ data: s }) => {
+      accessToken.current = s.session?.access_token ?? null;
+    });
+    const { data: sub } = supa.auth.onAuthStateChange((_event, session) => {
+      accessToken.current = session?.access_token ?? null;
+    });
+    return () => sub.subscription.unsubscribe();
+  }, [supa]);
   // Which Supabase row this route reads/writes — root → andres-zzz, /wife → wife-zzz.
   const { key: profileKey, isWife } = useProfile();
 
@@ -142,6 +160,13 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   const commit = useCallback(async () => {
     if (!supa || !latest.current || !dirty.current) return;
     if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
+    // Writes need the owner session (anon is read-only). Keep `dirty` — after
+    // sign-in the AuthGate onSuccess re-runs commit and the edit lands.
+    if (!accessToken.current) {
+      setSyncStatus("locked");
+      setAuthNeeded(true);
+      return;
+    }
     const v = version.current;
     const stamp = new Date().toISOString();
     setSyncStatus("saving");
@@ -178,6 +203,9 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
   // and is ALSO conditioned on updated_at, so a stale tab's unload-flush can't clobber newer data either.
   const flush = useCallback(() => {
     if (!supa || !latest.current || !dirty.current) return;
+    // No owner session → the PATCH would bounce off RLS anyway; keep the edit
+    // dirty so a later signed-in save (or the AuthGate flow) can land it.
+    if (!accessToken.current) return;
     if (saveTimer.current) { clearTimeout(saveTimer.current); saveTimer.current = null; }
     dirty.current = false;
     const stamp = new Date().toISOString();
@@ -188,7 +216,7 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
         method: "PATCH",
         headers: {
           apikey: SUPABASE_ANON_KEY,
-          Authorization: `Bearer ${SUPABASE_ANON_KEY}`,
+          Authorization: `Bearer ${accessToken.current}`,
           "Content-Type": "application/json",
           Prefer: "return=minimal",
         },
@@ -258,6 +286,14 @@ export function DataProvider({ children }: { children: React.ReactNode }) {
       value={{ data, agents, agentByName, syncStatus, update, updateAgent, reload }}
     >
       {children}
+      <AuthGate
+        open={authNeeded}
+        onClose={() => setAuthNeeded(false)}
+        onSuccess={() => {
+          setAuthNeeded(false);
+          void commit();
+        }}
+      />
     </DataCtx.Provider>
   );
 }
