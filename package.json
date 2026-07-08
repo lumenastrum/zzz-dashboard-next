@@ -20,6 +20,7 @@
     "stage-assault": "python scripts/stage-assault.py",
     "sync-stats": "tsx scripts/sync-stats.ts",
     "seed-profile": "tsx scripts/seed-profile.ts",
+    "clone-agent": "tsx scripts/clone-agent.ts",
     "derive-bases": "node scripts/derive-bases.mjs"
   },
   "dependencies": {
