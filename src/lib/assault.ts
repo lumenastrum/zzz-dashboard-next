@@ -176,6 +176,29 @@ export interface AssaultHistoryEntry {
 // "05/28" for one cycle — the screenshot reads 05/08 Unlocked and the cadence + team match
 // confirm it, so 05/08 is canon. Per-cycle score sums verified against Best Total, all five.
 const HISTORY: AssaultHistoryEntry[] = [
+  // 07/03 cycle, authored history-direct 2026-07-17 from A.'s result screen (the 07/17 reset
+  // superseded it the same day, so it never needed the full marquee treatment). Girtablullu
+  // headlines a second consecutive rotation — hence the "II".
+  {
+    id: "da-girtablullu-2026-07", date: "2026-07-03", label: "Girtablullu Rotation II", score: 128846, rank: "1.81%", pips: 9,
+    targets: [
+      {
+        boss: "Girtablullu", bossSlug: "girtablullu", score: 46894, pips: 3,
+        team: [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
+        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+      },
+      {
+        boss: 'Primordial Nightmare - "The Creator"', bossSlug: "nineveh", score: 46467, pips: 3,
+        team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+      {
+        boss: "Ye Shiyuan the Thrall", bossSlug: "yeshiyuanthethrall", score: 35485, pips: 3,
+        team: [{ slug: "yixuan", name: "Yixuan" }, { slug: "jufufu", name: "Ju Fufu" }, { slug: "lucia", name: "Lucia" }],
+        bangboo: { name: "Belion", slug: "belion" },
+      },
+    ],
+  },
   {
     id: "da-miasmicfiend-2026-06", date: "2026-06-05", label: "Miasmic Fiend Rotation", score: 117112, rank: "4.05%", pips: 9,
     targets: [
