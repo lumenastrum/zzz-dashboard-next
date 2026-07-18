@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "tsx scripts/export-endgame.ts",
+    "prebuild": "tsx scripts/export-endgame.ts && tsx scripts/coach-pack.ts",
     "build": "next build",
     "peek": "tsx scripts/peek.ts",
     "export-endgame": "tsx scripts/export-endgame.ts",
+    "coach-pack": "tsx scripts/coach-pack.ts",
     "start": "next start",
     "lint": "eslint",
     "grade": "tsx scripts/grade.ts",

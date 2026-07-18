@@ -34,3 +34,6 @@ yarn-debug.log*
 # frame-measurement QA artifacts
 scripts/.frames-contact.png
 scripts/.probe_*.png
+
+# generated Coach Pack JSON (coach-pack.ts, rebuilt on every `npm run build`; COACH.md stays tracked)
+/public/coach/*.json
