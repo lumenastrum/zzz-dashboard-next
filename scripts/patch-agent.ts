@@ -75,7 +75,7 @@ async function main() {
       const s = JSON.stringify(v);
       return s && s.length > 72 ? s.slice(0, 69) + "…" : s;
     };
-    console.log(`  ${f}: ${fmt((before as Record<string, unknown>)[f])}\n  ${" ".repeat(f.length)}→ ${fmt((patch as Record<string, unknown>)[f])}`);
+    console.log(`  ${f}: ${fmt((before as unknown as Record<string, unknown>)[f])}\n  ${" ".repeat(f.length)}→ ${fmt((patch as Record<string, unknown>)[f])}`);
   }
   console.log(`  (updated_at lock ${row.updated_at})`);
 
