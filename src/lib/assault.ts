@@ -67,6 +67,88 @@ export const ASSAULT_TARGETS: [number, number, number] = [6000, 14000, 20000];
 // A., buffs + dates from the fandom wiki (icons matched against his result screenshots).
 // Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
+  // 07/17 rotation, authored from A.'s screenshots 2026-07-17 (day one — the fandom wiki page
+  // for this cycle doesn't exist yet, so screenshots are the primary source this time; the boss
+  // text was cross-verified word-for-word against the 05/08 page, which unmasks "???" as
+  // Phaethon). Scorched Horizon headlines again after 05/08 — hence the "II".
+  // PENDING: career medal tallies (crown/shield plate) — cycle otherwise complete.
+  {
+    id: "da-scorchedhorizon-2026-07",
+    label: "Scorched Horizon Rotation II",
+    date: "2026-07-17", // runs 07/17 04:00 → 07/31 03:59 server time (14-day cadence)
+    bestTotal: 129122,
+    rank: "2.34%",
+    rooms: [
+      {
+        room: 1,
+        boss: { name: "??? of the Scorched Horizon", slug: "scorchedhorizon", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Wind", "Ice"],
+        specialty: "Anomaly",
+        resistance: ["Physical"],
+        gimmick:
+          "Gale Scorcher grants 5 stacks of Into Flames — each is +10% DMG dealt and −25% CRIT DMG taken; every Anomaly inflicted strips a stack and raises Abloom DMG taken 10% for 15s (stacks ×3).",
+        buff: {
+          name: "Deconstruction",
+          slug: "element",
+          desc: "Agent Anomaly Proficiency +45. Inflicting an Attribute Anomaly cuts the enemy's DEF 10% for 10s; triggering Disorder cuts an additional 15% for 10s.",
+        },
+        pips: 3,
+        scores: { total: 33191, damage: 28691, performance: 4500 },
+        team: [
+          { slug: "miyabi", name: "Miyabi" },
+          { slug: "nangongyu", name: "Nangong Yu" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "BaddieBoo", slug: "baddieboo" },
+      },
+      {
+        room: 2,
+        boss: { name: "Pompey", tag: "Notorious", slug: "notoriouspompey", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Fire"],
+        resistance: ["Electric"],
+        gimmick:
+          "Defensive Assists and Chain Attacks each apply a 20s stack of Weakening (durations tracked separately) — Agent CRIT DMG +15% per stack on the target.",
+        buff: {
+          name: "Oblivion",
+          slug: "atk",
+          desc: "Agent Daze +20%; Ultimates and Chain Attacks ignore 30% of the enemy's All-Attribute RES. After a Chain Attack, squad ATK +10% and CRIT DMG +15% for 20s (stacks ×3).",
+        },
+        pips: 3,
+        scores: { total: 48170, damage: 46770, performance: 1400 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+      {
+        room: 3,
+        boss: { name: "Miasmic Fiend - Unfathomable", slug: "miasmicfiend", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Physical", "Ether"],
+        specialty: "Anomaly",
+        resistance: ["Fire"],
+        gimmick:
+          "Each Attribute Anomaly stacks +8% Anomaly DMG taken (×6); casting Miasmic Shield consumes the stacks, each raising the shield's reduction efficiency 2.5%.",
+        buff: {
+          name: "Frostbite Breath",
+          slug: "element",
+          desc: "Agent Wind and Ice DMG +20%, Anomaly Proficiency +20. Inflicting an Attribute Anomaly cuts the enemy's All-DMG RES 10% and raises the squad's Attribute Anomaly DMG 10% for 15s.",
+        },
+        pips: 3,
+        scores: { total: 47761, damage: 42761, performance: 5000 },
+        team: [
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+          { slug: "yuzuha", name: "Yuzuha" },
+        ],
+        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+      },
+    ],
+  },
   {
     id: "da-girtablullu-2026-06",
     label: "Girtablullu Rotation",

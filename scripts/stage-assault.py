@@ -36,6 +36,13 @@ ENEMIES = {
     "Enemy_Girtablullu.webp": "girtablullu",
     "Enemy_Notorious_-_Marionette.webp": "notoriousmarionette",
     "Enemy_Ye_Shiyuan_the_Thrall.webp": "yeshiyuanthethrall",
+    # the wiki unmasks "??? of the Scorched Horizon" as Phaethon; render pulled from the
+    # fandom file store 2026-07-17 (484x668 native, the same spec as the rest)
+    "Enemy_Phaethon_of_the_Scorched_Horizon.webp": "scorchedhorizon",
+    # CF-challenge workaround: wikia image URLs are computable (path hashes = md5 of the
+    # filename), so renders can be curl'd off static.wikia.nocookie.net without the wiki UI
+    "Enemy_Notorious_-_Pompey.webp": "notoriouspompey",
+    "Enemy_Miasmic_Fiend_-_Unfathomable.webp": "miasmicfiend",
 }
 
 # In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA
@@ -59,6 +66,7 @@ BOSS_ICONS = {
     "IconMonster_Vesper.png": "discordantsolo",
     "IconMonster_Mutant.png": "scorchedhorizon",
     "IconMonster_NamelessOne.png": "miasmicfiend",
+    "IconMonster_NotoriousPompey.png": "notoriouspompey",  # NOT TyrantPompey (other variant)
 }
 
 # Mode chrome: the in-game Deadly Assault wordmark (black-on-transparent, ghosted via invert
