@@ -71,13 +71,13 @@ const CYCLES: AssaultCycle[] = [
   // for this cycle doesn't exist yet, so screenshots are the primary source this time; the boss
   // text was cross-verified word-for-word against the 05/08 page, which unmasks "???" as
   // Phaethon). Scorched Horizon headlines again after 05/08 — hence the "II".
-  // PENDING: career medal tallies (crown/shield plate) — cycle otherwise complete.
   {
     id: "da-scorchedhorizon-2026-07",
     label: "Scorched Horizon Rotation II",
     date: "2026-07-17", // runs 07/17 04:00 → 07/31 03:59 server time (14-day cadence)
     bestTotal: 129122,
     rank: "2.34%",
+    medals: { crown: 20, shield: 9 }, // 18→20: both cycles logged 2026-07-17 crowned
     rooms: [
       {
         room: 1,
