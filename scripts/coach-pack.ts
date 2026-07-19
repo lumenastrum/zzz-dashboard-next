@@ -13,8 +13,11 @@
 // (export-endgame.ts's concern, honored via labeling instead of omission: plain-URL
 // consumers like GPT surfaces can't send the apikey header a live REST read needs).
 //
-// Endgame history is NOT duplicated here — data/shiyu.json + data/assault.json already
-// publish on every deploy; the manifest just points at them.
+// Endgame history IS mirrored here (coach/shiyu.json + coach/assault.json, copied from
+// the export-endgame output that prebuild runs first) so the whole pack lives under ONE
+// path prefix — a field session showed a fetch tool grabbing /coach/* fine while a
+// /data/* fetch failed transiently, and the coach flow shouldn't die on a path hop.
+// data/shiyu.json + data/assault.json keep publishing unchanged for other consumers.
 import { promises as fs } from "fs";
 import path from "path";
 import {
@@ -140,6 +143,13 @@ async function main() {
     JSON.stringify({ generated, profiles: setlistsOut }, null, 2) + "\n",
   );
 
+  // Mirror the endgame exports into coach/ (prebuild chain runs export-endgame first,
+  // so public/data/ is guaranteed fresh here).
+  const dataDir = path.join(process.cwd(), "public", "data");
+  for (const f of ["shiyu.json", "assault.json"]) {
+    await fs.copyFile(path.join(dataDir, f), path.join(dir, f));
+  }
+
   // manifest.json — the pack's front door for machines.
   const manifest = {
     pack: "zzz-coach-pack",
@@ -157,12 +167,14 @@ async function main() {
         note: "Editorial team shells with A.-run benchmarks, room signals, and cautions.",
       },
       shiyu: {
-        url: `${BASE}/data/shiyu.json`,
-        note: "Shiyu Defense log — cycles[0] is the current rotation; history is older, newest first.",
+        url: `${BASE}/coach/shiyu.json`,
+        mirror: `${BASE}/data/shiyu.json`,
+        note: "Shiyu Defense log — cycles[0] is the current rotation; history is older, newest first. Identical mirror at the data/ URL if one path fails.",
       },
       assault: {
-        url: `${BASE}/data/assault.json`,
-        note: "Deadly Assault log — same shape convention as shiyu.",
+        url: `${BASE}/coach/assault.json`,
+        mirror: `${BASE}/data/assault.json`,
+        note: "Deadly Assault log — same shape convention as shiyu. Identical mirror at the data/ URL if one path fails.",
       },
       liveRoster: {
         url: `${SUPABASE_URL}/rest/v1/${SUPABASE_TABLE}?profile=eq.${PROFILE_KEY}&select=data,updated_at`,

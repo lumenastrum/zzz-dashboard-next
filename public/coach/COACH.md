@@ -17,12 +17,20 @@ All URLs are public, static, no auth, no JS required.
 | Manifest (dates, URLs, live-read recipe) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/manifest.json` |
 | Roster + builds (per profile, graded) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/roster.json` |
 | Team shells + benchmarks (editorial) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/setlists.json` |
-| Shiyu Defense history | `https://lumenastrum.github.io/zzz-dashboard-next/data/shiyu.json` |
-| Deadly Assault history | `https://lumenastrum.github.io/zzz-dashboard-next/data/assault.json` |
+| Shiyu Defense history | `https://lumenastrum.github.io/zzz-dashboard-next/coach/shiyu.json` |
+| Deadly Assault history | `https://lumenastrum.github.io/zzz-dashboard-next/coach/assault.json` |
+
+(The endgame logs also mirror at `/data/shiyu.json` + `/data/assault.json` — identical
+files; use whichever path your fetcher reaches.)
 
 Profiles: `andres-zzz` is **A.**, `wife-zzz` is **Cosmea**. Coach the profile you were asked
 about; default to A. In the endgame logs, `cycles[0]` is the newest logged rotation and
 `history` is everything older, newest first.
+
+**If a fetch fails:** retry once (CDN edges hiccup briefly right after deploys), then try
+the mirror path, then — if your surface has a shell — plain `curl` the URL. A failed fetch
+means *you are missing data*, never that the data doesn't exist: say exactly what you
+couldn't read and ask the player to paste it before drafting around the gap.
 
 **Freshness contract:** every file carries a `generated` and/or `blobUpdatedAt` stamp. Say
 out loud how old the data is when you draft. If the player's current in-game rotation is
