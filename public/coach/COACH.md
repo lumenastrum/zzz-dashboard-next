@@ -14,14 +14,17 @@ All URLs are public, static, no auth, no JS required.
 
 | What | URL |
 |---|---|
-| Manifest (dates, URLs, live-read recipe) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/manifest.json` |
-| Roster + builds (per profile, graded) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/roster.json` |
-| Team shells + benchmarks (editorial) | `https://lumenastrum.github.io/zzz-dashboard-next/coach/setlists.json` |
-| Shiyu Defense history | `https://lumenastrum.github.io/zzz-dashboard-next/coach/shiyu.json` |
-| Deadly Assault history | `https://lumenastrum.github.io/zzz-dashboard-next/coach/assault.json` |
+| Manifest (dates, URLs, live-read recipe) | <https://lumenastrum.github.io/zzz-dashboard-next/coach/manifest.json> |
+| Roster + builds (per profile, graded) | <https://lumenastrum.github.io/zzz-dashboard-next/coach/roster.json> |
+| Team shells + benchmarks (editorial) | <https://lumenastrum.github.io/zzz-dashboard-next/coach/setlists.json> |
+| Shiyu Defense history | <https://lumenastrum.github.io/zzz-dashboard-next/coach/shiyu.json> |
+| Deadly Assault history | <https://lumenastrum.github.io/zzz-dashboard-next/coach/assault.json> |
 
-(The endgame logs also mirror at `/data/shiyu.json` + `/data/assault.json` — identical
-files; use whichever path your fetcher reaches.)
+Every data file also mirrors under `/data/` — identical bytes, a second path when a fetch
+tool balks at the first: <https://lumenastrum.github.io/zzz-dashboard-next/data/roster.json>,
+<https://lumenastrum.github.io/zzz-dashboard-next/data/setlists.json>,
+<https://lumenastrum.github.io/zzz-dashboard-next/data/shiyu.json>,
+<https://lumenastrum.github.io/zzz-dashboard-next/data/assault.json>.
 
 Profiles: `andres-zzz` is **A.**, `wife-zzz` is **Cosmea**. Coach the profile you were asked
 about; default to A. In the endgame logs, `cycles[0]` is the newest logged rotation and

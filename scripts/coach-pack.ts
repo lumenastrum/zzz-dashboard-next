@@ -143,11 +143,18 @@ async function main() {
     JSON.stringify({ generated, profiles: setlistsOut }, null, 2) + "\n",
   );
 
-  // Mirror the endgame exports into coach/ (prebuild chain runs export-endgame first,
-  // so public/data/ is guaranteed fresh here).
+  // Full two-way mirroring — every pack file exists under BOTH /coach/ and /data/.
+  // Field sessions produced opposite failures (a /data/ fetch hiccup on one surface, a
+  // provenance check bouncing /coach/ roster+setlists on another), so symmetry is the fix:
+  // endgame exports copy INTO coach/ (export-endgame ran first in the prebuild chain),
+  // roster/setlists/manifest copy OUT to data/.
   const dataDir = path.join(process.cwd(), "public", "data");
+  await fs.mkdir(dataDir, { recursive: true });
   for (const f of ["shiyu.json", "assault.json"]) {
     await fs.copyFile(path.join(dataDir, f), path.join(dir, f));
+  }
+  for (const f of ["roster.json", "setlists.json"]) {
+    await fs.copyFile(path.join(dir, f), path.join(dataDir, f));
   }
 
   // manifest.json — the pack's front door for machines.
@@ -160,11 +167,13 @@ async function main() {
     data: {
       roster: {
         url: `${BASE}/coach/roster.json`,
-        note: "Build-time snapshot of the live roster blob; per-profile blobUpdatedAt inside. For fresher truth use data.liveRoster.",
+        mirror: `${BASE}/data/roster.json`,
+        note: "Build-time snapshot of the live roster blob; per-profile blobUpdatedAt inside. For fresher truth use data.liveRoster. Identical mirror at the data/ URL if one path fails.",
       },
       setlists: {
         url: `${BASE}/coach/setlists.json`,
-        note: "Editorial team shells with A.-run benchmarks, room signals, and cautions.",
+        mirror: `${BASE}/data/setlists.json`,
+        note: "Editorial team shells with A.-run benchmarks, room signals, and cautions. Identical mirror at the data/ URL if one path fails.",
       },
       shiyu: {
         url: `${BASE}/coach/shiyu.json`,
