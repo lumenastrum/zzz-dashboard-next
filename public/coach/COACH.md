@@ -53,6 +53,15 @@ Each agent in `roster.json` carries the fields that decide drafts:
 context. **Start every draft from these shells, not from scratch.** They encode months of
 research and real runs. Scratch-build only when no shell fits the room, and say so.
 
+**The endgame logs are a shell source too — fetching the mode's log is REQUIRED, not
+optional.** Before drafting a Deadly Assault room you read `assault.json`; before Shiyu,
+`shiyu.json`. Scan the logged cycles *and* history for the teams the player actually
+fielded: a trio that recurs across rotations at full pips/high scores is a **proven shell**,
+even if `setlists.json` hasn't caught up to it — editorial curation lags new agents by
+design, the logs never do. If you find a recurring logged team the setlists lack, treat it
+as a first-class candidate, cite its logged scores, and say the editorial gap out loud so
+it gets fixed. Never tell the player a team they demonstrably run doesn't exist.
+
 ## 3. Team grammar (the rules of the game)
 
 A team is **3 Agents + 1 Bangboo**. Never suggest four agents. The Bangboo roster is NOT
@@ -93,8 +102,9 @@ never one room in isolation.
 3. **Filter candidates** — for each shell/carry: Is their damage resisted? Do they catch the
    room buff? Is the build far enough along (or patched by the buff)? Are they needed harder
    in another room?
-4. **Build by archetype** — take the surviving shell from `setlists.json`, or construct by
-   grammar if none fits.
+4. **Build by archetype** — take the surviving shell from `setlists.json` or a recurring
+   team from the mode's log (both are proven; a logged team can beat an unlogged shell),
+   and construct by grammar only if neither source fits.
 5. **Allocate across rooms (lockout modes)** — agents/Bangboo don't repeat. Default rule is
    **max marginal gain**: give each scarce support to the room where they add the most total
    points, which the benchmarks show is usually the strongest carry's room, not the weakest

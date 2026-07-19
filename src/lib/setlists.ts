@@ -123,6 +123,38 @@ export const ANDRES_SETLISTS: Setlist[] = [
     },
   },
   {
+    // Born in the Deadly Assault logs, not the June bible — A.'s post-Velina workhorse,
+    // promoted to a shell 2026-07-18 after the coach failed to see it (it was only in
+    // assault.json). No `benchmark` block: that's reserved for the controlled 06-14
+    // session; the receipts here live in `recent`.
+    id: "wind-disorder",
+    name: "Wind Disorder Engine",
+    archetype: "Anomaly / Disorder · Anomaly + Anomaly + Support · Physical × Wind",
+    attribute: "Wind",
+    members: [
+      { name: "Jane Doe", slug: "janedoe", role: "Carry", section: "Anomaly", attribute: "Physical" },
+      { name: "Velina", slug: "velina", role: "Sub-DPS", section: "Anomaly", attribute: "Wind" },
+      { name: "Yuzuha", slug: "yuzuha", role: "Support", section: "Support", attribute: "Physical" },
+    ],
+    roomSignal:
+      "Wind or Physical recommended · Anomaly / Disorder / AP buff rooms · Ice-resist rooms (fully off-Ice squad)",
+    why:
+      "A.'s current Deadly Assault workhorse. Jane M3's Physical anomaly plus Velina's Wind buildup run a true two-attribute Disorder engine, and both halves are PURE anomaly — which is exactly the carry profile Yuzuha exists to buff. 47,761 vs Miasmic Fiend was the top room of the 07/17 cycle; the Velina/Yuzuha frame also carried Aria to 47,282 vs Girtablullu in June. Logged runs, not theory.",
+    variants: [
+      { team: "Aria / Velina / Yuzuha", when: "Wind × Ether Disorder — Ether-friendly room or Jane locked (47,282 @ Girtablullu R1)" },
+      { team: "Alice / Velina / Yuzuha", when: "Jane spent elsewhere and Physical still favored" },
+    ],
+    caution:
+      "Anomaly damage doesn't crit — CRIT-buff rooms pay this shell nothing. If both Physical AND Wind are resisted, walk away. Velina's Additional Ability condition unverified in-game.",
+    recent: {
+      shiyu: [],
+      deadlyAssault: [
+        { score: 47761, where: "Miasmic Fiend R3", date: "2026-07-17" },
+        { score: 47282, where: "Girtablullu R1 (Aria variant)", date: "2026-06-19" },
+      ],
+    },
+  },
+  {
     id: "ether-rupture",
     name: "Ether Rupture Core",
     archetype: "Rupture / Sheer hypercarry · DPS + Stun + Support",
