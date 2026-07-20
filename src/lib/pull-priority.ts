@@ -7,7 +7,7 @@
 //
 // `tier` (1–5) drives the VU "signal-strength" meter + heat color on each crate; it's a coarse
 // read of `priority` (the exact wording she sees). `emotes` are slugs under public/assets/emotes/
-// (staged by scripts/stage-emotes.py). One entry (#10) bundles two alt picks → two cover stickers.
+// (staged by scripts/stage-emotes.py). One entry (#9) bundles two alt picks → two cover stickers.
 //
 // why/team are rich liner notes (components/liner.tsx): "\n\n" = paragraph break, "\n" = soft
 // line break, and agent/element/specialty vocabulary is auto-highlighted at render time.
@@ -15,8 +15,9 @@
 // Last re-rank 2026-07-20: Norma went LIVE (current banner, ends when v3.1 drops Jul 29) and the
 // v3.1 "The Long Goodbye" anniversary livestream (Jul 17) confirmed the next wave — Remielle Dan
 // (Ph.1) + Sigrid (Ph.2) added, Dialyn's no-50/50 anniversary rerun noted, Trigger claimable free.
-// Same day, order re-grounded in pure fit (A.'s call): Seed back above Norma — Seed completes a
-// premium Cissia lane outright, Norma rotates broadly but anchors no owned premium team.
+// Same day, order re-grounded in pure fit (A.'s call): Seed back above Norma, then Burnice ↔ Evelyn
+// swapped — Evelyn opens the missing premium Fire lane; Burnice is a sub-DPS with no home lane here
+// (her one Shiyu/DA showing in A.'s history was WITH Velina, who isn't on this roster).
 
 export interface PullRec {
   rank: number;
@@ -39,6 +40,11 @@ export interface PullRec {
 // descending. That's how Cosmea reads it. Availability (live banner, rerun windows, no-50/50)
 // DECORATES the badge/eta/why text but never drives the order — a top-fit pick with no banner
 // still outranks a lesser fit that happens to be pullable today.
+//
+// ACCOUNT DOCTRINE (per A., same day): mindscape value is a NO-factor — she never pulls dupes.
+// The main factor is COMPLETING PREMIUM TEAM COMPS for endgame room coverage (Shiyu / Deadly
+// Assault want several element-diverse premium lanes). A lane-opener outranks a rotational piece;
+// a sub-DPS with no home lane on this roster ranks bottom-barrel regardless of vacuum tier.
 export const WIFE_PULL_PRIORITY: PullRec[] = [
   {
     rank: 1, name: "Dialyn", section: "Stun", attribute: "Physical",
@@ -62,16 +68,16 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
     team: "Seed + Cissia + Astra/Sunna/Nicole\nHelps Electric coverage.",
   },
   {
-    rank: 4, name: "Burnice", section: "Anomaly", attribute: "Fire",
-    priority: "High", tier: 4, emotes: ["burnice"],
-    why: "Best Fire-coverage pull for this account because she also plugs into existing Anomaly cores.\n\nShe brings Fire anomaly, off-field pressure, and Disorder value with Alice, Miyabi, Vivian, Yanagi, and Yuzuha.",
-    team: "Alice/Miyabi/Yanagi + Burnice + Yuzuha/Astra\nFills Fire coverage without needing a whole new support shell.",
+    rank: 4, name: "Evelyn", section: "Attack", attribute: "Fire",
+    priority: "High · Opens the Fire lane", tier: 4, emotes: ["evelyn"],
+    why: "The Fire lane opener. Fire is the one element with NO premium main DPS on the account — no team comp revolves around it — and Evelyn is the premium Fire Attack carry to build that lane on. (The only other premium Fire main DPS, BanYue, is Fire Rupture and not her style.)\n\nThe shell is already home: Ju Fufu takes the stun seat today — or Norma, if pulled this week, upgrades it — and Astra is her BiS support. Evelyn alone turns Fire from a coverage hole into a real endgame room answer for Shiyu and Deadly Assault.",
+    team: "Evelyn + Norma/Ju Fufu + Astra\nCompletes the last uncovered element for endgame room coverage.",
   },
   {
     rank: 5, name: "Norma", section: "Stun", attribute: "Fire",
     priority: "High · On banner NOW", tier: 4, emotes: ["norma"],
-    why: "LIVE and pullable right now — banner closes when v3.1 arrives July 29, so decide by then. (The clock is a heads-up, not her ranking; this list orders by fit.)\n\nLive-kit reality: a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion — who rotates into almost any Attack or Rupture team. The catch, and why she sits mid-list: she anchors nothing she owns yet. Dialyn claims the Ye Shunguang stun seat when she lands, and Norma's purpose-built partners — Sigrid, or an Evelyn-style Fire carry — aren't on the roster.\n\nSo she's a depth pull today: a second premium stunner covers the other Shiyu side, and she becomes an anchor if Sigrid comes home in Ph.2. For the Yixuan Ultimate loop, guides still rank Dialyn above her (Norma has no Decibel/Ult generation).",
-    team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
+    why: "LIVE and pullable right now — banner closes when v3.1 arrives July 29, so decide by then. (The clock is a heads-up, not her ranking; this list orders by fit.)\n\nLive-kit reality: a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion — who rotates into almost any Attack or Rupture team. The catch, and why she sits mid-list: she anchors nothing she owns yet. Dialyn claims the Ye Shunguang stun seat when she lands, and Norma's purpose-built partners — Sigrid, or a Fire carry like Evelyn — aren't on the roster.\n\nSo she's a depth pull today that turns into an anchor the moment the Fire lane opens: Norma is the BiS stun seat for an Evelyn team, and the same-faction partner for Sigrid in Ph.2. For the Yixuan Ultimate loop, guides still rank Dialyn above her (Norma has no Decibel/Ult generation).",
+    team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Evelyn + Astra, or Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
   },
   {
     rank: 6, name: "Sigrid", section: "Attack", attribute: "Ice",
@@ -81,40 +87,40 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
     team: "Premium: Sigrid + Norma + Astra\nBudget: Sigrid + Lycaon + Soukaku\nv3.1 Ph.2 (Aug 19) — shares the phase with Dialyn's no-50/50 rerun, so budget carefully.",
   },
   {
-    rank: 7, name: "Evelyn", section: "Attack", attribute: "Fire",
-    priority: "Medium-high", tier: 3, emotes: ["evelyn"],
-    why: "Direct Fire DPS coverage if she wants a conventional Fire carry.\n\nLower than Burnice because the account already leans heavily into Anomaly/Rupture cores, and Evelyn wants more dedicated chain/stun support.",
-    team: "Evelyn + Dialyn/Lighter/Ju Fufu + Astra/Lucy/Nicole\nFills pure Fire attack coverage.",
-  },
-  {
-    rank: 8, name: "Pan Yinhu", section: "Rupture", attribute: "Physical",
+    rank: 7, name: "Pan Yinhu", section: "Rupture", attribute: "Physical",
     priority: "Medium", tier: 3, emotes: ["panyinhu"],
     why: "Useful Rupture specialist for Yixuan/Yidhari teams, especially as an accessible non-limited teammate.\n\nLower priority because she already has Lucia and Ju Fufu, so Rupture is functional now.",
     team: "Yixuan/Yidhari + Lucia + Pan Yinhu/Ju Fufu/Dialyn",
   },
   {
-    rank: 9, name: "Nangong Yu", section: "Stun", attribute: "Ether",
+    rank: 8, name: "Nangong Yu", section: "Stun", attribute: "Ether",
     priority: "Medium-low", tier: 2, emotes: ["nangong"],
     why: "Useful flexible support/utility option for Alice and Vivian-style teams.\n\nLess urgent because she already has Yuzuha, Astra, Nicole, Zhao, Vivian, and Yanagi covering those shells.",
     team: "Alice/Vivian + Yuzuha/Nangong Yu + anomaly partner",
   },
   {
-    rank: 10, name: "Lycaon or Soukaku", section: "Stun · Support", attribute: "Ice",
+    rank: 9, name: "Lycaon or Soukaku", section: "Stun · Support", attribute: "Ice",
     priority: "Low", tier: 2, emotes: ["lycaon", "soukaku"],
     why: "Optional Miyabi luxury / F2P-friendly Ice lane pieces.\n\nHer Miyabi already has strong Disorder teammates in Yanagi, Vivian, Yuzuha, Astra, and Nicole — so this is refinement, not a core need.",
     team: "Miyabi + Lycaon + Soukaku\nHelps Ice coverage, but Miyabi is already covered.",
   },
   {
-    rank: 11, name: "Trigger", section: "Stun", attribute: "Electric",
+    rank: 10, name: "Trigger", section: "Stun", attribute: "Electric",
     priority: "Low · FREE via selector", tier: 2, emotes: ["trigger"],
     why: "Good stun/Aftershock utility and an alternate slot for Electric or Ye teams.\n\nBut do NOT spend pulls here: the v3.1 anniversary hands out a FREE S-rank selector (Jane Doe / Soldier 0-Anby / Hugo / Trigger / Lucia) plus that agent's signature W-engine. Trigger can be claimed there for zero Polychromes.\n\n(Worth weighing Jane Doe from the same selector, though — see the Velina crate.)",
     team: "Soldier 0 Anby + Trigger + Orphie/Magus\nOr flex stun for Ye/Cissia stages.",
   },
   {
-    rank: 12, name: "Velina", section: "Anomaly", attribute: "Wind",
+    rank: 11, name: "Velina", section: "Anomaly", attribute: "Wind",
     priority: "Low · Off-archetype", tier: 2, emotes: ["velina"],
     why: "Top-tier in a vacuum and the gateway to Wind anomaly — but her Vortex mechanic OVERRIDES Disorder, the exact engine Alice, Miyabi, Yanagi, and Vivian are built on. She fights her own anomaly core.\n\nShe owns none of the non-Disorder carries (Jane Doe / Aria / Burnice) that make Velina shine; only Yuzuha synergizes.\n\nNew wrinkle: the v3.1 free S-rank selector includes Jane Doe — claiming Jane there (with signature) would hand this lane its first real carry for free and soften the anti-synergy argument. Still skip unless that happens.",
     team: "Intended: a non-Disorder anomaly DPS + Velina + Yuzuha (Jane Doe / Aria / Burnice)\nJane via the free selector is the cheapest way in — Yuzuha is the only piece owned today.",
+  },
+  {
+    rank: 12, name: "Burnice", section: "Anomaly", attribute: "Fire",
+    priority: "Low · No home lane", tier: 2, emotes: ["burnice"],
+    why: "Demoted from the old \"High\" on the account doctrine: she's an off-field Fire anomaly SUB-DPS, not a main DPS a team revolves around — and the Fire lane this account actually needs opens with Evelyn, not her.\n\nThe receipts: across A.'s Shiyu / Deadly Assault history, Burnice fields exactly once — in a high-hitting team WITH Velina, who isn't on this roster. Her best case here is the same package deal as Velina's: it only materializes if that whole Wind-anomaly lane gets built.\n\nUntil then she'd be a bench piece pretending the old Fire-coverage argument still holds. It doesn't — Evelyn's crate owns that job now.",
+    team: "Only truly shines in: Velina + Burnice + Yuzuha (Velina not owned)\nSkip unless the Velina lane ever becomes real.",
   },
   {
     rank: 13, name: "Aria", section: "Anomaly", attribute: "Ether",

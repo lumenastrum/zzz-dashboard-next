@@ -14,6 +14,16 @@ Banner timing — live now, rerun windows, no-50/50 guarantees, "awaiting rerun"
 pick with no scheduled banner still outranks a lesser fit that happens to be pullable today
 (established 2026-07-20 after availability logic briefly leaked into the ranks: Seed > Norma).
 
+**Account doctrine (A., 2026-07-20).** Two rules that decide "fit" for HER account specifically:
+1. **Mindscapes are a NO-factor** — she never pulls dupes (copies only if freely given), so M-level
+   power spikes never justify a pull or a rank.
+2. **The main factor is completing premium team comps for endgame room coverage** — Shiyu / Deadly
+   Assault reward several element-diverse premium lanes. A lane-opener (main DPS the comp revolves
+   around, shell already owned) outranks a rotational piece; a sub-DPS with no home lane on this
+   roster is bottom-barrel regardless of vacuum tier. Sanity-check against A.'s actual Shiyu/DA
+   history for whether a unit truly fields (that's how Burnice fell: one appearance, and only WITH
+   the unowned Velina — while Evelyn opens the missing Fire lane with Ju Fufu/Norma + Astra).
+
 ---
 
 ## Where everything lives
