@@ -1080,17 +1080,18 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   background:linear-gradient(90deg, color-mix(in srgb, var(--ec) 75%, var(--ink)), var(--ec)); }
 .sv-discount small { display:block; margin-top:4px; font-family:var(--body); font-size:10px; color:var(--mut); }
 
-/* the rest of the pool */
+/* the rest of the pool — "pool-" prefix on purpose: ".sr-*" belongs to the Shiyu room
+   cards (their .sr-card is a 118px diagonal clip tile — colliding with it slivers these). */
 .sel-rest { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; margin-bottom:18px; }
-.sr-card { position:relative; display:flex; gap:12px; padding:13px 14px; border-radius:14px; overflow:hidden;
+.pool-card { position:relative; display:flex; gap:12px; padding:13px 14px; border-radius:14px; overflow:hidden;
   border:1px solid var(--bezel1); background:linear-gradient(165deg, var(--panel2), var(--bg2)); }
-.sr-pic { flex-shrink:0; height:86px; width:auto; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
-.sr-body h5 { margin:0 0 3px; font-family:var(--disp); font-weight:600; font-size:14.5px; letter-spacing:.4px; color:var(--ink); }
-.sr-note { font-family:var(--body); font-size:11px; color:var(--chrome); margin-bottom:4px; }
-.sr-fine { font-family:var(--body); font-size:10px; line-height:1.5; color:var(--mut); }
-.sr-fine b { color:var(--chrome); }
-.sr-card.veto { filter:saturate(.35); }
-.sr-veto-stamp { position:absolute; top:10px; right:12px; padding:3px 10px; border:2px solid var(--red);
+.pool-pic { flex-shrink:0; height:86px; width:auto; object-fit:contain; filter:drop-shadow(0 4px 10px rgba(0,0,0,.5)); }
+.pool-body h5 { margin:0 0 3px; font-family:var(--disp); font-weight:600; font-size:14.5px; letter-spacing:.4px; color:var(--ink); }
+.pool-note { font-family:var(--body); font-size:11px; color:var(--chrome); margin-bottom:4px; }
+.pool-fine { font-family:var(--body); font-size:10px; line-height:1.5; color:var(--mut); }
+.pool-fine b { color:var(--chrome); }
+.pool-card.veto { filter:saturate(.35); }
+.pool-veto-stamp { position:absolute; top:10px; right:12px; padding:3px 10px; border:2px solid var(--red);
   border-radius:6px; transform:rotate(9deg); font-family:var(--led); font-weight:700; font-size:11px;
   letter-spacing:2.5px; color:var(--red); opacity:.85; }
 

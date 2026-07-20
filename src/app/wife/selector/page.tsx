@@ -157,34 +157,34 @@ export default function WifeSelector() {
 
       {/* ---- the rest of the pool ---- */}
       <section className="sel-rest">
-        <article className="sr-card" style={ec("Electric")}>
-          <DeckImg src={tallPath("trigger")} alt="Trigger" className="sr-pic" />
-          <div className="sr-body">
+        <article className="pool-card" style={ec("Electric")}>
+          <DeckImg src={tallPath("trigger")} alt="Trigger" className="pool-pic" />
+          <div className="pool-body">
             <h5>Trigger</h5>
-            <div className="sr-note">Genuinely great stunner — but the seat&rsquo;s taken.</div>
-            <div className="sr-fine">
+            <div className="pool-note">Genuinely great stunner — but the seat&rsquo;s taken.</div>
+            <div className="pool-fine">
               Dialyn is <b>guaranteed</b> Aug 19 (no-50/50), Ju Fufu holds today, and Norma may join. A
               third premium stunner covers nothing new.
             </div>
           </div>
         </article>
-        <article className="sr-card" style={ec("Electric")}>
-          <DeckImg src={tallPath("soldier0anby")} alt="Soldier 0 Anby" className="sr-pic" />
-          <div className="sr-body">
+        <article className="pool-card" style={ec("Electric")}>
+          <DeckImg src={tallPath("soldier0anby")} alt="Soldier 0 Anby" className="pool-pic" />
+          <div className="pool-body">
             <h5>Soldier 0 Anby</h5>
-            <div className="sr-note">Strong solo carry — wrong lane for this account.</div>
-            <div className="sr-fine">
+            <div className="pool-note">Strong solo carry — wrong lane for this account.</div>
+            <div className="pool-fine">
               The Electric plan is already <b>Cissia now, Seed later</b>. She&rsquo;d compete with her
               own teammates for the same rooms.
             </div>
           </div>
         </article>
-        <article className="sr-card veto" style={ec("Ice")}>
-          <div className="sr-veto-stamp">VETO</div>
-          <div className="sr-body">
+        <article className="pool-card veto" style={ec("Ice")}>
+          <div className="pool-veto-stamp">VETO</div>
+          <div className="pool-body">
             <h5>Hugo</h5>
-            <div className="sr-note">Personal veto. Respected. 💅</div>
-            <div className="sr-fine">
+            <div className="pool-note">Personal veto. Respected. 💅</div>
+            <div className="pool-fine">
               (For the record: fine carry, but he wants a double-stun shell — Lighter + Lycaon — that
               this roster isn&rsquo;t building. Nothing of value is lost.)
             </div>
