@@ -4,6 +4,7 @@ import { useState, type CSSProperties } from "react";
 import type { PullRec } from "@/lib/pull-priority";
 import { elementColor, elementIcon, typeIcon, iconPath } from "@/lib/deck-config";
 import { DeckImg } from "@/components/deck/DeckImg";
+import { linerInline, linerParagraphs } from "@/components/liner";
 
 // A "wishlist crate" — one pull-priority pick as a flippable record sleeve. Front face is the
 // cover art (emote sticker + rank + name + element/type + a 5-bar VU priority meter); flipping it
@@ -84,10 +85,10 @@ export function PullCrate({ rec }: { rec: PullRec }) {
             <span className="rank">#{rec.rank}</span>
             <span className="bn">{rec.name}</span>
           </div>
-          <p className="why">{rec.why}</p>
+          <div className="why">{linerParagraphs(rec.why)}</div>
           <div className="team">
             <span className="tk">Runs in</span>
-            {rec.team}
+            {linerInline(rec.team)}
           </div>
         </div>
       </div>

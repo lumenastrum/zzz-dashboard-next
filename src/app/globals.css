@@ -559,9 +559,18 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   border-bottom:1px solid var(--bezel1); }
 .back-head .bn { font-family:var(--disp); font-weight:600; font-size:15.5px; letter-spacing:.4px; }
 .crate .why { margin:0; flex:1; overflow:auto; font-family:var(--body); font-size:11.5px; line-height:1.5; color:var(--chrome); }
+.crate .why p { margin:0 0 8px; }
+.crate .why p:last-child { margin-bottom:0; }
 .crate .team { margin-top:11px; font-family:var(--body); font-size:10.5px; line-height:1.45; color:var(--mut); }
 .crate .team .tk { display:block; margin-bottom:3px; font-family:var(--led); font-size:8.5px; letter-spacing:2px;
   text-transform:uppercase; color:var(--heat); }
+
+/* liner-note auto-highlights (see components/liner.tsx): agents read bright, element
+   words wear their element's hue (inline style), specialty/mechanic terms take the
+   crate's element accent. <b> carries weight; these only tune color. */
+.ln-a { color:var(--ink); font-weight:600; }
+.ln-e { font-weight:600; }
+.ln-s { font-weight:600; color:color-mix(in srgb, var(--ec) 62%, var(--ink)); }
 
 /* --- upcoming / leaked picks (e.g. Norma) --- */
 .crate.soon .cf { border-top-style:dashed; }
