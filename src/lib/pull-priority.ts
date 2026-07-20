@@ -15,6 +15,8 @@
 // Last re-rank 2026-07-20: Norma went LIVE (current banner, ends when v3.1 drops Jul 29) and the
 // v3.1 "The Long Goodbye" anniversary livestream (Jul 17) confirmed the next wave — Remielle Dan
 // (Ph.1) + Sigrid (Ph.2) added, Dialyn's no-50/50 anniversary rerun noted, Trigger claimable free.
+// Same day, order re-grounded in pure fit (A.'s call): Seed back above Norma — Seed completes a
+// premium Cissia lane outright, Norma rotates broadly but anchors no owned premium team.
 
 export interface PullRec {
   rank: number;
@@ -32,6 +34,11 @@ export interface PullRec {
 }
 
 // Ordered by rank (the home renders in this order). Tiers: 5 = must-pull, 1 = lowest current need.
+//
+// ORDER SEMANTICS (per A., 2026-07-20): rank = pure roster-fit, best-for-her-account first,
+// descending. That's how Cosmea reads it. Availability (live banner, rerun windows, no-50/50)
+// DECORATES the badge/eta/why text but never drives the order — a top-fit pick with no banner
+// still outranks a lesser fit that happens to be pullable today.
 export const WIFE_PULL_PRIORITY: PullRec[] = [
   {
     rank: 1, name: "Dialyn", section: "Stun", attribute: "Physical",
@@ -42,29 +49,29 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   // Sunna — PULLED 2026-07-08 (with signature W-engine)! Crate retired from the wishlist;
   // she now lives on the roster. Everything below shifted up one rank.
   {
-    rank: 2, name: "Norma", section: "Stun", attribute: "Fire",
-    priority: "High · On banner NOW", tier: 4, emotes: ["norma"],
-    why: "LIVE and pullable right now — and her banner closes when v3.1 arrives July 29, so this is the decision window.\n\nLive-kit reality check: she's a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion that lets her slot into almost any Attack or Rupture team. The headline is the stun seat for Ye Shunguang and Cissia, plus she's the purpose-built partner (same faction) for Sigrid in Ph.2. Every support the meta comps want — Lucia, Astra, Zhao — is already on her bench.\n\nHonest footnote: for the Yixuan Ultimate loop specifically, guides rank Dialyn (guaranteed Aug 19) above her — Norma has no Decibel/Ult generation, so treat Rupture as her flex slot, not the reason to pull. The real endgame case: two premium stunners means one for each Shiyu side.",
-    team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
-  },
-  {
-    rank: 3, name: "Remielle Dan", section: "Anomaly", attribute: "Lumiflux",
-    priority: "High · 3.1 Ph.1", tier: 4, emotes: ["remielle"],
+    rank: 2, name: "Remielle Dan", section: "Anomaly", attribute: "Lumiflux",
+    priority: "Very high · 3.1 Ph.1", tier: 4, emotes: ["remielle"],
     upcoming: true, eta: "v3.1 Ph.1 · Jul 29 2026", leak: true,
-    why: "The anniversary headliner — and maybe the best roster-fit pull of v3.1 for THIS account.\n\nNew Lumiflux-element Anomaly sub-DPS who amplifies everyone else's anomalies: she primes enemies off-field, and a teammate's Attribute Anomaly detonates it as Refringe — boosting that Anomaly's total damage and banking stacks for a big AoE nuke.\n\nUnlike Velina she doesn't override Disorder — she FEEDS on it. Alice, Miyabi, Yanagi, Vivian and Yuzuha are exactly the triple-Anomaly comps she was built for. Reportedly available the whole patch, not just Phase 1; kit numbers still settling post-livestream.",
+    why: "The anniversary headliner — and the best roster-fit pull of v3.1 for THIS account: she upgrades her strongest teams the moment she lands.\n\nNew Lumiflux-element Anomaly sub-DPS who amplifies everyone else's anomalies: she primes enemies off-field, and a teammate's Attribute Anomaly detonates it as Refringe — boosting that Anomaly's total damage and banking stacks for a big AoE nuke.\n\nUnlike Velina she doesn't override Disorder — she FEEDS on it. Alice, Miyabi, Yanagi, Vivian and Yuzuha are exactly the triple-Anomaly comps she was built for. Reportedly available the whole patch, not just Phase 1; kit numbers still settling post-livestream.",
     team: "Any triple-Anomaly lane she already fields:\nAlice/Miyabi/Yanagi + Remielle + Vivian/Yuzuha\nv3.1 Phase 1 (Jul 29) — exact numbers still beta.",
   },
   {
-    rank: 4, name: "Seed", section: "Attack", attribute: "Electric",
-    priority: "High · Awaiting rerun", tier: 4, emotes: ["seed"],
-    why: "Best partner for Cissia and the cleanest way to turn her Electric roster into a real second carry lane.\n\nAlso patches the missing Electric coverage quality beyond solo Cissia/Yanagi setups.\n\nAvailability is the only reason she sits below the dated windows above — fit-wise she's top-shelf. Last ran v2.7 (April), and no rerun is scheduled for 3.1 or showing in 3.2 leaks. Pounce when she resurfaces.",
+    rank: 3, name: "Seed", section: "Attack", attribute: "Electric",
+    priority: "Very high · Awaiting rerun", tier: 4, emotes: ["seed"],
+    why: "Best partner for Cissia and the cleanest way to turn her Electric roster into a real second carry lane — and every other piece of that team (Astra, Sunna, Nicole) is already home, so Seed alone completes a premium comp.\n\nAlso patches the missing Electric coverage quality beyond solo Cissia/Yanagi setups.\n\nHeads-up on timing only: not currently obtainable — last ran v2.7 (April), nothing scheduled in 3.1, absent from 3.2 leaks. She ranks this high on fit anyway; keep the savings ready so the pounce is instant when she resurfaces.",
     team: "Seed + Cissia + Astra/Sunna/Nicole\nHelps Electric coverage.",
   },
   {
-    rank: 5, name: "Burnice", section: "Anomaly", attribute: "Fire",
+    rank: 4, name: "Burnice", section: "Anomaly", attribute: "Fire",
     priority: "High", tier: 4, emotes: ["burnice"],
     why: "Best Fire-coverage pull for this account because she also plugs into existing Anomaly cores.\n\nShe brings Fire anomaly, off-field pressure, and Disorder value with Alice, Miyabi, Vivian, Yanagi, and Yuzuha.",
     team: "Alice/Miyabi/Yanagi + Burnice + Yuzuha/Astra\nFills Fire coverage without needing a whole new support shell.",
+  },
+  {
+    rank: 5, name: "Norma", section: "Stun", attribute: "Fire",
+    priority: "High · On banner NOW", tier: 4, emotes: ["norma"],
+    why: "LIVE and pullable right now — banner closes when v3.1 arrives July 29, so decide by then. (The clock is a heads-up, not her ranking; this list orders by fit.)\n\nLive-kit reality: a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion — who rotates into almost any Attack or Rupture team. The catch, and why she sits mid-list: she anchors nothing she owns yet. Dialyn claims the Ye Shunguang stun seat when she lands, and Norma's purpose-built partners — Sigrid, or an Evelyn-style Fire carry — aren't on the roster.\n\nSo she's a depth pull today: a second premium stunner covers the other Shiyu side, and she becomes an anchor if Sigrid comes home in Ph.2. For the Yixuan Ultimate loop, guides still rank Dialyn above her (Norma has no Decibel/Ult generation).",
+    team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
   },
   {
     rank: 6, name: "Sigrid", section: "Attack", attribute: "Ice",

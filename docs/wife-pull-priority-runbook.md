@@ -8,6 +8,12 @@ so updating it is an edit + a rebuild, nothing live to sync.
 > not by how strong it is in a vacuum.* A T0 unit that fights her cores ranks low (see Velina); a
 > "strong-not-broken" unit that drops into her finished comps ranks high (see Norma).
 
+**Order = fit ONLY.** Cosmea reads the list top-to-bottom as "best pull for my account, descending."
+Banner timing — live now, rerun windows, no-50/50 guarantees, "awaiting rerun" — goes in the
+`priority` badge, `eta`, and `why` wording, but NEVER moves a crate up or down the order. A top-fit
+pick with no scheduled banner still outranks a lesser fit that happens to be pullable today
+(established 2026-07-20 after availability logic briefly leaked into the ranks: Seed > Norma).
+
 ---
 
 ## Where everything lives
