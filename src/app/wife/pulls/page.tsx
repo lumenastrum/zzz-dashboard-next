@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PROFILE_WIFE } from "@/lib/supabase";
 import { pullPriorityFor } from "@/lib/pull-priority";
 import { TopNav } from "@/components/TopNav";
@@ -28,6 +29,15 @@ export default function WifePulls() {
         <div className="ln" />
         <div className="cnt">{recs.length} On The Wishlist</div>
       </div>
+
+      {/* v3.1 anniversary free S-rank selector — launches the her-scored decision guide */}
+      <Link className="sel-banner" href="/wife/selector/">
+        <span className="sb-led">Gift</span>
+        <span className="sb-txt">
+          <b>Anniversary Selector:</b> one FREE S-Rank + signature — which one should come home?
+        </span>
+        <span className="sb-go">Open the guide ▸</span>
+      </Link>
 
       <div className="crate-grid">
         {recs.map((r) => (
