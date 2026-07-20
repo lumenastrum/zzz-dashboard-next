@@ -44,8 +44,8 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   {
     rank: 2, name: "Norma", section: "Stun", attribute: "Fire",
     priority: "High · On banner NOW", tier: 4, emotes: ["norma"],
-    why: "LIVE and pullable right now — and her banner closes when v3.1 arrives July 29, so this is the decision window.\n\nThe leak-era read held up: her Stun DMG amp and Sheer Force–friendly buffs feed the Yixuan/Yidhari Rupture core, and she takes the stun seat for Ye Shunguang and Cissia. Every support the meta comps want — Lucia, Astra, Zhao — is already on her bench.\n\nBonus future-proofing: she's the purpose-built partner (same faction) for Sigrid in v3.1 Phase 2. Tempered only by overlapping Ju Fufu on the stun seat.",
-    team: "Rupture: Norma + Yixuan/Yidhari + Lucia\nAttack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Sigrid + Astra if Sigrid joins in Ph.2",
+    why: "LIVE and pullable right now — and her banner closes when v3.1 arrives July 29, so this is the decision window.\n\nLive-kit reality check: she's a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion that lets her slot into almost any Attack or Rupture team. The headline is the stun seat for Ye Shunguang and Cissia, plus she's the purpose-built partner (same faction) for Sigrid in Ph.2. Every support the meta comps want — Lucia, Astra, Zhao — is already on her bench.\n\nHonest footnote: for the Yixuan Ultimate loop specifically, guides rank Dialyn (guaranteed Aug 19) above her — Norma has no Decibel/Ult generation, so treat Rupture as her flex slot, not the reason to pull. The real endgame case: two premium stunners means one for each Shiyu side.",
+    team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
   },
   {
     rank: 3, name: "Remielle Dan", section: "Anomaly", attribute: "Lumiflux",
@@ -56,8 +56,8 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   },
   {
     rank: 4, name: "Seed", section: "Attack", attribute: "Electric",
-    priority: "Very high", tier: 4, emotes: ["seed"],
-    why: "Best partner for Cissia and the cleanest way to turn her Electric roster into a real second carry lane.\n\nAlso patches the missing Electric coverage quality beyond solo Cissia/Yanagi setups.",
+    priority: "High · Awaiting rerun", tier: 4, emotes: ["seed"],
+    why: "Best partner for Cissia and the cleanest way to turn her Electric roster into a real second carry lane.\n\nAlso patches the missing Electric coverage quality beyond solo Cissia/Yanagi setups.\n\nAvailability is the only reason she sits below the dated windows above — fit-wise she's top-shelf. Last ran v2.7 (April), and no rerun is scheduled for 3.1 or showing in 3.2 leaks. Pounce when she resurfaces.",
     team: "Seed + Cissia + Astra/Sunna/Nicole\nHelps Electric coverage.",
   },
   {
