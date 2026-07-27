@@ -145,7 +145,7 @@ const CYCLES: AssaultCycle[] = [
           { slug: "velina", name: "Velina" },
           { slug: "yuzuha", name: "Yuzuha" },
         ],
-        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
       },
     ],
   },
@@ -178,7 +178,7 @@ const CYCLES: AssaultCycle[] = [
           { slug: "velina", name: "Velina" },
           { slug: "yuzuha", name: "Yuzuha" },
         ],
-        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
       },
       {
         room: 2,
@@ -267,7 +267,7 @@ const HISTORY: AssaultHistoryEntry[] = [
       {
         boss: "Girtablullu", bossSlug: "girtablullu", score: 46894, pips: 3,
         team: [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
-        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
       },
       {
         boss: 'Primordial Nightmare - "The Creator"', bossSlug: "nineveh", score: 46467, pips: 3,
@@ -287,7 +287,7 @@ const HISTORY: AssaultHistoryEntry[] = [
       {
         boss: "Miasmic Fiend - Unfathomable", bossSlug: "miasmicfiend", score: 42366, pips: 3,
         team: [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
-        bangboo: { name: "Ultra Jet", slug: "ultrajet" },
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
       },
       {
         boss: "Ye Shiyuan the Thrall", bossSlug: "yeshiyuanthethrall", score: 38238, pips: 3,
