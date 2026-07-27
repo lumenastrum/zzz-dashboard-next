@@ -33,11 +33,13 @@ const OUTCOME_TAG: Record<SignalOutcome, string> = {
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const SLUG_BY_NAME = new Map(ROSTER.map((r) => [norm(r.name), r.slug]));
 
-// Gacha bangboo name → staged art under /assets/bangboo/ (exact matches only —
-// "Ultra Jake" vs the DA-staged ultrajet.webp is an UNVERIFIED collision, so
-// it stays a letter tile until someone confirms they're the same boo).
+// Gacha bangboo name → staged art under /assets/bangboo/. The gacha API's
+// "Ultra Jake" IS the in-game "Ultra Jet" (A.-confirmed 2026-07-27 — Hoyo's
+// own string tables disagree with each other), hence the alias.
 const BOO_ART: Record<string, string> = {
   "Biggest Fan": "biggestfan",
+  "Ultra Jake": "ultrajet",
+  "Ultra Jet": "ultrajet",
 };
 
 const pityColor = (pity: number, cap: number): string => {
