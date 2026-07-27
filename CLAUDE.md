@@ -5,8 +5,6 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
 (vanilla HTML + `zzz_update.py`) is SEPARATE — do not touch it; this repo is the modern replacement.
 
 ## Stack & conventions (match wuwa-dashboard-next)
-- Next 16, App Router, `output: "export"` (static → `out/`, GH Pages via `basePath`). React 19, TS,
-  Tailwind v4 (`@tailwindcss/postcss`), `tsx` for `scripts/`.
 - `@/*` → `src/*`. Plain `<img>`/`fetch` paths need `withBase()` (base-path.ts) for prod prefixing.
 - Supabase: shared `dashboard_profiles` table, **new** profile rows `andres-zzz` / `wife-zzz` so the
   legacy `andres`/`wife` ZZZ rows are untouched. Anon key public by design — but **read-only since
@@ -19,9 +17,7 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
 ## The grading engine (`src/lib/grading/`)
 - `grading.js` is the **single source of truth**, validated, framework-agnostic ESM. Don't fork it —
   import from `@/lib/grading` (typed via `grading.d.ts`). `GRADING_CONFIG` = the parsed JSON.
-- `gradeBuild(agent, cfg)` → per-disc letters (SSS…E) + build % + suggestions.
-- `computeStats(agent, cfg)` → Sheet vs Effective per stat + combat buffs.
-- `swapDiscSet(agent, slot, set, cfg)` → disc-swap + regrade.
+  Edit logic there, types in `grading.d.ts`.
 - Weights/scale/effects all live in `grading-config.json` — tune there, the app re-grades.
 
 ## Grading model (see docs/ + ../zzz-redesign-mockups/grading/GRADING_SPEC.md)
@@ -30,6 +26,20 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
 - Sheet vs Effective: effects tagged `scope: sheet|combat`, `kind: stat|dmg|buildup`. Combat stat mods
   only show in Effective; dmg/buildup are buff chips.
 - Stat base numbers are **calibrated/illustrative** (atkPool 880 → ATK≈2769) — refine to exact ZZZ later.
+
+## Signal Search (gacha pull) archive
+- **Sync:** `npm run signal` — open Signal Search **history in-game first** (the authed getGachaLog
+  URL lands in the Steam install's webcache, authkey ~24h). Pages every channel and union-merges
+  **by record id** (never deletes) into the `andres-zzz-pulls` Supabase row; Hoyo serves a rolling
+  ~6-month window, the archive outlives it. `--dry` previews, `--url`/`--cache` override discovery,
+  `--graft <file>` imports a historical export (master fixture or a raw zzz.rng.moe backup).
+- **Surface:** `/signal` (A.-only tab; Cosmea's Pulls tab is the wishlist). Read-only via anon key;
+  the CLI is the sole writer. Analytics (pity walks, 50/50 state machine) live in
+  `src/lib/signal-analytics.ts` — the standard-pool sets in `signal-types.ts` were validated
+  exactly against rng.moe's lifetime counters; keep them current when Hoyo adds standard agents.
+- `scripts/signal-names.json` = item_id→name for records that aged out of the API unnamed
+  (built from Enka's store; 12 old bangboo ids remain unnamed — cosmetic only).
+  `scripts/fixtures/signal-*.json` are **gitignored on purpose** (private account data).
 
 ## Where things are
 - Full interactive reference UI: `../zzz-redesign-mockups/c-soundsystem.html` (the look/feel spec).
@@ -42,5 +52,4 @@ equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `..
 ## Gotchas
 - Static export: no server-side Supabase at request time — data loads client-side (port the WuWa
   DataProvider pattern when wiring Supabase).
-- `grading.js` is excluded from eslint (it's shared validated JS); edit logic there, types in `grading.d.ts`.
 - Don't commit `Co-Authored-By` if deploying on Vercel free tier? (WuWa note — confirm before pushing.)

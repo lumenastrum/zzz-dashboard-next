@@ -4,18 +4,20 @@ import { hasPullPriority } from "@/lib/pull-priority";
 import { hasSetlists } from "@/lib/setlists";
 import { hasShiyu } from "@/lib/shiyu";
 import { hasAssault } from "@/lib/assault";
+import { hasSignal } from "@/lib/signal-types";
 
 // Shared dashboard header (wordmark + tab nav), used by every top-level view so the chrome is
 // identical across the roster home and the per-profile sub-tabs. Pure/server-safe — `active`
 // highlights the current tab, `base` keeps links in-profile. Teams/Shiyu render for profiles with
 // that data (A.); Pulls renders for profiles with a pull-priority list (Cosmea).
-type Tab = "agents" | "levels" | "teams" | "shiyu" | "assault" | "pulls";
+type Tab = "agents" | "levels" | "teams" | "shiyu" | "assault" | "signal" | "pulls";
 
 export function TopNav({ base = "", active = "agents" }: { base?: string; active?: Tab }) {
   const { key } = profileFromPath(base || "/");
   const showTeams = hasSetlists(key);
   const showShiyu = hasShiyu(key);
   const showAssault = hasAssault(key);
+  const showSignal = hasSignal(key);
   const showPulls = hasPullPriority(key);
   const cls = (t: Tab) => (t === active ? "on" : undefined);
 
@@ -50,6 +52,11 @@ export function TopNav({ base = "", active = "agents" }: { base?: string; active
         {showAssault && (
           <Link className={cls("assault")} href={profileHref(base, "/assault/")}>
             Assault
+          </Link>
+        )}
+        {showSignal && (
+          <Link className={cls("signal")} href={profileHref(base, "/signal/")}>
+            Signal
           </Link>
         )}
         {showPulls && (
