@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import { withBase } from "@/lib/base-path";
+import { wengineIcon } from "@/lib/deck-config";
 import { ROSTER } from "@/lib/roster";
 import { useSignal } from "@/lib/use-signal";
 import {
@@ -32,20 +33,45 @@ const OUTCOME_TAG: Record<SignalOutcome, string> = {
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const SLUG_BY_NAME = new Map(ROSTER.map((r) => [norm(r.name), r.slug]));
 
+// Gacha bangboo name → staged art under /assets/bangboo/ (exact matches only —
+// "Ultra Jake" vs the DA-staged ultrajet.webp is an UNVERIFIED collision, so
+// it stays a letter tile until someone confirms they're the same boo).
+const BOO_ART: Record<string, string> = {
+  "Biggest Fan": "biggestfan",
+};
+
 const pityColor = (pity: number, cap: number): string => {
   const f = pity / cap;
   return f <= 0.55 ? "var(--green)" : f <= 0.82 ? "var(--amber)" : "var(--red)";
 };
 
-/** Circular face for an S-rank — roster endgame art or a letter tile. */
+/** Circular face for an S-rank — art per item type, letter tile as the floor. */
 function SigFace({ s }: { s: SRankPull }) {
   const [failed, setFailed] = useState(false);
-  const slug = SLUG_BY_NAME.get(norm(s.record.name));
+  const { name, item_type } = s.record;
+
+  // Agents: roster endgame art; off-roster agents (standard-pool 50/50
+  // losses…) ship faces under their normalized name (koleda.webp etc., ripped
+  // in-game circle icons). Engines reuse the deck's staged wengine icons;
+  // named bangboos use the DA/Shiyu boo art. Anything unresolved → tile.
+  let src: string | undefined;
+  let fit: "cover" | "contain" = "cover";
+  if (item_type === "Agents" && name) {
+    const slug = SLUG_BY_NAME.get(norm(name)) ?? norm(name);
+    src = `/assets/endgame/${slug}.webp`;
+  } else if (item_type === "W-Engines" && name) {
+    src = `/assets/icons/${wengineIcon(name)}.webp`;
+    fit = "contain";
+  } else if (item_type === "Bangboo" && BOO_ART[name]) {
+    src = `/assets/bangboo/${BOO_ART[name]}.webp`;
+    fit = "contain";
+  }
+
   const ring = `2px solid ${OUTCOME_COLOR[s.outcome]}`;
-  const label = s.record.name || `#${s.record.item_id}`;
+  const label = name || `#${s.record.item_id}`;
   const title = `${label} · ${OUTCOME_TAG[s.outcome]} · pity ${s.pity} · ${s.record.time.slice(0, 10)}`;
 
-  if (!slug || failed) {
+  if (!src || failed) {
     return (
       <div className="sig-face sig-face-tile" title={title} style={{ border: ring }}>
         {label.replace(/^\[.*?\]\s*/, "").charAt(0) || "?"}
@@ -56,11 +82,11 @@ function SigFace({ s }: { s: SRankPull }) {
     // eslint-disable-next-line @next/next/no-img-element
     <img
       className="sig-face"
-      src={withBase(`/assets/endgame/${slug}.webp`)}
+      src={withBase(src)}
       alt={label}
       title={title}
       onError={() => setFailed(true)}
-      style={{ border: ring }}
+      style={{ border: ring, objectFit: fit, padding: fit === "contain" ? 4 : 0 }}
     />
   );
 }
