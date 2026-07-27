@@ -35,5 +35,9 @@ yarn-debug.log*
 scripts/.frames-contact.png
 scripts/.probe_*.png
 
+# signal-search (gacha) history captures — private account data, never ship to the public repo
+# (durable home is the Supabase pulls row once signal-sync lands; Enka showcase fixtures stay tracked)
+scripts/fixtures/signal-*.json
+
 # generated Coach Pack JSON (coach-pack.ts, rebuilt on every `npm run build`; COACH.md stays tracked)
 /public/coach/*.json
