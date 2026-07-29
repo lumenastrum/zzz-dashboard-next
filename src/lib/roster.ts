@@ -29,7 +29,8 @@ export const ROSTER: RosterEntry[] = [
   { name: "Burnice", slug: "burnice", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Sons of Calydon" },
   { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" },
   { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff", faction: "Roscaelifer External Strategy Department" },
-  { name: "Remielle Dan", slug: "remielledan", section: "Anomaly", attribute: "Lumiflux", mindscape: 2, el: "#f5aede", faction: "Covenant of Dayat" }, // pulled M2R1 day one, 2026-07-29 — the fallen angel came HOME
+  { name: "Remielle Dan", slug: "remielledan", section: "Anomaly", attribute: "Lumiflux", mindscape: 2, el: "#f5aede",
+    faction: "Covenant of Dayat", title: "Void Hunter: Temporal Lumiflux", voidHunter: true }, // pulled M2R1 day one, 2026-07-29 — the fallen angel came HOME
   { name: "Yanagi", slug: "yanagi", section: "Anomaly", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Hollow Special Operations Section 6", wifeOnly: true }, // wife-only; mindscape placeholder (she edits)
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",

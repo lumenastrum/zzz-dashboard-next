@@ -33,6 +33,7 @@ export const ELEMENT_COLOR: Record<string, string> = {
   auric_ink: "#e9b560",
   honed_edge: "#9bb4fb",
   wind: "#95c9ff",
+  lumiflux: "#f5aede", // Remielle — pink flux, sampled from the in-game IconLumiflux glyph
 };
 const clampByte = (n: number) => Math.max(0, Math.min(255, Math.round(n)));
 const hexRgb = (h: string) => {
