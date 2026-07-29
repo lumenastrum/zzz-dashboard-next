@@ -11,6 +11,7 @@ export interface RosterEntry {
   faction?: string;
   title?: string; // custom pill title (e.g. "Void Hunter: Qingming Arbiter")
   voidHunter?: boolean; // elite tier — gradient accent + void-hunter badge
+  deckArt?: string; // tall/ slug override for the agent-deck portrait — for art whose full composition (e.g. Remielle's wingspan) can't share the roster tile's face-band crop
   wifeOnly?: boolean; // in the shared roster for her view, but hidden from the default (A.) view
 }
 
@@ -30,7 +31,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Aria", slug: "aria", section: "Anomaly", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" },
   { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff", faction: "Roscaelifer External Strategy Department" },
   { name: "Remielle Dan", slug: "remielledan", section: "Anomaly", attribute: "Lumiflux", mindscape: 2, el: "#f5aede",
-    faction: "Covenant of Dayat", title: "Void Hunter: Temporal Lumiflux", voidHunter: true }, // pulled M2R1 day one, 2026-07-29 — the fallen angel came HOME
+    faction: "Covenant of Dayat", title: "Void Hunter: Temporal Lumiflux", voidHunter: true, deckArt: "remielledan_deck" }, // pulled M2R1 day one, 2026-07-29 — the fallen angel came HOME; deckArt = uncropped wingspan splash
   { name: "Yanagi", slug: "yanagi", section: "Anomaly", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Hollow Special Operations Section 6", wifeOnly: true }, // wife-only; mindscape placeholder (she edits)
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",

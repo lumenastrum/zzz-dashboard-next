@@ -42,7 +42,8 @@ const PORTRAIT_SLUG: Record<string, string> = {
   Vivian_Banshee: "vivian",
   Yixuan: "yixuan",
   // newly-seeded agents not yet in roster.ts — slug guesses; rename here when documented
-  Remielle_Dan: "remielledan", // 3.1 — art ripped from game blocks (AnimeStudio, IconRole67), 2026-07-29
+  Remielle_Dan: "remielledan", // 3.1 — art ripped from game blocks (AnimeStudio, IconRole67), 2026-07-29; tile face-band crop
+  Remielle_Dan_Deck: "remielledan_deck", // her uncropped wingspan splash — deckArt override for the agent-deck page
   Velina_Airgid: "velina",
   Ye_Shunguang: "yeshunguang",
   Ye_Shunguang_Enlightened_Mind: "yeshunguang_enlightened",

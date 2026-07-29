@@ -182,7 +182,7 @@ export function AgentDeck({
         >
           <div className="filmreel" aria-hidden />
           <div className="filmstrip" aria-hidden />
-          <DeckImg className="pimg" src={tallPath(entry.slug)} alt={name} />
+          <DeckImg className="pimg" src={tallPath(entry.deckArt ?? entry.slug)} alt={name} />
           <div className="plate">
             <div className="big">{name}</div>
             {titlePill}
