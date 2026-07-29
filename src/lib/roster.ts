@@ -47,7 +47,7 @@ export const ROSTER: RosterEntry[] = [
   // — Support —
   { name: "Astra Yao", slug: "astra", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Stars of Lyra" },
   { name: "Yuzuha", slug: "yuzuha", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Spook Shack" },
-  { name: "Lucia", slug: "lucia", section: "Support", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Spook Shack" },
+  { name: "Lucia", slug: "lucia", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Spook Shack" }, // M1 = v3.1 anniversary selector pick (Clio's Choice I, 2026-07-28)
   { name: "Sunna", slug: "sunna", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Angels of Delusion" },
   { name: "Zhao", slug: "zhao", section: "Support", attribute: "Ice", mindscape: 0, el: "#00dada", faction: "Krampus Compliance Authority" },
   // — Rupture —
