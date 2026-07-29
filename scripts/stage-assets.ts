@@ -42,6 +42,7 @@ const PORTRAIT_SLUG: Record<string, string> = {
   Vivian_Banshee: "vivian",
   Yixuan: "yixuan",
   // newly-seeded agents not yet in roster.ts — slug guesses; rename here when documented
+  Remielle_Dan: "remielledan", // 3.1 — art ripped from game blocks (AnimeStudio, IconRole67), 2026-07-29
   Velina_Airgid: "velina",
   Ye_Shunguang: "yeshunguang",
   Ye_Shunguang_Enlightened_Mind: "yeshunguang_enlightened",
