@@ -170,6 +170,11 @@
       "Anomaly Mastery": { "target": 198, "full": 290 },
       "Anomaly Proficiency": { "target": 410, "full": 480 }
     } },
+    "_remielle_note": "Remielle has NO attribute DMG stat (Lumiflux inherits the next-slotted agent's attribute — no D5 Lumiflux main exists), doesn't build Anomaly Mastery, and wants ATK% on BOTH slots 5 and 6. ATK 4000 is a hard breakpoint (maxes her +1,600 squad ATK buff from Invitation to Bloom); AP feeds Refringe (0.02%/pt) and Luminize (0.2%/pt). Day-one targets from Prydwen 3.1.",
+    "Remielle Dan": { "archetype": "anomaly", "weights": { "ATK%": 4.0, "Anomaly Proficiency": 3.5, "Anomaly Mastery": 0.5 }, "mainStatPoints": { "4": { "Anomaly Proficiency": 3, "ATK%": 3 }, "5": { "ATK%": 3 }, "6": { "ATK%": 3 } }, "targets": {
+      "ATK": { "target": 4000, "full": 4300 },
+      "Anomaly Proficiency": { "target": 370, "full": 460 }
+    } },
     "_yanagi_note": "Cosmea's roster. Yanagi is a pure AP-scaling Electric anomaly — Disorder CANNOT crit, so she has NO CRIT mechanic (unlike Miyabi's CRIT->buildup conversion); CRIT is a dead stat and gets no goalpost (the anomaly archetype already zeroes CRIT weight). Slots track the anomaly default (4=AP, 5=Electric DMG/PEN, 6=AM or ATK%). Targets PROPOSED from a WebFetch sweep (Game8 + Prydwen-via-proxy) on the Alice/Jane AP-anomaly scale; the one hard in-game number is the 375 AP Disorder-DMG breakpoint on her signature Timeweaver. ⚠️ Pending A.'s Prydwen cross-check.",
     "Yanagi": { "archetype": "anomaly", "targets": {
       "ATK": { "target": 2800, "full": 3300 },
@@ -262,6 +267,22 @@
     "Freedom Blues": {
       "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }],
       "4pc": [{ "label": "Target Anomaly Buildup RES -20% (EX hit, 8s)", "kind": "buildup", "stat": "Anomaly RES Shred", "value": 20, "unit": "%", "scope": "combat", "cond": true }]
+    },
+    "Feathered Fate": {
+      "_comment": "NEW 3.1 (2026-07-29) — Remielle's set. 4pc entry-buff persists while off-field; with her Phase Flow uptime Prydwen calls it effectively permanent. The 15% rider is Lumiflux-gated (= Remielle only, sole Lumiflux agent). Game8 day-one text.",
+      "2pc": [{ "label": "+30 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 30, "unit": "", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+50 Anomaly Proficiency (on entry, 15s, persists off-field)", "kind": "stat", "stat": "Anomaly Proficiency", "value": 50, "unit": "", "scope": "combat", "cond": true },
+        { "label": "+15% Attribute Anomaly DMG (Lumiflux equipper only)", "kind": "dmg", "stat": "Anomaly DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Thorned Rose": {
+      "_comment": "NEW 3.1 — DEF-scaling DPS set, no confirmed signature owner (NOT Sigrid's; Game8 pins Ben, Icy Veins bets future Claret Flint). Game8 day-one text.",
+      "2pc": [{ "label": "+16% DEF", "kind": "stat", "stat": "DEF", "value": 16, "unit": "%", "scope": "sheet" }],
+      "4pc": [
+        { "label": "+15% DMG", "kind": "dmg", "stat": "DMG", "value": 15, "unit": "%", "scope": "combat" },
+        { "label": "+8/16% CRIT Rate (initial DEF >=1000/1800)", "kind": "stat", "stat": "CRIT Rate", "value": 16, "unit": "%", "scope": "combat", "cond": true }
+      ]
     },
     "Woodpecker Electro": {
       "2pc": [{ "label": "+8% CRIT Rate", "kind": "stat", "stat": "CRIT Rate", "value": 8, "unit": "%", "scope": "sheet" }],
@@ -478,6 +499,16 @@
         { "label": "CRIT Rate +17%", "kind": "stat", "stat": "CRIT Rate", "value": 17, "unit": "%", "scope": "combat" },
         { "label": "Electric DMG +14.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 14.5, "unit": "%", "scope": "combat", "cond": true },
         { "label": "Basic/Ult ignore 23% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 23, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Ode of Resurrected Wings": {
+      "_comment": "Remielle Dan signature, R1. Anomaly. Void Hunter base-ATK line (743, like Qingming Birdcage); 36% ATK advanced = highest ATK% engine stat to date (Prydwen). Passive 'Paradise Lost' R1 via Game8 day-one.",
+      "base": { "ATK": 743 },
+      "advanced": { "label": "ATK +36%" },
+      "passive": [
+        { "label": "+96 Anomaly Proficiency", "kind": "stat", "stat": "Anomaly Proficiency", "value": 96, "unit": "", "scope": "combat" },
+        { "label": "+20% Anomaly DMG (on Refringe, 30s)", "kind": "dmg", "stat": "Anomaly DMG", "value": 20, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Squad DMG +30% (on Refringe, 30s)", "kind": "dmg", "stat": "DMG", "value": 30, "unit": "%", "scope": "combat", "cond": true }
       ]
     },
     "Severed Innocence": {
