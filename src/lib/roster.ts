@@ -45,7 +45,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Dialyn", slug: "dialyn", section: "Stun", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Krampus Compliance Authority" },
   { name: "Nangong Yu", slug: "nangongyu", section: "Stun", attribute: "Ether", mindscape: 0, el: "#9a4fbb", faction: "Angels of Delusion" }, // hybrid Stunner — scales off Anomaly Prof (grades via anomaly override)
   // — Support —
-  { name: "Astra Yao", slug: "astra", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Stars of Lyra" },
+  { name: "Astra Yao", slug: "astra", section: "Support", attribute: "Ether", mindscape: 2, el: "#9a4fbb", faction: "Stars of Lyra" }, // M2 = anniversary Filmgoer selector pick (Clio's Choice II, 2026-07-29)
   { name: "Yuzuha", slug: "yuzuha", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Spook Shack" },
   { name: "Lucia", slug: "lucia", section: "Support", attribute: "Ether", mindscape: 1, el: "#9a4fbb", faction: "Spook Shack" }, // M1 = v3.1 anniversary selector pick (Clio's Choice I, 2026-07-28)
   { name: "Sunna", slug: "sunna", section: "Support", attribute: "Physical", mindscape: 0, el: "#fcbf01", faction: "Angels of Delusion" },

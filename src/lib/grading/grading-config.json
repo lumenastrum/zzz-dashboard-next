@@ -376,12 +376,12 @@
       ]
     },
     "Sharpened Stinger": {
-      "_comment": "Jane Doe signature, R1. Anomaly/Physical. zzz.gg served R5 (24%/80%); R1 via Game8 = 12% Phys DMG/stk, 40% buildup at max.",
+      "_comment": "Jane Doe signature, R2 (anniversary Part I engine selector, 2026-07-29). Anomaly/Physical. Ladder linear R1 12%/40% -> R5 24%/80% (zzz.gg R5, Game8 R1), so R2 = 15% Phys DMG/stk, 50% buildup at max.",
       "base": { "ATK": 713 },
       "advanced": { "label": "Anomaly Prof +90" },
       "passive": [
-        { "label": "Physical DMG +12%/stk (x3)", "kind": "dmg", "stat": "Physical DMG", "value": 12, "unit": "%", "scope": "combat", "cond": true },
-        { "label": "Anomaly Buildup +40% (max stk)", "kind": "buildup", "stat": "Anomaly Buildup", "value": 40, "unit": "%", "scope": "combat", "cond": true }
+        { "label": "Physical DMG +15%/stk (x3)", "kind": "dmg", "stat": "Physical DMG", "value": 15, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Anomaly Buildup +50% (max stk)", "kind": "buildup", "stat": "Anomaly Buildup", "value": 50, "unit": "%", "scope": "combat", "cond": true }
       ]
     },
     "Qingming Birdcage": {
@@ -434,12 +434,12 @@
       ]
     },
     "Elegant Vanity": {
-      "_comment": "Astra Yao signature, R1. Support.",
+      "_comment": "Astra Yao signature, R1. Support. 2026-07-29: corrected R5 values (7 / 16%) that were mislabeled R1 — true R1 ladder (Game8/Prydwen) = 5 Energy, 10%/stk.",
       "base": { "ATK": 713 },
       "advanced": { "label": "ATK +30%" },
       "passive": [
-        { "label": "+7 Energy on assist (5s cd)", "kind": "buff", "stat": "Energy", "value": 7, "unit": "", "scope": "combat" },
-        { "label": "Squad DMG +16%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 16, "unit": "%", "scope": "combat", "cond": true }
+        { "label": "+5 Energy on assist (5s cd)", "kind": "buff", "stat": "Energy", "value": 5, "unit": "", "scope": "combat" },
+        { "label": "Squad DMG +10%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
       ]
     },
     "Angel in the Shell": {
@@ -471,13 +471,13 @@
       ]
     },
     "Cordis Germina": {
-      "_comment": "Seed signature, R1. Attack/Electric. New 2026 engine; sourced Game8 + genshin.gg + BitTopup.",
+      "_comment": "Seed signature, R2 (anniversary Filmgoer selector, 2026-07-29). Attack/Electric. R2 via Game8 ladder: CR 17%, Electric 14.5%/stk, DEF ignore 23%.",
       "base": { "ATK": 713 },
       "advanced": { "label": "CRIT Rate +24%" },
       "passive": [
-        { "label": "CRIT Rate +15%", "kind": "stat", "stat": "CRIT Rate", "value": 15, "unit": "%", "scope": "combat" },
-        { "label": "Electric DMG +12.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 12.5, "unit": "%", "scope": "combat", "cond": true },
-        { "label": "Basic/Ult ignore 20% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+        { "label": "CRIT Rate +17%", "kind": "stat", "stat": "CRIT Rate", "value": 17, "unit": "%", "scope": "combat" },
+        { "label": "Electric DMG +14.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 14.5, "unit": "%", "scope": "combat", "cond": true },
+        { "label": "Basic/Ult ignore 23% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 23, "unit": "%", "scope": "combat", "cond": true }
       ]
     },
     "Severed Innocence": {
