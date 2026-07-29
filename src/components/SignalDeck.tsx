@@ -32,6 +32,10 @@ const OUTCOME_TAG: Record<SignalOutcome, string> = {
 
 const norm = (s: string) => s.toLowerCase().replace(/[^a-z0-9]/g, "");
 const SLUG_BY_NAME = new Map(ROSTER.map((r) => [norm(r.name), r.slug]));
+// Gacha-API short names → roster slugs. The pull ledger says "Remielle" but the
+// roster (and her staged face) say "Remielle Dan" — norm() can't bridge a missing
+// surname, so alias it (same pattern as BOO_ART below).
+SLUG_BY_NAME.set("remielle", "remielledan");
 
 // Gacha bangboo name → staged art under /assets/bangboo/. The boo's real name
 // is "Ultra Jake" (API + in-game, A.-verified 2026-07-27); the asset was
