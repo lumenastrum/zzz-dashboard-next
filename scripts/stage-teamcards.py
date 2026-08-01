@@ -40,7 +40,16 @@ CARDS = {
     "ligherteam.png": "lighter",            # source filename typo -> canonical slug
     "velinateam.png": "velina",
     "burniceteam.png": "burnice",           # cut later than the rest (2026-07, for the Shiyu marquee)
+    "remielledanteam.png": "remielledan",   # 3.1; ripped straight (see note below)
 }
+
+# Provenance: these cards are the game's own `IconRoleSelect<NN>` sprites (art_raw/Sprite in the
+# asset rip) — already the right 250-tall diagonal shell, so they drop in with no hand-cutting.
+# The index is NOT the roster order and NOT contiguous: Velina is 64_01, 66 is an unrelated
+# blonde, and Remielle Dan is 67. Several agents also ship expression/costume variants
+# (`_01`, `_02`, ...) where the BASE index isn't always the default look — Velina's default is
+# `64_01` while Remielle's is the bare `67`. Identify by pixel-matching a candidate against the
+# agent's staged endgame circle / tall portrait before trusting a number.
 
 CW, CH = 256, 250  # uniform card canvas (all sources are 250 tall, <=255 wide)
 

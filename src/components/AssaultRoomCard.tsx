@@ -1,7 +1,7 @@
 import Link from "next/link";
 import type { CSSProperties } from "react";
 import type { AssaultRoom } from "@/lib/assault";
-import { ASSAULT_TARGETS } from "@/lib/assault";
+import { ASSAULT_TARGETS, DAMAGE_MAX, PERFORMANCE_MAX } from "@/lib/assault";
 import { elementColor, elementIcon, iconPath } from "@/lib/deck-config";
 import { profileHref } from "@/lib/profile";
 import { DeckImg } from "@/components/deck/DeckImg";
@@ -15,12 +15,15 @@ import { AssaultPips } from "@/components/AssaultSeason";
 // challenge-goal ladder, and a Damage + Performance score split (performance caps at 5,000).
 // Element-accented (--ec) by the first recommended attribute.
 const fmt = (n: number) => n.toLocaleString("en-US");
-const PERF_MAX = 5000; // performance points cap per room — a maxed bar reads as "can't go higher"
 
 export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?: string }) {
   const accent = room.recommended[0] ?? "Ether";
   const style = { "--ec": elementColor(accent) } as CSSProperties;
-  const perfMaxed = room.scores.performance >= PERF_MAX;
+  const perfMaxed = room.scores.performance >= PERFORMANCE_MAX;
+  // Damage reads against the real ceiling, not against the room's own total — damage/total is
+  // ~0.9 for every room ever logged, so that bar carried no information. Against DAMAGE_MAX a
+  // kill lights the whole meter and everything else shows honest headroom.
+  const dmgMaxed = room.scores.damage >= DAMAGE_MAX;
   const targets = room.targets ?? ASSAULT_TARGETS;
 
   return (
@@ -29,7 +32,11 @@ export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?:
       <span className="da-rail" aria-hidden>
         Deadly Assault
       </span>
-      <span className="sr-wm da-no-wm" aria-hidden>{`0${room.room}`}</span>
+      {/* the giant ghosted target number — suppressed on a labelled card (Adversity Mode), where
+          a "04" would read as a fourth Trial target and it explicitly isn't one */}
+      {!room.label && (
+        <span className="sr-wm da-no-wm" aria-hidden>{`0${room.room}`}</span>
+      )}
       <DeckImg className="sr-render" src={`/assets/enemies/${room.boss.slug}.webp`} alt={room.boss.name} />
       <div className="sr-boss-tag">
         <span className="sr-lv">LV {room.boss.level}</span>
@@ -39,7 +46,7 @@ export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?:
 
       <div className="sr-in da-in">
         <header className="sr-head">
-          <span className="sr-no">Target {room.room}</span>
+          <span className="sr-no">{room.label ?? `Target ${room.room}`}</span>
           {room.timeLimit && (
             <span className="sr-time" title="time limit">
               ◷ {room.timeLimit}
@@ -53,14 +60,24 @@ export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?:
         <div className="sr-total">
           <span className="sr-k">Total Score</span>
           <b>{fmt(room.scores.total)}</b>
+          {room.killed && (
+            <span className="da-ko" title="Boss defeated inside the time limit — damage score maxed">
+              Boss Down
+            </span>
+          )}
         </div>
 
         <div className="sr-vu">
-          <VuBar label="Damage" value={room.scores.damage} lit={litSegs(room.scores.damage, room.scores.total)} />
+          <VuBar
+            label="Damage"
+            value={room.scores.damage}
+            lit={litSegs(room.scores.damage, DAMAGE_MAX)}
+            maxed={dmgMaxed}
+          />
           <VuBar
             label="Performance"
             value={room.scores.performance}
-            lit={litSegs(room.scores.performance, PERF_MAX)}
+            lit={litSegs(room.scores.performance, PERFORMANCE_MAX)}
             maxed={perfMaxed}
           />
         </div>
@@ -86,6 +103,9 @@ export function AssaultRoomCard({ room, base = "" }: { room: AssaultRoom; base?:
                 </span>
               ))}
               {room.specialty && <span className="sr-chip anom">{room.specialty}</span>}
+              {/* 3.1 rotations can ship rooms with no attribute weakness at all — don't leave
+                  the label stranded over an empty row (mirrors the Resistance fallback) */}
+              {!room.recommended.length && !room.specialty && <span className="sr-chip none">None</span>}
             </span>
           </div>
           <div className="sr-attr">

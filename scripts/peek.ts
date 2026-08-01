@@ -18,7 +18,7 @@ import { getSupabase, SUPABASE_TABLE, PROFILE_KEY } from "../src/lib/supabase";
 import { ROSTER, rosterFor, displayMindscape } from "../src/lib/roster";
 import { gradeBuild, computeStats, GRADING_CONFIG, type BuildGrade, type StatsResult } from "../src/lib/grading";
 import { shiyuCyclesFor, shiyuHistoryFor } from "../src/lib/shiyu";
-import { assaultCyclesFor, assaultHistoryFor, cyclePips } from "../src/lib/assault";
+import { assaultCyclesFor, assaultHistoryFor, cyclePips, ASSAULT_TARGETS, type AssaultRoom } from "../src/lib/assault";
 import type { Agent, DashboardData } from "../src/lib/types";
 
 function arg(name: string, fallback?: string): string | undefined {
@@ -206,19 +206,32 @@ function cmdAssault() {
   }
   console.log(`\n● Deadly Assault — ${PROFILE}`);
   if (!cycles.length) console.log(`  (no editorial cycles for this profile)`);
+  const medalStr = (m?: { crown: number; shield?: number }) =>
+    m ? ` · medals crown×${m.crown}${m.shield !== undefined ? ` shield×${m.shield}` : ""}` : "";
+
+  // Shared by the Trial Mode targets and the Adversity Mode room (same shape, own ladder).
+  const printRoom = (r: AssaultRoom, heading: string) => {
+    const boss = `${r.boss.tag ? `${r.boss.tag} - ` : ""}${r.boss.name} (Lv.${r.boss.level})`;
+    const goals = (r.targets ?? ASSAULT_TARGETS).map(num).join("/");
+    console.log(`    ${heading}  ${"●".repeat(r.pips)}${"○".repeat(3 - r.pips)}  vs ${boss}`);
+    console.log(`      rec: ${r.recommended.join("/") || "—"}${r.specialty ? ` · specialty: ${r.specialty}` : ""} · res: ${r.resistance.join("/") || "None"} · goals: ${goals}`);
+    if (r.gimmick) console.log(`      gimmick: ${r.gimmick}`);
+    if (r.buff) console.log(`      buff: ${r.buff.name}${r.buff.desc ? ` — ${r.buff.desc}` : ""}`);
+    console.log(`      team: ${r.team.map((m) => m.name).join(", ")}${r.bangboo ? ` + ${r.bangboo.name}` : ""}`);
+    console.log(`      score ${num(r.scores.total)} (dmg ${num(r.scores.damage)} / perf ${num(r.scores.performance)})${r.killed ? "  ★ BOSS DOWN — damage maxed" : ""}`);
+  };
+
   for (const c of cycles) {
     const pips = cyclePips(c);
-    const medals = c.medals ? ` · medals crown×${c.medals.crown} shield×${c.medals.shield}` : "";
     console.log(`\n  CYCLE ${c.label} (${c.id})${c.date ? ` · from ${c.date}` : ""}`);
-    console.log(`    best ${num(c.bestTotal)} · top ${c.rank} · pips ${pips.earned}/${pips.max}${medals}`);
-    for (const r of c.rooms) {
-      const boss = `${r.boss.tag ? `${r.boss.tag} - ` : ""}${r.boss.name} (Lv.${r.boss.level})`;
-      console.log(`    Room ${r.room}  ${"●".repeat(r.pips)}${"○".repeat(3 - r.pips)}  vs ${boss}`);
-      console.log(`      rec: ${r.recommended.join("/") || "—"}${r.specialty ? ` · specialty: ${r.specialty}` : ""} · res: ${r.resistance.join("/") || "None"}`);
-      if (r.gimmick) console.log(`      gimmick: ${r.gimmick}`);
-      if (r.buff) console.log(`      buff: ${r.buff.name}${r.buff.desc ? ` — ${r.buff.desc}` : ""}`);
-      console.log(`      team: ${r.team.map((m) => m.name).join(", ")}${r.bangboo ? ` + ${r.bangboo.name}` : ""}`);
-      console.log(`      score ${num(r.scores.total)} (dmg ${num(r.scores.damage)} / perf ${num(r.scores.performance)})`);
+    console.log(`    best ${num(c.bestTotal)} · top ${c.rank} · pips ${pips.earned}/${pips.max}${medalStr(c.medals)}`);
+    for (const r of c.rooms) printRoom(r, `Room ${r.room}`);
+    // Adversity Mode is scored on its own board — never folded into the numbers above.
+    if (c.adversity) {
+      const a = c.adversity;
+      console.log(`    ADVERSITY MODE (scored separately)`);
+      console.log(`      best ${num(a.bestTotal)} · top ${a.rank} · pips ${a.room.pips}/3${medalStr(a.medals)}`);
+      printRoom(a.room, a.room.label ?? "Adversity");
     }
   }
   if (history.length) {

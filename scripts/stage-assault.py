@@ -28,10 +28,16 @@ BANGBOO = {
     "BangbooGarageRole31.png": "robin",
     "BangbooGarageRole37.png": "msesme",
     "BangbooGarageRole30.png": "snap",
+    # Ariel — released 2026-08-01 (Version 3.1), too new for the asset rip's GarageRole set.
+    # Pulled off the fandom file store instead; `Ariel_Portrait.png` is the full-body 512x512
+    # sprite (the same spec as the rips). NB the sibling `Bangboo_Ariel_Icon.png` is a 142x142
+    # CIRCLE CROP — wrong for this slot, it renders edge-to-edge next to full-body neighbours.
+    "Ariel_Portrait.png": "ariel",
 }
 
 # Full-body enemy renders (transparent, 484x668 — same spec as the Shiyu set) for the room
-# posters, keyed by the AssaultBoss slug they render. Already .webp -> straight copy.
+# posters, keyed by the AssaultBoss slug they render. .webp sources straight-copy; .png sources
+# convert (the wiki stores renders in whichever format the uploader used).
 ENEMIES = {
     "Enemy_Girtablullu.webp": "girtablullu",
     "Enemy_Notorious_-_Marionette.webp": "notoriousmarionette",
@@ -43,6 +49,12 @@ ENEMIES = {
     # filename), so renders can be curl'd off static.wikia.nocookie.net without the wiki UI
     "Enemy_Notorious_-_Pompey.webp": "notoriouspompey",
     "Enemy_Miasmic_Fiend_-_Unfathomable.webp": "miasmicfiend",
+    # 2026-07-29 rotation. NB the cycle's two Girtablullu variants ("Stagnant Aberrant" and
+    # "Integrated") have NO render on the wiki yet (both are red links) — those rooms reuse the
+    # plain `girtablullu` slug, same data-carries-the-name / slug-carries-the-render convention
+    # the Komano Manato flip-flop set.
+    "Enemy_Notorious_-_Dead_End_Butcher.png": "notoriousdeadendbutcher",
+    "Enemy_Unknown_Corruption_Complex.png": "complexcorrupted",
 }
 
 # In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA
@@ -95,8 +107,15 @@ def main():
         if not os.path.exists(path):
             print(f"  [skip] missing {fn}")
             continue
-        shutil.copyfile(path, os.path.join(ENEMY_DST, f"{slug}.webp"))
-        print(f"  enemies/{slug:20} <- {fn}")
+        dst = os.path.join(ENEMY_DST, f"{slug}.webp")
+        if fn.lower().endswith(".webp"):
+            shutil.copyfile(path, dst)
+            size = Image.open(path).size
+        else:
+            im = Image.open(path).convert("RGBA")
+            save_webp(im, dst)
+            size = im.size
+        print(f"  enemies/{slug:24} {size[0]}x{size[1]} <- {fn}")
         e += 1
     print(f"[ok] staged {e} enemy render(s) -> {ENEMY_DST}\n")
 

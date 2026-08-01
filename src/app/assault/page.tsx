@@ -4,6 +4,7 @@ import { assaultCyclesFor, assaultHistoryFor } from "@/lib/assault";
 import { TopNav } from "@/components/TopNav";
 import { AssaultSeason } from "@/components/AssaultSeason";
 import { AssaultRoomCard } from "@/components/AssaultRoomCard";
+import { AssaultAdversityPanel } from "@/components/AssaultAdversity";
 import { AssaultHistory } from "@/components/AssaultHistory";
 
 export const metadata: Metadata = {
@@ -44,6 +45,8 @@ export default function Assault() {
               <AssaultRoomCard key={r.room} room={r} />
             ))}
           </div>
+          {/* 3.1+ only — scored separately from the Trial Mode total above */}
+          {cycle.adversity && <AssaultAdversityPanel adversity={cycle.adversity} />}
         </>
       ) : (
         <div className="hint">No Deadly Assault rotations logged yet</div>

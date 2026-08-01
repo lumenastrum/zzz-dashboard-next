@@ -910,8 +910,10 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
 /* the boss-trio strip — the in-game bottom rail as anchor tiles (mugshot · name · pips · score).
    The mugshot is the game's own IconMonster head banner, ghosted along the tile's right edge
    behind the content (masked so it dissolves toward the text). */
-.da-rail-row { display:grid; grid-template-columns:repeat(3, 1fr); gap:12px; margin-top:20px;
-  padding-top:17px; border-top:1px solid var(--bezel1); }
+/* count-agnostic: rotations ran 3 targets until 3.1 added Adversity Mode as a 4th. auto-fit
+   collapses the empty tracks, so a 3-target cycle still lays out exactly as it always did. */
+.da-rail-row { display:grid; grid-template-columns:repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+  gap:12px; margin-top:20px; padding-top:17px; border-top:1px solid var(--bezel1); }
 .da-boss-tile { position:relative; overflow:hidden; display:flex; padding:11px 14px 10px;
   border:1px solid var(--bezel1); border-radius:11px; text-decoration:none;
   background:
@@ -951,6 +953,43 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   font-family:var(--disp); font-weight:600; font-size:13px; color:var(--mut); }
 .da-goal .da-pip { width:17px; height:17px; }
 .da-goal.hit { color:var(--amber); border-color:color-mix(in srgb, var(--amber) 35%, var(--bezel1)); }
+
+/* "Boss Down" — the boss actually DIED inside the time limit, which maxes the damage score at
+   60,000; performance already caps at 5,000, so the room reads a perfect 65,000. That earns a
+   rubber stamp, not another chip. */
+.da-ko { display:inline-block; margin-left:14px; vertical-align:15px; transform:rotate(-6deg);
+  font-family:var(--led); font-weight:700; font-size:12px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--amber); padding:7px 12px 6px; border-radius:6px;
+  border:2px solid color-mix(in srgb, var(--amber) 70%, transparent);
+  background:color-mix(in srgb, var(--amber) 12%, transparent);
+  box-shadow:0 0 18px color-mix(in srgb, var(--amber) 25%, transparent);
+  text-shadow:0 0 12px color-mix(in srgb, var(--amber) 55%, transparent); }
+@media (max-width:560px){
+  .da-ko { display:block; width:max-content; margin:10px 0 0; vertical-align:0; }
+}
+
+/* Adversity Mode (3.1) — the separate hard node. Deliberately reads as its own instrument
+   rather than a fourth target: violet accent against the Trial readout's amber, own score
+   band, own badges. The visual break is load-bearing — its score does not pool into the
+   Trial Mode total, and the layout must never imply that it does. */
+.da-adv { margin-top:44px; }
+.da-adv-bar { position:relative; display:flex; align-items:center; gap:26px; flex-wrap:wrap;
+  border:1px solid color-mix(in srgb, var(--violet) 34%, var(--bezel1)); border-radius:18px;
+  background:linear-gradient(180deg, var(--panel2), var(--panel)), var(--brush);
+  padding:18px 26px; margin-bottom:18px; }
+.da-adv-bar::before { content:""; position:absolute; inset:0; border-radius:inherit; pointer-events:none;
+  background:radial-gradient(120% 160% at 12% 0%, color-mix(in srgb, var(--violet) 16%, transparent), transparent 60%); }
+.da-adv-tag { position:relative; z-index:1; font-family:var(--disp); font-weight:700; font-size:24px;
+  letter-spacing:1.5px; text-transform:uppercase; color:var(--ink); line-height:1.05; }
+.da-adv-tag small { display:block; margin-top:6px; font-family:var(--led); font-weight:700; font-size:9.5px;
+  letter-spacing:2px; text-transform:uppercase; color:var(--violet); }
+.da-adv-bar .ss-cells { z-index:1; }
+.da-adv-bar .ss-cell b { font-size:26px; }
+@media (max-width:820px){
+  .da-adv-bar { gap:16px; padding:16px 20px; }
+  .da-adv-bar .ss-cells { margin-left:0; gap:22px; flex-wrap:wrap; }
+  .da-adv-tag { font-size:20px; }
+}
 
 /* the one-line Enemy Details gimmick */
 .da-gimmick { margin:14px 0 0; max-width:520px; padding-left:11px;
