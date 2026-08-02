@@ -18,6 +18,10 @@
 // Same day, order re-grounded in pure fit (A.'s call): Seed back above Norma, then Burnice ↔ Evelyn
 // swapped — Evelyn opens the missing premium Fire lane; Burnice is a sub-DPS with no home lane here
 // (her one Shiyu/DA showing in A.'s history was WITH Velina, who isn't on this roster).
+//
+// 2026-08-01: Remielle Dan PULLED (with signature) → her crate retired, ranks 3-13 shifted up one.
+// Availability decorations refreshed for the post-Jul-29 world (Norma's banner closed with v3.0;
+// Aria's rerun runs through Aug 19). No re-rank of the remaining order — fit logic unchanged.
 
 export interface PullRec {
   rank: number;
@@ -54,78 +58,73 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   },
   // Sunna — PULLED 2026-07-08 (with signature W-engine)! Crate retired from the wishlist;
   // she now lives on the roster. Everything below shifted up one rank.
+  // Remielle Dan — PULLED 2026-08-01 (with signature, Ode of Resurrected Wings)! Crate retired
+  // the same way; she's on the roster now and everything below shifted up another rank.
   {
-    rank: 2, name: "Remielle Dan", section: "Anomaly", attribute: "Lumiflux",
-    priority: "Very high · 3.1 Ph.1", tier: 4, emotes: ["remielle"],
-    upcoming: true, eta: "v3.1 Ph.1 · Jul 29 2026", leak: true,
-    why: "The anniversary headliner — and the best roster-fit pull of v3.1 for THIS account: she upgrades her strongest teams the moment she lands.\n\nNew Lumiflux-element Anomaly sub-DPS who amplifies everyone else's anomalies: she primes enemies off-field, and a teammate's Attribute Anomaly detonates it as Refringe — boosting that Anomaly's total damage and banking stacks for a big AoE nuke.\n\nUnlike Velina she doesn't override Disorder — she FEEDS on it. Alice, Miyabi, Yanagi, Vivian and Yuzuha are exactly the triple-Anomaly comps she was built for. Reportedly available the whole patch, not just Phase 1; kit numbers still settling post-livestream.",
-    team: "Any triple-Anomaly lane she already fields:\nAlice/Miyabi/Yanagi + Remielle + Vivian/Yuzuha\nv3.1 Phase 1 (Jul 29) — exact numbers still beta.",
-  },
-  {
-    rank: 3, name: "Seed", section: "Attack", attribute: "Electric",
+    rank: 2, name: "Seed", section: "Attack", attribute: "Electric",
     priority: "Very high · Awaiting rerun", tier: 4, emotes: ["seed"],
     why: "Best partner for Cissia and the cleanest way to turn her Electric roster into a real second carry lane — and every other piece of that team (Astra, Sunna, Nicole) is already home, so Seed alone completes a premium comp.\n\nAlso patches the missing Electric coverage quality beyond solo Cissia/Yanagi setups.\n\nHeads-up on timing only: not currently obtainable — last ran v2.7 (April), nothing scheduled in 3.1, absent from 3.2 leaks. She ranks this high on fit anyway; keep the savings ready so the pounce is instant when she resurfaces.",
     team: "Seed + Cissia + Astra/Sunna/Nicole\nHelps Electric coverage.",
   },
   {
-    rank: 4, name: "Evelyn", section: "Attack", attribute: "Fire",
+    rank: 3, name: "Evelyn", section: "Attack", attribute: "Fire",
     priority: "High · Opens the Fire lane", tier: 4, emotes: ["evelyn"],
     why: "The Fire lane opener. Fire is the one element with NO premium main DPS on the account — no team comp revolves around it — and Evelyn is the premium Fire Attack carry to build that lane on. (The only other premium Fire main DPS, BanYue, is Fire Rupture and not her style.)\n\nThe shell is already home: Ju Fufu takes the stun seat today — or Norma, if pulled this week, upgrades it — and Astra is her BiS support. Evelyn alone turns Fire from a coverage hole into a real endgame room answer for Shiyu and Deadly Assault.",
     team: "Evelyn + Norma/Ju Fufu + Astra\nCompletes the last uncovered element for endgame room coverage.",
   },
   {
-    rank: 5, name: "Norma", section: "Stun", attribute: "Fire",
-    priority: "High · On banner NOW", tier: 4, emotes: ["norma"],
-    why: "LIVE and pullable right now — banner closes when v3.1 arrives July 29, so decide by then. (The clock is a heads-up, not her ranking; this list orders by fit.)\n\nLive-kit reality: a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion — who rotates into almost any Attack or Rupture team. The catch, and why she sits mid-list: she anchors nothing she owns yet. Dialyn claims the Ye Shunguang stun seat when she lands, and Norma's purpose-built partners — Sigrid, or a Fire carry like Evelyn — aren't on the roster.\n\nSo she's a depth pull today that turns into an anchor the moment the Fire lane opens: Norma is the BiS stun seat for an Evelyn team, and the same-faction partner for Sigrid in Ph.2. For the Yixuan Ultimate loop, guides still rank Dialyn above her (Norma has no Decibel/Ult generation).",
+    rank: 4, name: "Norma", section: "Stun", attribute: "Fire",
+    priority: "High · Banner closed Jul 29", tier: 4, emotes: ["norma"],
+    why: "Her banner CLOSED July 29 when v3.1 arrived — she's off-rotation until a rerun, so this is a savings-and-wait pick now. (The clock is a heads-up, not her ranking; this list orders by fit.)\n\nLive-kit reality: a flexible generalist stunner — Stun DMG multiplier stacks, a squad-wide DMG buff while her barrage runs, and a Sheer Force→ATK conversion — who rotates into almost any Attack or Rupture team. The catch, and why she sits mid-list: she anchors nothing she owns yet. Dialyn claims the Ye Shunguang stun seat when she lands, and Norma's purpose-built partners — Sigrid, or a Fire carry like Evelyn — aren't on the roster.\n\nSo she's a depth pull today that turns into an anchor the moment the Fire lane opens: Norma is the BiS stun seat for an Evelyn team, and the same-faction partner for Sigrid in Ph.2. For the Yixuan Ultimate loop, guides still rank Dialyn above her (Norma has no Decibel/Ult generation).",
     team: "Attack: Norma + Ye Shunguang + Astra/Zhao · Norma + Cissia + Astra\nLater: Norma + Evelyn + Astra, or Norma + Sigrid + Astra in Ph.2\nFlex: Norma + Yixuan/Yidhari + Lucia (fine, but Dialyn is the premier stunner there)",
   },
   {
-    rank: 6, name: "Sigrid", section: "Attack", attribute: "Ice",
+    rank: 5, name: "Sigrid", section: "Attack", attribute: "Ice",
     priority: "Medium · 3.1 Ph.2", tier: 3, emotes: ["sigrid"],
     upcoming: true, eta: "v3.1 Ph.2 · Aug 19 2026", leak: true,
     why: "Premium Ice on-field burst carry — her Sky Knight stance turns \"Draw\" hits into +crit windows and escalating Holster follow-ups. Her ideal team is literally Norma + Astra, both of which this account can field.\n\nRanked medium because the Attack lane is already premium (Ye Shunguang + Sunna, with Dialyn's guaranteed banner in the same phase) and Ice is covered by Miyabi/Yidhari — she's a want, not a gap.\n\nIf Norma comes home this week, her stock rises: same faction, purpose-built pairing. She was also buffed repeatedly in beta; if those land live, re-evaluate upward.",
     team: "Premium: Sigrid + Norma + Astra\nBudget: Sigrid + Lycaon + Soukaku\nv3.1 Ph.2 (Aug 19) — shares the phase with Dialyn's no-50/50 rerun, so budget carefully.",
   },
   {
-    rank: 7, name: "Pan Yinhu", section: "Rupture", attribute: "Physical",
+    rank: 6, name: "Pan Yinhu", section: "Rupture", attribute: "Physical",
     priority: "Medium", tier: 3, emotes: ["panyinhu"],
     why: "Useful Rupture specialist for Yixuan/Yidhari teams, especially as an accessible non-limited teammate.\n\nLower priority because she already has Lucia and Ju Fufu, so Rupture is functional now.",
     team: "Yixuan/Yidhari + Lucia + Pan Yinhu/Ju Fufu/Dialyn",
   },
   {
-    rank: 8, name: "Nangong Yu", section: "Stun", attribute: "Ether",
+    rank: 7, name: "Nangong Yu", section: "Stun", attribute: "Ether",
     priority: "Medium-low", tier: 2, emotes: ["nangong"],
     why: "Useful flexible support/utility option for Alice and Vivian-style teams.\n\nLess urgent because she already has Yuzuha, Astra, Nicole, Zhao, Vivian, and Yanagi covering those shells.",
     team: "Alice/Vivian + Yuzuha/Nangong Yu + anomaly partner",
   },
   {
-    rank: 9, name: "Lycaon or Soukaku", section: "Stun · Support", attribute: "Ice",
+    rank: 8, name: "Lycaon or Soukaku", section: "Stun · Support", attribute: "Ice",
     priority: "Low", tier: 2, emotes: ["lycaon", "soukaku"],
     why: "Optional Miyabi luxury / F2P-friendly Ice lane pieces.\n\nHer Miyabi already has strong Disorder teammates in Yanagi, Vivian, Yuzuha, Astra, and Nicole — so this is refinement, not a core need.",
     team: "Miyabi + Lycaon + Soukaku\nHelps Ice coverage, but Miyabi is already covered.",
   },
   {
-    rank: 10, name: "Trigger", section: "Stun", attribute: "Electric",
+    rank: 9, name: "Trigger", section: "Stun", attribute: "Electric",
     priority: "Low · FREE via selector", tier: 2, emotes: ["trigger"],
     why: "Good stun/Aftershock utility and an alternate slot for Electric or Ye teams.\n\nBut do NOT spend pulls here: the v3.1 anniversary hands out a FREE S-rank selector (Jane Doe / Soldier 0-Anby / Hugo / Trigger / Lucia) plus that agent's signature W-engine. Trigger can be claimed there for zero Polychromes.\n\n(Worth weighing Jane Doe from the same selector, though — see the Velina crate.)",
     team: "Soldier 0 Anby + Trigger + Orphie/Magus\nOr flex stun for Ye/Cissia stages.",
   },
   {
-    rank: 11, name: "Velina", section: "Anomaly", attribute: "Wind",
+    rank: 10, name: "Velina", section: "Anomaly", attribute: "Wind",
     priority: "Low · Off-archetype", tier: 2, emotes: ["velina"],
     why: "Top-tier in a vacuum and the gateway to Wind anomaly — but her Vortex mechanic OVERRIDES Disorder, the exact engine Alice, Miyabi, Yanagi, and Vivian are built on. She fights her own anomaly core.\n\nShe owns none of the non-Disorder carries (Jane Doe / Aria / Burnice) that make Velina shine; only Yuzuha synergizes.\n\nNew wrinkle: the v3.1 free S-rank selector includes Jane Doe — claiming Jane there (with signature) would hand this lane its first real carry for free and soften the anti-synergy argument. Still skip unless that happens.",
     team: "Intended: a non-Disorder anomaly DPS + Velina + Yuzuha (Jane Doe / Aria / Burnice)\nJane via the free selector is the cheapest way in — Yuzuha is the only piece owned today.",
   },
   {
-    rank: 12, name: "Burnice", section: "Anomaly", attribute: "Fire",
+    rank: 11, name: "Burnice", section: "Anomaly", attribute: "Fire",
     priority: "Low · No home lane", tier: 2, emotes: ["burnice"],
     why: "Demoted from the old \"High\" on the account doctrine: she's an off-field Fire anomaly SUB-DPS, not a main DPS a team revolves around — and the Fire lane this account actually needs opens with Evelyn, not her.\n\nThe power-creep chain buried her twice over: Vivian — already on this roster — does the Burnice job better in nearly every current Anomaly team, and Velina now does the Vivian job better everywhere outside Miyabi comps. Even Jane Doe, the team Burnice used to power, prints its numbers with Velina now. Her exact role is filled by a unit Cosmea already owns.\n\nThe receipts: across A.'s Shiyu / Deadly Assault history, Burnice fields exactly once — in a high-hitting team WITH Velina, who isn't on this roster. Until that lane exists she'd be a bench piece; the old Fire-coverage argument belongs to Evelyn's crate now.",
     team: "Only truly shines in: Velina + Burnice + Yuzuha (Velina not owned)\nSkip unless the Velina lane ever becomes real.",
   },
   {
-    rank: 13, name: "Aria", section: "Anomaly", attribute: "Ether",
+    rank: 12, name: "Aria", section: "Anomaly", attribute: "Ether",
     priority: "Lowest current need", tier: 1, emotes: ["aria"],
-    why: "Strong Ether/Anomaly option, but her account already has heavy Ether presence with Yixuan, Vivian, Lucia, Astra, and Nicole. Pull only if she wants an Ether anomaly carry specifically — though Sunna joining the roster does hand this team its premium support for free.\n\nHeads-up: Aria RERUNS alongside Remielle in v3.1 Phase 1 (Jul 29 – Aug 19). If the want ever becomes real, that's the window.",
+    why: "Strong Ether/Anomaly option, but her account already has heavy Ether presence with Yixuan, Vivian, Lucia, Astra, and Nicole. Pull only if she wants an Ether anomaly carry specifically — though Sunna joining the roster does hand this team its premium support for free.\n\nHeads-up: Aria's rerun is LIVE through Aug 19 — the same v3.1 Phase 1 window Remielle came home in. If the want ever becomes real, that's the window, and it's closing.",
     team: "Aria + Sunna/Yuzuha + Nangong Yu\nEther coverage is already healthy.",
   },
 ];

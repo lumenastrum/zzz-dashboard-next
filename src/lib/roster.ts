@@ -66,8 +66,9 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
   // Wife's roster — derived from her legacy `wife` Supabase row (minus base Anby + Nicole),
   // plus Yanagi. Yanagi + Zhao have no build on A.'s side → identity-only until filled.
   // Sunna pulled 2026-07-08 (with signature) — build cloned from A.'s via scripts/clone-agent.ts.
+  // Remielle Dan pulled 2026-08-01 (with signature, Ode of Resurrected Wings) — same clone path.
   "wife-zzz": [
-    "alice", "miyabi", "vivian", "yanagi",
+    "alice", "miyabi", "vivian", "remielledan", "yanagi",
     "yeshunguang", "cissia",
     "jufufu",
     "astra", "yuzuha", "lucia", "sunna", "zhao",
