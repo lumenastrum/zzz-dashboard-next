@@ -2,6 +2,7 @@
 //
 //   npm run clone-agent -- --agent sunna --to wife-zzz             # dry run
 //   npm run clone-agent -- --agent sunna --to wife-zzz --write     # push to Supabase
+//   npm run clone-agent -- --agent seed --to wife-zzz --refine R1 --write
 //
 // This is the surgical sibling of seed-profile.ts: seed-profile OVERWRITES the whole
 // target blob (fine for bootstrap, catastrophic once the target holds hand-entered
@@ -36,6 +37,7 @@ async function main() {
   const agentArg = arg("agent");
   const from = arg("from", "andres-zzz")!;
   const to = arg("to")!;
+  const refine = arg("refine");
   const write = process.argv.includes("--write");
   if (!agentArg || !to) throw new Error("Usage: --agent <name|slug> --to <profile> [--from andres-zzz] [--write]");
 
@@ -66,6 +68,10 @@ async function main() {
   }
 
   const clone: Agent = JSON.parse(JSON.stringify(source));
+  if (refine) {
+    if (!clone.wengine) throw new Error(`Cannot set --refine ${refine}: "${agentName}" has no W-Engine in ${from}.`);
+    clone.wengine.refine = refine;
+  }
   const next: DashboardData = {
     ...tgt.blob,
     meta: {

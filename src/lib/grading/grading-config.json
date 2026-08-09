@@ -492,14 +492,21 @@
       ]
     },
     "Cordis Germina": {
-      "_comment": "Seed signature, R2 (anniversary Filmgoer selector, 2026-07-29). Attack/Electric. R2 via Game8 ladder: CR 17%, Electric 14.5%/stk, DEF ignore 23%.",
+      "_comment": "Seed signature, refinement-aware for A.'s R2 and Cosmea's R1. Attack/Electric. Game8 ladder: R1 = CR 15%, Electric 12.5%/stk, DEF ignore 20%; R2 = 17%, 14.5%/stk, 23%.",
       "base": { "ATK": 713 },
       "advanced": { "label": "CRIT Rate +24%" },
-      "passive": [
-        { "label": "CRIT Rate +17%", "kind": "stat", "stat": "CRIT Rate", "value": 17, "unit": "%", "scope": "combat" },
-        { "label": "Electric DMG +14.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 14.5, "unit": "%", "scope": "combat", "cond": true },
-        { "label": "Basic/Ult ignore 23% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 23, "unit": "%", "scope": "combat", "cond": true }
-      ]
+      "refines": {
+        "R1": [
+          { "label": "CRIT Rate +15%", "kind": "stat", "stat": "CRIT Rate", "value": 15, "unit": "%", "scope": "combat" },
+          { "label": "Electric DMG +12.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 12.5, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "Basic/Ult ignore 20% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 20, "unit": "%", "scope": "combat", "cond": true }
+        ],
+        "R2": [
+          { "label": "CRIT Rate +17%", "kind": "stat", "stat": "CRIT Rate", "value": 17, "unit": "%", "scope": "combat" },
+          { "label": "Electric DMG +14.5%/stk (x2)", "kind": "dmg", "stat": "Electric DMG", "value": 14.5, "unit": "%", "scope": "combat", "cond": true },
+          { "label": "Basic/Ult ignore 23% DEF (2 stk)", "kind": "buff", "stat": "DEF Ignore", "value": 23, "unit": "%", "scope": "combat", "cond": true }
+        ]
+      }
     },
     "Ode of Resurrected Wings": {
       "_comment": "Remielle Dan signature, R1. Anomaly. Void Hunter base-ATK line (743, like Qingming Birdcage); 36% ATK advanced = highest ATK% engine stat to date (Prydwen). Passive 'Paradise Lost' R1 via Game8 day-one.",

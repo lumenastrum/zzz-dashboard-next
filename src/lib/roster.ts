@@ -67,9 +67,10 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
   // plus Yanagi. Yanagi + Zhao have no build on A.'s side → identity-only until filled.
   // Sunna pulled 2026-07-08 (with signature) — build cloned from A.'s via scripts/clone-agent.ts.
   // Remielle Dan pulled 2026-08-01 (with signature, Ode of Resurrected Wings) — same clone path.
+  // Seed pulled 2026-08-08 at M0W1 via the Filmgoer Thank-You Gift — cloned with an R1 override.
   "wife-zzz": [
     "alice", "miyabi", "vivian", "remielledan", "yanagi",
-    "yeshunguang", "cissia",
+    "yeshunguang", "seed", "cissia",
     "jufufu",
     "astra", "yuzuha", "lucia", "sunna", "zhao",
     "yixuan", "yidhari",

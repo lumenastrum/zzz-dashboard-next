@@ -174,8 +174,8 @@ export default function WifeSelector() {
             <h5>Soldier 0 Anby</h5>
             <div className="pool-note">Strong solo carry — wrong lane for this account.</div>
             <div className="pool-fine">
-              The Electric plan is already <b>Cissia now, Seed later</b>. She&rsquo;d compete with her
-              own teammates for the same rooms.
+              The Electric plan is already complete with <b>Seed + Cissia</b>. She&rsquo;d compete with
+              an owned signature carry and her teammates for the same rooms.
             </div>
           </div>
         </article>
