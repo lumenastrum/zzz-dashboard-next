@@ -50,14 +50,14 @@ export default function WifeSelector() {
           ))}
         </div>
         <div className="ln" />
-        <div className="cnt">1 Free S-Rank · Signature Included</div>
+        <div className="cnt">Claimed · Lucia M1R1</div>
       </div>
 
       {/* ---- hero ---- */}
       <section className="sel-hero">
         <div className="sel-kicker">2nd Anniversary Gift · v3.1 &ldquo;The Long Goodbye&rdquo; · from Jul 29</div>
         <h3>
-          Pick <em>one</em> agent — their signature W-engine comes with them.
+          Lucia <em>won</em> — and Dreamlit Hearth came with her.
         </h3>
         <div className="sel-sub">
           Scored for <b>your</b> account: complete premium lanes · cover endgame rooms · zero wasted dupes
@@ -67,7 +67,7 @@ export default function WifeSelector() {
       {/* ---- the verdict: pick + runner-up ---- */}
       <section className="sel-verdict">
         <article className="sv-card win" style={ec("Ether")}>
-          <div className="sv-tag">▲ THE PICK</div>
+          <div className="sv-tag">▲ CLAIMED · M1R1</div>
           <div className="sv-art">
             <DeckImg src={tallPath("lucia")} alt="Lucia" className="sv-pic" />
           </div>
@@ -80,7 +80,7 @@ export default function WifeSelector() {
               <DeckImg src={iconPath(typeIcon("Support"))} alt="" className="ci-ico" />
               <span>Support</span>
               <em>·</em>
-              <span>already yours → becomes M1</span>
+              <span>M1 · Dreamlit Hearth R1</span>
             </div>
           </div>
           <div className="sv-stats">

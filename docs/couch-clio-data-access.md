@@ -100,7 +100,7 @@ Rooms log rating, boss, recommended/resistance attributes, clearing team (+bangb
 ## Gotchas
 
 - **wife-zzz mindscapes**: her blob inherited A.'s mindscape strings during seeding, but her
-  account runs everything at M0 — the app forces M0 via `displayMindscape()`. Raw blob values for
+  account runs agents at M0 except explicit profile overrides (currently Lucia M1) — the app resolves them via `displayMindscape()`. Raw blob values for
   her are NOT trustworthy for mindscape; everything else is.
 - **Zhao** (and any "identity only" agent) has no build in the blob — the roster identity lives in
   `src/lib/roster.ts`, not Supabase.

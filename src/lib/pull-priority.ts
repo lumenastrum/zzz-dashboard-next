@@ -63,7 +63,7 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   {
     rank: 2, name: "Velina", section: "Anomaly", attribute: "Wind",
     priority: "Very high · Remielle multiplier", tier: 4, emotes: ["velina"],
-    why: "Remielle changed the math. Velina is no longer an off-archetype luxury: she opens the account's totally missing Wind lane and completes multiple triple-Anomaly structures around Remielle, Alice, Vivian, or Yanagi.\n\nA.'s receipts prove the ceiling: Velina teams cleared five DA rooms at a 46,076 average even before the 65,000 Remielle/Jane/Velina boss kill is counted. That 65k had a perfect anomaly room buff and stronger mindscapes, so treat it as ceiling proof — not an M0 score promise.\n\nIf the free Marcel selector is still unclaimed, Jane Doe makes this ecosystem even nastier; Velina still has owned Remielle/Alice/Vivian partners without her.",
+    why: "Remielle changed the math. Velina is no longer an off-archetype luxury: she opens the account's totally missing Wind lane and completes multiple triple-Anomaly structures around Remielle, Alice, Vivian, or Yanagi.\n\nA.'s receipts prove the ceiling: Velina teams cleared five DA rooms at a 46,076 average even before the 65,000 Remielle/Jane/Velina boss kill is counted. That 65k had a perfect anomaly room buff and stronger mindscapes, so treat it as ceiling proof — not an M0 score promise.\n\nThe Marcel selector went to Lucia M1R1, so Jane is now a future package piece rather than a free shortcut. Velina still has owned Remielle/Alice/Vivian partners without her.",
     team: "Remielle + Alice/Vivian/Yanagi + Velina\nCeiling package: Remielle + Jane Doe + Velina\nAlso opens Wind coverage.",
   },
   {
@@ -111,8 +111,8 @@ export const WIFE_PULL_PRIORITY: PullRec[] = [
   },
   {
     rank: 10, name: "Trigger", section: "Stun", attribute: "Electric",
-    priority: "Low · Selector only", tier: 2, emotes: ["trigger"],
-    why: "Good Aftershock/stun depth, and Seed + Cissia + Trigger can release Astra for another room. But Electric coverage is already complete, and Dialyn/Nangong solve more account gaps.\n\nDo not spend Polychromes here. If the free Marcel selector is still unclaimed, compare Trigger's Astra-release utility against Jane Doe's much higher Velina/Remielle ceiling.",
+    priority: "Low · Selector skipped", tier: 2, emotes: ["trigger"],
+    why: "Good Aftershock/stun depth, and Seed + Cissia + Trigger can release Astra for another room. But Electric coverage is already complete, and Dialyn/Nangong solve more account gaps.\n\nThe Marcel selector was spent on Lucia M1R1, correctly prioritizing two owned Rupture lanes over another Electric seat. Do not spend Polychromes chasing Trigger now.",
     team: "Seed + Cissia + Trigger\nFlex stun when Astra is locked elsewhere.",
   },
   {

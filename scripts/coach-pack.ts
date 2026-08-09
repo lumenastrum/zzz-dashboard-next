@@ -97,7 +97,7 @@ function digest(profile: string, entry: RosterEntry, blobAgent: Agent | undefine
     attribute: entry.attribute,
     faction: entry.faction,
     title: entry.title,
-    mindscape: displayMindscape(profile, blobAgent?.mindscape ?? entry.mindscape),
+    mindscape: displayMindscape(profile, blobAgent?.mindscape ?? entry.mindscape, entry.name),
     level: blobAgent?.level,
     wengine: blobAgent?.wengine
       ? { name: blobAgent.wengine.name, rank: blobAgent.wengine.rank, refine: blobAgent.wengine.refine }

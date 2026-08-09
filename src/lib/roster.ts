@@ -77,12 +77,13 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
   ],
 };
 
-// Cosmea's account runs every agent at base mindscape (M0). Both the static ROSTER and her
-// cloned blob builds inherited A.'s mindscapes, so her views display M0 across the board.
-// Centralized here so the rule lives in one place if her account ever varies per-agent later.
+// Cosmea's cloned builds inherited A.'s mindscapes, so her profile uses explicit overrides rather
+// than trusting the raw blob. Everyone is M0 unless recorded here (Lucia M1 = v3.1 Marcel selector).
+const WIFE_MINDSCAPES: Record<string, number> = { Lucia: 1 };
+
 // `raw` accepts the roster number (e.g. 1) or a blob string (e.g. "M0"); returns a display string.
-export function displayMindscape(profileKey: string, raw: number | string | undefined): string {
-  if (profileKey === PROFILE_WIFE) return "M0";
+export function displayMindscape(profileKey: string, raw: number | string | undefined, agentName?: string): string {
+  if (profileKey === PROFILE_WIFE) return `M${agentName ? (WIFE_MINDSCAPES[agentName] ?? 0) : 0}`;
   if (typeof raw === "number") return `M${raw}`;
   return raw ?? "M0";
 }

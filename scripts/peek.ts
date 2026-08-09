@@ -102,7 +102,7 @@ async function cmdRoster() {
     const we = a?.wengine ? `${a.wengine.name} ${a.wengine.rank ?? "S"}·${a.wengine.refine ?? "R1"}` : "—";
     const build = g ? `${g.buildLetter} (${g.buildPct}%)` : a ? "no discs" : "identity only";
     console.log(
-      `  ${pad(r.name, 16)}${pad(r.section, 9)}${pad(r.attribute, 11)}${pad(displayMindscape(PROFILE, r.mindscape), 4)}${pad(a?.level ?? "—", 4)}${pad(we, 30)}${build}`,
+      `  ${pad(r.name, 16)}${pad(r.section, 9)}${pad(r.attribute, 11)}${pad(displayMindscape(PROFILE, r.mindscape, r.name), 4)}${pad(a?.level ?? "—", 4)}${pad(we, 30)}${build}`,
     );
   }
   // Blob agents missing from the static roster (shouldn't happen, but surface rather than hide).

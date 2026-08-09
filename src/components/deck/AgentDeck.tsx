@@ -112,7 +112,7 @@ export function AgentDeck({
   const attribute = agent?.attribute ?? entry.attribute;
   const section = agent?.section ?? entry.section;
   const specialty = agent?.specialty || titleCase(section);
-  const mindscape = displayMindscape(profileFromPath(base || "/").key, agent?.mindscape ?? entry.mindscape);
+  const mindscape = displayMindscape(profileFromPath(base || "/").key, agent?.mindscape ?? entry.mindscape, entry.name);
   const level = agent?.level ?? 60;
   const rank = agent?.rank ?? "S";
   const { title, voidHunter } = entry;

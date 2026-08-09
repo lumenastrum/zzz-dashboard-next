@@ -58,7 +58,7 @@ export function RosterTile({ a, base = "", grade }: { a: RosterEntry; base?: str
     yixuan: { dx: -25, dy: 25, dz: 1.1 },
     yidhari: { dx: 25, dy: 20 },
   };
-  const ms = displayMindscape(profileFromPath(base || "/").key, a.mindscape);
+  const ms = displayMindscape(profileFromPath(base || "/").key, a.mindscape, a.name);
   const m = portraitFrame(a.slug);
   const n = NUDGE[a.slug] ?? {};
   const z = ZOOM * (n.dz ?? 1);
