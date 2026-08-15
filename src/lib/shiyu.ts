@@ -82,16 +82,98 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
-  // 2026-06-26 cycle authored 2026-07-01 from A.'s result screenshots (his best season to
-  // date: 132,385 at 1.9%). Scores/attributes/resistances/times screenshot-exact; R1+R3
-  // anomaly-recommended, the S×5 grade card, and R3's slow 02m 20s clock all A.-confirmed
-  // 2026-07-01. Nothing pending.
+  // 2026-08-07 cycle, authored 2026-08-14 from A.'s result screenshots, MID-CYCLE ("Defense
+  // in Progress" through ~08-21; re-runs may still improve it). Best RANK ever logged (1.7%)
+  // AND the account's first CAPPED Shiyu room: R1's total score ceiling is exactly 50,000
+  // (A.-confirmed) and the Remielle/Jane/Velina anomaly trio hit it in 50s vs the brand-new
+  // Metamorphosed Avarus — the same shell that capped Deadly Assault R1 at 65,000 on 08-01.
+  // Remielle's Shiyu debut; R1's anomaly shill A.-confirmed 2026-08-14. R2 = the YSG/Dialyn/
+  // Sunna Physical mono run INTO Physical resistance in a stun-shill room ("any boss, any
+  // weather" receipt #3), glory re-run banked 42,800 same day — the three room scores sum to
+  // bestTotal exactly. R3 = the Cissia/Seed/Astra Electric team's best score in the shell's
+  // existence (ATK-shill room: Attack-specialty EX Specials grant +30% CRIT DMG,
+  // A.-confirmed). NB: NOT the all-time best total — the in-game archive (2026-08-14
+  // screenshot) crowns 07-24's 137,438; this sits second, 1,918 behind, with a week left.
+  // Grades S×5 + Fifth Frontier + all unlock dates archive-confirmed same screenshot.
+  {
+    id: "critical-node-2026-08-07",
+    label: "Critical Node",
+    date: "2026-08-07",
+    frontier: "Fifth Frontier",
+    bestTotal: 135520,
+    rank: "1.7%",
+    medal: "legend",
+    highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
+    targets: [
+      { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
+      { rating: "S", desc: "S-rating in all rooms", done: true },
+      { rating: "A", desc: "A-rating in all rooms", done: true },
+      { rating: "B", desc: "B-rating in all rooms", done: true },
+    ],
+    rooms: [
+      {
+        room: 1,
+        rating: "S",
+        recommended: ["Wind", "Physical"],
+        anomaly: true,
+        resistance: ["Fire"],
+        boss: { name: "Avarus", tag: "Metamorphosed", slug: "metamorphosedavarus", level: 70 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+        scores: { total: 50000, damage: 45000, elimination: 5000 },
+        time: "00m 50s",
+      },
+      {
+        room: 2,
+        rating: "S",
+        recommended: ["Fire", "Electric"],
+        resistance: ["Physical"],
+        boss: { name: "Starlight Billy", tag: "Doppelganger", slug: "doppelgangerstarlightbilly", level: 70 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 42800, damage: 37800, elimination: 5000 },
+        time: "01m 36s",
+      },
+      {
+        room: 3,
+        rating: "S",
+        recommended: ["Electric", "Physical"],
+        resistance: ["Ether"],
+        boss: { name: "Heretic Jester", tag: "Sacrifice", slug: "sacrificehereticjester", level: 70 },
+        team: [
+          { slug: "cissia", name: "Cissia" },
+          { slug: "seed", name: "Seed" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+        scores: { total: 42720, damage: 37720, elimination: 5000 },
+        time: "01m 52s",
+      },
+    ],
+  },
+  // 2026-06-26 cycle authored 2026-07-01 from A.'s result screenshots (132,385 at 1.9% as of
+  // that session). Scores/attributes/resistances/times screenshot-exact; R1+R3 anomaly-
+  // recommended, the S×5 grade card, and R3's slow 02m 20s clock all A.-confirmed 2026-07-01.
+  // 2026-08-14 CORRECTION from the in-game archive: the cycle's FINAL banked best was
+  // 135,344 — A. quietly re-ran his way to +2,959 after our logging session and never told
+  // either of us. bestTotal now carries the archive truth; the room cards remain the 07/01-
+  // logged receipts (their sum, 132,385, is the pre-re-run total) and the 1.9% rank is
+  // as-of-07/01 (rank never renders once demoted to history).
   {
     id: "critical-node-2026-06-26",
     label: "Critical Node",
     date: "2026-06-26",
     frontier: "Fifth Frontier",
-    bestTotal: 132385,
+    bestTotal: 135344,
     rank: "1.9%",
     medal: "legend",
     highestRating: "S+",
@@ -225,6 +307,27 @@ const CYCLES: ShiyuCycle[] = [
 // every one an S+ Fifth Frontier full-S clear. `teams` = A.'s compiled roster history (2026-07-01).
 // NB: Zhao (05/01 R1) has no stash circle — stage-shiyu.py synthesizes his from the tall portrait.
 const HISTORY: ShiyuHistoryEntry[] = [
+  // 07/10 + 07/24 went HISTORY-DIRECT (logged 2026-08-14 from the in-game archive + A.'s
+  // compiled teams — the DA 07/03 pattern: a superseded cycle skips the marquee, carrying
+  // exactly what the archive keeps). 07/24's 137,438 = the ALL-TIME best total, set and
+  // unlogged during the backlog window. Boos (schema drops them): 07/10 R1 Ultra Jake /
+  // R2 Snap / R3 Sprout; 07/24 R1 Sprout / R2 Ariel / R3 Biggest Fan.
+  {
+    id: "fifth-frontier-2026-07-24", date: "2026-07-24", label: "Fifth Frontier", score: 137438, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+      [{ slug: "remielledan", name: "Remielle Dan" }, { slug: "aria", name: "Aria" }, { slug: "velina", name: "Velina" }],
+      [{ slug: "miyabi", name: "Miyabi" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "astra", name: "Astra Yao" }],
+    ],
+  },
+  {
+    id: "fifth-frontier-2026-07-10", date: "2026-07-10", label: "Fifth Frontier", score: 125051, rating: "S+", grades: { s: 5, a: 0, b: 0 },
+    teams: [
+      [{ slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }, { slug: "yuzuha", name: "Yuzuha" }],
+      [{ slug: "cissia", name: "Cissia" }, { slug: "seed", name: "Seed" }, { slug: "astra", name: "Astra Yao" }],
+      [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+    ],
+  },
   {
     id: "fifth-frontier-2026-05-29", date: "2026-05-29", label: "Fifth Frontier", score: 106942, rating: "S+", grades: { s: 5, a: 0, b: 0 },
     teams: [

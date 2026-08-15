@@ -29,7 +29,9 @@ BANGBOO = {
 }
 
 # Full-body enemy renders (transparent, ~484x668) for the marquee room cards, keyed by the
-# ShiyuBoss slug they render. Already .webp in the stash -> straight copy (no recompress).
+# ShiyuBoss slug they render. Stashed under their wiki filenames; .webp copies straight,
+# anything else converts (same rule as stage-assault.py — the wiki stores renders in
+# whichever format the uploader used).
 # NB: the wiki files Norano Slime under "Miasmic Doppelganger Komano Manato" — same beast,
 # the game's assets flip-flop on the name (A.-confirmed canon).
 ENEMIES = {
@@ -38,6 +40,9 @@ ENEMIES = {
     "Enemy_Miasmic_-_Doppelganger_-_Isolde.webp": "miasmaisoldeslime",
     "Enemy_Miasmic_-_Doppelganger_-_Abyssal_Enforcer.webp": "miasmaabyssalenforcer",
     "Enemy_A-H0L0_Type_Intelligent_Tactical_Construct_-_Mirage_Archer_Unit.webp": "miragearcherunit",
+    "Enemy_Metamorphosed_-_Avarus.png": "metamorphosedavarus",
+    "Enemy_Doppelganger_-_Starlight_-_Billy.png": "doppelgangerstarlightbilly",
+    "Enemy_Sacrifice_-_Heretic_Jester.png": "sacrificehereticjester",
 }
 
 # Season chrome: the in-game Shiyu Defense badge + the five season rank medals. The medal is OUR
@@ -123,7 +128,11 @@ def main():
         if not os.path.exists(path):
             print(f"  [skip] missing {fn}")
             continue
-        shutil.copyfile(path, os.path.join(ENEMY_DST, f"{slug}.webp"))
+        dst = os.path.join(ENEMY_DST, f"{slug}.webp")
+        if fn.lower().endswith(".webp"):
+            shutil.copyfile(path, dst)
+        else:
+            save_webp(Image.open(path).convert("RGBA"), dst)
         print(f"  enemies/{slug:20} <- {fn}")
         e += 1
     print(f"[ok] staged {e} enemy render(s) -> {ENEMY_DST}\n")
