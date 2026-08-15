@@ -55,6 +55,14 @@ ENEMIES = {
     # the Komano Manato flip-flop set.
     "Enemy_Notorious_-_Dead_End_Butcher.png": "notoriousdeadendbutcher",
     "Enemy_Unknown_Corruption_Complex.png": "complexcorrupted",
+    # 08/13 rotation (Dynasty). Pulled off the wikia CDN via the computable-md5-path trick
+    # 2026-08-15 — exact 484x668 spec, real alpha (the pink bloom is the character's own
+    # miasma effects, verified channel-level, not a baked background).
+    "Enemy_Miasma_Priest.png": "miasmapriest",
+    # Dynasty's Adversity node. The wiki carries BOTH the base and Rewritten variants as real
+    # files (no red-link reuse needed this time, unlike the Girtablullu variants) — we stage
+    # the exact variant fought.
+    "Enemy_Rewritten_-_Sanguine_Sweeper.png": "rewrittensanguinesweeper",
 }
 
 # In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA

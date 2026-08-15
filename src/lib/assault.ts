@@ -102,6 +102,155 @@ export const PERFORMANCE_MAX = 5000;
 // A., buffs + dates from the fandom wiki (icons matched against his result screenshots).
 // Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
+  // 08/13 rotation — authored 2026-08-15 from A.'s screenshots, the night it happened.
+  //
+  // Named for the record, Angelfall-style (the name is A.'s to veto): 157,923 is the new
+  // all-time rotation best, +2,462 over Angelfall's 155,461, with a PERFECT 5,000-performance
+  // sweep across all three targets — the second sweep ever, back-to-back with Angelfall's
+  // first. "Regime change" was 08/01; this is the dynasty.
+  //
+  // The story: Target 2 and 3 were won with "The Andres Line" (无脑E) — the Enlightened Mind
+  // entry-cycling rotation A. invented mid-fight ON THIS CYCLE against the entire published
+  // consensus, then A/B-verified across DA and Shiyu inside 24 hours (receipts:
+  // Claude Space/research/ysg-m2-rotation-receipts.md). Target 3's road to the record ran
+  // 40,237 → 41,267 (FOURTEEN points short of the record) → 43,357 → 43,743 across four runs
+  // in one evening. Target 1 is A.-confirmed literally identical to Angelfall's — same buff,
+  // same shell, same enemy details — and the Blight trio capped it again like a standing
+  // appointment.
+  //
+  // Sourcing: scores/pips/attributes/specialties/resistances/buff text screenshot-exact
+  // (enemy-intel + result screens, 2026-08-15). Date is cadence-derived from Angelfall's
+  // wiki-confirmed 08/13 03:59 end — this cycle's own wiki page unverified. Rank + medals
+  // were captured on the 151,799 board BEFORE the last two Target re-runs (+6,124), so 2.89%
+  // is a floor — refresh from the next result screen. Target 2's Enemy Details also carried a
+  // cut-off "3 Defensive Assists" clause not captured in the gimmick line below.
+  {
+    id: "da-dynasty-2026-08",
+    label: "Dynasty Rotation",
+    date: "2026-08-13",
+    bestTotal: 157923,
+    rank: "2.89%",
+    medals: { crown: 22, shield: 9 }, // 21→22: this rotation crowned
+    rooms: [
+      {
+        room: 1,
+        boss: { name: "Girtablullu - Stagnant Aberrant", slug: "girtablullu", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: [],
+        specialty: "Anomaly",
+        resistance: [],
+        gimmick:
+          "Each Attribute Anomaly stacks a matching Blight Mark (30s, ×2) — every stack raises Attribute Anomaly DMG taken 8% and Corruptive Barrier DMG taken 8%; inflicting Impaired or Shutdown grants the squad +60 Anomaly Proficiency for 30s.",
+        buff: {
+          name: "United Strength",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +30/+70 Anomaly Proficiency and +10%/+25% Attribute Anomaly DMG. Inflicting an Attribute Anomaly cuts the enemy's All-Attribute RES 15% for 10s.",
+        },
+        pips: 3,
+        killed: true, // second consecutive rotation the Blight trio killed him — cap, again
+        scores: { total: 65000, damage: 60000, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+      },
+      {
+        room: 2,
+        boss: { name: "Ye Shiyuan the Thrall", slug: "yeshiyuanthethrall", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Ice", "Physical", "Wind"],
+        specialty: "Stun",
+        resistance: ["Electric"],
+        gimmick:
+          "As Sobek and the Thrall alternate turns, the Thrall stacks Contract (+15% Anomaly Buildup RES each) and Self-Sacrifice, up to 3; stunned, he takes +50% CRIT DMG.",
+        buff: {
+          name: "Frost Reins",
+          slug: "atk",
+          desc: "Attack-specialty Agent ATK +25%; their Basic Attacks, EX Specials, and Chain Attacks ignore 30% of the target's Ice RES and Ether RES. Hitting a Stunned enemy raises its Stun DMG Multiplier 40% for 5s (repeat triggers reset the duration).",
+        },
+        pips: 3,
+        // 46,562 was the run that BIRTHED the Andres Line (the brainless-E revelation); the
+        // 49,180 keeper is the refined hybrid — Ye Shunguang's best room ever bar one, vs her
+        // own brother, in a stun-shill room with a stun-less team and a perfect performance.
+        scores: { total: 49180, damage: 44180, performance: 5000 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+      {
+        room: 3,
+        boss: { name: "Miasma Priest", slug: "miasmapriest", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Ether"],
+        specialty: "Rupture",
+        resistance: ["Ice"],
+        gimmick:
+          "Each phase switch stacks +10% Anomaly Buildup RES and +30% CRIT DMG taken on the Priest (×2), cleared when his Miasmic Shield breaks — the payout window keeps hiding behind shield phases.",
+        buff: {
+          name: "Breakthrough",
+          slug: "ruin",
+          desc: "Rupture-specialty Agent Sheer DMG +15%, and they reduce the Miasma Shield 30% faster. While in an Ether Veil, Agent Ether DMG +25%, and hitting an enemy raises its Stun DMG Multiplier 25% for 10s (repeat triggers reset the duration).",
+        },
+        pips: 3,
+        // Four runs in one evening: 40,237 → 41,267 (14 short of the record — the cruelest
+        // number in the log) → 43,357 (record broken, 4,000 perf) → 43,743 keeper, buying the
+        // perfect performance BACK while gaining another +386. A love-letter Rupture buff and
+        // the Priest still made Yixuan earn every tick of it.
+        scores: { total: 43743, damage: 38743, performance: 5000 },
+        team: [
+          { slug: "yixuan", name: "Yixuan" },
+          { slug: "jufufu", name: "Ju Fufu" },
+          { slug: "lucia", name: "Lucia" },
+        ],
+        bangboo: { name: "Belion", slug: "belion" },
+      },
+    ],
+    // Dynasty's Adversity node, screenshots landed 2026-08-15 mid-commit (A.'s timing).
+    // Second crowned badge (1→2). Aria takes Jane Doe's slot from the Angelfall squad.
+    //
+    // ⚠️ SPLIT MISMATCH: the board + badge plate both read best 34,853, but the detail
+    // panel A. captured reads 34,227 (29,227 + 5,000) — the tonight-shaped explanation is a
+    // re-run AFTER the detail screenshot. `bestTotal` carries the board truth; the room's
+    // scores carry the only split we have. True up damage/performance from a fresh detail
+    // panel next time the mode is open.
+    adversity: {
+      bestTotal: 34853,
+      rank: "8.30%",
+      medals: { crown: 2 },
+      room: {
+        room: 4,
+        label: "Adversity Mode",
+        boss: { name: "Sanguine Sweeper", tag: "Rewritten", slug: "rewrittensanguinesweeper", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Ice"],
+        resistance: ["Physical"],
+        targets: ADVERSITY_TARGETS,
+        // The Enemy Details block truncated mid-sentence after "Upon triggering a special
+        // stagger, the whole squad's..." — the visible Shutdown clause is complete, the
+        // stagger clause is not captured.
+        gimmick:
+          "Landing Shutdown cuts the enemy's All-Attribute RES 10% and grants Attack-specialty Agents +20% ATK, +25% PEN Ratio, and +60% Ice and Ether CRIT DMG; special staggers grant a further squad-wide bonus.",
+        buff: {
+          name: "United Strength",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +30/+70 Anomaly Proficiency and +10%/+25% Attribute Anomaly DMG. Inflicting an Attribute Anomaly cuts the enemy's All-Attribute RES 15% for 10s.",
+        },
+        pips: 3,
+        scores: { total: 34227, damage: 29227, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "aria", name: "Aria" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+      },
+    },
+  },
   // 07/29 rotation — Version 3.1 "The Long Goodbye". The patch reset the mode MID-CADENCE:
   // it superseded the 07/17 cycle on 07/29 05:59, twelve days in, not the fourteen the cadence
   // implied. 3.1 also renamed the three targets "Trial Mode" and added a separately-scored
