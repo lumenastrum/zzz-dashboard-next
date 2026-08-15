@@ -71,8 +71,9 @@ ENEMIES = {
 # from display names — the full ??? decoder ring (A.-confirmed 2026-07-03): Awakener IS
 # Ye Shiyuan (face-matched against his render), ComplexCorrupted = "Unknown Corruption Complex",
 # GraymaneCenturion = "Sanguine Sweeper", Vesper = "Discordant Solo - ???", Mutant = "??? of
-# the Scorched Horizon", NamelessOne = "Miasmic Fiend - Unfathomable". New codenames live in
-# the asset rip's ui_raw (174 candidates).
+# the Scorched Horizon", NamelessOne = "Miasmic Fiend - Unfathomable", MentorMevorakh =
+# "Miasma Priest" (A.-found in ui_raw 2026-08-15 when the Dynasty rail shipped a black box).
+# New codenames live in the asset rip's ui_raw (174 candidates).
 BOSS_ICONS = {
     "IconMonster_Girtablu.png": "girtablullu",
     "IconMonster_NotoriousMarionette.png": "notoriousmarionette",
@@ -87,6 +88,7 @@ BOSS_ICONS = {
     "IconMonster_Mutant.png": "scorchedhorizon",
     "IconMonster_NamelessOne.png": "miasmicfiend",
     "IconMonster_NotoriousPompey.png": "notoriouspompey",  # NOT TyrantPompey (other variant)
+    "IconMonster_MentorMevorakh.png": "miasmapriest",
 }
 
 # Mode chrome: the in-game Deadly Assault wordmark (black-on-transparent, ghosted via invert
