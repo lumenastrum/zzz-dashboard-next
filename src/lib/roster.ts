@@ -68,9 +68,10 @@ export const PROFILE_ROSTER: Record<string, string[]> = {
   // Sunna pulled 2026-07-08 (with signature) — build cloned from A.'s via scripts/clone-agent.ts.
   // Remielle Dan pulled 2026-08-01 (with signature, Ode of Resurrected Wings) — same clone path.
   // Seed pulled 2026-08-08 at M0W1 via the Filmgoer Thank-You Gift — cloned with an R1 override.
+  // Dialyn pulled 2026-08-19 (with signature, Yesterday Calls) — clone path, base exact.
   "wife-zzz": [
     "alice", "miyabi", "vivian", "remielledan", "yanagi",
-    "yeshunguang", "seed", "cissia",
+    "yeshunguang", "seed", "cissia", "dialyn",
     "jufufu",
     "astra", "yuzuha", "lucia", "sunna", "zhao",
     "yixuan", "yidhari",
