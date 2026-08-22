@@ -144,6 +144,13 @@ logged in `setlists.json → recent` and the endgame JSONs). They override guide
 5. **Room buffs are force multipliers, not consolation prizes.** A +30% CRIT DMG room
    *erases* a carry's CRIT DMG farming deficit. Never bench someone for a stat the room
    hands back for free.
+   **Corollary — the bucket must be EMPTY (2026-08-21 receipt).** A room buff multiplies
+   only where the carry is *missing* that stat. +40% CRIT DMG handed to the Physical
+   hypercarry (CRIT DMG is her known hole) = **+3,798** over her buff-less Shiyu best.
+   +20% Ether DMG handed to the Ether Rupture carry, whose disc 5 is already Ether DMG 30%,
+   = a ~33k flop, ten thousand under projection, in a room her 06-26 precedent team cleared
+   at 42k with no buff at all. Before crediting a room buff, name the stat the carry lacks;
+   a buff that lands in a full bucket is diluted, not multiplied.
 6. **Think across rooms.** Moving a stunner between rooms once cost 400 points in one room
    and gained 7,535 in another. Locally suboptimal can be globally correct.
 
@@ -163,6 +170,10 @@ logged in `setlists.json → recent` and the endgame JSONs). They override guide
 **Shiyu Defense** — room ratings B → A → S; **S+ is a season award** (S in every room AND
 season total ≥ 100,000). Score = damage + elimination, time-scaled. Read each room's
 buffs/resistances; lockout applies at the Critical Node / Stage 5 tier.
+**The clock is a lever (2026-08-21 receipt):** time-scaling is large enough that a near-miss
+gets a re-run of the SAME team before any redraft — Miyabi/Nangong Yu/Astra went 40,127 at
+02m 32s → 40,660 at 01m 48s, and that +533 (with a +477 polish in another room) turned a
+713-point deficit into a +297 all-time record. Ask for the clock on every Shiyu card.
 
 **Deadly Assault** — 3 bosses, 3 locked teams, 3-minute score attacks. Score = Damage Score +
 Performance Points (**perf caps at 5,000** — a team that can't do the boss's tasks leaves up
