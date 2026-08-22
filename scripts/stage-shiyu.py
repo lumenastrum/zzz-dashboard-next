@@ -43,6 +43,8 @@ ENEMIES = {
     "Enemy_Metamorphosed_-_Avarus.png": "metamorphosedavarus",
     "Enemy_Doppelganger_-_Starlight_-_Billy.png": "doppelgangerstarlightbilly",
     "Enemy_Sacrifice_-_Heretic_Jester.png": "sacrificehereticjester",
+    "Enemy_Thracian.webp": "thracian",
+    "Enemy_Miasmic_-_Thracian.webp": "miasmicthracian",
 }
 
 # Season chrome: the in-game Shiyu Defense badge + the five season rank medals. The medal is OUR

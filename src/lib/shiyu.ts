@@ -82,6 +82,86 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
+  // 2026-08-21 cycle, authored same night from A.'s result screenshots. NEW ALL-TIME BEST
+  // TOTAL: 137,735 — beats 07-24's archive-crowned 137,438 by +297. The account refuses a
+  // clean margin: first pass of the cycle sat 713 SHORT (136,725) and the re-runs found
+  // +1,010 (R2 +533, R3 +477). R1 = the Blight trio's SECOND straight 50,000 cap on
+  // Metamorphosed Avarus, 00m 50s to the second again (same room card as 08-07: Wind/
+  // Physical anomaly shill, Fire res, +15% Anomaly DMG, 2/3 Anomaly agents +40/120 AP).
+  // R3 = Thracian, NEW boss (Ice/Ether, NO resistances; Attack-specialty Basic ignores 30%
+  // Ice RES, Attack-specialty EX/Chain -> +20% Ice DMG +40% CRIT DMG 15s): the CRIT DMG
+  // room is YSG's by doctrine ("any CRIT DMG buff patches Ye's CD deficit for free") —
+  // 46,598 first pass at 95.7% carry share, 47,075 optimized, her Shiyu best either way.
+  // R2 = Mirage Archer rerun (06-26 room: Ether/Physical, Fire res; +20% Ether DMG, anomaly
+  // procs -15% DEF/-15% All RES 10s): the Yixuan/Fufu/Lucia draft FLOPPED to ~33k (Ether
+  // DMG% into a bucket her disc 5 already fills — a room buff is only a multiplier when
+  // the bucket is empty; Law 5 footnote), Miyabi/NY/Astra 40,127 at 02m 32s then 40,660
+  // at 01m 48s on the re-run — the clock was the lever, not the comp. Rank 2.5% as of 08-21 (S+ season card); grades S×5 mirrors the season
+  // card convention of every prior cycle. Three room scores sum to bestTotal exactly.
+  {
+    id: "critical-node-2026-08-21",
+    label: "Critical Node",
+    date: "2026-08-21",
+    frontier: "Fifth Frontier",
+    bestTotal: 137735,
+    rank: "2.5%",
+    medal: "legend",
+    highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
+    targets: [
+      { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
+      { rating: "S", desc: "S-rating in all rooms", done: true },
+      { rating: "A", desc: "A-rating in all rooms", done: true },
+      { rating: "B", desc: "B-rating in all rooms", done: true },
+    ],
+    rooms: [
+      {
+        room: 1,
+        rating: "S",
+        recommended: ["Wind", "Physical"],
+        anomaly: true,
+        resistance: ["Fire"],
+        boss: { name: "Avarus", tag: "Metamorphosed", slug: "metamorphosedavarus", level: 70 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+        scores: { total: 50000, damage: 45000, elimination: 5000 },
+        time: "00m 50s",
+      },
+      {
+        room: 2,
+        rating: "S",
+        recommended: ["Ether", "Physical"],
+        resistance: ["Fire"],
+        boss: { name: "Mirage Archer Unit", tag: "A-H0L0 Construct", slug: "miragearcherunit", level: 70 },
+        team: [
+          { slug: "miyabi", name: "Miyabi" },
+          { slug: "nangongyu", name: "Nangong Yu" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "Biggest Fan", slug: "biggestfan" },
+        scores: { total: 40660, damage: 35660, elimination: 5000 },
+        time: "01m 48s",
+      },
+      {
+        room: 3,
+        rating: "S",
+        recommended: ["Ice", "Ether"],
+        resistance: [],
+        boss: { name: "Thracian", slug: "thracian", level: 70 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 47075, damage: 42075, elimination: 5000 },
+      },
+    ],
+  },
   // 2026-08-07 cycle, authored 2026-08-14 from A.'s result screenshots, MID-CYCLE ("Defense
   // in Progress" through ~08-21; re-runs may still improve it). Best RANK ever logged (1.7%)
   // AND the account's first CAPPED Shiyu room: R1's total score ceiling is exactly 50,000
@@ -309,8 +389,8 @@ const CYCLES: ShiyuCycle[] = [
 const HISTORY: ShiyuHistoryEntry[] = [
   // 07/10 + 07/24 went HISTORY-DIRECT (logged 2026-08-14 from the in-game archive + A.'s
   // compiled teams — the DA 07/03 pattern: a superseded cycle skips the marquee, carrying
-  // exactly what the archive keeps). 07/24's 137,438 = the ALL-TIME best total, set and
-  // unlogged during the backlog window. Boos (schema drops them): 07/10 R1 Ultra Jake /
+  // exactly what the archive keeps). 07/24's 137,438 was the ALL-TIME best total (set and
+  // unlogged during the backlog window) until 08-21's 137,735 took it by +297. Boos (schema drops them): 07/10 R1 Ultra Jake /
   // R2 Snap / R3 Sprout; 07/24 R1 Sprout / R2 Ariel / R3 Biggest Fan.
   {
     id: "fifth-frontier-2026-07-24", date: "2026-07-24", label: "Fifth Frontier", score: 137438, rating: "S+", grades: { s: 5, a: 0, b: 0 },
