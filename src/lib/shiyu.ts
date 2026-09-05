@@ -82,6 +82,71 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
+  // 2026-09-04: screenshot-confirmed opening clear, 134,079 / S+ / 3.4%.
+  // R1: Ice/Ether DMG +35%, CRIT DMG +25%; Attack hits on stunned enemies
+  // reduce DEF 25% for 5s. R2: 2/3 Anomaly agents grant +10/60% Attribute
+  // Anomaly DMG and 500/1,500 starting Decibels. R3: DEF +15%, Electric RES
+  // ignore 20%; EX grants +5% CRIT Rate / +20% CRIT DMG for 15s.
+  // Resistance chips describe the powerful enemy, not the preceding waves.
+  // S×5 follows the season convention; the S+ result confirms all-room S.
+  {
+    id: "critical-node-2026-09-04",
+    label: "Critical Node",
+    date: "2026-09-04",
+    frontier: "Fifth Frontier",
+    bestTotal: 134079,
+    rank: "3.4%",
+    medal: "legend",
+    highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
+    targets: [
+      { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
+      { rating: "S", desc: "S-rating in all rooms", done: true },
+      { rating: "A", desc: "A-rating in all rooms", done: true },
+      { rating: "B", desc: "B-rating in all rooms", done: true },
+    ],
+    rooms: [
+      {
+        room: 1, rating: "S",
+        recommended: ["Ice", "Ether"], resistance: [],
+        boss: { name: "Tepes", slug: "tepes", level: 70 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 43060, damage: 38060, elimination: 5000 },
+        time: "01m 24s",
+      },
+      {
+        room: 2, rating: "S",
+        recommended: ["Ice", "Wind"], anomaly: true, resistance: ["Ether"],
+        boss: { name: "Airspace Sentinel", slug: "airspacesentinel", level: 70 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+        scores: { total: 48511, damage: 43511, elimination: 5000 },
+        time: "01m 16s",
+      },
+      {
+        room: 3, rating: "S",
+        recommended: ["Electric", "Physical"], resistance: ["Ether"],
+        boss: { name: "Lockspring", slug: "lockspring", level: 70 },
+        team: [
+          { slug: "cissia", name: "Cissia" },
+          { slug: "seed", name: "Seed" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+        scores: { total: 42508, damage: 37508, elimination: 5000 },
+        time: "01m 58s",
+      },
+    ],
+  },
   // 2026-08-21 cycle, authored same night from A.'s result screenshots. NEW ALL-TIME BEST
   // TOTAL: 137,735 — beats 07-24's archive-crowned 137,438 by +297. The account refuses a
   // clean margin: first pass of the cycle sat 713 SHORT (136,725) and the re-runs found
