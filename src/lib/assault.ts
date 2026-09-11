@@ -564,6 +564,12 @@ export interface AssaultHistoryTarget {
   bangboo?: { name: string; slug: string };
 }
 
+// Adversity Mode on a history card (3.1+ rotations): the same row shape as a target plus its
+// own percentile. It is scored APART from the trio — never folded into `score` or `pips`.
+export interface AssaultHistoryAdversity extends AssaultHistoryTarget {
+  rank: string;
+}
+
 // A compact history entry — demoted full cycles + the pre-editorial scorebook below.
 export interface AssaultHistoryEntry {
   id: string;
@@ -573,6 +579,7 @@ export interface AssaultHistoryEntry {
   rank: string;
   pips: number; // of 9
   targets?: AssaultHistoryTarget[]; // per-target rows, in target order
+  adversity?: AssaultHistoryAdversity; // the separate hard node, when the rotation had one
 }
 
 // Pre-editorial scorebook (A.'s in-game history screen + compiled rosters, 2026-07-01).
@@ -580,6 +587,39 @@ export interface AssaultHistoryEntry {
 // "05/28" for one cycle — the screenshot reads 05/08 Unlocked and the cadence + team match
 // confirm it, so 05/08 is canon. Per-cycle score sums verified against Best Total, all five.
 const HISTORY: AssaultHistoryEntry[] = [
+  // 08/28 cycle, authored history-direct 2026-09-11 from A.'s two result screens (the 09/11
+  // reset had already superseded it, so — like 07/03 — it skips the marquee). Dead End Butcher
+  // headlines for the second time since 05/22, hence the "II". Buffs aren't on the history
+  // screen and A. didn't keep them; lineups are his ("Miyabi core / Blight trio / Shungus
+  // core"), bangboos matched against the result thumbnails + the bangboo asset sheet.
+  // 147,531 is the account's third-highest rotation total and 2.19% its third-best percentile;
+  // Girtablullu capped 65,000 for the THIRD consecutive rotation. Adversity re-ran the 08/13
+  // node (Rewritten Sanguine Sweeper) with Aria in for Jane: 32,386 at 12%.
+  {
+    id: "da-deadendbutcher-2026-08", date: "2026-08-28", label: "Dead End Butcher Rotation II", score: 147531, rank: "2.19%", pips: 9,
+    targets: [
+      {
+        boss: "Dead End Butcher", bossSlug: "notoriousdeadendbutcher", score: 40279, pips: 3,
+        team: [{ slug: "miyabi", name: "Miyabi" }, { slug: "nangongyu", name: "Nangong Yu" }, { slug: "astra", name: "Astra Yao" }],
+        bangboo: { name: "Biggest Fan", slug: "biggestfan" },
+      },
+      {
+        boss: "Girtablullu", bossSlug: "girtablullu", score: 65000, pips: 3,
+        team: [{ slug: "remielledan", name: "Remielle Dan" }, { slug: "janedoe", name: "Jane Doe" }, { slug: "velina", name: "Velina" }],
+        bangboo: { name: "Ariel", slug: "ariel" },
+      },
+      {
+        boss: 'Primordial Nightmare - "The Creator"', bossSlug: "nineveh", score: 42252, pips: 3,
+        team: [{ slug: "yeshunguang", name: "Ye Shunguang" }, { slug: "dialyn", name: "Dialyn" }, { slug: "sunna", name: "Sunna" }],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+    ],
+    adversity: {
+      boss: "Rewritten - Sanguine Sweeper", bossSlug: "sanguinesweeper", score: 32386, rank: "12%", pips: 3,
+      team: [{ slug: "remielledan", name: "Remielle Dan" }, { slug: "aria", name: "Aria" }, { slug: "velina", name: "Velina" }],
+      bangboo: { name: "Ultra Jake", slug: "ultrajet" },
+    },
+  },
   // 07/03 cycle, authored history-direct 2026-07-17 from A.'s result screen (the 07/17 reset
   // superseded it the same day, so it never needed the full marquee treatment). Girtablullu
   // headlines a second consecutive rotation — hence the "II".
@@ -737,6 +777,20 @@ function toHistory(c: AssaultCycle): AssaultHistoryEntry {
           team: r.team,
           bangboo: r.bangboo,
         }))
+      : undefined,
+    // Adversity rides along too — without this a demoted 3.1+ cycle silently lost its node.
+    adversity: c.adversity
+      ? {
+          boss: c.adversity.room.boss.tag
+            ? `${c.adversity.room.boss.tag} - ${c.adversity.room.boss.name}`
+            : c.adversity.room.boss.name,
+          bossSlug: c.adversity.room.boss.slug,
+          score: c.adversity.bestTotal,
+          rank: c.adversity.rank,
+          pips: c.adversity.room.pips,
+          team: c.adversity.room.team,
+          bangboo: c.adversity.room.bangboo,
+        }
       : undefined,
   };
 }

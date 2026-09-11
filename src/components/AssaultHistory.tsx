@@ -1,4 +1,4 @@
-import type { AssaultHistoryEntry } from "@/lib/assault";
+import type { AssaultHistoryEntry, AssaultHistoryTarget } from "@/lib/assault";
 import { AssaultPips } from "@/components/AssaultSeason";
 import { DeckImg } from "@/components/deck/DeckImg";
 
@@ -11,6 +11,39 @@ const unlockDate = (iso: string) => {
   const [, m, d] = iso.split("-");
   return m && d ? `${m}/${d}` : iso || "—";
 };
+
+// One row of the card: a Trial target ("T1".."T3") or the Adversity node ("ADVERSITY", violet,
+// carrying its own percentile beside the score — it never pools into the card's total).
+function TargetRow({ t, tag, rank, adv }: { t: AssaultHistoryTarget; tag: string; rank?: string; adv?: boolean }) {
+  return (
+    <div className={adv ? "da-ht da-ht-adv" : "da-ht"}>
+      <div className="da-ht-top">
+        <small>{tag}</small>
+        {t.bossSlug && (
+          <span className="da-ht-ico" aria-hidden>
+            <DeckImg src={`/assets/bosses/${t.bossSlug}.webp`} alt="" />
+          </span>
+        )}
+        <span className="da-ht-boss">{t.boss}</span>
+        <AssaultPips earned={t.pips} max={3} size={12} />
+      </div>
+      <div className="da-ht-row">
+        {t.team.map((m) => (
+          <DeckImg key={m.slug} className="sh-tp" src={`/assets/endgame/${m.slug}.webp`} alt={m.name} />
+        ))}
+        {t.bangboo && (
+          <span className="da-ht-boo" title={`${t.bangboo.name} (Bangboo)`}>
+            <DeckImg src={`/assets/bangboo/${t.bangboo.slug}.webp`} alt={t.bangboo.name} />
+          </span>
+        )}
+        <b className="da-ht-score">
+          {rank && <small>{rank}</small>}
+          {fmt(t.score)}
+        </b>
+      </div>
+    </div>
+  );
+}
 
 export function AssaultHistory({ entries }: { entries: AssaultHistoryEntry[] }) {
   if (entries.length === 0) return null;
@@ -41,30 +74,9 @@ export function AssaultHistory({ entries }: { entries: AssaultHistoryEntry[] }) 
             {e.targets && e.targets.length > 0 ? (
               <div className="da-hts">
                 {e.targets.map((t, i) => (
-                  <div className="da-ht" key={i}>
-                    <div className="da-ht-top">
-                      <small>T{i + 1}</small>
-                      {t.bossSlug && (
-                        <span className="da-ht-ico" aria-hidden>
-                          <DeckImg src={`/assets/bosses/${t.bossSlug}.webp`} alt="" />
-                        </span>
-                      )}
-                      <span className="da-ht-boss">{t.boss}</span>
-                      <AssaultPips earned={t.pips} max={3} size={12} />
-                    </div>
-                    <div className="da-ht-row">
-                      {t.team.map((m) => (
-                        <DeckImg key={m.slug} className="sh-tp" src={`/assets/endgame/${m.slug}.webp`} alt={m.name} />
-                      ))}
-                      {t.bangboo && (
-                        <span className="da-ht-boo" title={`${t.bangboo.name} (Bangboo)`}>
-                          <DeckImg src={`/assets/bangboo/${t.bangboo.slug}.webp`} alt={t.bangboo.name} />
-                        </span>
-                      )}
-                      <b className="da-ht-score">{fmt(t.score)}</b>
-                    </div>
-                  </div>
+                  <TargetRow key={i} t={t} tag={`T${i + 1}`} />
                 ))}
+                {e.adversity && <TargetRow t={e.adversity} tag="ADVERSITY" rank={e.adversity.rank} adv />}
               </div>
             ) : (
               <div className="da-hist-pips">

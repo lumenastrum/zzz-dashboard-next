@@ -1025,6 +1025,12 @@ a.back { color:var(--red); font-family:var(--led); letter-spacing:1px; }
   border:1px solid var(--bezel1); background:radial-gradient(circle at 50% 40%, var(--panelhi), var(--bg2)); }
 .da-ht-boo img { width:100%; height:100%; object-fit:contain; padding:2px; }
 .da-ht-score { margin-left:auto; font-family:var(--disp); font-weight:700; font-size:16px; color:var(--chrome); }
+/* Adversity Mode row — violet like the marquee's node, dashed rule so it never reads as a T4;
+   its own percentile rides beside the score because it is ranked apart from the trio */
+.da-ht-adv { border-top:1px dashed color-mix(in srgb, var(--violet) 45%, var(--bezel1)); }
+.da-ht-adv .da-ht-top small { color:var(--violet); }
+.da-ht-adv .da-ht-score small { font-family:var(--led); font-size:9px; letter-spacing:1px; color:var(--violet);
+  margin-right:8px; vertical-align:middle; }
 
 @media (max-width:1000px){
   .da-no-wm { display:none; }
