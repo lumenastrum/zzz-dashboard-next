@@ -151,6 +151,17 @@ logged in `setlists.json → recent` and the endgame JSONs). They override guide
    = a ~33k flop, ten thousand under projection, in a room her 06-26 precedent team cleared
    at 42k with no buff at all. Before crediting a room buff, name the stat the carry lacks;
    a buff that lands in a full bucket is diluted, not multiplied.
+   **Corollary — price the buff against the TARGET, not the tooltip (2026-09-11 receipt).**
+   Same trio (two Electric Attack carries + the universal support), same boss, full clock,
+   two buffs. On paper: "+5% PEN, ignores 15% of Electric RES" (~+15%) vs "squad CRIT DMG
+   +30%, stun multiplier +20% on a Stunned enemy" (a coin flip, the coach said). Measured:
+   the CRIT DMG buff won by **+3,508 / +12.2% damage**. Two pricing errors, never again:
+   (a) a RES-ignore against an element the boss is *already weak to* is worth close to
+   nothing — price it at the floor, never as a full multiplier; (b) "no stunner in the
+   trio" does not mean "no stun windows" — an Attack carry putting up two thirds of the
+   squad's daze IS the stunner, so stun-window lines are live. Rule: when a universal line
+   (CRIT DMG% to everyone, ATK% to the carry's class) competes with a conditional one, the
+   universal wins unless the condition is verified airtight against *this* room.
 6. **Think across rooms.** Moving a stunner between rooms once cost 400 points in one room
    and gained 7,535 in another. Locally suboptimal can be globally correct.
 
@@ -178,7 +189,13 @@ gets a re-run of the SAME team before any redraft — Miyabi/Nangong Yu/Astra we
 **Deadly Assault** — 3 bosses, 3 locked teams, 3-minute score attacks. Score = Damage Score +
 Performance Points (**perf caps at 5,000** — a team that can't do the boss's tasks leaves up
 to 5,000 on the table no matter its DPS). Challenge Targets 6,000 / 14,000 / 20,000 award up
-to 3 pips per room, 9 per cycle. Each cycle offers selectable buffs — the logs record which
+to 3 pips per room, 9 per cycle. Since 3.1 the trio is "Trial Mode" and a separately scored
+**Adversity Mode** node runs beside it (targets 10,000 / 20,000 / 30,000; its score never
+pools into the Trial total). Each rotation offers a pool of three selectable buffs — **buffs
+never lock: every room (Adversity included) picks freely from the pool** (A.-confirmed
+2026-09-11), so choose each room's buff on merit alone and never "save" one. 3.2 added
+Armorer-specialty rooms whose Enemy Details tax anomaly outright (Kusarikku: Attribute Anomaly
+DMG taken −40%) — read that block before drafting the Anomaly shell. The logs record which
 buff A. ran per room.
 
 **Reward sufficiency (both modes):** once the premium reward tier is secured, further
