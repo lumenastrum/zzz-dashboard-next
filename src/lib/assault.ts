@@ -225,8 +225,51 @@ const CYCLES: AssaultCycle[] = [
         bangboo: { name: "Sprout", slug: "sprout" },
       },
     ],
-    // Adversity (Integrated - Scorched Horizon) — A. is running it now; block lands when the
-    // result screens do.
+    // Adversity — A.'s gut over Clio's draft, again. The coach drafted the Electric crit trio
+    // (boss weak to Electric, resists Physical); A. re-ran "last cycle's Encore team" — the
+    // 08/28 Adversity squad, Remielle/Aria/Velina + Ultra Jake — on a matchup that is neutral
+    // for Lumiflux/Ether/Wind, and cleared all three targets at 32,942: above 08/28's 32,386
+    // on this node, under Dynasty's 34,853. Lesson filed: the strongest PROVEN shell on a
+    // neutral matchup beats a weaker shell that happens to be on-element. Fourth Adversity
+    // crown (plate reads ♛4 · 32942). Buff = Cinders of Corrosion — A.: "Adversity carries
+    // over the same buffs as Trial mode" (one pool per rotation, free pick per room).
+    //
+    // Sourcing: the room card (2026-09-11) carries the split, chips, Enemy Details and the
+    // buff icon — the post-run result detail was closed before capture and can't be reopened.
+    // Enemy Details cut off mid-sentence at "the Stun…"; the tail ("DMG Multiplier increases
+    // by 20%") and the performance rules (Defensive Assist during Misty Veil 1,500 · Shutdown
+    // on the Control Skill 2,000 · cap 5,000) are Game8's wording. No wiki render for the
+    // Integrated variant → the room reuses the Phaethon `scorchedhorizon` slug, same as
+    // Integrated Girtablullu did on Angelfall.
+    adversity: {
+      bestTotal: 32942,
+      rank: "15%",
+      medals: { crown: 4 },
+      room: {
+        room: 4,
+        label: "Adversity Mode",
+        boss: { name: "Integrated - Scorched Horizon", slug: "scorchedhorizon", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Electric"],
+        resistance: ["Physical"],
+        targets: ADVERSITY_TARGETS,
+        gimmick:
+          "Impaired or Shutdown grants the squad +40% Sharp DMG for 60s (Armorer-only damage — dead weight for this squad). Hits on a non-Stunned target deal +15% Daze; while Stunned, its Stun DMG Multiplier +20%. Defensive Assists during Misty Veil and a Control-Skill Shutdown bank the Performance Points.",
+        buff: {
+          name: "Cinders of Corrosion",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +20/+60 Anomaly Proficiency and +10%/+20% Anomaly Buildup Rate. Inflicting an Attribute Anomaly cuts the enemy's DEF 10% for 10s.",
+        },
+        pips: 3,
+        scores: { total: 32942, damage: 27942, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "aria", name: "Aria" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
+      },
+    },
   },
   // 08/13 rotation — authored 2026-08-15 from A.'s screenshots, the night it happened.
   //
