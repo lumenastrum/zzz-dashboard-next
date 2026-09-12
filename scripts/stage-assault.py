@@ -63,6 +63,11 @@ ENEMIES = {
     # files (no red-link reuse needed this time, unlike the Girtablullu variants) — we stage
     # the exact variant fought.
     "Enemy_Rewritten_-_Sanguine_Sweeper.png": "rewrittensanguinesweeper",
+    # 09/11 rotation. Kusarikku = 3.2's Armorer boss; the Stagnant Aberrant variant of
+    # Girtablullu finally has its own wiki render (it was a red link in July — earlier cycles
+    # keep the plain `girtablullu` slug). Both off the wikia CDN, 484x668 native, 2026-09-11.
+    "Enemy_Kusarikku.png": "kusarikku",
+    "Enemy_Girtablullu_-_Stagnant_Aberrant.png": "girtablullustagnantaberrant",
 }
 
 # In-game target-rail head banners (IconMonster_*, ~180x64 RGBA — the icons the game's own DA
@@ -102,6 +107,13 @@ UI = {
     "Icon_Deadly_Assault_Buff_(Element).png": "da-buff-element",
     "Icon_Deadly_Assault_Buff_(ATK).png": "da-buff-atk",
     "Icon_Deadly_Assault_Buff_(Ruin).png": "da-buff-ruin",
+    # NB: a FOURTH archetype, `da-buff-sharp` (Sharp Rupture, 09/11 — the Armorer-flavoured
+    # buff), is NOT staged here: the wiki had no file for it on day one, so it was cropped from
+    # A.'s buff-picker screenshot straight into public/assets/ui/. Same for
+    # bosses/kusarikku.webp (a head crop of the Enemy_Kusarikku render — the rip is 06/21 and
+    # predates 3.2) and bosses/girtablullustagnantaberrant.webp (alias of the Girtablu banner).
+    # A real Icon_Deadly_Assault_Buff_(...).png / IconMonster_*.png landing here should take
+    # those jobs over.
 }
 
 

@@ -102,6 +102,132 @@ export const PERFORMANCE_MAX = 5000;
 // A., buffs + dates from the fandom wiki (icons matched against his result screenshots).
 // Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
+  // 09/11 rotation — authored 2026-09-11 from A.'s screenshots, live, room by room, while he
+  // played (Clio on the couch). Named for the headline boss (house rule; A.'s to veto).
+  //
+  // The story: Kusarikku is 3.2's new boss and the first Armorer-specialty room — "Attribute
+  // Anomaly DMG taken reduced by 40%", aimed squarely at an account whose best shell is the
+  // Blight trio, and A. owns no Armorer. He ran Cissia/Seed/Astra into it anyway. The buff pick
+  // became a live A/B on identical bodies and a full clock: Sharp Rupture 31,533 → polished to
+  // 33,817, then Gleaming Frost 37,325 (+3,508, +12.2% damage). Clio had priced them a coin
+  // flip with Sharp Rupture a hair ahead — wrong twice over: Cissia is a de facto stunner
+  // (67–71% of the daze, so the stun-multiplier line was live), and "ignores 15% Electric RES"
+  // on a boss ALREADY weak to Electric was worth close to nothing. Doctrine corollary in
+  // COACH.md. A. also settled a standing question: "DA buffs are never locked, baby" — every
+  // room picks freely from the rotation's pool, no one-use constraint.
+  //
+  // 151,017 is the third-best rotation ever (157,923 / 155,461 / 151,017) and 1.75% the
+  // second-best percentile (1.59% Angelfall). The Blight trio capped Girtablullu for the
+  // FOURTH consecutive rotation. The Thrall came in 23 points short of passing 08/28's
+  // 147,531 — and instead of a re-run there, the Kusarikku science run found the points.
+  //
+  // Sourcing: scores/pips/attributes/specialties/resistances screenshot-exact (room card,
+  // buff picker, result screens, combat records — 2026-09-11). Buff text is the picker's
+  // wording, tails completed from Game8 where the card cut off. Renders: Kusarikku +
+  // Girtablullu - Stagnant Aberrant both pulled off the wikia CDN (computable-md5 path),
+  // 484×668 native — the Stagnant Aberrant variant was a red link in July and now exists, so
+  // this room stages the exact variant fought (earlier cycles keep the plain `girtablullu`
+  // slug). Kusarikku's rail banner is a head crop of that render (the asset rip is 06/21 and
+  // predates 3.2 — swap in IconMonster_* when a fresh rip lands). Sharp Rupture wears a NEW
+  // fourth buff-icon archetype (`sharp`), cropped from the picker; Cinders = element,
+  // Gleaming Frost = atk (both matched pixel-for-pixel against the staged icons).
+  {
+    id: "da-kusarikku-2026-09",
+    label: "Kusarikku Rotation",
+    date: "2026-09-11",
+    bestTotal: 151017,
+    rank: "1.75%",
+    medals: { crown: 24, shield: 9 }, // 22→24: 08/28 and this rotation both crowned
+    rooms: [
+      {
+        room: 1,
+        boss: { name: "Kusarikku", slug: "kusarikku", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Fire", "Electric"],
+        specialty: "Armorer",
+        resistance: ["Ice"],
+        gimmick:
+          "Attribute Anomaly DMG taken is cut 40%. A Defensive Assist against Rift Assault stacks Exposed (a Stun adds 2; ×4, 30s) — each stack raises Laceration DMG taken 10%, and only Armorer agents deal Laceration.",
+        buff: {
+          name: "Gleaming Frost",
+          slug: "atk",
+          desc: "Attack-specialty Agents deal +20% Ice DMG. Agent CRIT DMG +30%. Hitting a Stunned enemy raises its Stun DMG Multiplier a further 20% for 20s.",
+        },
+        pips: 3,
+        // Three runs: Sharp Rupture 31,533 (26,533 + 5,000) → 33,817 (28,817 + 5,000, same
+        // buff, rotation polish) → Gleaming Frost 37,325. Combat record on the keeper: Cissia
+        // 46.5% DMG / 66.7% Daze, Seed 51.3% DMG (up from 44% under Sharp Rupture — she's the
+        // one whose kit lives on CRIT DMG), Astra 1.6%. Best-ever room in a specialty A.
+        // doesn't own.
+        scores: { total: 37325, damage: 32325, performance: 5000 },
+        team: [
+          { slug: "cissia", name: "Cissia" },
+          { slug: "seed", name: "Seed" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+      },
+      {
+        room: 2,
+        boss: { name: "Girtablullu - Stagnant Aberrant", slug: "girtablullustagnantaberrant", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: [],
+        specialty: "Anomaly",
+        resistance: [],
+        gimmick:
+          "Each Attribute Anomaly stacks a matching Blight Mark (30s, ×2) — every stack raises Attribute Anomaly DMG taken 8% and Corruptive Barrier DMG taken 8%; inflicting Impaired or Shutdown grants the squad +60 Anomaly Proficiency for 30s.",
+        buff: {
+          name: "Cinders of Corrosion",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +20/+60 Anomaly Proficiency and +10%/+20% Anomaly Buildup Rate. Inflicting an Attribute Anomaly cuts the enemy's DEF 10% for 10s.",
+        },
+        pips: 3,
+        killed: true, // FOURTH consecutive rotation the Blight trio killed him (08/01, 08/13, 08/28, 09/11)
+        // Cinders is a straight downgrade from United Strength (+60 AP vs +70, buildup rate
+        // instead of +25% anomaly DMG, DEF −10% instead of all-RES −15%) and it changed
+        // nothing. Combat record: Jane 17% DMG / 65.1% anomaly buildup — she is the Blight
+        // Mark engine, not a carry; Velina MVP at 39.9% DMG / 38.3% Daze / 32.7% buildup;
+        // Remielle 42.9% DMG with zero buildup of her own.
+        scores: { total: 65000, damage: 60000, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+      },
+      {
+        room: 3,
+        boss: { name: "Ye Shiyuan the Thrall", slug: "yeshiyuanthethrall", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Ice", "Physical", "Wind"],
+        specialty: "Stun",
+        resistance: ["Electric"],
+        gimmick:
+          "As Sobek and the Thrall alternate turns, the Thrall stacks Contract (+15% Anomaly Buildup RES each) and Self-Sacrifice (+10% Stun DMG Multiplier each), up to 3; stunned, he takes +50% CRIT DMG.",
+        buff: {
+          name: "Gleaming Frost",
+          slug: "atk",
+          desc: "Attack-specialty Agents deal +20% Ice DMG. Agent CRIT DMG +30%. Hitting a Stunned enemy raises its Stun DMG Multiplier a further 20% for 20s.",
+        },
+        pips: 3,
+        // 488 damage under Ye Shunguang's own 08/13 record on this boss (44,180 with Frost
+        // Reins — ATK +25% / stun mult +40% vs Gleaming Frost's CRIT DMG +30% / stun mult
+        // +20%; the Ice line misses her either way, Honed Edge counts as Physical). 92.7% of
+        // the damage, Dialyn 66.4% of the daze, perfect performance. 23 points short of
+        // passing 08/28 — the points came from Room 1 instead.
+        scores: { total: 48692, damage: 43692, performance: 5000 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+    ],
+    // Adversity (Integrated - Scorched Horizon) — A. is running it now; block lands when the
+    // result screens do.
+  },
   // 08/13 rotation — authored 2026-08-15 from A.'s screenshots, the night it happened.
   //
   // Named for the record, Angelfall-style (the name is A.'s to veto): 157,923 is the new
