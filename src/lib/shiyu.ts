@@ -20,7 +20,7 @@ export interface ShiyuMember {
 export interface ShiyuBoss {
   name: string;
   tag?: string; // variant label, e.g. "Miasma"
-  slug: string; // -> /assets/bosses/<slug>.webp
+  slug: string; // -> /assets/enemies/<slug>.webp (full-body room render, 484x668)
   level: number;
 }
 
@@ -82,6 +82,83 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
+  // 2026-09-18 cycle, authored 09-19 from A.'s room cards, result screens and FOUR recorded
+  // runs — the day we measured Shiyu's scoring off the in-combat HUD instead of guessing
+  // (full model: public/coach/COACH.md). 133,673 / S+ / 2.4%.
+  // R1 = Lockspring again (Electric/Physical, Ether res; Sharp DMG +25% = Armorer-only, dead
+  // for this account; crit on a Stunned enemy -> Stun DMG Multiplier +20% 10s). A.'s gut put
+  // Ye Shunguang here over my wait-for-all-three-cards: 49,168 FIRST TRY in 01m 05s = her
+  // best room ever in any mode, 832 off the cap, +6,660 over Electric's 09-04 run on this boss.
+  // R2 = The Decider - Terror Raptor (Ice/Physical, Electric res; Anomaly Buildup +15%,
+  // Anomaly DMG +20%, 2/3 Anomaly agents -> +20/60 AP): the Blight trio capped it, 50,000 in
+  // 00m 58s (Jane 74% of the buildup for 18% of the damage — she is the engine).
+  // R3 = Mirage Archer Unit, third visit (Ether/Physical, Fire res; Ether DMG +20%, AP +20,
+  // inflicting an Attribute Anomaly -> Stun DMG Multiplier +20% 15s; wave one = Arlaune +
+  // Ionized Pugnus, the HP wall). Three teams measured within ~1.4k of each other:
+  // Miyabi/Nangong Yu/Astra 33,054, Cissia/Seed/Astra 33,164 with ZERO room buffs, and
+  // Yixuan/Ju Fufu/Lucia 34,505 after A. said "broaden the scope" — the trio I had benched
+  // that morning on 08-21 evidence the new scoring curve had made meaningless. The room sets
+  // the score here, not the team: ~30 s of x5.0 burned on wave one, then the boss's Control
+  // Skill (invulnerable + parry lock) after the first stun.
+  // Three room scores sum to bestTotal exactly; S×5 follows the season-card convention.
+  {
+    id: "critical-node-2026-09-18",
+    label: "Critical Node",
+    date: "2026-09-18",
+    frontier: "Fifth Frontier",
+    bestTotal: 133673,
+    rank: "2.4%",
+    medal: "legend",
+    highestRating: "S+",
+    grades: { s: 5, a: 0, b: 0 },
+    targets: [
+      { rating: "S+", desc: "S-rating in all rooms · total ≥ 100,000", done: true },
+      { rating: "S", desc: "S-rating in all rooms", done: true },
+      { rating: "A", desc: "A-rating in all rooms", done: true },
+      { rating: "B", desc: "B-rating in all rooms", done: true },
+    ],
+    rooms: [
+      {
+        room: 1, rating: "S",
+        recommended: ["Electric", "Physical"], resistance: ["Ether"],
+        boss: { name: "Lockspring", slug: "lockspring", level: 70 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 49168, damage: 44168, elimination: 5000 },
+        time: "01m 05s",
+      },
+      {
+        room: 2, rating: "S",
+        recommended: ["Ice", "Physical"], anomaly: true, resistance: ["Electric"],
+        boss: { name: "Terror Raptor", tag: "The Decider", slug: "thedeciderterrorraptor", level: 70 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+        scores: { total: 50000, damage: 45000, elimination: 5000 },
+        time: "00m 58s",
+      },
+      {
+        room: 3, rating: "S",
+        recommended: ["Ether", "Physical"], resistance: ["Fire"],
+        boss: { name: "Mirage Archer Unit", tag: "A-H0L0 Construct", slug: "miragearcherunit", level: 70 },
+        team: [
+          { slug: "yixuan", name: "Yixuan" },
+          { slug: "jufufu", name: "Ju Fufu" },
+          { slug: "lucia", name: "Lucia" },
+        ],
+        bangboo: { name: "Belion", slug: "belion" },
+        scores: { total: 34505, damage: 29505, elimination: 5000 },
+        time: "02m 23s",
+      },
+    ],
+  },
   // 2026-09-04: screenshot-confirmed opening clear, 134,079 / S+ / 3.4%.
   // R1: Ice/Ether DMG +35%, CRIT DMG +25%; Attack hits on stunned enemies
   // reduce DEF 25% for 5s. R2: 2/3 Anomaly agents grant +10/60% Attribute

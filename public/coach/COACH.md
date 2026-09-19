@@ -186,6 +186,49 @@ gets a re-run of the SAME team before any redraft — Miyabi/Nangong Yu/Astra we
 02m 32s → 40,660 at 01m 48s, and that +533 (with a +477 polish in another room) turned a
 713-point deficit into a +297 all-time record. Ask for the clock on every Shiyu card.
 
+**The Shiyu scoring model (MEASURED 2026-09-19, off the player's own 60 fps recordings of
+Critical Node Room 3 — the in-combat HUD prints `Current Score: (xN) score/next-rating-target`).**
+The timer counts DOWN from 05:00 and **freezes during ult / chain-attack cinematics**.
+
+| elapsed | 0:00–1:00 | 1:00–1:10 | 1:10–1:20 | 1:20–1:30 | 1:30–1:45 | 1:45–2:00 | 2:00–2:15 | 2:15–2:30 | 2:30+ |
+|---|---|---|---|---|---|---|---|---|---|
+| multiplier | x5.0 | x4.2 | x3.5 | x3.0 | x2.5 | x2.0 | x1.6 | x1.3 | x1.0 |
+
+- **Score = % of enemy HP removed x the multiplier at that moment.** Damage *numbers* are
+  irrelevant (a 933,622 crit during an invulnerable phase moved the score 74 points). Measured:
+  a boss ≈ 80 raw points per 1% HP (40,000 at x5.0); a two-add opening wave ≈ 5,000 damage
+  points + 2,500 elimination per add; damage caps at 45,000 (+5,000 elimination = the 50,000
+  room cap).
+- **A kill inside the first 60 seconds caps the room.** The model reproduces the banked rooms:
+  killed at 00m 58s → exactly 50,000; killed at 01m 05s (five seconds into x4.2) → 49,168.
+- **Draft Shiyu for % HP removed in the first 60–80 seconds, not for total DPS.** Front-loaded,
+  steady damage beats stun-gated or ramping damage: Miyabi/Nangong Yu/Astra did ~15x more
+  damage inside a stun than outside one, her first stun could not land before ~1:08, and she
+  plateaued at 33k; Cissia/Seed/Astra matched that (33,164) with NO weakness and NO live room
+  buff, because their curve never flatlines. Room buffs mattered far less than the curve.
+- **The opening wave is a tax on the x5.0 minute.** Its points are fixed (all of it lands at
+  x5.0 however long it takes); its cost is every second the boss is not yet on the field. An
+  HP-wall add (Ionized Pugnus: ~28 s for ~1,600 points) is the real enemy of the room.
+- **Spend everything early — the player's instinct, and it won the only test.** On paper an
+  ult on the boss inside x5.0 buys points (≈ 400 per 1% boss HP; one unstunned cinematic took
+  15% of a boss for 3,104 at x2.5, ~6,200 had it landed at x5.0) while an ult on the opening
+  wave only buys time. In practice (2026-09-19, Yixuan/Ju Fufu/Lucia, one unrecorded run)
+  holding Yixuan's second ult for the boss spawn scored **30.7k against a 34,505 peak** —
+  the slower opening wave cost more than the held ult paid. n=1, so not a Law, but do NOT
+  coach "hold the ult" on the strength of the arithmetic alone; clearing the wave IS the
+  lever, and ults are how this player clears it.
+- An off-field stunner's first stun is set by passive daze (Ju Fufu: ~43 s after boss spawn,
+  twice, to the second) — the player cannot move it; do not coach "stun earlier" for her.
+- **Control Skill bosses** (3.2+, e.g. Mirage Archer Unit): after the first stun ends the boss
+  goes invulnerable and locks the squad into parries for ~10–15 s. It pays nothing in Shiyu.
+  Pure dead time — the only control is the multiplier it happens at.
+- **Locks:** teams, discs and W-engines lock to the room they fought in, and **Reset Room
+  wipes that room's score** — a cross-room swap costs the banked score for real. Probe with
+  free agents first; stage a swap so only one banked room is ever at risk.
+- The "+533 for 44 seconds" receipt above predates this curve (it would be worth thousands
+  now) — the schedule got steeper some time after 2026-08-21. Re-measure after any patch:
+  NVIDIA Alt+F9 recording → crop the HUD panel once per second.
+
 **Deadly Assault** — 3 bosses, 3 locked teams, 3-minute score attacks. Score = Damage Score +
 Performance Points (**perf caps at 5,000** — a team that can't do the boss's tasks leaves up
 to 5,000 on the table no matter its DPS). Challenge Targets 6,000 / 14,000 / 20,000 award up
