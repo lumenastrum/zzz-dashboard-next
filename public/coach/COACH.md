@@ -206,6 +206,25 @@ The timer counts DOWN from 05:00 and **freezes during ult / chain-attack cinemat
   damage inside a stun than outside one, her first stun could not land before ~1:08, and she
   plateaued at 33k; Cissia/Seed/Astra matched that (33,164) with NO weakness and NO live room
   buff, because their curve never flatlines. Room buffs mattered far less than the curve.
+- **A capped room is over-served — move the surplus (the player's idea, 2026-09-19).** Every
+  point of damage past the 50,000 cap is wasted, so a team that caps with time to spare is
+  carrying power another room needs. Receipt: with Room 2 capped in 58 s and Room 3 stuck at
+  ~34k for three different teams, moving the capping carry's shell into the bleeding room
+  (Remielle Dan/Aria/Velina) took it to **46,502 in 01m 28s** — opening wave dead in 19 s
+  instead of 30–39, 63% of the boss gone inside x5.0 (next best team that day: 23%). When a
+  room caps early, ask what that team would do in the worst room BEFORE drafting a fourth
+  option for it. The catch is the lock: the capped room must be reset first, so only do it
+  when the capping team re-caps reliably (this trio had capped three cycles running).
+- **Price a cross-room swap honestly, then let the player decide.** Same day: Electric into
+  the on-weakness room (estimate 42–44k → actual 42,699) and Ye Shunguang into the off-buff
+  room (estimate 43–46k → actual 43,390) landed inside both estimates and finished the cycle
+  at 136,510 — second-best ever, 1,226 short of the record. A hypercarry who needs no room
+  buff (Ye Shunguang: 49,168 on-buff, 43,390 with nothing helping her) is the piece you can
+  move anywhere.
+- **Do not coach a lever the team does not have.** Twice in one session the coach said "stun
+  earlier" to a squad that cannot: an off-field passive stunner (Ju Fufu), then a no-stunner
+  mono-Physical anomaly team (player, verbatim: "This team has 0 daze, okay?"). Read the
+  combat record's Daze column before suggesting anything about stun timing.
 - **The opening wave is a tax on the x5.0 minute.** Its points are fixed (all of it lands at
   x5.0 however long it takes); its cost is every second the boss is not yet on the field. An
   HP-wall add (Ionized Pugnus: ~28 s for ~1,600 points) is the real enemy of the room.

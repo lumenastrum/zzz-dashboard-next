@@ -82,32 +82,51 @@ export interface ShiyuHistoryEntry {
 // Newest cycle first. CYCLES[0] gets the full marquee treatment; older entries auto-demote to the
 // clear-history block (via toHistory). To log a new clear: author it HERE at the top — done.
 const CYCLES: ShiyuCycle[] = [
-  // 2026-09-18 cycle, authored 09-19 from A.'s room cards, result screens and FOUR recorded
-  // runs — the day we measured Shiyu's scoring off the in-combat HUD instead of guessing
-  // (full model: public/coach/COACH.md). 133,673 / S+ / 2.4%.
-  // R1 = Lockspring again (Electric/Physical, Ether res; Sharp DMG +25% = Armorer-only, dead
-  // for this account; crit on a Stunned enemy -> Stun DMG Multiplier +20% 10s). A.'s gut put
-  // Ye Shunguang here over my wait-for-all-three-cards: 49,168 FIRST TRY in 01m 05s = her
-  // best room ever in any mode, 832 off the cap, +6,660 over Electric's 09-04 run on this boss.
-  // R2 = The Decider - Terror Raptor (Ice/Physical, Electric res; Anomaly Buildup +15%,
-  // Anomaly DMG +20%, 2/3 Anomaly agents -> +20/60 AP): the Blight trio capped it, 50,000 in
-  // 00m 58s (Jane 74% of the buildup for 18% of the damage — she is the engine).
-  // R3 = Mirage Archer Unit, third visit (Ether/Physical, Fire res; Ether DMG +20%, AP +20,
-  // inflicting an Attribute Anomaly -> Stun DMG Multiplier +20% 15s; wave one = Arlaune +
-  // Ionized Pugnus, the HP wall). Three teams measured within ~1.4k of each other:
-  // Miyabi/Nangong Yu/Astra 33,054, Cissia/Seed/Astra 33,164 with ZERO room buffs, and
-  // Yixuan/Ju Fufu/Lucia 34,505 after A. said "broaden the scope" — the trio I had benched
-  // that morning on 08-21 evidence the new scoring curve had made meaningless. The room sets
-  // the score here, not the team: ~30 s of x5.0 burned on wave one, then the boss's Control
-  // Skill (invulnerable + parry lock) after the first stun.
-  // Three room scores sum to bestTotal exactly; S×5 follows the season-card convention.
+  // 2026-09-18 cycle, authored 09-19 from A.'s room cards, result screens and EIGHT analyzed
+  // recordings — the day we measured Shiyu's scoring off the in-combat HUD instead of guessing
+  // (full model: public/coach/COACH.md). FINAL: 136,510 / S+ / 1.9% = second-best total and
+  // second-best percentile in account history, 1,226 short of the 137,735 record. It was
+  // minted at 133,673 / 2.4% that afternoon (commit 09be0e7); then A. declared the rest of
+  // the night playtime and found another +2,837 after hours.
+  // The rooms: R1 Lockspring (Electric/Physical, Ether res; Sharp DMG +25% = Armorer-only,
+  // dead for this account; crit on a Stunned enemy -> Stun DMG Multiplier +20% 10s).
+  // R2 The Decider - Terror Raptor (Ice/Physical, Electric res; Anomaly Buildup +15%, Anomaly
+  // DMG +20%, 2/3 Anomaly agents -> +20/60 AP). R3 Mirage Archer Unit, third visit (Ether/
+  // Physical, Fire res; Ether DMG +20%, AP +20, Attribute Anomaly -> Stun DMG Multiplier +20%
+  // 15s; wave one = Arlaune + Ionized Pugnus, the HP wall; boss Control Skill = invulnerable
+  // + parry lock after the first stun, pays nothing in Shiyu).
+  // The day, in order — every lineup below was banked at some point, and Reset Room wipes a
+  // room, so only the last shape survives on the card:
+  //  1. Morning shape, 133,673: YSG/Dialyn/Sunna + Sprout 49,168 in R1 (FIRST TRY, 01m 05s,
+  //     her best room ever in any mode — A.'s gut over my wait-for-all-three-cards) · Blight
+  //     trio + Ariel 50,000 in R2 (00m 58s, capped) · R3 stuck ~33-34k for THREE different
+  //     teams: Miyabi/Nangong Yu/Astra 33,054, Cissia/Seed/Astra 33,164 with zero live room
+  //     buffs, Yixuan/Ju Fufu/Lucia + Belion 34,505 (A.: "broaden the scope" — the trio I had
+  //     benched on 08-21 evidence the new curve had made meaningless). Four recordings later
+  //     we knew why: ~30 s of x5.0 burned on the wave-one wall, then the Control Skill.
+  //  2. A.'s after-hours idea — a CAPPED room is over-served, so move the surplus: Remielle/
+  //     Aria/Velina into R3 = 46,502 in 01m 28s (wave one dead in 19 s, 63% of the boss gone
+  //     inside x5.0; +11,997 on the room in one evening), Alice/Jane/Yuzuha mono-Physical into
+  //     R2 = 40,285. That shape reached 135,955 — 1,781 short. Alice's team has no stunner and
+  //     I coached "stun faster" anyway; A., verbatim: "This team has 0 daze, okay?"
+  //  3. Final shape (below): the staged swap I had priced as a coin flip. Electric took R1
+  //     (42,699, on-weakness on all three enemies — my estimate was 42-44k), the Blight trio
+  //     re-capped R2, and Ye Shunguang walked into R3 with no room buff helping her and
+  //     posted 43,390 (estimate 43-46k). The coin landed 1,226 short. A.: "I've had enough lmao".
+  // bestTotal carries the board truth (the season card's "Best Total Score This Season").
+  // The three rooms on the final card sum to 136,089 — 421 under it: a room scored higher
+  // before a later re-run, and the card keeps the season best (same rule as assault.ts).
+  // Clocks for the final runs were not captured, so `time` is omitted rather than invented;
+  // the final damage/elimination splits assume the 5,000 elimination every result screen
+  // showed all day (the season card only prints room totals).
+  // S×5 follows the season-card convention.
   {
     id: "critical-node-2026-09-18",
     label: "Critical Node",
     date: "2026-09-18",
     frontier: "Fifth Frontier",
-    bestTotal: 133673,
-    rank: "2.4%",
+    bestTotal: 136510,
+    rank: "1.9%",
     medal: "legend",
     highestRating: "S+",
     grades: { s: 5, a: 0, b: 0 },
@@ -123,13 +142,12 @@ const CYCLES: ShiyuCycle[] = [
         recommended: ["Electric", "Physical"], resistance: ["Ether"],
         boss: { name: "Lockspring", slug: "lockspring", level: 70 },
         team: [
-          { slug: "yeshunguang", name: "Ye Shunguang" },
-          { slug: "dialyn", name: "Dialyn" },
-          { slug: "sunna", name: "Sunna" },
+          { slug: "cissia", name: "Cissia" },
+          { slug: "seed", name: "Seed" },
+          { slug: "astra", name: "Astra Yao" },
         ],
-        bangboo: { name: "Sprout", slug: "sprout" },
-        scores: { total: 49168, damage: 44168, elimination: 5000 },
-        time: "01m 05s",
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+        scores: { total: 42699, damage: 37699, elimination: 5000 },
       },
       {
         room: 2, rating: "S",
@@ -142,20 +160,18 @@ const CYCLES: ShiyuCycle[] = [
         ],
         bangboo: { name: "Ariel", slug: "ariel" },
         scores: { total: 50000, damage: 45000, elimination: 5000 },
-        time: "00m 58s",
       },
       {
         room: 3, rating: "S",
         recommended: ["Ether", "Physical"], resistance: ["Fire"],
         boss: { name: "Mirage Archer Unit", tag: "A-H0L0 Construct", slug: "miragearcherunit", level: 70 },
         team: [
-          { slug: "yixuan", name: "Yixuan" },
-          { slug: "jufufu", name: "Ju Fufu" },
-          { slug: "lucia", name: "Lucia" },
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
         ],
-        bangboo: { name: "Belion", slug: "belion" },
-        scores: { total: 34505, damage: 29505, elimination: 5000 },
-        time: "02m 23s",
+        bangboo: { name: "Sprout", slug: "sprout" },
+        scores: { total: 43390, damage: 38390, elimination: 5000 },
       },
     ],
   },
