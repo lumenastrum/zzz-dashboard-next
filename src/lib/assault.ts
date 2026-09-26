@@ -102,6 +102,190 @@ export const PERFORMANCE_MAX = 5000;
 // A., buffs + dates from the fandom wiki (icons matched against his result screenshots).
 // Scores/pips/attributes/gimmicks are screenshot-exact. Nothing pending.
 const CYCLES: AssaultCycle[] = [
+  // 09/25 rotation — authored 2026-09-25 the night it happened, and the first cycle read
+  // straight off the game screen and his recordings instead of pasted screenshots: room cards
+  // via computer-use screenshots (ZZZ runs elevated, so clicks never land — he clicks, Clio
+  // reads), scores + combat records via 1 fps ffmpeg crops of the HUD's live "Score:" line.
+  // Every room below has a second-by-second score timeline behind it. Named "II" per the
+  // Girtablullu / Scorched Horizon / Dead End Butcher precedent (A.'s to veto).
+  //
+  // The story: the buff pool had NO CRIT DMG line — Ultimate Edge (Sharp DMG, Claret-bait),
+  // Cinders of Corrosion, and Collapse (Physical/Ether +25%, stun mult +40%, stuns 15%
+  // longer) — and both crit teams felt it: the Thrall 861 under 09/11 on the same bodies,
+  // Kusarikku 4,836 under. The Blight trio, freed from Girtablullu, posted 59,289 on the
+  // Miasmic Fiend — the highest NON-CAPPED room in account history (+6,574 over Remielle's
+  // 52,715 debut), 5,711 short of the cap on a boss whose shield wipes the stacks. Kusarikku
+  // was a two-team test: Yixuan first (31,249 — Collapse's Ether line poured into her full
+  // disc-5 bucket, the 08/21 receipt repeating), reset, then Cissia 32,489: weaker bursts,
+  // 3× the off-stun damage. Both teams ate the same 36-second Control Skill dead phase and
+  // got exactly two stuns — the boss's script, not theirs (r/ZZZ that night: "after the fixed
+  // opening his moveset is random"). "This cycle's buffs are rough for us, babe." 139,609.
+  //
+  // What the timelines proved: DA has no time multiplier — a point at 2:59 is a point at
+  // 0:01 — so the lever is dead seconds, never timing. And boss scripts don't move: the
+  // Thrall's Weakened landed at ~1:30 in both runs regardless of the opening (Clio coached
+  // "get it earlier" — a lever the team doesn't have, filed). Ranking was LOCKED at capture
+  // (rank + medals below are placeholders — refresh from the next result screen).
+  //
+  // Sourcing: scores/pips/combat records exact (result cards on screen 2026-09-25; the Thrall
+  // run-1 card was hidden under the NVIDIA overlay, so run 1 is the HUD's final tick + his
+  // paste). Room cards re-read on screen and identical to 09/11 (Kusarikku, Thrall) and 07/17
+  // (Fiend). Buff text is the picker's wording. Collapse wears a NEW fifth buff-icon
+  // archetype (`stun`, yellow jaw glyph), cropped from the picker at 156px like `sharp`.
+  {
+    id: "da-kusarikku-ii-2026-09",
+    label: "Kusarikku Rotation II",
+    date: "2026-09-25",
+    bestTotal: 139609,
+    rank: "—", // Ranking: Locked at capture — refresh when it unlocks
+    medals: { crown: 24, shield: 9 }, // unchanged at capture — refresh with the rank
+    rooms: [
+      {
+        room: 1,
+        boss: { name: "Kusarikku", slug: "kusarikku", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Fire", "Electric"],
+        specialty: "Armorer",
+        resistance: ["Ice"],
+        gimmick:
+          "Attribute Anomaly DMG taken is cut 40%. A Defensive Assist against Rift Assault stacks Exposed (a Stun adds 2; ×4, 30s) — each stack raises Laceration DMG taken 10%, and only Armorer agents deal Laceration.",
+        buff: {
+          name: "Collapse",
+          slug: "stun",
+          desc: "Agent Ether DMG and Physical DMG +25%. Stun-specialty Agents deal +20% Daze. After an Agent stuns an enemy, its Stun DMG Multiplier +40% and it recovers from Stun 15% slower for 20s.",
+        },
+        pips: 3,
+        // Two teams, both on Collapse. Yixuan/Ju Fufu/Lucia + Belion first: 31,249 (26,249 +
+        // 5,000) — Rupture skipped the anomaly tax, but 64% of her damage came from 39 seconds
+        // of stun windows and the other 141 s ran at ~80/s; Ju Fufu's passive clock plus the
+        // Control Skill phase allowed exactly two stuns. Room reset. Cissia/Seed/Astra: run A
+        // abandoned at 24,766, run B 32,489 (27,689 + 4,800 — four counters, no Control Skill
+        // Shutdown, 200 left). Cissia's bursts were WEAKER than Yixuan's (228–343/s vs
+        // 322–498/s) but her off-stun floor was 3× higher (154/s vs 54/s in the lulls) —
+        // that's the whole 1,240 gap. Combat record: Cissia 44.2% DMG / 71.4% Daze, Seed 53.5%
+        // DMG, Astra 1.5%. 4,836 under 09/11's 37,325 — the missing +30% CRIT DMG line.
+        scores: { total: 32489, damage: 27689, performance: 4800 },
+        team: [
+          { slug: "cissia", name: "Cissia" },
+          { slug: "seed", name: "Seed" },
+          { slug: "astra", name: "Astra Yao" },
+        ],
+        bangboo: { name: "Plugboo", slug: "plugboo" },
+      },
+      {
+        room: 2,
+        boss: { name: "Miasmic Fiend - Unfathomable", slug: "miasmicfiend", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Physical", "Ether"],
+        specialty: "Anomaly",
+        resistance: ["Fire"],
+        gimmick:
+          "Each Attribute Anomaly stacks +8% Anomaly DMG taken (×6); casting Miasmic Shield consumes the stacks, each raising the shield's reduction efficiency 2.5%.",
+        buff: {
+          name: "Cinders of Corrosion",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +20/+60 Anomaly Proficiency and +10%/+20% Anomaly Buildup Rate. Inflicting an Attribute Anomaly cuts the enemy's DEF 10% for 10s.",
+        },
+        pips: 3,
+        // Highest non-capped room ever: 59,289, one run, clock 03:19 with the cinematics.
+        // +11,528 over Jane/Velina/Yuzuha's 47,761 on this boss (07/17, two-Anomaly tier of a
+        // weaker buff). Timeline: 31% of all damage inside the first stun + chain + ults
+        // (0:45–1:05, ~830/s); the red-arena phase (1:11–1:41) was 30 s of zero damage that
+        // paid the full 5,000 perf; the two lulls (~18 s at ~100/s) are the 5.7k to the cap.
+        // Combat record: Remielle 43.5% DMG / 29.9% Daze / 0% buildup, Jane 17.7% / 29.8% /
+        // 65.6% (the stack engine), Velina 38.6% / 35.9% / 31.8%, Ariel 0.2%. Collapse was
+        // priced and rejected here: its +25% reaches only Physical/Ether, so Velina would get
+        // nothing — Cinders buffs all three.
+        scores: { total: 59289, damage: 54289, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "janedoe", name: "Jane Doe" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ariel", slug: "ariel" },
+      },
+      {
+        room: 3,
+        boss: { name: "Ye Shiyuan the Thrall", slug: "yeshiyuanthethrall", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Ice", "Physical", "Wind"],
+        specialty: "Stun",
+        resistance: ["Electric"],
+        gimmick:
+          "As Sobek and the Thrall alternate turns, the Thrall stacks Contract (+15% Anomaly Buildup RES each) and Self-Sacrifice (+10% Stun DMG Multiplier each), up to 3; stunned, he takes +50% CRIT DMG.",
+        buff: {
+          name: "Collapse",
+          slug: "stun",
+          desc: "Agent Ether DMG and Physical DMG +25%. Stun-specialty Agents deal +20% Daze. After an Agent stuns an enemy, its Stun DMG Multiplier +40% and it recovers from Stun 15% slower for 20s.",
+        },
+        pips: 3,
+        // Two runs: 47,368 (42,368 + 5,000) → 47,831 (42,831 + 5,000), +463 entirely from a
+        // third stun squeezed into the last 20 s. Same team, same buff, phase-by-phase within
+        // noise: Sobek phase ~180–200/s, two dead zones at ~70/s (45 s in run 1, 54 s in run
+        // 2 — "the boss moves sooooo damn much"), two bursts at 500–560/s, 52% of all damage
+        // in 51 s of stun windows. The Thrall's Weakened landed ~1:30 in BOTH runs whatever
+        // the opening — boss script. Collapse was the best of a pool with no CRIT DMG line
+        // (Ye Shunguang's known hole); 861 under 09/11's Gleaming Frost run, 1,349 under her
+        // 08/13 record. Combat record (run 1): Ye Shunguang 90.6% DMG / 8.1% Daze / 45.5%
+        // buildup, Dialyn 6.1% / 78.8% / 31.6%, Sunna 2.2% / 11.1% / 12.5%. Honed Edge
+        // counts as Physical for the +25% (A.-confirmed: "the blue is decorative").
+        scores: { total: 47831, damage: 42831, performance: 5000 },
+        team: [
+          { slug: "yeshunguang", name: "Ye Shunguang" },
+          { slug: "dialyn", name: "Dialyn" },
+          { slug: "sunna", name: "Sunna" },
+        ],
+        bangboo: { name: "Sprout", slug: "sprout" },
+      },
+    ],
+    // Adversity — the same Integrated - Scorched Horizon card as 09/11, and Clio's draft died
+    // on it: Cissia/Seed/Astra + Plugboo on Collapse (on-element, stun lines everywhere) did
+    // 13,101 (8,101 + 5,000), B, one pip — ~40/s for the whole fight, two runs the same shape.
+    // "Integrated" means a Corruptive Barrier, and crit teams bounce off it; the card was
+    // priced on its stun lines without asking what the boss is made of. Doctrine in COACH.md.
+    // The Encore trio (Remielle/Aria/Velina + Ultra Jake, Cinders) then did 23,904 damage on
+    // the same boss the same night — 3× — across three runs (3,692 and 17,969 abandoned;
+    // 28,904 kept). 1,096 short of the third pip. A. is taking more stabs tomorrow; this is
+    // the interim board. Timeline: ~30 s near-zero opening in EVERY run (boss script), two
+    // Misty Veils of zero damage (24 s / 14 s), and the damage lives in Remielle's ult
+    // cinematics (+2,594 at 1:10, +2,955 at 0:37). A.'s plan over the coach's: fire every
+    // Remie ult the moment it's up and let the windows catch what they catch — there's no
+    // time multiplier to hold for.
+    //
+    // Sourcing: Enemy Details fully read on screen this time (the "Stun DMG Multiplier +20%"
+    // tail and the perf rules — Defensive Assist during Misty Veil 1,500 · Control Skill
+    // Shutdown 2,000 · cap 5,000 — are the card's own wording, not Game8's). Plate reads
+    // ♛4 · 28904.
+    adversity: {
+      bestTotal: 28904,
+      rank: "—", // Ranking: Locked at capture
+      medals: { crown: 4 },
+      room: {
+        room: 4,
+        label: "Adversity Mode",
+        boss: { name: "Integrated - Scorched Horizon", slug: "scorchedhorizon", level: 70 },
+        timeLimit: "03m 00s",
+        recommended: ["Electric"],
+        resistance: ["Physical"],
+        targets: ADVERSITY_TARGETS,
+        gimmick:
+          "Impaired or Shutdown grants the squad +40% Sharp DMG for 60s (Armorer-only damage — dead weight for this squad). Hits on a non-Stunned target deal +15% Daze; while Stunned, its Stun DMG Multiplier +20%. Defensive Assists during Misty Veil (1,500 each) and a Control-Skill Shutdown (2,000) bank the Performance Points.",
+        buff: {
+          name: "Cinders of Corrosion",
+          slug: "element",
+          desc: "2/3 Anomaly-specialty Agents grant the squad +20/+60 Anomaly Proficiency and +10%/+20% Anomaly Buildup Rate. Inflicting an Attribute Anomaly cuts the enemy's DEF 10% for 10s.",
+        },
+        pips: 2,
+        scores: { total: 28904, damage: 23904, performance: 5000 },
+        team: [
+          { slug: "remielledan", name: "Remielle Dan" },
+          { slug: "aria", name: "Aria" },
+          { slug: "velina", name: "Velina" },
+        ],
+        bangboo: { name: "Ultra Jake", slug: "ultrajet" },
+      },
+    },
+  },
   // 09/11 rotation — authored 2026-09-11 from A.'s screenshots, live, room by room, while he
   // played (Clio on the couch). Named for the headline boss (house rule; A.'s to veto).
   //
