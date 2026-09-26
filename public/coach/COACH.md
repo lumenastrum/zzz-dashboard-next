@@ -162,6 +162,21 @@ logged in `setlists.json → recent` and the endgame JSONs). They override guide
    squad's daze IS the stunner, so stun-window lines are live. Rule: when a universal line
    (CRIT DMG% to everyone, ATK% to the carry's class) competes with a conditional one, the
    universal wins unless the condition is verified airtight against *this* room.
+   **Corollary — a stun-multiplier buff pays per stun; count the stuns the boss's script
+   allows before pricing it (2026-09-25 receipt).** Collapse (stun mult +40%, stuns 15%
+   longer, Physical +25%) looked built for the Physical hypercarry on the Thrall. Measured:
+   two stuns per run, 45–54 s of the fight at ~70/s while he hopped, and the room came in
+   861 under the same team's run on a +30% CRIT DMG line two weeks earlier. A buff that only
+   fires inside a window is worth (windows × window length), and the boss decides both.
+   **Corollary — "Integrated" bosses have a Corruptive Barrier; crit teams bounce off it
+   (2026-09-25 receipt).** On-element Electric crit trio, every stun line on the card live:
+   8,101 damage in three minutes, ~40/s, two runs the same shape. The Anomaly trio on the same
+   boss the same night: 23,904. Read the boss's *name* before its buff lines — any Integrated
+   card is an Anomaly draft.
+   **Receipt repeat — the Ether Rupture carry's full bucket (2026-09-25).** Collapse's +25%
+   Ether on Kusarikku: 31,249, under the Electric crit team's 32,489 on the same boss with the
+   same buff. Same failure as 08/21. Her disc 5 is Ether DMG; an Ether DMG% room line is
+   diluted for her every time.
 6. **Think across rooms.** Moving a stunner between rooms once cost 400 points in one room
    and gained 7,535 in another. Locally suboptimal can be globally correct.
 
@@ -259,6 +274,30 @@ never lock: every room (Adversity included) picks freely from the pool** (A.-con
 Armorer-specialty rooms whose Enemy Details tax anomaly outright (Kusarikku: Attribute Anomaly
 DMG taken −40%) — read that block before drafting the Anomaly shell. The logs record which
 buff A. ran per room.
+
+**The DA scoring model (MEASURED 2026-09-25, 1 fps crops of the in-combat HUD's live
+`Score: N (perf)/target` line across nine recorded runs).** Unlike Shiyu, **DA has no time
+multiplier**: a point at 2:59 is worth a point at 0:01, and the timer freezes during ult /
+chain cinematics. So the question is never *when* the damage lands — it is **how many seconds
+the team spends doing none.** Coach the dead seconds, not the timing:
+- **Boss scripts are fixed. Do not coach them.** Kusarikku: ~36 s Control Skill phase at zero
+  damage (pays the perf, nothing else) and a random moveset after the fixed opening — two
+  different teams got exactly two stuns each. The Thrall: Weakened lands ~1:30 whatever the
+  opening did (two runs, 41 s and 37 s after Sobek died — "get it earlier" was coached and
+  was not a lever). Integrated - Scorched Horizon: ~30 s near-zero opening in every run, then
+  two Misty Veils (14–25 s each) of zero damage that pay the perf.
+- **Off-stun floor beats burst height when the script only allows two stuns.** Kusarikku:
+  the Rupture carry's bursts were 322–498/s vs the Electric team's 228–343/s, and the Electric
+  team won by 1,240 on a 154/s vs 54/s floor across the other 140 seconds.
+- **Rerun keeps the best score always; only Reset Room wipes it** (A.-confirmed 2026-09-25).
+  A rerun is free — a cross-team test is not.
+- **The player's dump plan beats the coach's hold plan.** "Fire every ult the moment it's up
+  and let the windows catch what they catch" — with no multiplier there is nothing to hold
+  for, and an ult sitting on full energy is an ult not charging the next one.
+- Method, for the next couch session: `ffmpeg -vf "fps=1,crop=340:125:2080:140"` on his
+  2560×1080 ShadowPlay export (the HUD panel under the boss bar), tile 40 to a sheet, read the
+  `Score:` line per second, difference it. Nine runs' timelines are in the 09/25 session
+  scratchpad; the per-phase tables live in the `assault.ts` room comments.
 
 **Reward sufficiency (both modes):** once the premium reward tier is secured, further
 optimization of the weakest team is worth zero. Know when to tell the player to stop.
