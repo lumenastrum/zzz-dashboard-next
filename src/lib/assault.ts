@@ -106,8 +106,10 @@ const CYCLES: AssaultCycle[] = [
   // straight off the game screen and his recordings instead of pasted screenshots: room cards
   // via computer-use screenshots (ZZZ runs elevated, so clicks never land — he clicks, Clio
   // reads), scores + combat records via 1 fps ffmpeg crops of the HUD's live "Score:" line.
-  // Every room below has a second-by-second score timeline behind it. Named "II" per the
-  // Girtablullu / Scorched Horizon / Dead End Butcher precedent (A.'s to veto).
+  // Every room below has a second-by-second score timeline behind it. Drafted as "Kusarikku
+  // Rotation II" per precedent; A. vetoed within the hour — "We should change the rotation's
+  // name to The Shill's Hill 😒" — for the Sharp DMG line on every card and a Kusarikku
+  // that only Claret can fully answer. The id keeps the boss slug; the label is his.
   //
   // The story: the buff pool had NO CRIT DMG line — Ultimate Edge (Sharp DMG, Claret-bait),
   // Cinders of Corrosion, and Collapse (Physical/Ether +25%, stun mult +40%, stuns 15%
@@ -134,7 +136,7 @@ const CYCLES: AssaultCycle[] = [
   // archetype (`stun`, yellow jaw glyph), cropped from the picker at 156px like `sharp`.
   {
     id: "da-kusarikku-ii-2026-09",
-    label: "Kusarikku Rotation II",
+    label: "The Shill's Hill",
     date: "2026-09-25",
     bestTotal: 139609,
     rank: "—", // Ranking: Locked at capture — refresh when it unlocks
