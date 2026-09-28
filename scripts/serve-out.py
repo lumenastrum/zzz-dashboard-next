@@ -23,6 +23,12 @@ class Handler(SimpleHTTPRequestHandler):
             path = path[len(BASE):] or "/"
         return super().translate_path(path)
 
+    def end_headers(self):
+        # QA server: never let the browser keep yesterday's jacket. Assets share URLs across rebuilds
+        # and SimpleHTTP sends no Cache-Control, so a plain refresh showed stale art (2026-09-28).
+        self.send_header("Cache-Control", "no-store")
+        super().end_headers()
+
     def log_message(self, fmt, *args):
         sys.stdout.write("%s\n" % (fmt % args))
         sys.stdout.flush()
