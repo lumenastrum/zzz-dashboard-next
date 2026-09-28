@@ -497,8 +497,8 @@
   {
    "path": "agents/jacket/astra.webp",
    "source": "zzz-dashboard-next/public/assets/tall/astra.webp",
-   "method": "3:5 crop, face (0.42, 0.14) pinned at (0.5, 0.26), 300x500",
-   "bytes": 39040
+   "method": "3:5 crop, face (0.45, 0.16) pinned at (0.5, 0.26), 300x500",
+   "bytes": 38772
   },
   {
    "path": "agents/jacket/burnice.webp",
@@ -551,8 +551,8 @@
   {
    "path": "agents/jacket/lucia.webp",
    "source": "zzz-dashboard-next/public/assets/tall/lucia.webp",
-   "method": "3:5 crop, face (0.39, 0.17) pinned at (0.5, 0.26), 300x500",
-   "bytes": 42662
+   "method": "3:5 crop, face (0.41, 0.20) pinned at (0.5, 0.26), 300x500",
+   "bytes": 44154
   },
   {
    "path": "agents/jacket/miyabi.webp",
@@ -587,8 +587,8 @@
   {
    "path": "agents/jacket/sunna.webp",
    "source": "zzz-dashboard-next/public/assets/tall/sunna.webp",
-   "method": "3:5 crop, face (0.57, 0.16) pinned at (0.5, 0.26), 300x500",
-   "bytes": 44140
+   "method": "3:5 crop, face (0.56, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 41826
   },
   {
    "path": "agents/jacket/trigger.webp",
@@ -623,26 +623,26 @@
   {
    "path": "agents/jacket/yidhari.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yidhari.webp",
-   "method": "3:5 crop, face (0.38, 0.15) pinned at (0.5, 0.26), 300x500",
-   "bytes": 43992
+   "method": "3:5 crop, face (0.40, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 43376
   },
   {
    "path": "agents/jacket/yixuan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yixuan.webp",
-   "method": "3:5 crop, face (0.52, 0.16) pinned at (0.5, 0.26), 300x500",
-   "bytes": 49892
+   "method": "3:5 crop, face (0.53, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 49884
   },
   {
    "path": "agents/jacket/yuzuha.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yuzuha.webp",
-   "method": "3:5 crop, face (0.48, 0.29) pinned at (0.5, 0.26), 300x500",
-   "bytes": 40502
+   "method": "3:5 crop, face (0.51, 0.28) pinned at (0.5, 0.26), 300x500",
+   "bytes": 41540
   },
   {
    "path": "agents/jacket/zhao.webp",
    "source": "zzz-dashboard-next/public/assets/tall/zhao.webp",
-   "method": "3:5 crop, face (0.35, 0.31) pinned at (0.5, 0.26), 300x500",
-   "bytes": 34902
+   "method": "3:5 crop, face (0.36, 0.32) pinned at (0.5, 0.26), 300x500",
+   "bytes": 34968
   },
   {
    "path": "agents/rect/alice.webp",
