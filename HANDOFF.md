@@ -2,7 +2,7 @@
 
 **Last updated:** 2026-09-28 (Random Play cut-over: every route renders the vendored framework).
 
-**2026-09-28 — RANDOM PLAY IS THE DASHBOARD (local commit, NOT pushed/deployed yet — A.'s call):**
+**2026-09-28 — RANDOM PLAY IS THE DASHBOARD (DEPLOYED: master `7a6a96e`, Pages run 36482726612 green, live-verified — title, versioned jackets `?v=c5cce2e`, all routes 200):**
 the Soundsystem routes were replaced by one client stage (`src/random-play-host/`) hosting the vendored
 `src/random-play/` framework; see CLAUDE.md "Random Play (the UI)". Verified on the production static
 export (`npm run build` + `py scripts/serve-out.py`): all 53 pages emit; the wall, every section and both
