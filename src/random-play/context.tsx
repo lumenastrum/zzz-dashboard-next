@@ -15,6 +15,8 @@ const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : use
 export interface RandomPlayProviderProps {
   /** Where the host serves this repo's assets/ folder ("" in the playground). */
   assetBase?: string;
+  /** Cache key appended to every asset URL (`?v=`); hosts pass their vendored sha / build id. */
+  assetVersion?: string;
   accent?: string;
   className?: string;
   style?: CSSProperties;
@@ -30,8 +32,8 @@ export interface RandomPlayProviderProps {
  * browser yet, hence the ResizeObserver. Below FLOW_BELOW the phone/tablet flow layout takes over and
  * ignores `--rp-fit`.
  */
-export function RandomPlayProvider({ assetBase = "", accent, className, style, children }: RandomPlayProviderProps) {
-  const assets = useMemo(() => createAssets(assetBase), [assetBase]);
+export function RandomPlayProvider({ assetBase = "", assetVersion, accent, className, style, children }: RandomPlayProviderProps) {
+  const assets = useMemo(() => createAssets(assetBase, assetVersion), [assetBase, assetVersion]);
   const root = useRef<HTMLDivElement>(null);
   const [fit, setFit] = useState(1);
   useIsoLayoutEffect(() => {

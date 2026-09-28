@@ -16,9 +16,12 @@ export type UiAsset =
   | "medal-silver" | "medal-gold" | "medal-diamond" | "medal-master" | "medal-legend"
   | "da-pip" | "da-logo" | "shiyu-logo";
 
-export function createAssets(base = "") {
+/** `version` (e.g. the vendored sha) rides every URL as `?v=`: assets keep their names across rebuilds, so
+ *  without it a browser (and GitHub Pages' 10-minute cache) happily shows yesterday's jacket. */
+export function createAssets(base = "", version?: string) {
   const b = base.replace(/\/$/, "");
-  const u = (p: string) => `${b}/${p}`;
+  const q = version ? `?v=${encodeURIComponent(version)}` : "";
+  const u = (p: string) => `${b}/${p}${q}`;
   return {
     base: b,
     /** 3:5 face-framed box front (300×500) — spines + covers without key art. */

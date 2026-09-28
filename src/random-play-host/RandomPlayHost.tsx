@@ -23,7 +23,10 @@ import { pullPriorityFor } from "@/lib/pull-priority";
 import { MAINS, SET_CHOICES, SUBSTATS } from "@/lib/deck-config";
 import { PROFILE_KEY } from "@/lib/supabase";
 import { withBase } from "@/lib/base-path";
+import { RP_VENDORED } from "@/random-play/vendored";
 import { liveAgent, liveDetail, mainValueFor } from "./live";
+
+const ASSETS = { assetBase: withBase("/rp"), assetVersion: RP_VENDORED };
 
 const VIEWS: View[] = ["shelf", "tape", "teams", "shiyu", "assault", "signal", "picks"];
 const TABS = ["specs", "scenes", "chapters"];
@@ -63,7 +66,7 @@ export interface RandomPlayHostProps { initial?: Partial<RandomPlayState> }
 export function RandomPlayHost(props: RandomPlayHostProps) {
   return (
     <div className="rp-host">
-      <Suspense fallback={<RandomPlayProvider assetBase={withBase("/rp")}><Shell line="REWINDING…" /></RandomPlayProvider>}>
+      <Suspense fallback={<RandomPlayProvider {...ASSETS}><Shell line="REWINDING…" /></RandomPlayProvider>}>
         <Host {...props} />
       </Suspense>
     </div>
@@ -144,7 +147,7 @@ function Host({ initial }: RandomPlayHostProps) {
 
   if (!loaded) {
     return (
-      <RandomPlayProvider assetBase={withBase("/rp")}>
+      <RandomPlayProvider {...ASSETS}>
         <Shell line={syncStatus === "error" ? "TAPES NOT ON FILE · THE SHELF COULDN'T BE REACHED" : "REWINDING THE TAPES…"} />
       </RandomPlayProvider>
     );
@@ -156,7 +159,7 @@ function Host({ initial }: RandomPlayHostProps) {
   init.selected = init0.selected && bySlug[init0.selected] ? init0.selected : agents[0]?.slug;
   if (init0.view === "tape" && !bySlug[init0.selected ?? ""]) init.view = "shelf"; // unknown slug → the wall, never the first tape
   return (
-    <RandomPlayProvider assetBase={withBase("/rp")}>
+    <RandomPlayProvider {...ASSETS}>
       <RandomPlay
         key={profileKey}
         agents={agents} details={details} teams={editorial.teams} shiyu={editorial.shiyu} assault={editorial.assault}
