@@ -485,164 +485,164 @@
   {
    "path": "agents/jacket/alice.webp",
    "source": "zzz-dashboard-next/public/assets/tall/alice.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 38828
+   "method": "3:5 crop, face (0.46, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 37712
   },
   {
    "path": "agents/jacket/aria.webp",
    "source": "zzz-dashboard-next/public/assets/tall/aria.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 48684
+   "method": "3:5 crop, face (0.58, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 46570
   },
   {
    "path": "agents/jacket/astra.webp",
    "source": "zzz-dashboard-next/public/assets/tall/astra.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 37648
+   "method": "3:5 crop, face (0.42, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 39040
   },
   {
    "path": "agents/jacket/burnice.webp",
    "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 33226
+   "method": "3:5 crop, face (0.49, 0.15) pinned at (0.5, 0.26), 300x500",
+   "bytes": 32852
   },
   {
    "path": "agents/jacket/cissia.webp",
    "source": "zzz-dashboard-next/public/assets/tall/cissia.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 48348
+   "method": "3:5 crop, face (0.62, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 47158
   },
   {
    "path": "agents/jacket/dialyn.webp",
    "source": "zzz-dashboard-next/public/assets/tall/dialyn.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 52804
+   "method": "3:5 crop, face (0.49, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 53860
   },
   {
    "path": "agents/jacket/ellen.webp",
    "source": "zzz-dashboard-next/public/assets/tall/ellen.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 35570
+   "method": "3:5 crop, face (0.61, 0.13) pinned at (0.5, 0.26), 300x500",
+   "bytes": 31996
   },
   {
    "path": "agents/jacket/evelyn.webp",
    "source": "zzz-dashboard-next/public/assets/tall/evelyn.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 32202
+   "method": "3:5 crop, face (0.53, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 33110
   },
   {
    "path": "agents/jacket/janedoe.webp",
    "source": "zzz-dashboard-next/public/assets/tall/janedoe.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 35332
+   "method": "3:5 crop, face (0.51, 0.16) pinned at (0.5, 0.26), 300x500",
+   "bytes": 34370
   },
   {
    "path": "agents/jacket/jufufu.webp",
    "source": "zzz-dashboard-next/public/assets/tall/jufufu.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 44468
+   "method": "3:5 crop, face (0.37, 0.27) pinned at (0.5, 0.26), 300x500",
+   "bytes": 46678
   },
   {
    "path": "agents/jacket/lighter.webp",
    "source": "zzz-dashboard-next/public/assets/tall/lighter.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 35406
+   "method": "3:5 crop, face (0.51, 0.12) pinned at (0.5, 0.26), 300x500",
+   "bytes": 33148
   },
   {
    "path": "agents/jacket/lucia.webp",
    "source": "zzz-dashboard-next/public/assets/tall/lucia.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 41534
+   "method": "3:5 crop, face (0.39, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 42662
   },
   {
    "path": "agents/jacket/miyabi.webp",
    "source": "zzz-dashboard-next/public/assets/tall/miyabi.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 32770
+   "method": "3:5 crop, face (0.49, 0.27) pinned at (0.5, 0.26), 300x500",
+   "bytes": 33442
   },
   {
    "path": "agents/jacket/nangongyu.webp",
    "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 49150
+   "method": "3:5 crop, face (0.73, 0.22) pinned at (0.5, 0.26), 300x500",
+   "bytes": 38998
   },
   {
    "path": "agents/jacket/remielledan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 45620
+   "method": "3:5 crop, face (0.55, 0.19) pinned at (0.5, 0.26), 300x500",
+   "bytes": 45866
   },
   {
    "path": "agents/jacket/seed.webp",
    "source": "zzz-dashboard-next/public/assets/tall/seed.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 40694
+   "method": "3:5 crop, face (0.55, 0.13) pinned at (0.5, 0.26), 300x500",
+   "bytes": 40720
   },
   {
    "path": "agents/jacket/soldier0anby.webp",
    "source": "zzz-dashboard-next/public/assets/tall/soldier0anby.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 40506
+   "method": "3:5 crop, face (0.50, 0.12) pinned at (0.5, 0.26), 300x500",
+   "bytes": 39212
   },
   {
    "path": "agents/jacket/sunna.webp",
    "source": "zzz-dashboard-next/public/assets/tall/sunna.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 44258
+   "method": "3:5 crop, face (0.57, 0.16) pinned at (0.5, 0.26), 300x500",
+   "bytes": 44140
   },
   {
    "path": "agents/jacket/trigger.webp",
    "source": "zzz-dashboard-next/public/assets/tall/trigger.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 37024
+   "method": "3:5 crop, face (0.45, 0.14) pinned at (0.5, 0.26), 300x500",
+   "bytes": 36836
   },
   {
    "path": "agents/jacket/velina.webp",
    "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 42188
+   "method": "3:5 crop, face (0.58, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 44460
   },
   {
    "path": "agents/jacket/vivian.webp",
    "source": "zzz-dashboard-next/public/assets/tall/vivian.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 37772
+   "method": "3:5 crop, face (0.63, 0.27) pinned at (0.5, 0.26), 300x500",
+   "bytes": 39234
   },
   {
    "path": "agents/jacket/yanagi.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yanagi.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 34456
+   "method": "3:5 crop, face (0.36, 0.13) pinned at (0.5, 0.26), 300x500",
+   "bytes": 32434
   },
   {
    "path": "agents/jacket/yeshunguang.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yeshunguang.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 46610
+   "method": "3:5 crop, face (0.49, 0.15) pinned at (0.5, 0.26), 300x500",
+   "bytes": 47320
   },
   {
    "path": "agents/jacket/yidhari.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yidhari.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 43370
+   "method": "3:5 crop, face (0.38, 0.15) pinned at (0.5, 0.26), 300x500",
+   "bytes": 43992
   },
   {
    "path": "agents/jacket/yixuan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yixuan.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 47856
+   "method": "3:5 crop, face (0.52, 0.16) pinned at (0.5, 0.26), 300x500",
+   "bytes": 49892
   },
   {
    "path": "agents/jacket/yuzuha.webp",
    "source": "zzz-dashboard-next/public/assets/tall/yuzuha.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 39188
+   "method": "3:5 crop, face (0.48, 0.29) pinned at (0.5, 0.26), 300x500",
+   "bytes": 40502
   },
   {
    "path": "agents/jacket/zhao.webp",
    "source": "zzz-dashboard-next/public/assets/tall/zhao.webp",
-   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
-   "bytes": 38914
+   "method": "3:5 crop, face (0.35, 0.31) pinned at (0.5, 0.26), 300x500",
+   "bytes": 34902
   },
   {
    "path": "agents/rect/alice.webp",
