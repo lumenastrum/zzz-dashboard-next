@@ -492,7 +492,7 @@
    "path": "agents/jacket/aria.webp",
    "source": "zzz-dashboard-next/public/assets/tall/aria.webp",
    "method": "3:5 crop, face (0.58, 0.17) pinned at (0.5, 0.26), 300x500",
-   "bytes": 46570
+   "bytes": 46238
   },
   {
    "path": "agents/jacket/astra.webp",
@@ -503,8 +503,8 @@
   {
    "path": "agents/jacket/burnice.webp",
    "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
-   "method": "3:5 crop, face (0.49, 0.15) pinned at (0.5, 0.26), 300x500",
-   "bytes": 32852
+   "method": "3:5 crop, face (0.49, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 33712
   },
   {
    "path": "agents/jacket/cissia.webp",
@@ -533,8 +533,8 @@
   {
    "path": "agents/jacket/janedoe.webp",
    "source": "zzz-dashboard-next/public/assets/tall/janedoe.webp",
-   "method": "3:5 crop, face (0.51, 0.16) pinned at (0.5, 0.26), 300x500",
-   "bytes": 34370
+   "method": "3:5 crop, face (0.51, 0.11) pinned at (0.5, 0.26), 300x500",
+   "bytes": 33280
   },
   {
    "path": "agents/jacket/jufufu.webp",
@@ -557,8 +557,8 @@
   {
    "path": "agents/jacket/miyabi.webp",
    "source": "zzz-dashboard-next/public/assets/tall/miyabi.webp",
-   "method": "3:5 crop, face (0.49, 0.27) pinned at (0.5, 0.26), 300x500",
-   "bytes": 33442
+   "method": "3:5 crop, face (0.49, 0.28) pinned at (0.5, 0.26), 300x500",
+   "bytes": 32814
   },
   {
    "path": "agents/jacket/nangongyu.webp",
@@ -569,8 +569,8 @@
   {
    "path": "agents/jacket/remielledan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
-   "method": "3:5 crop, face (0.55, 0.19) pinned at (0.5, 0.26), 300x500",
-   "bytes": 45866
+   "method": "3:5 crop, face (0.55, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 43478
   },
   {
    "path": "agents/jacket/seed.webp",
@@ -599,14 +599,14 @@
   {
    "path": "agents/jacket/velina.webp",
    "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
-   "method": "3:5 crop, face (0.58, 0.18) pinned at (0.5, 0.26), 300x500",
-   "bytes": 44460
+   "method": "3:5 crop, face (0.58, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 44686
   },
   {
    "path": "agents/jacket/vivian.webp",
    "source": "zzz-dashboard-next/public/assets/tall/vivian.webp",
-   "method": "3:5 crop, face (0.63, 0.27) pinned at (0.5, 0.26), 300x500",
-   "bytes": 39234
+   "method": "3:5 crop, face (0.63, 0.29) pinned at (0.5, 0.26), 300x500",
+   "bytes": 38560
   },
   {
    "path": "agents/jacket/yanagi.webp",
