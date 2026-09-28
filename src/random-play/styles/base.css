@@ -20,7 +20,10 @@
 :where(.rp-root) *, :where(.rp-root) *::before, :where(.rp-root) *::after { box-sizing: border-box; }
 :where(.rp-root) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
 :where(.rp-root) button:focus-visible, :where(.rp-root) a:focus-visible { outline: 3px solid var(--rp-accent); outline-offset: 3px; }
-:where(.rp-root) img { display: block; }
+/* max-width: none — a Tailwind host's preflight puts `img { max-width: 100% }` on everything, which crushed
+   every spine portrait to its 70px tape (dashboard QA 09/28: Miyabi 70×417 for a 300×500 source). Our art
+   is sized by the component, never by the box it sits in. */
+:where(.rp-root) img { display: block; max-width: none; }
 
 .rp-root > .rp-app { margin: 0 auto; }
 
