@@ -503,8 +503,8 @@
   {
    "path": "agents/jacket/burnice.webp",
    "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
-   "method": "3:5 crop, face (0.49, 0.18) pinned at (0.5, 0.26), 300x500",
-   "bytes": 33712
+   "method": "3:5 crop, face (0.55, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 34290
   },
   {
    "path": "agents/jacket/cissia.webp",
@@ -569,8 +569,8 @@
   {
    "path": "agents/jacket/remielledan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
-   "method": "3:5 crop, face (0.55, 0.17) pinned at (0.5, 0.26), 300x500",
-   "bytes": 43478
+   "method": "3:5 crop, face (0.51, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 43274
   },
   {
    "path": "agents/jacket/seed.webp",
@@ -599,8 +599,8 @@
   {
    "path": "agents/jacket/velina.webp",
    "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
-   "method": "3:5 crop, face (0.58, 0.17) pinned at (0.5, 0.26), 300x500",
-   "bytes": 44686
+   "method": "3:5 crop, face (0.55, 0.17) pinned at (0.5, 0.26), 300x500",
+   "bytes": 45276
   },
   {
    "path": "agents/jacket/vivian.webp",
