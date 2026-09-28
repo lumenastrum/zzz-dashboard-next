@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   // No persistent Turbopack dev cache: a stale one restored after a crash leaks a postcss
   // worker pool per re-run (vercel/next.js#92978) and fork-stormed this box on 2026-09-28.
   experimental: { turbopackFileSystemCacheForDev: false },
+  // Don't let `next dev` write its agent-rules block into CLAUDE.md; that file is curated by hand.
+  agentRules: false,
 };
 
 export default nextConfig;
