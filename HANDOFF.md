@@ -1,6 +1,20 @@
-# ZZZ Dashboard Redesign — "Soundsystem" · Handoff
+# ZZZ Dashboard Redesign — Handoff
 
-**Last updated:** 2026-07-03 (Disc-Audit facelift + roster VU strips + DA boss mugshots).
+**Last updated:** 2026-09-28 (Random Play cut-over: every route renders the vendored framework).
+
+**2026-09-28 — RANDOM PLAY IS THE DASHBOARD (local commit, NOT pushed/deployed yet — A.'s call):**
+the Soundsystem routes were replaced by one client stage (`src/random-play-host/`) hosting the vendored
+`src/random-play/` framework; see CLAUDE.md "Random Play (the UI)". Verified on the production static
+export (`npm run build` + `py scripts/serve-out.py`): all 53 pages emit; the wall, every section and both
+profiles render from the live blob with 0 broken images; a +1 roll on Alice's Scene 01 re-graded the disc
+A 74.6% → S 85.1% and the cover C 54.8% → B 56.5% in the same render, the header read "SIGN IN TO SAVE"
+and the owner sign-in overlay opened (the save path is unchanged). **Not done:** deleting the Soundsystem
+components + the old half of globals.css (only `/wife/selector` still uses them), the selector banner that
+used to sit on the Pulls page (the guide is still at `/wife/selector/`), skills in the blob (Chapters read
+the June showcase), and pushing to `master` (= deploy). `next dev` is BANNED on A.'s machines (it crashed
+the studio box) — build + serve-out only.
+
+_Everything below is the Soundsystem-era log, kept for the data/grading history._
 
 **2026-07-03 (later) — three enhancement tweaks:** (1) `.site-bg` → `background-size:contain`
 (the 100%-auto fit cropped the wordmark top/bottom on wide-short viewports; wall tone fills

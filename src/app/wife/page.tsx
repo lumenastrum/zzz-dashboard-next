@@ -1,14 +1,12 @@
 import type { Metadata } from "next";
-import { rosterFor } from "@/lib/roster";
-import { PROFILE_WIFE } from "@/lib/supabase";
-import { RosterHome } from "@/components/RosterHome";
+import { RandomPlayHost } from "@/random-play-host/RandomPlayHost";
 
 export const metadata: Metadata = {
-  title: "Cosmea's ZZZ · Soundsystem",
-  description: "Cosmea's ZZZ agent roster, disc-drive grading, and stat audits — New Eridu hi-fi.",
+  title: "Cosmea's ZZZ · Random Play",
+  description: "Cosmea's ZZZ rental wall — her agents as tapes, builds graded live, and the Staff Picks shelf for what to pull next.",
 };
 
-// Wife's roster home — same component as the root, scoped to her owned agents and the /wife base.
+// Cosmea's store: same stage, her profile (the /wife path selects the wife-zzz row + her roster slice).
 export default function WifeHome() {
-  return <RosterHome roster={rosterFor(PROFILE_WIFE)} base="/wife" />;
+  return <RandomPlayHost />;
 }

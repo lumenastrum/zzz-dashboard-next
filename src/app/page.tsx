@@ -1,8 +1,7 @@
-import { rosterFor } from "@/lib/roster";
-import { PROFILE_KEY } from "@/lib/supabase";
-import { RosterHome } from "@/components/RosterHome";
+import { RandomPlayHost } from "@/random-play-host/RandomPlayHost";
 
-// Default view (A.) — his roster at the clean root (wife-only agents hidden). Wife → /wife.
+// The store (A.): the Rental Wall. Every section is a view inside the one mounted stage; the other
+// routes are static entry points that open the stage on a section or a tape (random-play/docs/07).
 export default function Home() {
-  return <RosterHome roster={rosterFor(PROFILE_KEY)} />;
+  return <RandomPlayHost />;
 }

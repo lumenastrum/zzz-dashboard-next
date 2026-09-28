@@ -24,7 +24,8 @@
     "seed-profile": "tsx scripts/seed-profile.ts",
     "clone-agent": "tsx scripts/clone-agent.ts",
     "patch-agent": "tsx scripts/patch-agent.ts",
-    "derive-bases": "node scripts/derive-bases.mjs"
+    "derive-bases": "node scripts/derive-bases.mjs",
+    "rp:vendor": "node scripts/rp-vendor.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.106.1",

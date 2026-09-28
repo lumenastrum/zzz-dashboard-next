@@ -1,8 +1,33 @@
-# ZZZ Dashboard "Soundsystem" — context for Claude / Clio
+# ZZZ Dashboard "Random Play" — context for Claude / Clio
 
-Next.js rebuild of the ZZZ dashboard, **"Soundsystem"** direction (hi-fi/vinyl; discs = records,
-equipment = speaker stack). Sibling to `wuwa-dashboard-next`. The **legacy** `../zzz-dashboard`
-(vanilla HTML + `zzz_update.py`) is SEPARATE — do not touch it; this repo is the modern replacement.
+Next.js ZZZ dashboard, now on the **Random Play** design framework (a video store: agents = tapes on
+the Rental Wall, builds = tape jackets with Specs / Scenes / Chapters, teams = Triple Features, Shiyu =
+The Register, Deadly Assault = Now Showing, Signal = Channel Search, Cosmea's pulls = Staff Picks).
+Random Play replaced the "Soundsystem" look on 2026-09-28. Sibling to `wuwa-dashboard-next`. The
+**legacy** `../zzz-dashboard` (vanilla HTML + `zzz_update.py`) is SEPARATE — do not touch it.
+
+## Random Play (the UI)
+- **Vendored** at `src/random-play/` from `../random-play` (that repo holds the framework's docs,
+  tokens pipeline, playground and tests; `src/random-play/VENDORED.md` records the sha). While that
+  repo is alive, change the framework THERE and re-vendor with `npm run rp:vendor` (scrubs real names —
+  this repo is public; only "A." and "Cosmea"). Assets ship in `public/rp/` (served at `/rp`).
+- **One client stage**: `src/random-play-host/RandomPlayHost.tsx` hosts every route. Pages are static
+  entry points that pass an `initial` view (`/teams/` → Triple Features, `/r/<slug>/` → that tape);
+  after that the URL follows the store (`?tape=alice&tab=scenes`, `?view=shiyu&cycle=1`) via
+  `router.replace`. The profile is the path prefix, as before (`/wife` → `wife-zzz`).
+- **Live data**: `src/random-play-host/live.ts` grades the Supabase blob with `@/lib/grading` on every
+  render (roster identity from `roster.ts`; endgame, setlists and picks from their TS sources; Signal
+  from its own row). Skills/core still come from the vendored June showcase snapshot until they land
+  in the blob.
+- **Disc editing lives in the Scenes tab** (set / main on slots 4–6 / substat + roll steppers). The
+  editor calls DataProvider's `updateAgent`, so it's the SAME session-gated, debounced,
+  optimistic-locked save as the old deck; the whole wall re-grades in the same render. A main-stat
+  swap also writes the +15 main value from `grading-config.discMains`.
+- `TopNav` is gone from every route except `/wife/selector` (still Soundsystem, still styled by the
+  old half of `globals.css`). The rest of the Soundsystem components/CSS are dead code awaiting
+  deletion (random-play/docs/07-migration.md, step 7).
+- **NEVER `next dev` on Andres's boxes** (Turbopack took the studio PC down, 2026-09-28). QA the real
+  thing: `npm run build` then `py scripts/serve-out.py 8090` → `http://127.0.0.1:8090/zzz-dashboard-next/`.
 
 ## Stack & conventions (match wuwa-dashboard-next)
 - `@/*` → `src/*`. Plain `<img>`/`fetch` paths need `withBase()` (base-path.ts) for prod prefixing.

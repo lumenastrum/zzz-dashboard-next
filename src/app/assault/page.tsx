@@ -1,62 +1,12 @@
 import type { Metadata } from "next";
-import { PROFILE_KEY } from "@/lib/supabase";
-import { assaultCyclesFor, assaultHistoryFor } from "@/lib/assault";
-import { TopNav } from "@/components/TopNav";
-import { AssaultSeason } from "@/components/AssaultSeason";
-import { AssaultRoomCard } from "@/components/AssaultRoomCard";
-import { AssaultAdversityPanel } from "@/components/AssaultAdversity";
-import { AssaultHistory } from "@/components/AssaultHistory";
+import { RandomPlayHost } from "@/random-play-host/RandomPlayHost";
 
 export const metadata: Metadata = {
-  title: "Deadly Assault · ZZZ · Soundsystem",
-  description:
-    "A.'s Deadly Assault rotations — best total, ranking, challenge-goal pips, and per-boss score / team logs.",
+  title: "Now Showing · Deadly Assault · ZZZ · Random Play",
+  description: "A.'s Deadly Assault rotations on the marquee — box-office totals, the three screens, and every past showing.",
 };
 
-// Deadly Assault tab — the second, rotating endgame mode (Shiyu's sibling). Static page; cycles
-// are editorial data (assault.ts). The current rotation gets the marquee (season readout +
-// boss-poster target cards); older rotations auto-demote to the history shelf. TopNav lights
-// "Assault".
-export default function Assault() {
-  const cycles = assaultCyclesFor(PROFILE_KEY);
-  const cycle = cycles[0]; // current rotation — the marquee
-  const history = assaultHistoryFor(PROFILE_KEY);
-
-  return (
-    <div className="wrap">
-      <TopNav active="assault" />
-
-      <div className="shead">
-        <h2>Deadly Assault</h2>
-        <div className="eq">
-          {[12, 7, 15, 9, 16, 6, 11, 8].map((h, i) => (
-            <i key={i} style={{ height: h }} />
-          ))}
-        </div>
-        <div className="ln" />
-        <div className="cnt">{cycle ? cycle.label + (cycle.date ? ` · ${cycle.date}` : "") : "No rotations logged"}</div>
-      </div>
-
-      {cycle ? (
-        <>
-          <AssaultSeason cycle={cycle} />
-          <div className="shiyu-rooms">
-            {cycle.rooms.map((r) => (
-              <AssaultRoomCard key={r.room} room={r} />
-            ))}
-          </div>
-          {/* 3.1+ only — scored separately from the Trial Mode total above */}
-          {cycle.adversity && <AssaultAdversityPanel adversity={cycle.adversity} />}
-        </>
-      ) : (
-        <div className="hint">No Deadly Assault rotations logged yet</div>
-      )}
-
-      <AssaultHistory entries={history} />
-
-      <div className="hint">
-        ▸ Current rotation gets the full treatment · past rotations file into the history shelf
-      </div>
-    </div>
-  );
+// Static entry point: opens the stage on Now Showing (Deadly Assault).
+export default function AssaultPage() {
+  return <RandomPlayHost initial={{ view: "assault" }} />;
 }

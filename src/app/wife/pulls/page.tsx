@@ -1,53 +1,13 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import { PROFILE_WIFE } from "@/lib/supabase";
-import { pullPriorityFor } from "@/lib/pull-priority";
-import { TopNav } from "@/components/TopNav";
-import { PullCrate } from "@/components/PullCrate";
+import { RandomPlayHost } from "@/random-play-host/RandomPlayHost";
 
 export const metadata: Metadata = {
-  title: "Pull Priority · Cosmea's ZZZ · Soundsystem",
-  description: "Cosmea's ranked ZZZ pull-priority wishlist — what to convene next, ranked by how it fits her roster and teams.",
+  title: "Staff Picks · Cosmea's ZZZ · Random Play",
+  description: "Cosmea's ranked ZZZ pull-priority wishlist as the store's Staff Picks shelf — what to convene next and why.",
 };
 
-// Cosmea's pull-priority wishlist (her-exclusive tab). Static page — the list is editorial data
-// from pull-priority.ts, rendered as flippable record-sleeve crates. TopNav highlights "Pulls".
+// Static entry point: opens Cosmea's store on Staff Picks (her-exclusive section; the list is editorial
+// data from pull-priority.ts). The anniversary selector guide still lives at /wife/selector/.
 export default function WifePulls() {
-  const recs = pullPriorityFor(PROFILE_WIFE);
-
-  return (
-    <div className="wrap">
-      <TopNav base="/wife" active="pulls" />
-
-      <div className="shead">
-        <h2>Pull Priority</h2>
-        <div className="eq">
-          {[14, 9, 16, 7, 12, 6, 11, 8].map((h, i) => (
-            <i key={i} style={{ height: h }} />
-          ))}
-        </div>
-        <div className="ln" />
-        <div className="cnt">{recs.length} On The Wishlist</div>
-      </div>
-
-      {/* v3.1 anniversary free S-rank selector — launches the her-scored decision guide */}
-      <Link className="sel-banner" href="/wife/selector/">
-        <span className="sb-led">Gift</span>
-        <span className="sb-txt">
-          <b>Anniversary Selector:</b> one FREE S-Rank + signature — which one should come home?
-        </span>
-        <span className="sb-go">Open the guide ▸</span>
-      </Link>
-
-      <div className="crate-grid">
-        {recs.map((r) => (
-          <PullCrate key={r.rank} rec={r} />
-        ))}
-      </div>
-
-      <div className="hint">
-        ▸ Flip a sleeve for the <b>liner notes</b>
-      </div>
-    </div>
-  );
+  return <RandomPlayHost initial={{ view: "picks" }} />;
 }

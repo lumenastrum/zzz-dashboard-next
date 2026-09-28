@@ -1,0 +1,54 @@
+/* Random Play — base layer. Everything is scoped under .rp-root so the framework can live beside
+   Soundsystem during the migration without either stylesheet touching the other. Fonts are NOT
+   loaded here: the host loads Big Shoulders Display / Space Mono / Archivo (next/font in the
+   dashboard, a Google Fonts <link> in the playground) and the token stacks pick them up. */
+
+/* .rp-root is the size-query container (mobile.css answers to the framework's own width, not the
+   viewport). Inline-size containment means it can't shrink-wrap its content, so it takes the full width
+   and centres the fixed desktop stage itself. */
+.rp-root {
+  container: rp / inline-size;
+  width: 100%;
+  --rp-halftone: radial-gradient(rgba(23, 19, 15, .24) 1px, transparent 1.3px);
+  color: var(--rp-ink);
+  font-family: var(--rp-font-body);
+  -webkit-font-smoothing: antialiased;
+}
+/* Resets are wrapped in :where() → specificity (0,0,1), so ANY component class beats them.
+   Without it, `.rp-root button { margin: 0 }` (0,1,1) silently overrode `.rp-squad { margin-right }`
+   and the squad cards stopped overlapping (QA 09/27). Never write an unwrapped element reset here. */
+:where(.rp-root) *, :where(.rp-root) *::before, :where(.rp-root) *::after { box-sizing: border-box; }
+:where(.rp-root) button { font: inherit; color: inherit; background: none; border: 0; padding: 0; margin: 0; cursor: pointer; text-align: inherit; }
+:where(.rp-root) button:focus-visible, :where(.rp-root) a:focus-visible { outline: 3px solid var(--rp-accent); outline-offset: 3px; }
+:where(.rp-root) img { display: block; }
+
+.rp-root > .rp-app { margin: 0 auto; }
+
+.rp-disp { font-family: var(--rp-font-display); text-transform: uppercase; }
+.rp-mono { font-family: var(--rp-font-mono); }
+
+/* textures — URLs arrive as custom properties set by <RandomPlayProvider>, never hard-coded */
+.rp-peg { background-color: var(--rp-paper); background-image: radial-gradient(var(--rp-peg) 1.3px, transparent 1.5px); background-size: 18px 18px; }
+.rp-dots { position: absolute; inset: 0; background-image: var(--rp-halftone); background-size: 6px 6px; pointer-events: none; }
+.rp-hatch::before { content: ''; position: absolute; inset: 0; background-image: var(--rp-tex-hatch); background-size: 141px 128px; filter: invert(1); opacity: var(--rp-hatch-opacity, .09); pointer-events: none; }
+.rp-hatch > * { position: relative; }
+.rp-paperstock::before { content: ''; position: absolute; inset: 0; background-image: var(--rp-tex-paper); background-size: cover; background-position: center; opacity: .22; mix-blend-mode: multiply; pointer-events: none; }
+.rp-paperstock > * { position: relative; }
+
+/* one shared keyframe set; components choose them by class */
+@keyframes rp-rise { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+@keyframes rp-swap { from { opacity: 0; transform: translateX(34px); } to { opacity: 1; transform: none; } }
+@keyframes rp-deal { from { opacity: 0; transform: translateX(140px) rotate(7deg); } to { opacity: 1; transform: none; } }
+@keyframes rp-pop { from { opacity: 0; transform: scale(.25) rotate(-30deg); } to { opacity: 1; transform: none; } }
+@keyframes rp-grow { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes rp-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-6px); } }
+@keyframes rp-blink { to { visibility: hidden; } }
+@keyframes rp-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+@keyframes rp-tracking { 0% { top: 60px; opacity: 0; } 12% { opacity: 1; } 100% { top: 100%; opacity: 0; } }
+
+@media (prefers-reduced-motion: reduce) {
+  .rp-root *, .rp-root *::before, .rp-root *::after {
+    transition-duration: .01ms !important; transition-delay: 0s !important;
+    animation-duration: .01ms !important; animation-delay: 0s !important; animation-iteration-count: 1 !important;
+  }
+}

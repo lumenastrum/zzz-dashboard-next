@@ -1,0 +1,6868 @@
+{
+ "generated": "2026-09-28T16:20:39.785Z",
+ "by": "scripts/build-details.ts",
+ "sources": {
+  "discs": "zzz-dashboard-next blob via peek (grading engine)",
+  "goals": "zzz-dashboard-next grading-config.json",
+  "skills": "zzz-dashboard-next scripts/fixtures/showcase-*.json (Enka, base levels)"
+ },
+ "details": {
+  "alice": {
+   "slug": "alice",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Fanged Metal",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 4,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Phaethon's Melody",
+     "grade": "B",
+     "pct": 67.2,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Fanged Metal",
+     "grade": "C",
+     "pct": 46.3,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Phaethon's Melody",
+     "grade": "E",
+     "pct": 19.7,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Fanged Metal",
+     "grade": "B",
+     "pct": 56.7,
+     "main": {
+      "stat": "Physical DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Fanged Metal",
+     "grade": "B",
+     "pct": 64.2,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains two weak discs (Scenes 03, 04).",
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Fanged Metal",
+      "pieces": 4
+     },
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +35% DMG vs Assault/Anomaly (8s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2769,
+     "target": 2750,
+     "full": 3300,
+     "min": 2200,
+     "max": 3449,
+     "targetLabel": "2,750 TARGET",
+     "fullLabel": "3,300 FULL",
+     "note": "Past the 2,750 target. 531 more to full marks."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 195,
+     "target": 190,
+     "full": 280,
+     "min": 152,
+     "max": 293,
+     "targetLabel": "190 TARGET",
+     "fullLabel": "280 FULL",
+     "note": "Past the 190 target. 85 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 300,
+     "target": 400,
+     "full": 470,
+     "min": 285,
+     "max": 492,
+     "targetLabel": "400 TARGET",
+     "fullLabel": "470 FULL",
+     "note": "100 short of the 400 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 11,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "miyabi": {
+   "slug": "miyabi",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 65.3,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 66.7,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Astral Voice",
+     "grade": "A",
+     "pct": 76.4,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Astral Voice",
+     "grade": "A",
+     "pct": 69.4,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 59.7,
+     "main": {
+      "stat": "Ice DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Branch & Blade Song",
+     "grade": "S",
+     "pct": 97.2,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 4,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "No weak discs: every scene grades B or better.",
+   "engineBuffs": [
+    "+40% Ice DMG (2 stacks · EX/anomaly, 15s)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Branch & Blade Song",
+      "pieces": 4
+     },
+     {
+      "name": "Astral Voice",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +30% CRIT DMG (Anomaly Mastery >=115) · +12% CRIT Rate (Freeze/Shatter, 15s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2293,
+     "target": 2700,
+     "full": 3300,
+     "min": 2160,
+     "max": 3449,
+     "targetLabel": "2,700 TARGET",
+     "fullLabel": "3,300 FULL",
+     "note": "407 short of the 2,700 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 69.8,
+     "target": 80,
+     "full": 90,
+     "min": 64,
+     "max": 95,
+     "targetLabel": "80% TARGET",
+     "fullLabel": "90% FULL",
+     "note": "10.2% short of the 80% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 123.6,
+     "target": 160,
+     "full": 220,
+     "min": 117,
+     "max": 230,
+     "targetLabel": "160% TARGET",
+     "fullLabel": "220% FULL",
+     "note": "36.4% short of the 160% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "janedoe": {
+   "slug": "janedoe",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 46.3,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 53.7,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Fanged Metal",
+     "grade": "B",
+     "pct": 67.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Fanged Metal",
+     "grade": "B",
+     "pct": 55.9,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Fanged Metal",
+     "grade": "C",
+     "pct": 43.3,
+     "main": {
+      "stat": "Physical DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 4,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Fanged Metal",
+     "grade": "C",
+     "pct": 46.3,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains four weak discs (Scenes 01, 02, 05, 06).",
+   "engineBuffs": [
+    "Physical DMG +15%/stk (x3)",
+    "Anomaly Buildup +50% (max stk)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Fanged Metal",
+      "pieces": 4
+     },
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +35% DMG vs Assault/Anomaly (8s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2252,
+     "target": 2700,
+     "full": 3200,
+     "min": 2139,
+     "max": 3344,
+     "targetLabel": "2,700 TARGET",
+     "fullLabel": "3,200 FULL",
+     "note": "448 short of the 2,700 target."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 192,
+     "target": 192,
+     "full": 280,
+     "min": 153,
+     "max": 293,
+     "targetLabel": "192 TARGET",
+     "fullLabel": "280 FULL",
+     "note": "Past the 192 target. 88 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 335,
+     "target": 420,
+     "full": 480,
+     "min": 318,
+     "max": 502,
+     "targetLabel": "420 TARGET",
+     "fullLabel": "480 FULL",
+     "note": "85 short of the 420 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 3,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 9,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "vivian": {
+   "slug": "vivian",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Phaethon's Melody",
+     "grade": "D",
+     "pct": 31.5,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 50.7,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Freedom Blues",
+     "grade": "E",
+     "pct": 24.7,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Phaethon's Melody",
+     "grade": "E",
+     "pct": 20.8,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Phaethon's Melody",
+     "grade": "E",
+     "pct": 17.1,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Freedom Blues",
+     "grade": "C",
+     "pct": 54.8,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains six weak discs (Scenes 01, 02, 03, 04, 05, 06).",
+   "engineBuffs": [
+    "Anomaly Buildup +40%"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 4
+     },
+     {
+      "name": "Freedom Blues",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +45 Anomaly Proficiency on Disorder (combat)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2577,
+     "target": 2200,
+     "full": 2700,
+     "min": 1760,
+     "max": 2822,
+     "targetLabel": "2,200 TARGET",
+     "fullLabel": "2,700 FULL",
+     "note": "Past the 2,200 target. 123 more to full marks."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 198,
+     "target": 198,
+     "full": 290,
+     "min": 158,
+     "max": 304,
+     "targetLabel": "198 TARGET",
+     "fullLabel": "290 FULL",
+     "note": "Past the 198 target. 92 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 375,
+     "target": 410,
+     "full": 480,
+     "min": 328,
+     "max": 502,
+     "targetLabel": "410 TARGET",
+     "fullLabel": "480 FULL",
+     "note": "35 short of the 410 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 10,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "burnice": {
+   "slug": "burnice",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Chaos Jazz",
+     "grade": "B",
+     "pct": 61.2,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Freedom Blues",
+     "grade": "E",
+     "pct": 22.4,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Chaos Jazz",
+     "grade": "D",
+     "pct": 28.4,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Freedom Blues",
+     "grade": "D",
+     "pct": 42.1,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Chaos Jazz",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "Fire DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Chaos Jazz",
+     "grade": "D",
+     "pct": 37.3,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 2,
+   "ratingLine": "Contains four weak discs (Scenes 02, 03, 04, 06).",
+   "engineBuffs": [
+    "DMG +3.5%/stk (x10)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Chaos Jazz",
+      "pieces": 4
+     },
+     {
+      "name": "Freedom Blues",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +15% Fire DMG · +15% Electric DMG · +20% EX/Assist DMG (off-field, 5s on-field)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2876,
+     "target": 2700,
+     "full": 3300,
+     "min": 2160,
+     "max": 3449,
+     "targetLabel": "2,700 TARGET",
+     "fullLabel": "3,300 FULL",
+     "note": "Past the 2,700 target. 424 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 299,
+     "target": 375,
+     "full": 450,
+     "min": 284,
+     "max": 471,
+     "targetLabel": "375 TARGET",
+     "fullLabel": "450 FULL",
+     "note": "76 short of the 375 target."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 153,
+     "target": 153,
+     "full": 260,
+     "min": 122,
+     "max": 272,
+     "targetLabel": "153 TARGET",
+     "fullLabel": "260 FULL",
+     "note": "Past the 153 target. 107 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 7,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "aria": {
+   "slug": "aria",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Phaethon's Melody",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Freedom Blues",
+     "grade": "C",
+     "pct": 43.3,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 4,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 44.8,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Phaethon's Melody",
+     "grade": "D",
+     "pct": 42.1,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Freedom Blues",
+     "grade": "C",
+     "pct": 53.7,
+     "main": {
+      "stat": "Ether DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Phaethon's Melody",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains four weak discs (Scenes 02, 03, 04, 05).",
+   "engineBuffs": [
+    "DMG vs Anomaly-afflicted +20%",
+    "Anomaly DMG +10%"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 4
+     },
+     {
+      "name": "Freedom Blues",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +45 Anomaly Proficiency on Disorder (combat)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2270,
+     "target": 2750,
+     "full": 3300,
+     "min": 2156,
+     "max": 3449,
+     "targetLabel": "2,750 TARGET",
+     "fullLabel": "3,300 FULL",
+     "note": "480 short of the 2,750 target."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 253,
+     "target": 214,
+     "full": 300,
+     "min": 171,
+     "max": 314,
+     "targetLabel": "214 TARGET",
+     "fullLabel": "300 FULL",
+     "note": "Past the 214 target. 47 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 337,
+     "target": 400,
+     "full": 470,
+     "min": 320,
+     "max": 492,
+     "targetLabel": "400 TARGET",
+     "fullLabel": "470 FULL",
+     "note": "63 short of the 400 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "velina": {
+   "slug": "velina",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Swing Jazz",
+     "grade": "B",
+     "pct": 59.7,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Wuthering Salon",
+     "grade": "B",
+     "pct": 64.2,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Wuthering Salon",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Swing Jazz",
+     "grade": "B",
+     "pct": 65.8,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 4,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Wuthering Salon",
+     "grade": "A",
+     "pct": 76.1,
+     "main": {
+      "stat": "PEN Ratio",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Wuthering Salon",
+     "grade": "B",
+     "pct": 67.2,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 1,
+   "ratingLine": "No weak discs: every scene grades B or better.",
+   "engineBuffs": [
+    "Vortex/Windswept DMG +7%/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Wuthering Salon",
+      "pieces": 4
+     },
+     {
+      "name": "Swing Jazz",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +25 Anomaly Prof/stk (x2, EX, 40s) · +18% DMG (Windswept, 40s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2871,
+     "target": 2500,
+     "full": 3100,
+     "min": 2000,
+     "max": 3240,
+     "targetLabel": "2,500 TARGET",
+     "fullLabel": "3,100 FULL",
+     "note": "Past the 2,500 target. 229 more to full marks."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 347,
+     "target": 375,
+     "full": 460,
+     "min": 300,
+     "max": 481,
+     "targetLabel": "375 TARGET",
+     "fullLabel": "460 FULL",
+     "note": "28 short of the 375 target."
+    },
+    {
+     "stat": "Energy Regen",
+     "value": 2.88,
+     "target": 2.7,
+     "full": 3.2,
+     "min": 2.1,
+     "max": 3.4000000000000004,
+     "targetLabel": "2.7 TARGET",
+     "fullLabel": "3.2 FULL",
+     "note": "Past the 2.7 target. 0.3 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "yeshunguang": {
+   "slug": "yeshunguang",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "White Water Ballad",
+     "grade": "B",
+     "pct": 59.2,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 57.7,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "White Water Ballad",
+     "grade": "S",
+     "pct": 78.9,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "White Water Ballad",
+     "grade": "C",
+     "pct": 50.7,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "White Water Ballad",
+     "grade": "B",
+     "pct": 63.4,
+     "main": {
+      "stat": "PEN Ratio",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Branch & Blade Song",
+     "grade": "C",
+     "pct": 54.9,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains two weak discs (Scenes 04, 06).",
+   "engineBuffs": [
+    "Ignore 20% Physical RES",
+    "DMG +25% (Ether Veil, 40s)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "White Water Ballad",
+      "pieces": 4
+     },
+     {
+      "name": "Branch & Blade Song",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +10% CRIT Rate (in Ether Veil, +15s) · +10% CRIT Rate (Attack, Ether Veil, 30s) · +10% ATK (Attack, Ether Veil, 30s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3832,
+     "target": 3000,
+     "full": 3800,
+     "min": 2400,
+     "max": 4005,
+     "targetLabel": "3,000 TARGET",
+     "fullLabel": "3,800 FULL",
+     "note": "Past full marks by 32."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 41,
+     "target": 48,
+     "full": 55,
+     "min": 38,
+     "max": 58,
+     "targetLabel": "48% TARGET",
+     "fullLabel": "55% FULL",
+     "note": "7% short of the 48% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 152.4,
+     "target": 190,
+     "full": 240,
+     "min": 144,
+     "max": 251,
+     "targetLabel": "190% TARGET",
+     "fullLabel": "240% FULL",
+     "note": "37.6% short of the 190% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "evelyn": {
+   "slug": "evelyn",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Woodpecker Electro",
+     "grade": "A",
+     "pct": 75.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 54.5,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 43.9,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Inferno Metal",
+     "grade": "E",
+     "pct": 25.8,
+     "main": {
+      "stat": "CRIT DMG",
+      "value": "48%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Inferno Metal",
+     "grade": "D",
+     "pct": 39.4,
+     "main": {
+      "stat": "PEN Ratio",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Woodpecker Electro",
+     "grade": "D",
+     "pct": 37.9,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains five weak discs (Scenes 02, 03, 04, 05, 06).",
+   "engineBuffs": [
+    "Chain/Ult ignore 12.5% Fire RES/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Woodpecker Electro",
+      "pieces": 4
+     },
+     {
+      "name": "Inferno Metal",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: ATK +9% (on crit: Basic/Counter/EX, 6s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2682,
+     "target": 2900,
+     "full": 3600,
+     "min": 2320,
+     "max": 3762,
+     "targetLabel": "2,900 TARGET",
+     "fullLabel": "3,600 FULL",
+     "note": "218 short of the 2,900 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 80.2,
+     "target": 75,
+     "full": 85,
+     "min": 60,
+     "max": 89,
+     "targetLabel": "75% TARGET",
+     "fullLabel": "85% FULL",
+     "note": "At the 80% cap: extra CRIT Rate is wasted, so the grader moves the weight elsewhere."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 150.8,
+     "target": 180,
+     "full": 240,
+     "min": 143,
+     "max": 251,
+     "targetLabel": "180% TARGET",
+     "fullLabel": "240% FULL",
+     "note": "29.2% short of the 180% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 8,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "ellen": {
+   "slug": "ellen",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Woodpecker Electro",
+     "grade": "B",
+     "pct": 57.7,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Puffer Electro",
+     "grade": "A",
+     "pct": 70.4,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Woodpecker Electro",
+     "grade": "B",
+     "pct": 59.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 53.1,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Puffer Electro",
+     "grade": "D",
+     "pct": 36.6,
+     "main": {
+      "stat": "PEN Ratio",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Woodpecker Electro",
+     "grade": "D",
+     "pct": 42.3,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains three weak discs (Scenes 04, 05, 06).",
+   "engineBuffs": [
+    "ATK +3.5%/stk (x8)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Woodpecker Electro",
+      "pieces": 4
+     },
+     {
+      "name": "Puffer Electro",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: ATK +9% (on crit: Basic/Counter/EX, 6s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2927,
+     "target": 2800,
+     "full": 3400,
+     "min": 2240,
+     "max": 3553,
+     "targetLabel": "2,800 TARGET",
+     "fullLabel": "3,400 FULL",
+     "note": "Past the 2,800 target. 473 more to full marks."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 65.8,
+     "target": 80,
+     "full": 95,
+     "min": 62,
+     "max": 100,
+     "targetLabel": "80% TARGET",
+     "fullLabel": "95% FULL",
+     "note": "14.2% short of the 80% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 88.4,
+     "target": 150,
+     "full": 200,
+     "min": 83,
+     "max": 209,
+     "targetLabel": "150% TARGET",
+     "fullLabel": "200% FULL",
+     "note": "61.6% short of the 150% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 9,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 2,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 7,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D"
+   ]
+  },
+  "soldier0anby": {
+   "slug": "soldier0anby",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Shadow Harmony",
+     "grade": "A",
+     "pct": 73.2,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Shadow Harmony",
+     "grade": "B",
+     "pct": 56.3,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Woodpecker Electro",
+     "grade": "D",
+     "pct": 42.3,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 60.6,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Shadow Harmony",
+     "grade": "D",
+     "pct": 32.4,
+     "main": {
+      "stat": "Electric DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Shadow Harmony",
+     "grade": "A",
+     "pct": 71.8,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains two weak discs (Scenes 03, 05).",
+   "engineBuffs": [
+    "Electric DMG +20% (3 stk)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Shadow Harmony",
+      "pieces": 4
+     }
+    ],
+    "note": "4pc: +4% CRIT Rate/stk (x3, 15s) · +4% ATK/stk (x3, 15s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2742,
+     "target": 3000,
+     "full": 3600,
+     "min": 2400,
+     "max": 3762,
+     "targetLabel": "3,000 TARGET",
+     "fullLabel": "3,600 FULL",
+     "note": "258 short of the 3,000 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 67.4,
+     "target": 68,
+     "full": 85,
+     "min": 54,
+     "max": 89,
+     "targetLabel": "68% TARGET",
+     "fullLabel": "85% FULL",
+     "note": "0.6% short of the 68% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 136.4,
+     "target": 180,
+     "full": 240,
+     "min": 129,
+     "max": 251,
+     "targetLabel": "180% TARGET",
+     "fullLabel": "240% FULL",
+     "note": "43.6% short of the 180% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 8,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 4,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 4,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 11,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 10,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "seed": {
+   "slug": "seed",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Dawn's Bloom",
+     "grade": "A",
+     "pct": 71.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 5,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Dawn's Bloom",
+     "grade": "B",
+     "pct": 64.8,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Dawn's Bloom",
+     "grade": "C",
+     "pct": 49.3,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 53.1,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "48%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Woodpecker Electro",
+     "grade": "A",
+     "pct": 70.4,
+     "main": {
+      "stat": "Electric DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Dawn's Bloom",
+     "grade": "C",
+     "pct": 53.5,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 3,
+   "ratingLine": "Contains three weak discs (Scenes 03, 04, 06).",
+   "engineBuffs": [
+    "Electric DMG +14.5%/stk (x2)",
+    "Basic/Ult ignore 23% DEF (2 stk)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Dawn's Bloom",
+      "pieces": 4
+     },
+     {
+      "name": "Woodpecker Electro",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +20% Basic Attack DMG · +20% Basic Attack DMG (Attack, EX/Ult, 25s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3212,
+     "target": 2850,
+     "full": 3400,
+     "min": 2280,
+     "max": 3553,
+     "targetLabel": "2,850 TARGET",
+     "fullLabel": "3,400 FULL",
+     "note": "Past the 2,850 target. 188 more to full marks."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 65.8,
+     "target": 82,
+     "full": 95,
+     "min": 62,
+     "max": 100,
+     "targetLabel": "82% TARGET",
+     "fullLabel": "95% FULL",
+     "note": "16.2% short of the 82% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 150.8,
+     "target": 130,
+     "full": 180,
+     "min": 104,
+     "max": 189,
+     "targetLabel": "130% TARGET",
+     "fullLabel": "180% FULL",
+     "note": "Past the 130% target. 29.2% more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 11,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "cissia": {
+   "slug": "cissia",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Dawn's Bloom",
+     "grade": "A",
+     "pct": 70.4,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Dawn's Bloom",
+     "grade": "A",
+     "pct": 73.2,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Dawn's Bloom",
+     "grade": "B",
+     "pct": 63.4,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Swing Jazz",
+     "grade": "B",
+     "pct": 64.8,
+     "main": {
+      "stat": "CRIT DMG",
+      "value": "48%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Dawn's Bloom",
+     "grade": "S",
+     "pct": 84.5,
+     "main": {
+      "stat": "Electric DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Swing Jazz",
+     "grade": "B",
+     "pct": 57.7,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 6,
+   "ratingLine": "No weak discs: every scene grades B or better.",
+   "engineBuffs": [
+    "Ignore 28% DEF (Electric, per 20 energy)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Dawn's Bloom",
+      "pieces": 4
+     },
+     {
+      "name": "Swing Jazz",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +20% Basic Attack DMG · +20% Basic Attack DMG (Attack, EX/Ult, 25s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2431,
+     "target": 2600,
+     "full": 3200,
+     "min": 2080,
+     "max": 3344,
+     "targetLabel": "2,600 TARGET",
+     "fullLabel": "3,200 FULL",
+     "note": "169 short of the 2,600 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 38.6,
+     "target": 50,
+     "full": 60,
+     "min": 36,
+     "max": 63,
+     "targetLabel": "50% TARGET",
+     "fullLabel": "60% FULL",
+     "note": "11.4% short of the 50% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 126.8,
+     "target": 110,
+     "full": 180,
+     "min": 88,
+     "max": 189,
+     "targetLabel": "110% TARGET",
+     "fullLabel": "180% FULL",
+     "note": "Past the 110% target. 53.2% more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 3,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 4,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 8,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "jufufu": {
+   "slug": "jufufu",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Swing Jazz",
+     "grade": "A",
+     "pct": 73.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "King of the Summit",
+     "grade": "C",
+     "pct": 50.8,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "King of the Summit",
+     "grade": "A",
+     "pct": 69.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "King of the Summit",
+     "grade": "B",
+     "pct": 60,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "King of the Summit",
+     "grade": "B",
+     "pct": 60,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Swing Jazz",
+     "grade": "C",
+     "pct": 50.8,
+     "main": {
+      "stat": "Impact",
+      "value": "18%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 2,
+   "ratingLine": "Contains two weak discs (Scenes 02, 06).",
+   "engineBuffs": [
+    "EX/Chain/Ult Daze +28%",
+    "Squad DMG +10%/stk (x2, Fire)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "King of the Summit",
+      "pieces": 4
+     },
+     {
+      "name": "Swing Jazz",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad CRIT DMG +15% (Stun, EX/Chain, 15s) · +15% more CRIT DMG (equipper CR >=50%)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3485,
+     "target": 3300,
+     "full": 3500,
+     "min": 2640,
+     "max": 3658,
+     "targetLabel": "3,300 TARGET",
+     "fullLabel": "3,500 FULL",
+     "note": "Past the 3,300 target. 15 more to full marks."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 43.4,
+     "target": 50,
+     "full": 80,
+     "min": 40,
+     "max": 84,
+     "targetLabel": "50% TARGET",
+     "fullLabel": "80% FULL",
+     "note": "6.6% short of the 50% target."
+    },
+    {
+     "stat": "Impact",
+     "value": 139,
+     "target": 150,
+     "full": 220,
+     "min": 120,
+     "max": 230,
+     "targetLabel": "150 TARGET",
+     "fullLabel": "220 FULL",
+     "note": "11 short of the 150 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 11,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "trigger": {
+   "slug": "trigger",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Shockstar Disco",
+     "grade": "D",
+     "pct": 41.5,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 32.3,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "King of the Summit",
+     "grade": "A",
+     "pct": 69.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Shockstar Disco",
+     "grade": "C",
+     "pct": 47.5,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "King of the Summit",
+     "grade": "E",
+     "pct": 23.8,
+     "main": {
+      "stat": "Electric DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "King of the Summit",
+     "grade": "C",
+     "pct": 47.7,
+     "main": {
+      "stat": "Impact",
+      "value": "18%"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 4,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains five weak discs (Scenes 01, 02, 04, 05, 06).",
+   "engineBuffs": [
+    "Target DEF -25% (Aftershock, 5s)",
+    "Impact +4%/stk (x3, off-field)",
+    "Impact +8% (3 stk)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "King of the Summit",
+      "pieces": 4
+     },
+     {
+      "name": "Shockstar Disco",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad CRIT DMG +15% (Stun, EX/Chain, 15s) · +15% more CRIT DMG (equipper CR >=50%)"
+   },
+   "goals": [
+    {
+     "stat": "Impact",
+     "value": 162,
+     "target": 175,
+     "full": 240,
+     "min": 140,
+     "max": 251,
+     "targetLabel": "175 TARGET",
+     "fullLabel": "240 FULL",
+     "note": "13 short of the 175 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 67.4,
+     "target": 80,
+     "full": 95,
+     "min": 64,
+     "max": 100,
+     "targetLabel": "80% TARGET",
+     "fullLabel": "95% FULL",
+     "note": "12.6% short of the 80% target."
+    },
+    {
+     "stat": "CRIT DMG",
+     "value": 74,
+     "target": 100,
+     "full": 160,
+     "min": 70,
+     "max": 168,
+     "targetLabel": "100% TARGET",
+     "fullLabel": "160% FULL",
+     "note": "26% short of the 100% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 9,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "lighter": {
+   "slug": "lighter",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "King of the Summit",
+     "grade": "C",
+     "pct": 53.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 41.5,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "King of the Summit",
+     "grade": "B",
+     "pct": 63.1,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Shockstar Disco",
+     "grade": "D",
+     "pct": 31.5,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 36.2,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Shockstar Disco",
+     "grade": "E",
+     "pct": 26.2,
+     "main": {
+      "stat": "Impact",
+      "value": "18%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 6,
+   "ratingLine": "Contains five weak discs (Scenes 01, 02, 04, 05, 06).",
+   "engineBuffs": [
+    "Impact +10%/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "King of the Summit",
+      "pieces": 4
+     },
+     {
+      "name": "Shockstar Disco",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad CRIT DMG +15% (Stun, EX/Chain, 15s) · +15% more CRIT DMG (equipper CR >=50%)"
+   },
+   "goals": [
+    {
+     "stat": "Impact",
+     "value": 194,
+     "target": 185,
+     "full": 270,
+     "min": 148,
+     "max": 283,
+     "targetLabel": "185 TARGET",
+     "fullLabel": "270 FULL",
+     "note": "Past the 185 target. 76 more to full marks."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 14.6,
+     "target": 50,
+     "full": 80,
+     "min": 13,
+     "max": 84,
+     "targetLabel": "50% TARGET",
+     "fullLabel": "80% FULL",
+     "note": "35.4% short of the 50% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 10,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "dialyn": {
+   "slug": "dialyn",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 35.4,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 50.8,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Woodpecker Electro",
+     "grade": "A",
+     "pct": 69.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 36.3,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "King of the Summit",
+     "grade": "D",
+     "pct": 37.7,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "King of the Summit",
+     "grade": "B",
+     "pct": 60,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 1,
+   "ratingLine": "Contains four weak discs (Scenes 01, 02, 04, 05).",
+   "engineBuffs": [
+    "Daze +9%/stk (x3)",
+    "Squad CRIT DMG +30% (3 stk, 40s)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "King of the Summit",
+      "pieces": 4
+     },
+     {
+      "name": "Woodpecker Electro",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad CRIT DMG +15% (Stun, EX/Chain, 15s) · +15% more CRIT DMG (equipper CR >=50%)"
+   },
+   "goals": [
+    {
+     "stat": "CRIT Rate",
+     "value": 99.4,
+     "target": 90,
+     "full": 100,
+     "min": 72,
+     "max": 105,
+     "targetLabel": "90% TARGET",
+     "fullLabel": "100% FULL",
+     "note": "Past the 90% target. 0.6% more to full marks."
+    },
+    {
+     "stat": "Energy Regen",
+     "value": 1.92,
+     "target": 2,
+     "full": 3,
+     "min": 1.6,
+     "max": 3.2,
+     "targetLabel": "2 TARGET",
+     "fullLabel": "3 FULL",
+     "note": "0.1 short of the 2 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 11,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 9,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "nangongyu": {
+   "slug": "nangongyu",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Phaethon's Melody",
+     "grade": "A",
+     "pct": 76.1,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Freedom Blues",
+     "grade": "C",
+     "pct": 43.3,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Freedom Blues",
+     "grade": "C",
+     "pct": 53.7,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Phaethon's Melody",
+     "grade": "E",
+     "pct": 22.4,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 46.3,
+     "main": {
+      "stat": "Ether DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 43.3,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains five weak discs (Scenes 02, 03, 04, 05, 06).",
+   "engineBuffs": [
+    "Squad DMG +15%/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 4
+     },
+     {
+      "name": "Freedom Blues",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +45 Anomaly Proficiency on Disorder (combat)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 1938,
+     "target": 2350,
+     "full": 2900,
+     "min": 1841,
+     "max": 3031,
+     "targetLabel": "2,350 TARGET",
+     "fullLabel": "2,900 FULL",
+     "note": "412 short of the 2,350 target."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 323,
+     "target": 320,
+     "full": 420,
+     "min": 256,
+     "max": 439,
+     "targetLabel": "320 TARGET",
+     "fullLabel": "420 FULL",
+     "note": "Past the 320 target. 97 more to full marks."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 211,
+     "target": 190,
+     "full": 290,
+     "min": 152,
+     "max": 304,
+     "targetLabel": "190 TARGET",
+     "fullLabel": "290 FULL",
+     "note": "Past the 190 target. 79 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 2,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 3,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "astra": {
+   "slug": "astra",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Astral Voice",
+     "grade": "C",
+     "pct": 51.6,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Astral Voice",
+     "grade": "A",
+     "pct": 74.2,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Astral Voice",
+     "grade": "C",
+     "pct": 48.4,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Astral Voice",
+     "grade": "C",
+     "pct": 48.1,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Swing Jazz",
+     "grade": "D",
+     "pct": 36.7,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Swing Jazz",
+     "grade": "B",
+     "pct": 64.5,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains four weak discs (Scenes 01, 03, 04, 05).",
+   "engineBuffs": [
+    "+5 Energy on assist (5s cd)",
+    "Squad DMG +10%/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Astral Voice",
+      "pieces": 4
+     },
+     {
+      "name": "Swing Jazz",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +24% DMG · Quick-Assist entrant (3 stacks, 15s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3671,
+     "target": 3300,
+     "full": 3600,
+     "min": 2640,
+     "max": 3837,
+     "targetLabel": "3,300 TARGET",
+     "fullLabel": "3,600 FULL",
+     "note": "At the 3,430 cap: extra ATK is wasted, so the grader moves the weight elsewhere."
+    },
+    {
+     "stat": "Energy Regen",
+     "value": 2.8,
+     "target": 1.5,
+     "full": 3,
+     "min": 1.2000000000000002,
+     "max": 3.2,
+     "targetLabel": "1.5 TARGET",
+     "fullLabel": "3 FULL",
+     "note": "Past the 1.5 target. 0.2 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 2,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 8,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 11,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "yuzuha": {
+   "slug": "yuzuha",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Astral Voice",
+     "grade": "B",
+     "pct": 58.1,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Astral Voice",
+     "grade": "B",
+     "pct": 58.1,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Astral Voice",
+     "grade": "C",
+     "pct": 48.4,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Phaethon's Melody",
+     "grade": "D",
+     "pct": 37.3,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 4,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Phaethon's Melody",
+     "grade": "D",
+     "pct": 41.8,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Astral Voice",
+     "grade": "C",
+     "pct": 43.5,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains four weak discs (Scenes 03, 04, 05, 06).",
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Astral Voice",
+      "pieces": 4
+     },
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +24% DMG · Quick-Assist entrant (3 stacks, 15s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3113,
+     "target": 2900,
+     "full": 3200,
+     "min": 2320,
+     "max": 3344,
+     "targetLabel": "2,900 TARGET",
+     "fullLabel": "3,200 FULL",
+     "note": "At the 3,000 cap: extra ATK is wasted, so the grader moves the weight elsewhere."
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 171,
+     "target": 185,
+     "full": 210,
+     "min": 148,
+     "max": 220,
+     "targetLabel": "185 TARGET",
+     "fullLabel": "210 FULL",
+     "note": "14 short of the 185 target."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 129,
+     "target": 200,
+     "full": 300,
+     "min": 122,
+     "max": 314,
+     "targetLabel": "200 TARGET",
+     "fullLabel": "300 FULL",
+     "note": "71 short of the 200 target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 2,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 7,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 10,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "lucia": {
+   "slug": "lucia",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Moonlight Lullaby",
+     "grade": "B",
+     "pct": 58.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Moonlight Lullaby",
+     "grade": "A",
+     "pct": 72.1,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Yunkui Tales",
+     "grade": "A",
+     "pct": 67.6,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Moonlight Lullaby",
+     "grade": "C",
+     "pct": 45.6,
+     "main": {
+      "stat": "HP%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Moonlight Lullaby",
+     "grade": "D",
+     "pct": 39.7,
+     "main": {
+      "stat": "HP%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Yunkui Tales",
+     "grade": "S",
+     "pct": 83.8,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 4,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains two weak discs (Scenes 04, 05).",
+   "engineBuffs": [
+    "Squad DMG +25% (Ether Veil, 45s)",
+    "Squad HP +15% (Ether Veil, 45s)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Moonlight Lullaby",
+      "pieces": 4
+     },
+     {
+      "name": "Yunkui Tales",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad DMG +18% (Support, EX/Ult, 25s)"
+   },
+   "goals": [
+    {
+     "stat": "HP",
+     "value": 22594,
+     "target": 22000,
+     "full": 25000,
+     "min": 17600,
+     "max": 26125,
+     "targetLabel": "22,000 TARGET",
+     "fullLabel": "25,000 FULL",
+     "note": "Past the 22,000 target. 2,406 more to full marks."
+    },
+    {
+     "stat": "Energy Regen",
+     "value": 2.8,
+     "target": 1.4,
+     "full": 3,
+     "min": 1.1,
+     "max": 3.2,
+     "targetLabel": "1.4 TARGET",
+     "fullLabel": "3 FULL",
+     "note": "Past the 1.4 target. 0.2 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 5,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 9,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "sunna": {
+   "slug": "sunna",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Swing Jazz",
+     "grade": "C",
+     "pct": 46.8,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Moonlight Lullaby",
+     "grade": "C",
+     "pct": 51.6,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Moonlight Lullaby",
+     "grade": "C",
+     "pct": 45.2,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Moonlight Lullaby",
+     "grade": "D",
+     "pct": 34.2,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Swing Jazz",
+     "grade": "D",
+     "pct": 30.4,
+     "main": {
+      "stat": "ATK%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Moonlight Lullaby",
+     "grade": "C",
+     "pct": 43.5,
+     "main": {
+      "stat": "Energy Regen",
+      "value": "60%"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains six weak discs (Scenes 01, 02, 03, 04, 05, 06).",
+   "engineBuffs": [
+    "Squad DMG +12.5%/stk (x2)",
+    "Squad ATK +10% (2 stk)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Moonlight Lullaby",
+      "pieces": 4
+     },
+     {
+      "name": "Swing Jazz",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Squad DMG +18% (Support, EX/Ult, 25s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 3272,
+     "target": 3400,
+     "full": 3700,
+     "min": 2720,
+     "max": 3867,
+     "targetLabel": "3,400 TARGET",
+     "fullLabel": "3,700 FULL",
+     "note": "128 short of the 3,400 target."
+    },
+    {
+     "stat": "Energy Regen",
+     "value": 2.6,
+     "target": 1.4,
+     "full": 3,
+     "min": 1.1,
+     "max": 3.2,
+     "targetLabel": "1.4 TARGET",
+     "fullLabel": "3 FULL",
+     "note": "Past the 1.4 target. 0.4 more to full marks."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 1,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 10,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "yixuan": {
+   "slug": "yixuan",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Yunkui Tales",
+     "grade": "S",
+     "pct": 80,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Yunkui Tales",
+     "grade": "A",
+     "pct": 76,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Yunkui Tales",
+     "grade": "S",
+     "pct": 80,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Woodpecker Electro",
+     "grade": "B",
+     "pct": 62.5,
+     "main": {
+      "stat": "CRIT Rate",
+      "value": "24%"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Woodpecker Electro",
+     "grade": "C",
+     "pct": 44,
+     "main": {
+      "stat": "Ether DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Yunkui Tales",
+     "grade": "A",
+     "pct": 73.3,
+     "main": {
+      "stat": "HP%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 4,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 5,
+   "ratingLine": "Contains one weak disc (Scene 05).",
+   "engineBuffs": [
+    "Ether DMG +8%/stk (x2)",
+    "Ult/EX Ether Sheer DMG +10%/stk (x2)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Yunkui Tales",
+      "pieces": 4
+     },
+     {
+      "name": "Woodpecker Electro",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +4% CRIT Rate/stk (x3, EX/Chain/Ult, 15s) · +10% Sheer DMG (3 stk)"
+   },
+   "goals": [
+    {
+     "stat": "Sheer Force",
+     "value": 2598,
+     "target": 2250,
+     "full": 2600,
+     "min": 1800,
+     "max": 2717,
+     "targetLabel": "2,250 TARGET",
+     "fullLabel": "2,600 FULL",
+     "note": "Past the 2,250 target. 2 more to full marks."
+    },
+    {
+     "stat": "HP",
+     "value": 19618,
+     "target": 17000,
+     "full": 21000,
+     "min": 13600,
+     "max": 21945,
+     "targetLabel": "17,000 TARGET",
+     "fullLabel": "21,000 FULL",
+     "note": "Past the 17,000 target. 1,382 more to full marks."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 53.8,
+     "target": 85,
+     "full": 95,
+     "min": 51,
+     "max": 100,
+     "targetLabel": "85% TARGET",
+     "fullLabel": "95% FULL",
+     "note": "31.2% short of the 85% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 3,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  },
+  "yidhari": {
+   "slug": "yidhari",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Yunkui Tales",
+     "grade": "B",
+     "pct": 57.3,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 4,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Yunkui Tales",
+     "grade": "B",
+     "pct": 60,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Yunkui Tales",
+     "grade": "B",
+     "pct": 62.7,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Yunkui Tales",
+     "grade": "B",
+     "pct": 64.1,
+     "main": {
+      "stat": "CRIT DMG",
+      "value": "48%"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Branch & Blade Song",
+     "grade": "A",
+     "pct": 74.7,
+     "main": {
+      "stat": "Ice DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "ATK",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 2,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Branch & Blade Song",
+     "grade": "B",
+     "pct": 66.7,
+     "main": {
+      "stat": "HP%",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "DEF%",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 4,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 1,
+   "ratingLine": "No weak discs: every scene grades B or better.",
+   "engineBuffs": [
+    "Ice Sheer DMG +6%/stk (x3, on HP loss)"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Yunkui Tales",
+      "pieces": 4
+     },
+     {
+      "name": "Branch & Blade Song",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: +4% CRIT Rate/stk (x3, EX/Chain/Ult, 15s) · +10% Sheer DMG (3 stk)"
+   },
+   "goals": [
+    {
+     "stat": "Sheer Force",
+     "value": 2468,
+     "target": 2500,
+     "full": 2800,
+     "min": 2000,
+     "max": 2926,
+     "targetLabel": "2,500 TARGET",
+     "fullLabel": "2,800 FULL",
+     "note": "32 short of the 2,500 target."
+    },
+    {
+     "stat": "HP",
+     "value": 17665,
+     "target": 19000,
+     "full": 23000,
+     "min": 15200,
+     "max": 24035,
+     "targetLabel": "19,000 TARGET",
+     "fullLabel": "23,000 FULL",
+     "note": "1,335 short of the 19,000 target."
+    },
+    {
+     "stat": "CRIT Rate",
+     "value": 36.2,
+     "target": 62,
+     "full": 75,
+     "min": 34,
+     "max": 79,
+     "targetLabel": "62% TARGET",
+     "fullLabel": "75% FULL",
+     "note": "25.8% short of the 62% target."
+    }
+   ],
+   "skills": [
+    {
+     "name": "Basic Attack",
+     "level": 10,
+     "max": 12
+    },
+    {
+     "name": "Dodge",
+     "level": 3,
+     "max": 12
+    },
+    {
+     "name": "Assist",
+     "level": 6,
+     "max": 12
+    },
+    {
+     "name": "Special Attack",
+     "level": 12,
+     "max": 12
+    },
+    {
+     "name": "Chain Attack",
+     "level": 12,
+     "max": 12
+    }
+   ],
+   "skillSource": "ENKA SHOWCASE · 06/20",
+   "core": [
+    "A",
+    "B",
+    "C",
+    "D",
+    "E",
+    "F"
+   ]
+  }
+ }
+}

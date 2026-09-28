@@ -1,4 +1,20 @@
 @import "tailwindcss";
+@import "../random-play/styles/random-play.css";
+@import "../random-play/styles/tailwind-theme.css";
+
+/* ===== Random Play host =====
+   The framework is vendored at src/random-play (see its VENDORED.md). Fonts come from next/font in
+   layout.tsx, so the token stacks are re-pointed here; the host owns the viewport (the stage centres
+   itself on desktop, and below 1100px the app is 100dvh with its own header — no TopNav above it). */
+:root {
+  --rp-font-display: var(--font-rp-display), "Bahnschrift Condensed", sans-serif;
+  --rp-font-mono: var(--font-rp-mono), ui-monospace, monospace;
+  --rp-font-body: var(--font-rp-body), "Segoe UI", sans-serif;
+  --rp-font-hand: var(--font-rp-hand), "Segoe Print", cursive;
+}
+.rp-host { position: relative; min-height: 100dvh; background: #2A221B; }
+.rp-host__shell { display: flex; align-items: center; justify-content: center; min-height: 100dvh; }
+.rp-host__line { font-family: var(--rp-font-mono); font-size: 12px; font-weight: 700; letter-spacing: .2em; color: var(--rp-ink-2); }
 
 /* ===== Soundsystem design tokens (ported from Mockup C) ===== */
 :root {

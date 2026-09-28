@@ -1,0 +1,2124 @@
+{
+ "generated_by": "scripts/assemble-assets.py",
+ "count": 353,
+ "files": [
+  {
+   "path": "agents/circle/alice.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/alice.webp",
+   "method": "copy",
+   "bytes": 23770
+  },
+  {
+   "path": "agents/circle/aria.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/aria.webp",
+   "method": "copy",
+   "bytes": 27104
+  },
+  {
+   "path": "agents/circle/astra.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/astra.webp",
+   "method": "copy",
+   "bytes": 22722
+  },
+  {
+   "path": "agents/circle/burnice.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/burnice.webp",
+   "method": "copy",
+   "bytes": 25980
+  },
+  {
+   "path": "agents/circle/cissia.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/cissia.webp",
+   "method": "copy",
+   "bytes": 27840
+  },
+  {
+   "path": "agents/circle/dialyn.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/dialyn.webp",
+   "method": "copy",
+   "bytes": 30140
+  },
+  {
+   "path": "agents/circle/ellen.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/ellen.webp",
+   "method": "copy",
+   "bytes": 7112
+  },
+  {
+   "path": "agents/circle/evelyn.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/evelyn.webp",
+   "method": "copy",
+   "bytes": 24752
+  },
+  {
+   "path": "agents/circle/gracehoward.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/gracehoward.webp",
+   "method": "copy",
+   "bytes": 7652
+  },
+  {
+   "path": "agents/circle/janedoe.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/janedoe.webp",
+   "method": "copy",
+   "bytes": 27042
+  },
+  {
+   "path": "agents/circle/jufufu.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/jufufu.webp",
+   "method": "copy",
+   "bytes": 25298
+  },
+  {
+   "path": "agents/circle/koleda.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/koleda.webp",
+   "method": "copy",
+   "bytes": 9132
+  },
+  {
+   "path": "agents/circle/lighter.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/lighter.webp",
+   "method": "copy",
+   "bytes": 27418
+  },
+  {
+   "path": "agents/circle/lucia.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/lucia.webp",
+   "method": "copy",
+   "bytes": 30024
+  },
+  {
+   "path": "agents/circle/miyabi.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/miyabi.webp",
+   "method": "copy",
+   "bytes": 17436
+  },
+  {
+   "path": "agents/circle/nangongyu.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/nangongyu.webp",
+   "method": "copy",
+   "bytes": 27194
+  },
+  {
+   "path": "agents/circle/nekomata.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/nekomata.webp",
+   "method": "copy",
+   "bytes": 7610
+  },
+  {
+   "path": "agents/circle/qingyi.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/qingyi.webp",
+   "method": "copy",
+   "bytes": 6840
+  },
+  {
+   "path": "agents/circle/remielledan.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/remielledan.webp",
+   "method": "copy",
+   "bytes": 8572
+  },
+  {
+   "path": "agents/circle/rina.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/rina.webp",
+   "method": "copy",
+   "bytes": 6672
+  },
+  {
+   "path": "agents/circle/seed.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/seed.webp",
+   "method": "copy",
+   "bytes": 26324
+  },
+  {
+   "path": "agents/circle/soldier0anby.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/soldier0anby.webp",
+   "method": "copy",
+   "bytes": 8330
+  },
+  {
+   "path": "agents/circle/soldier11.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/soldier11.webp",
+   "method": "copy",
+   "bytes": 7420
+  },
+  {
+   "path": "agents/circle/sunna.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/sunna.webp",
+   "method": "copy",
+   "bytes": 26390
+  },
+  {
+   "path": "agents/circle/trigger.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/trigger.webp",
+   "method": "copy",
+   "bytes": 27024
+  },
+  {
+   "path": "agents/circle/velina.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/velina.webp",
+   "method": "copy",
+   "bytes": 26434
+  },
+  {
+   "path": "agents/circle/vivian.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/vivian.webp",
+   "method": "copy",
+   "bytes": 26340
+  },
+  {
+   "path": "agents/circle/vonlycaon.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/vonlycaon.webp",
+   "method": "copy",
+   "bytes": 7692
+  },
+  {
+   "path": "agents/circle/yanagi.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleCircle31.png",
+   "method": "IconRoleCircle31 → webp (no dashboard endgame circle)",
+   "bytes": 7440
+  },
+  {
+   "path": "agents/circle/yeshunguang.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/yeshunguang.webp",
+   "method": "copy",
+   "bytes": 26538
+  },
+  {
+   "path": "agents/circle/yidhari.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/yidhari.webp",
+   "method": "copy",
+   "bytes": 31206
+  },
+  {
+   "path": "agents/circle/yixuan.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/yixuan.webp",
+   "method": "copy",
+   "bytes": 26116
+  },
+  {
+   "path": "agents/circle/yuzuha.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/yuzuha.webp",
+   "method": "copy",
+   "bytes": 24084
+  },
+  {
+   "path": "agents/circle/zhao.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/zhao.webp",
+   "method": "copy",
+   "bytes": 27488
+  },
+  {
+   "path": "agents/circle/zhuyuan.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/zhuyuan.webp",
+   "method": "copy",
+   "bytes": 7448
+  },
+  {
+   "path": "agents/cover/alice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/alice.webp",
+   "method": "face at 0.46 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 154280
+  },
+  {
+   "path": "agents/cover/aria.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/aria.webp",
+   "method": "face at 0.58 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 182238
+  },
+  {
+   "path": "agents/cover/astra.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/astra.webp",
+   "method": "face at 0.42 → 0.54 of the cover, k=0.72, 1040x1437",
+   "bytes": 167040
+  },
+  {
+   "path": "agents/cover/burnice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
+   "method": "face at 0.49 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 123490
+  },
+  {
+   "path": "agents/cover/cissia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/cissia.webp",
+   "method": "face at 0.62 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 223382
+  },
+  {
+   "path": "agents/cover/dialyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/dialyn.webp",
+   "method": "face at 0.49 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 205530
+  },
+  {
+   "path": "agents/cover/ellen.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/ellen.webp",
+   "method": "face at 0.61 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 163640
+  },
+  {
+   "path": "agents/cover/evelyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/evelyn.webp",
+   "method": "face at 0.53 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 113340
+  },
+  {
+   "path": "agents/cover/janedoe.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/janedoe.webp",
+   "method": "face at 0.51 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 133156
+  },
+  {
+   "path": "agents/cover/jufufu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/jufufu.webp",
+   "method": "face at 0.37 → 0.54 of the cover, k=0.8, 991x1369",
+   "bytes": 166092
+  },
+  {
+   "path": "agents/cover/lighter.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lighter.webp",
+   "method": "face at 0.51 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 133714
+  },
+  {
+   "path": "agents/cover/lucia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lucia.webp",
+   "method": "face at 0.39 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 160386
+  },
+  {
+   "path": "agents/cover/miyabi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/miyabi.webp",
+   "method": "face at 0.49 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 147036
+  },
+  {
+   "path": "agents/cover/nangongyu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
+   "method": "face at 0.73 → 0.54 of the cover, k=0.72, 1040x1437",
+   "bytes": 222068
+  },
+  {
+   "path": "agents/cover/remielledan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
+   "method": "hand-framed asset: full width from the top, 830x1146",
+   "bytes": 144322
+  },
+  {
+   "path": "agents/cover/seed.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/seed.webp",
+   "method": "face at 0.55 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 148170
+  },
+  {
+   "path": "agents/cover/soldier0anby.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/soldier0anby.webp",
+   "method": "face at 0.50 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 172628
+  },
+  {
+   "path": "agents/cover/sunna.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/sunna.webp",
+   "method": "face at 0.57 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 151914
+  },
+  {
+   "path": "agents/cover/trigger.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/trigger.webp",
+   "method": "face at 0.45 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 166256
+  },
+  {
+   "path": "agents/cover/velina.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
+   "method": "face at 0.58 → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 233562
+  },
+  {
+   "path": "agents/cover/vivian.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/vivian.webp",
+   "method": "face at 0.63/0.245 (head-anchored) → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 177966
+  },
+  {
+   "path": "agents/cover/yanagi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yanagi.webp",
+   "method": "face at 0.36 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 122250
+  },
+  {
+   "path": "agents/cover/yeshunguang.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yeshunguang.webp",
+   "method": "face at 0.49 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 236710
+  },
+  {
+   "path": "agents/cover/yidhari.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yidhari.webp",
+   "method": "face at 0.38 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 170702
+  },
+  {
+   "path": "agents/cover/yixuan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yixuan.webp",
+   "method": "face at 0.52 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 206936
+  },
+  {
+   "path": "agents/cover/yuzuha.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yuzuha.webp",
+   "method": "face at 0.48/0.260 (head-anchored) → 0.54 of the cover, k=0.8, 1040x1437",
+   "bytes": 209380
+  },
+  {
+   "path": "agents/cover/zhao.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/zhao.webp",
+   "method": "face at 0.35 → 0.54 of the cover, k=0.8, 877x1212",
+   "bytes": 122224
+  },
+  {
+   "path": "agents/emote/aria.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/aria.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 9284
+  },
+  {
+   "path": "agents/emote/burnice.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/burnice.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8406
+  },
+  {
+   "path": "agents/emote/claret.webp",
+   "source": "zzz-asset-rip/tools/newer_out/Sprite/IconEmoji10121.png",
+   "method": "IconEmoji10121 (game IconEmoji series) → trimmed, lossless",
+   "bytes": 13732
+  },
+  {
+   "path": "agents/emote/dialyn.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/dialyn.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 9758
+  },
+  {
+   "path": "agents/emote/evelyn.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/evelyn.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8378
+  },
+  {
+   "path": "agents/emote/lighter.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/lighter.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8260
+  },
+  {
+   "path": "agents/emote/lycaon.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/lycaon.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8430
+  },
+  {
+   "path": "agents/emote/nangongyu.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/nangong.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8042
+  },
+  {
+   "path": "agents/emote/norma.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/norma.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8376
+  },
+  {
+   "path": "agents/emote/panyinhu.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/panyinhu.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 9098
+  },
+  {
+   "path": "agents/emote/remielledan.webp",
+   "source": "zzz-asset-rip/tools/emoji_out/Sprite/IconEmoji10117.png",
+   "method": "IconEmoji10117 (game IconEmoji series) → trimmed, lossless",
+   "bytes": 10098
+  },
+  {
+   "path": "agents/emote/roxy.webp",
+   "source": "zzz-asset-rip/tools/newer_out/Sprite/IconEmoji10123.png",
+   "method": "IconEmoji10123 (game IconEmoji series) → trimmed, lossless",
+   "bytes": 10712
+  },
+  {
+   "path": "agents/emote/seed.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/seed.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8842
+  },
+  {
+   "path": "agents/emote/sigrid.webp",
+   "source": "zzz-asset-rip/tools/emoji_out/Sprite/IconEmoji10120.png",
+   "method": "IconEmoji10120 (game IconEmoji series) → trimmed, lossless",
+   "bytes": 12740
+  },
+  {
+   "path": "agents/emote/soukaku.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/soukaku.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 7296
+  },
+  {
+   "path": "agents/emote/sunna.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/sunna.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8184
+  },
+  {
+   "path": "agents/emote/trigger.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/trigger.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8724
+  },
+  {
+   "path": "agents/emote/velina.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/velina.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 6916
+  },
+  {
+   "path": "agents/jacket/alice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/alice.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 38828
+  },
+  {
+   "path": "agents/jacket/aria.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/aria.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 48684
+  },
+  {
+   "path": "agents/jacket/astra.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/astra.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 37648
+  },
+  {
+   "path": "agents/jacket/burnice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 33226
+  },
+  {
+   "path": "agents/jacket/cissia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/cissia.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 48348
+  },
+  {
+   "path": "agents/jacket/dialyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/dialyn.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 52804
+  },
+  {
+   "path": "agents/jacket/ellen.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/ellen.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 35570
+  },
+  {
+   "path": "agents/jacket/evelyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/evelyn.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 32202
+  },
+  {
+   "path": "agents/jacket/janedoe.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/janedoe.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 35332
+  },
+  {
+   "path": "agents/jacket/jufufu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/jufufu.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 44468
+  },
+  {
+   "path": "agents/jacket/lighter.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lighter.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 35406
+  },
+  {
+   "path": "agents/jacket/lucia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lucia.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 41534
+  },
+  {
+   "path": "agents/jacket/miyabi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/miyabi.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 32770
+  },
+  {
+   "path": "agents/jacket/nangongyu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 49150
+  },
+  {
+   "path": "agents/jacket/remielledan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 45620
+  },
+  {
+   "path": "agents/jacket/seed.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/seed.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 40694
+  },
+  {
+   "path": "agents/jacket/soldier0anby.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/soldier0anby.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 40506
+  },
+  {
+   "path": "agents/jacket/sunna.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/sunna.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 44258
+  },
+  {
+   "path": "agents/jacket/trigger.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/trigger.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 37024
+  },
+  {
+   "path": "agents/jacket/velina.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 42188
+  },
+  {
+   "path": "agents/jacket/vivian.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/vivian.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 37772
+  },
+  {
+   "path": "agents/jacket/yanagi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yanagi.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 34456
+  },
+  {
+   "path": "agents/jacket/yeshunguang.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yeshunguang.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 46610
+  },
+  {
+   "path": "agents/jacket/yidhari.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yidhari.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 43370
+  },
+  {
+   "path": "agents/jacket/yixuan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yixuan.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 47856
+  },
+  {
+   "path": "agents/jacket/yuzuha.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yuzuha.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 39188
+  },
+  {
+   "path": "agents/jacket/zhao.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/zhao.webp",
+   "method": "3:5 face-framed crop via portrait-frames.ts, 300x500",
+   "bytes": 38914
+  },
+  {
+   "path": "agents/rect/alice.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral46.png",
+   "method": "IconRoleGeneral46 → lossless webp",
+   "bytes": 8366
+  },
+  {
+   "path": "agents/rect/aria.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral57.png",
+   "method": "IconRoleGeneral57 → lossless webp",
+   "bytes": 10302
+  },
+  {
+   "path": "agents/rect/astra.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral36.png",
+   "method": "IconRoleGeneral36 → lossless webp",
+   "bytes": 10396
+  },
+  {
+   "path": "agents/rect/burnice.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral32.png",
+   "method": "IconRoleGeneral32 → lossless webp",
+   "bytes": 9644
+  },
+  {
+   "path": "agents/rect/cissia.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral60.png",
+   "method": "IconRoleGeneral60 → lossless webp",
+   "bytes": 11840
+  },
+  {
+   "path": "agents/rect/dialyn.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral54.png",
+   "method": "IconRoleGeneral54 → lossless webp",
+   "bytes": 11286
+  },
+  {
+   "path": "agents/rect/ellen.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral21.png",
+   "method": "IconRoleGeneral21 → lossless webp",
+   "bytes": 11120
+  },
+  {
+   "path": "agents/rect/evelyn.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral37.png",
+   "method": "IconRoleGeneral37 → lossless webp",
+   "bytes": 9896
+  },
+  {
+   "path": "agents/rect/janedoe.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral24.png",
+   "method": "IconRoleGeneral24 → lossless webp",
+   "bytes": 7954
+  },
+  {
+   "path": "agents/rect/jufufu.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral43.png",
+   "method": "IconRoleGeneral43 → lossless webp",
+   "bytes": 10184
+  },
+  {
+   "path": "agents/rect/lighter.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral26.png",
+   "method": "IconRoleGeneral26 → lossless webp",
+   "bytes": 9192
+  },
+  {
+   "path": "agents/rect/lucia.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral50.png",
+   "method": "IconRoleGeneral50 → lossless webp",
+   "bytes": 11430
+  },
+  {
+   "path": "agents/rect/miyabi.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral13.png",
+   "method": "IconRoleGeneral13 → lossless webp",
+   "bytes": 9540
+  },
+  {
+   "path": "agents/rect/nangongyu.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral59.png",
+   "method": "IconRoleGeneral59 → lossless webp",
+   "bytes": 11206
+  },
+  {
+   "path": "agents/rect/remielledan.webp",
+   "source": "zzz-asset-rip/tools/remi_out/Sprite/IconRoleGeneral67.png",
+   "method": "IconRoleGeneral67 → lossless webp",
+   "bytes": 10270
+  },
+  {
+   "path": "agents/rect/seed.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral48.png",
+   "method": "IconRoleGeneral48 → lossless webp",
+   "bytes": 8314
+  },
+  {
+   "path": "agents/rect/soldier0anby.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral40.png",
+   "method": "IconRoleGeneral40 → lossless webp",
+   "bytes": 10424
+  },
+  {
+   "path": "agents/rect/sunna.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral58.png",
+   "method": "IconRoleGeneral58 → lossless webp",
+   "bytes": 10764
+  },
+  {
+   "path": "agents/rect/trigger.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral39.png",
+   "method": "IconRoleGeneral39 → lossless webp",
+   "bytes": 11766
+  },
+  {
+   "path": "agents/rect/velina.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral64.png",
+   "method": "IconRoleGeneral64 → lossless webp",
+   "bytes": 9990
+  },
+  {
+   "path": "agents/rect/vivian.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral41.png",
+   "method": "IconRoleGeneral41 → lossless webp",
+   "bytes": 12144
+  },
+  {
+   "path": "agents/rect/yanagi.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral31.png",
+   "method": "IconRoleGeneral31 → lossless webp",
+   "bytes": 8646
+  },
+  {
+   "path": "agents/rect/yeshunguang.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral55.png",
+   "method": "IconRoleGeneral55 → lossless webp",
+   "bytes": 9966
+  },
+  {
+   "path": "agents/rect/yidhari.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral52.png",
+   "method": "IconRoleGeneral52 → lossless webp",
+   "bytes": 10506
+  },
+  {
+   "path": "agents/rect/yixuan.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral44.png",
+   "method": "IconRoleGeneral44 → lossless webp",
+   "bytes": 10044
+  },
+  {
+   "path": "agents/rect/yuzuha.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral47.png",
+   "method": "IconRoleGeneral47 → lossless webp",
+   "bytes": 11094
+  },
+  {
+   "path": "agents/rect/zhao.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleGeneral56.png",
+   "method": "IconRoleGeneral56 → lossless webp",
+   "bytes": 11436
+  },
+  {
+   "path": "agents/squad/alice.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect46.png",
+   "method": "IconRoleSelect46 → lossless webp",
+   "bytes": 64970
+  },
+  {
+   "path": "agents/squad/aria.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect57.png",
+   "method": "IconRoleSelect57 → lossless webp",
+   "bytes": 81636
+  },
+  {
+   "path": "agents/squad/astra.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect36.png",
+   "method": "IconRoleSelect36 → lossless webp",
+   "bytes": 74240
+  },
+  {
+   "path": "agents/squad/burnice.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect32.png",
+   "method": "IconRoleSelect32 → lossless webp",
+   "bytes": 77292
+  },
+  {
+   "path": "agents/squad/cissia.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect60.png",
+   "method": "IconRoleSelect60 → lossless webp",
+   "bytes": 76364
+  },
+  {
+   "path": "agents/squad/dialyn.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect54.png",
+   "method": "IconRoleSelect54 → lossless webp",
+   "bytes": 75758
+  },
+  {
+   "path": "agents/squad/ellen.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect21.png",
+   "method": "IconRoleSelect21 → lossless webp",
+   "bytes": 52290
+  },
+  {
+   "path": "agents/squad/evelyn.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect37.png",
+   "method": "IconRoleSelect37 → lossless webp",
+   "bytes": 68170
+  },
+  {
+   "path": "agents/squad/janedoe.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect24.png",
+   "method": "IconRoleSelect24 → lossless webp",
+   "bytes": 76632
+  },
+  {
+   "path": "agents/squad/jufufu.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect43.png",
+   "method": "IconRoleSelect43 → lossless webp",
+   "bytes": 73362
+  },
+  {
+   "path": "agents/squad/lighter.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect26.png",
+   "method": "IconRoleSelect26 → lossless webp",
+   "bytes": 72166
+  },
+  {
+   "path": "agents/squad/lucia.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect50.png",
+   "method": "IconRoleSelect50 → lossless webp",
+   "bytes": 81954
+  },
+  {
+   "path": "agents/squad/miyabi.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect13.png",
+   "method": "IconRoleSelect13 → lossless webp",
+   "bytes": 78290
+  },
+  {
+   "path": "agents/squad/nangongyu.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect59.png",
+   "method": "IconRoleSelect59 → lossless webp",
+   "bytes": 75530
+  },
+  {
+   "path": "agents/squad/remielledan.webp",
+   "source": "zzz-asset-rip/tools/remi_out2/Sprite/IconRoleSelect67.png",
+   "method": "IconRoleSelect67 → lossless webp",
+   "bytes": 75838
+  },
+  {
+   "path": "agents/squad/seed.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect48.png",
+   "method": "IconRoleSelect48 → lossless webp",
+   "bytes": 72834
+  },
+  {
+   "path": "agents/squad/soldier0anby.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect40.png",
+   "method": "IconRoleSelect40 → lossless webp",
+   "bytes": 74226
+  },
+  {
+   "path": "agents/squad/sunna.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect58.png",
+   "method": "IconRoleSelect58 → lossless webp",
+   "bytes": 68980
+  },
+  {
+   "path": "agents/squad/trigger.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect39.png",
+   "method": "IconRoleSelect39 → lossless webp",
+   "bytes": 73292
+  },
+  {
+   "path": "agents/squad/velina.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect64.png",
+   "method": "IconRoleSelect64 → lossless webp",
+   "bytes": 68834
+  },
+  {
+   "path": "agents/squad/vivian.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect41.png",
+   "method": "IconRoleSelect41 → lossless webp",
+   "bytes": 76172
+  },
+  {
+   "path": "agents/squad/yanagi.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect31.png",
+   "method": "IconRoleSelect31 → lossless webp",
+   "bytes": 75030
+  },
+  {
+   "path": "agents/squad/yeshunguang.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect55.png",
+   "method": "IconRoleSelect55 → lossless webp",
+   "bytes": 76282
+  },
+  {
+   "path": "agents/squad/yidhari.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect52.png",
+   "method": "IconRoleSelect52 → lossless webp",
+   "bytes": 82738
+  },
+  {
+   "path": "agents/squad/yixuan.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect44.png",
+   "method": "IconRoleSelect44 → lossless webp",
+   "bytes": 81164
+  },
+  {
+   "path": "agents/squad/yuzuha.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect47.png",
+   "method": "IconRoleSelect47 → lossless webp",
+   "bytes": 78754
+  },
+  {
+   "path": "agents/squad/zhao.webp",
+   "source": "zzz-asset-rip/tools/art_raw/Sprite/IconRoleSelect56.png",
+   "method": "IconRoleSelect56 → lossless webp",
+   "bytes": 74748
+  },
+  {
+   "path": "agents/tall/alice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/alice.webp",
+   "method": "copy",
+   "bytes": 285680
+  },
+  {
+   "path": "agents/tall/aria.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/aria.webp",
+   "method": "copy",
+   "bytes": 319104
+  },
+  {
+   "path": "agents/tall/astra.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/astra.webp",
+   "method": "copy",
+   "bytes": 296996
+  },
+  {
+   "path": "agents/tall/burnice.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/burnice.webp",
+   "method": "copy",
+   "bytes": 245146
+  },
+  {
+   "path": "agents/tall/cissia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/cissia.webp",
+   "method": "copy",
+   "bytes": 470860
+  },
+  {
+   "path": "agents/tall/dialyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/dialyn.webp",
+   "method": "copy",
+   "bytes": 438076
+  },
+  {
+   "path": "agents/tall/ellen.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/ellen.webp",
+   "method": "copy",
+   "bytes": 341356
+  },
+  {
+   "path": "agents/tall/evelyn.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/evelyn.webp",
+   "method": "copy",
+   "bytes": 221730
+  },
+  {
+   "path": "agents/tall/janedoe.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/janedoe.webp",
+   "method": "copy",
+   "bytes": 285746
+  },
+  {
+   "path": "agents/tall/jufufu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/jufufu.webp",
+   "method": "copy",
+   "bytes": 284238
+  },
+  {
+   "path": "agents/tall/lighter.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lighter.webp",
+   "method": "copy",
+   "bytes": 271410
+  },
+  {
+   "path": "agents/tall/lucia.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/lucia.webp",
+   "method": "copy",
+   "bytes": 324998
+  },
+  {
+   "path": "agents/tall/miyabi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/miyabi.webp",
+   "method": "copy",
+   "bytes": 1477510
+  },
+  {
+   "path": "agents/tall/nangongyu.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
+   "method": "copy",
+   "bytes": 406448
+  },
+  {
+   "path": "agents/tall/remielledan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
+   "method": "copy",
+   "bytes": 176042
+  },
+  {
+   "path": "agents/tall/seed.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/seed.webp",
+   "method": "copy",
+   "bytes": 297764
+  },
+  {
+   "path": "agents/tall/soldier0anby.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/soldier0anby.webp",
+   "method": "copy",
+   "bytes": 308422
+  },
+  {
+   "path": "agents/tall/sunna.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/sunna.webp",
+   "method": "copy",
+   "bytes": 254210
+  },
+  {
+   "path": "agents/tall/trigger.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/trigger.webp",
+   "method": "copy",
+   "bytes": 360238
+  },
+  {
+   "path": "agents/tall/velina.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/velina.webp",
+   "method": "copy",
+   "bytes": 511236
+  },
+  {
+   "path": "agents/tall/vivian.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/vivian.webp",
+   "method": "copy",
+   "bytes": 447222
+  },
+  {
+   "path": "agents/tall/yanagi.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yanagi.webp",
+   "method": "copy",
+   "bytes": 237364
+  },
+  {
+   "path": "agents/tall/yeshunguang.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yeshunguang.webp",
+   "method": "copy",
+   "bytes": 632830
+  },
+  {
+   "path": "agents/tall/yidhari.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yidhari.webp",
+   "method": "copy",
+   "bytes": 447086
+  },
+  {
+   "path": "agents/tall/yixuan.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yixuan.webp",
+   "method": "copy",
+   "bytes": 373924
+  },
+  {
+   "path": "agents/tall/yuzuha.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/yuzuha.webp",
+   "method": "copy",
+   "bytes": 438368
+  },
+  {
+   "path": "agents/tall/zhao.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/zhao.webp",
+   "method": "copy",
+   "bytes": 327662
+  },
+  {
+   "path": "bangboo/ariel.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/ariel.webp",
+   "method": "copy",
+   "bytes": 76496
+  },
+  {
+   "path": "bangboo/baddieboo.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/baddieboo.webp",
+   "method": "copy",
+   "bytes": 49310
+  },
+  {
+   "path": "bangboo/belion.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/belion.webp",
+   "method": "copy",
+   "bytes": 48820
+  },
+  {
+   "path": "bangboo/biggestfan.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/biggestfan.webp",
+   "method": "copy",
+   "bytes": 47674
+  },
+  {
+   "path": "bangboo/msesme.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/msesme.webp",
+   "method": "copy",
+   "bytes": 49550
+  },
+  {
+   "path": "bangboo/plugboo.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/plugboo.webp",
+   "method": "copy",
+   "bytes": 54424
+  },
+  {
+   "path": "bangboo/robin.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/robin.webp",
+   "method": "copy",
+   "bytes": 46712
+  },
+  {
+   "path": "bangboo/sharkboo.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/sharkboo.webp",
+   "method": "copy",
+   "bytes": 45786
+  },
+  {
+   "path": "bangboo/snap.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/snap.webp",
+   "method": "copy",
+   "bytes": 50706
+  },
+  {
+   "path": "bangboo/sprout.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/sprout.webp",
+   "method": "copy",
+   "bytes": 56258
+  },
+  {
+   "path": "bangboo/ultrajet.webp",
+   "source": "zzz-dashboard-next/public/assets/bangboo/ultrajet.webp",
+   "method": "copy",
+   "bytes": 48178
+  },
+  {
+   "path": "crests/angels_of_delusion.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_angels_of_delusion.webp",
+   "method": "copy",
+   "bytes": 16036
+  },
+  {
+   "path": "crests/covenant_of_dayat.webp",
+   "source": "zzz-asset-rip/tools/remi_out/Sprite/IconCampCovenantOfDayat.png",
+   "method": "fresh 2026-09-27 pull → webp",
+   "bytes": 14288
+  },
+  {
+   "path": "crests/criminal_investigation_special_response_team_29.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_criminal_investigation_special_response_team_29.webp",
+   "method": "copy",
+   "bytes": 45182
+  },
+  {
+   "path": "crests/defense_force_silver_squad.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_defense_force_silver_squad.webp",
+   "method": "copy",
+   "bytes": 52816
+  },
+  {
+   "path": "crests/external_strategy_department.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_external_strategy_department.webp",
+   "method": "copy",
+   "bytes": 30450
+  },
+  {
+   "path": "crests/hollow_special_operations_section_6.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_hollow_special_operations_section_6.webp",
+   "method": "copy",
+   "bytes": 52824
+  },
+  {
+   "path": "crests/krampus_compliance_authority.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_krampus_compliance_authority.webp",
+   "method": "copy",
+   "bytes": 13272
+  },
+  {
+   "path": "crests/metropolitan_order_division.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_metropolitan_order_division.webp",
+   "method": "copy",
+   "bytes": 17392
+  },
+  {
+   "path": "crests/mockingbird.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_mockingbird.webp",
+   "method": "copy",
+   "bytes": 54876
+  },
+  {
+   "path": "crests/obol_squad.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_obol_squad.webp",
+   "method": "copy",
+   "bytes": 59048
+  },
+  {
+   "path": "crests/sons_of_calydon.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_sons_of_calydon.webp",
+   "method": "copy",
+   "bytes": 61256
+  },
+  {
+   "path": "crests/spook_shack.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_spook_shack.webp",
+   "method": "copy",
+   "bytes": 53166
+  },
+  {
+   "path": "crests/stars_of_lyra.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_stars_of_lyra.webp",
+   "method": "copy",
+   "bytes": 53680
+  },
+  {
+   "path": "crests/victoria_housekeeping_co.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_victoria_housekeeping_co.webp",
+   "method": "copy",
+   "bytes": 53246
+  },
+  {
+   "path": "crests/yunkui_summit.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/faction_yunkui_summit.webp",
+   "method": "copy",
+   "bytes": 66536
+  },
+  {
+   "path": "enemies/airspacesentinel.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/airspacesentinel.webp",
+   "method": "copy",
+   "bytes": 120096
+  },
+  {
+   "path": "enemies/complexcorrupted.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/complexcorrupted.webp",
+   "method": "copy",
+   "bytes": 382130
+  },
+  {
+   "path": "enemies/covenantguardian.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/covenantguardian.webp",
+   "method": "copy",
+   "bytes": 159614
+  },
+  {
+   "path": "enemies/doppelgangerstarlightbilly.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/doppelgangerstarlightbilly.webp",
+   "method": "copy",
+   "bytes": 248980
+  },
+  {
+   "path": "enemies/girtablullu.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/girtablullu.webp",
+   "method": "copy",
+   "bytes": 126258
+  },
+  {
+   "path": "enemies/girtablullustagnantaberrant.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/girtablullustagnantaberrant.webp",
+   "method": "copy",
+   "bytes": 330138
+  },
+  {
+   "path": "enemies/kusarikku.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/kusarikku.webp",
+   "method": "copy",
+   "bytes": 320686
+  },
+  {
+   "path": "enemies/lockspring.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/lockspring.webp",
+   "method": "copy",
+   "bytes": 72936
+  },
+  {
+   "path": "enemies/metamorphosedavarus.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/metamorphosedavarus.webp",
+   "method": "copy",
+   "bytes": 276764
+  },
+  {
+   "path": "enemies/miasmaabyssalenforcer.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmaabyssalenforcer.webp",
+   "method": "copy",
+   "bytes": 105616
+  },
+  {
+   "path": "enemies/miasmaisoldeslime.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmaisoldeslime.webp",
+   "method": "copy",
+   "bytes": 62172
+  },
+  {
+   "path": "enemies/miasmanoranoslime.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmanoranoslime.webp",
+   "method": "copy",
+   "bytes": 75918
+  },
+  {
+   "path": "enemies/miasmapriest.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmapriest.webp",
+   "method": "copy",
+   "bytes": 493136
+  },
+  {
+   "path": "enemies/miasmicfiend.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmicfiend.webp",
+   "method": "copy",
+   "bytes": 257174
+  },
+  {
+   "path": "enemies/miasmicthracian.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miasmicthracian.webp",
+   "method": "copy",
+   "bytes": 104280
+  },
+  {
+   "path": "enemies/miragearcherunit.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/miragearcherunit.webp",
+   "method": "copy",
+   "bytes": 96936
+  },
+  {
+   "path": "enemies/notoriousdeadendbutcher.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/notoriousdeadendbutcher.webp",
+   "method": "copy",
+   "bytes": 301676
+  },
+  {
+   "path": "enemies/notoriousmarionette.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/notoriousmarionette.webp",
+   "method": "copy",
+   "bytes": 123104
+  },
+  {
+   "path": "enemies/notoriouspompey.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/notoriouspompey.webp",
+   "method": "copy",
+   "bytes": 286156
+  },
+  {
+   "path": "enemies/rewrittensanguinesweeper.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/rewrittensanguinesweeper.webp",
+   "method": "copy",
+   "bytes": 287424
+  },
+  {
+   "path": "enemies/sacrificehereticjester.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/sacrificehereticjester.webp",
+   "method": "copy",
+   "bytes": 320812
+  },
+  {
+   "path": "enemies/scorchedhorizon.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/scorchedhorizon.webp",
+   "method": "copy",
+   "bytes": 326350
+  },
+  {
+   "path": "enemies/tepes.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/tepes.webp",
+   "method": "copy",
+   "bytes": 144078
+  },
+  {
+   "path": "enemies/thedeciderterrorraptor.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/thedeciderterrorraptor.webp",
+   "method": "copy",
+   "bytes": 99232
+  },
+  {
+   "path": "enemies/thracian.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/thracian.webp",
+   "method": "copy",
+   "bytes": 111720
+  },
+  {
+   "path": "enemies/yeshiyuanthethrall.webp",
+   "source": "zzz-dashboard-next/public/assets/enemies/yeshiyuanthethrall.webp",
+   "method": "copy",
+   "bytes": 122722
+  },
+  {
+   "path": "icons/element/auric_ink.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_auric_ink.webp",
+   "method": "copy",
+   "bytes": 758
+  },
+  {
+   "path": "icons/element/electric.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_electric.webp",
+   "method": "copy",
+   "bytes": 1952
+  },
+  {
+   "path": "icons/element/ether.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_ether.webp",
+   "method": "copy",
+   "bytes": 2156
+  },
+  {
+   "path": "icons/element/fire.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_fire.webp",
+   "method": "copy",
+   "bytes": 2490
+  },
+  {
+   "path": "icons/element/frost.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_frost.webp",
+   "method": "copy",
+   "bytes": 784
+  },
+  {
+   "path": "icons/element/honed_edge.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_honed_edge.webp",
+   "method": "copy",
+   "bytes": 916
+  },
+  {
+   "path": "icons/element/ice.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_ice.webp",
+   "method": "copy",
+   "bytes": 2162
+  },
+  {
+   "path": "icons/element/lumiflux.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_lumiflux.webp",
+   "method": "copy",
+   "bytes": 1222
+  },
+  {
+   "path": "icons/element/physical.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_physical.webp",
+   "method": "copy",
+   "bytes": 2318
+  },
+  {
+   "path": "icons/element/wind.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/element_wind.webp",
+   "method": "copy",
+   "bytes": 2158
+  },
+  {
+   "path": "icons/set/astral_voice.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_astral_voice.webp",
+   "method": "copy",
+   "bytes": 45862
+  },
+  {
+   "path": "icons/set/branch_blade_song.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_branch_blade_song.webp",
+   "method": "copy",
+   "bytes": 41016
+  },
+  {
+   "path": "icons/set/chaos_jazz.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_chaos_jazz.webp",
+   "method": "copy",
+   "bytes": 23496
+  },
+  {
+   "path": "icons/set/dawns_bloom.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_dawns_bloom.webp",
+   "method": "copy",
+   "bytes": 56198
+  },
+  {
+   "path": "icons/set/fanged_metal.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_fanged_metal.webp",
+   "method": "copy",
+   "bytes": 39836
+  },
+  {
+   "path": "icons/set/feathered_fate.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_feathered_fate.webp",
+   "method": "copy",
+   "bytes": 9694
+  },
+  {
+   "path": "icons/set/freedom_blues.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_freedom_blues.webp",
+   "method": "copy",
+   "bytes": 33546
+  },
+  {
+   "path": "icons/set/inferno_metal.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_inferno_metal.webp",
+   "method": "copy",
+   "bytes": 33842
+  },
+  {
+   "path": "icons/set/king_of_the_summit.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_king_of_the_summit.webp",
+   "method": "copy",
+   "bytes": 53584
+  },
+  {
+   "path": "icons/set/moonlight_lullaby.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_moonlight_lullaby.webp",
+   "method": "copy",
+   "bytes": 63524
+  },
+  {
+   "path": "icons/set/phaethons_melody.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_phaethons_melody.webp",
+   "method": "copy",
+   "bytes": 31236
+  },
+  {
+   "path": "icons/set/polar_metal.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_polar_metal.webp",
+   "method": "copy",
+   "bytes": 30570
+  },
+  {
+   "path": "icons/set/puffer_electro.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_puffer_electro.webp",
+   "method": "copy",
+   "bytes": 18502
+  },
+  {
+   "path": "icons/set/shadow_harmony.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_shadow_harmony.webp",
+   "method": "copy",
+   "bytes": 35224
+  },
+  {
+   "path": "icons/set/shining_aria.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_shining_aria.webp",
+   "method": "copy",
+   "bytes": 35110
+  },
+  {
+   "path": "icons/set/shockstar_disco.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_shockstar_disco.webp",
+   "method": "copy",
+   "bytes": 43452
+  },
+  {
+   "path": "icons/set/swing_jazz.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_swing_jazz.webp",
+   "method": "copy",
+   "bytes": 41808
+  },
+  {
+   "path": "icons/set/thorned_rose.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_thorned_rose.webp",
+   "method": "copy",
+   "bytes": 12394
+  },
+  {
+   "path": "icons/set/thunder_metal.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_thunder_metal.webp",
+   "method": "copy",
+   "bytes": 30420
+  },
+  {
+   "path": "icons/set/white_water_ballad.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_white_water_ballad.webp",
+   "method": "copy",
+   "bytes": 47158
+  },
+  {
+   "path": "icons/set/woodpecker_electro.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_woodpecker_electro.webp",
+   "method": "copy",
+   "bytes": 32444
+  },
+  {
+   "path": "icons/set/wuthering_salon.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_wuthering_salon.webp",
+   "method": "copy",
+   "bytes": 77234
+  },
+  {
+   "path": "icons/set/yunkui_tales.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/set_yunkui_tales.webp",
+   "method": "copy",
+   "bytes": 57436
+  },
+  {
+   "path": "icons/specialty/anomaly.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_anomaly.webp",
+   "method": "copy",
+   "bytes": 2628
+  },
+  {
+   "path": "icons/specialty/attack.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_attack.webp",
+   "method": "copy",
+   "bytes": 2698
+  },
+  {
+   "path": "icons/specialty/defense.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_defense.webp",
+   "method": "copy",
+   "bytes": 2002
+  },
+  {
+   "path": "icons/specialty/rupture.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_rupture.webp",
+   "method": "copy",
+   "bytes": 2452
+  },
+  {
+   "path": "icons/specialty/stun.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_stun.webp",
+   "method": "copy",
+   "bytes": 2494
+  },
+  {
+   "path": "icons/specialty/support.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_support.webp",
+   "method": "copy",
+   "bytes": 2270
+  },
+  {
+   "path": "icons/specialty/void_hunter.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/type_void_hunter.webp",
+   "method": "copy",
+   "bytes": 400
+  },
+  {
+   "path": "icons/stat/anomaly_mastery.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_anomaly_mastery.webp",
+   "method": "copy",
+   "bytes": 674
+  },
+  {
+   "path": "icons/stat/anomaly_proficiency.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_anomaly_proficiency.webp",
+   "method": "copy",
+   "bytes": 666
+  },
+  {
+   "path": "icons/stat/atk.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_atk.webp",
+   "method": "copy",
+   "bytes": 336
+  },
+  {
+   "path": "icons/stat/automatic_adrenaline_accumulation.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_automatic_adrenaline_accumulation.webp",
+   "method": "copy",
+   "bytes": 540
+  },
+  {
+   "path": "icons/stat/crit_dmg.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_crit_dmg.webp",
+   "method": "copy",
+   "bytes": 412
+  },
+  {
+   "path": "icons/stat/crit_rate.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_crit_rate.webp",
+   "method": "copy",
+   "bytes": 472
+  },
+  {
+   "path": "icons/stat/def.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_def.webp",
+   "method": "copy",
+   "bytes": 710
+  },
+  {
+   "path": "icons/stat/energy_regen.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_energy_regen.webp",
+   "method": "copy",
+   "bytes": 568
+  },
+  {
+   "path": "icons/stat/hp.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_hp.webp",
+   "method": "copy",
+   "bytes": 506
+  },
+  {
+   "path": "icons/stat/impact.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_impact.webp",
+   "method": "copy",
+   "bytes": 528
+  },
+  {
+   "path": "icons/stat/pen_ratio.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_pen_ratio.webp",
+   "method": "copy",
+   "bytes": 518
+  },
+  {
+   "path": "icons/stat/sheer_force.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/stat_sheer_force.webp",
+   "method": "copy",
+   "bytes": 442
+  },
+  {
+   "path": "icons/wengine/angel_in_the_shell.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_angel_in_the_shell.webp",
+   "method": "copy",
+   "bytes": 37000
+  },
+  {
+   "path": "icons/wengine/cloudcleave_radiance.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_cloudcleave_radiance.webp",
+   "method": "copy",
+   "bytes": 41180
+  },
+  {
+   "path": "icons/wengine/cordis_germina.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_cordis_germina.webp",
+   "method": "copy",
+   "bytes": 40990
+  },
+  {
+   "path": "icons/wengine/dreamlit_hearth.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_dreamlit_hearth.webp",
+   "method": "copy",
+   "bytes": 57080
+  },
+  {
+   "path": "icons/wengine/electrolip_gloss.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_electrolip_gloss.webp",
+   "method": "copy",
+   "bytes": 28558
+  },
+  {
+   "path": "icons/wengine/elegant_vanity.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_elegant_vanity.webp",
+   "method": "copy",
+   "bytes": 45860
+  },
+  {
+   "path": "icons/wengine/flamemaker_shaker.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_flamemaker_shaker.webp",
+   "method": "copy",
+   "bytes": 41324
+  },
+  {
+   "path": "icons/wengine/flight_of_fancy.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_flight_of_fancy.webp",
+   "method": "copy",
+   "bytes": 40114
+  },
+  {
+   "path": "icons/wengine/fusion_compiler.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_fusion_compiler.webp",
+   "method": "copy",
+   "bytes": 34152
+  },
+  {
+   "path": "icons/wengine/hailstorm_shrine.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_hailstorm_shrine.webp",
+   "method": "copy",
+   "bytes": 49304
+  },
+  {
+   "path": "icons/wengine/heartstring_nocturne.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_heartstring_nocturne.webp",
+   "method": "copy",
+   "bytes": 42132
+  },
+  {
+   "path": "icons/wengine/hellfire_gears.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_hellfire_gears.webp",
+   "method": "copy",
+   "bytes": 43378
+  },
+  {
+   "path": "icons/wengine/joyau_dore.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_joyau_dore.webp",
+   "method": "copy",
+   "bytes": 53070
+  },
+  {
+   "path": "icons/wengine/kaboom_the_cannon.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_kaboom_the_cannon.webp",
+   "method": "copy",
+   "bytes": 43090
+  },
+  {
+   "path": "icons/wengine/krakens_cradle.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_krakens_cradle.webp",
+   "method": "copy",
+   "bytes": 41988
+  },
+  {
+   "path": "icons/wengine/metanukimorphosis.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_metanukimorphosis.webp",
+   "method": "copy",
+   "bytes": 34340
+  },
+  {
+   "path": "icons/wengine/neon_fantasies.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_neon_fantasies.webp",
+   "method": "copy",
+   "bytes": 50816
+  },
+  {
+   "path": "icons/wengine/ode_of_resurrected_wings.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_ode_of_resurrected_wings.webp",
+   "method": "copy",
+   "bytes": 41332
+  },
+  {
+   "path": "icons/wengine/original_transmorpher.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_original_transmorpher.webp",
+   "method": "copy",
+   "bytes": 33152
+  },
+  {
+   "path": "icons/wengine/practiced_perfection.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_practiced_perfection.webp",
+   "method": "copy",
+   "bytes": 39564
+  },
+  {
+   "path": "icons/wengine/precious_fossilized_core.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_precious_fossilized_core.webp",
+   "method": "copy",
+   "bytes": 28572
+  },
+  {
+   "path": "icons/wengine/qingming_birdcage.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_qingming_birdcage.webp",
+   "method": "copy",
+   "bytes": 59996
+  },
+  {
+   "path": "icons/wengine/roaring_fur_nace.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_roaring_fur_nace.webp",
+   "method": "copy",
+   "bytes": 49924
+  },
+  {
+   "path": "icons/wengine/serpentine_seeker.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_serpentine_seeker.webp",
+   "method": "copy",
+   "bytes": 44752
+  },
+  {
+   "path": "icons/wengine/severed_innocence.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_severed_innocence.webp",
+   "method": "copy",
+   "bytes": 41294
+  },
+  {
+   "path": "icons/wengine/sharpened_stinger.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_sharpened_stinger.webp",
+   "method": "copy",
+   "bytes": 38838
+  },
+  {
+   "path": "icons/wengine/spectral_gaze.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_spectral_gaze.webp",
+   "method": "copy",
+   "bytes": 33260
+  },
+  {
+   "path": "icons/wengine/the_brimstone.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_the_brimstone.webp",
+   "method": "copy",
+   "bytes": 39912
+  },
+  {
+   "path": "icons/wengine/the_restrained.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_the_restrained.webp",
+   "method": "copy",
+   "bytes": 33696
+  },
+  {
+   "path": "icons/wengine/thoughtbop.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_thoughtbop.webp",
+   "method": "copy",
+   "bytes": 52570
+  },
+  {
+   "path": "icons/wengine/weeping_cradle.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_weeping_cradle.webp",
+   "method": "copy",
+   "bytes": 30738
+  },
+  {
+   "path": "icons/wengine/weeping_gemini.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_weeping_gemini.webp",
+   "method": "copy",
+   "bytes": 38386
+  },
+  {
+   "path": "icons/wengine/yesterday_calls.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_yesterday_calls.webp",
+   "method": "copy",
+   "bytes": 45038
+  },
+  {
+   "path": "ui/da-buff-atk.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-buff-atk.webp",
+   "method": "copy",
+   "bytes": 9564
+  },
+  {
+   "path": "ui/da-buff-element.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-buff-element.webp",
+   "method": "copy",
+   "bytes": 9924
+  },
+  {
+   "path": "ui/da-buff-ruin.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-buff-ruin.webp",
+   "method": "copy",
+   "bytes": 9848
+  },
+  {
+   "path": "ui/da-buff-sharp.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-buff-sharp.webp",
+   "method": "copy",
+   "bytes": 28624
+  },
+  {
+   "path": "ui/da-buff-stun.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-buff-stun.webp",
+   "method": "copy",
+   "bytes": 9240
+  },
+  {
+   "path": "ui/da-logo.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-logo.webp",
+   "method": "copy",
+   "bytes": 13884
+  },
+  {
+   "path": "ui/da-pip.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/da-pip.webp",
+   "method": "copy",
+   "bytes": 2644
+  },
+  {
+   "path": "ui/film-cell.webp",
+   "source": "zzz-design-ideas/RoleInfoBGImg.png",
+   "method": "trimmed",
+   "bytes": 494
+  },
+  {
+   "path": "ui/film-strip-grandmaster.webp",
+   "source": "zzz-dashboard-next/public/assets/filmstrip-grandmaster.png",
+   "method": "trimmed",
+   "bytes": 44352
+  },
+  {
+   "path": "ui/film-strip-standard.webp",
+   "source": "zzz-dashboard-next/public/assets/filmstrip-standard.png",
+   "method": "trimmed",
+   "bytes": 46114
+  },
+  {
+   "path": "ui/film-strip-voidhunter.webp",
+   "source": "zzz-dashboard-next/public/assets/filmstrip-voidhunter.png",
+   "method": "trimmed",
+   "bytes": 36870
+  },
+  {
+   "path": "ui/medal-diamond.webp",
+   "source": "zzz-design-ideas/RankIcon04.png",
+   "method": "trimmed, ≤260px",
+   "bytes": 17666
+  },
+  {
+   "path": "ui/medal-gold.webp",
+   "source": "zzz-design-ideas/RankIcon03.png",
+   "method": "trimmed, ≤260px",
+   "bytes": 16660
+  },
+  {
+   "path": "ui/medal-legend.webp",
+   "source": "zzz-design-ideas/RankIcon06.png",
+   "method": "trimmed, ≤260px",
+   "bytes": 21376
+  },
+  {
+   "path": "ui/medal-master.webp",
+   "source": "zzz-design-ideas/RankIcon05.png",
+   "method": "trimmed, ≤260px",
+   "bytes": 18238
+  },
+  {
+   "path": "ui/medal-silver.webp",
+   "source": "zzz-design-ideas/RankIcon02.png",
+   "method": "trimmed, ≤260px",
+   "bytes": 15384
+  },
+  {
+   "path": "ui/shiyu-logo.webp",
+   "source": "zzz-dashboard-next/public/assets/ui/shiyu-logo.webp",
+   "method": "copy",
+   "bytes": 16858
+  },
+  {
+   "path": "ui/socket-1.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 1, circular mask r=97",
+   "bytes": 2794
+  },
+  {
+   "path": "ui/socket-2.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 2, circular mask r=97",
+   "bytes": 3124
+  },
+  {
+   "path": "ui/socket-3.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 3, circular mask r=97",
+   "bytes": 2848
+  },
+  {
+   "path": "ui/socket-4.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 4, circular mask r=97",
+   "bytes": 3128
+  },
+  {
+   "path": "ui/socket-5.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 5, circular mask r=97",
+   "bytes": 3020
+  },
+  {
+   "path": "ui/socket-6.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "disc socket badge 6, circular mask r=97",
+   "bytes": 3094
+  },
+  {
+   "path": "ui/socket-empty.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "empty disc socket, circular mask r=158",
+   "bytes": 5340
+  },
+  {
+   "path": "ui/stamp-empty-character.webp",
+   "source": "zzz-design-ideas/_roleinfo_set/sactx-1024x1024-DXT5-RoleInfoPage_Packer-dce225a2.png",
+   "method": "EMPTY CHARACTER stamp, trimmed",
+   "bytes": 9562
+  },
+  {
+   "path": "ui/texture-hatch.webp",
+   "source": "zzz-design-ideas/BgFrameSpacil01.png",
+   "method": "trimmed",
+   "bytes": 1316
+  },
+  {
+   "path": "ui/texture-paper.webp",
+   "source": "zzz-design-ideas/_wall_candidates/Menu_Bg.png",
+   "method": "≤1400px, cropped to the clean crumpled panel (378,212,694,568) — no menu text",
+   "bytes": 2664
+  },
+  {
+   "path": "ui/zzz-mark.webp",
+   "source": "zzz-design-ideas/PhotoLogo06.png",
+   "method": "trimmed",
+   "bytes": 2350
+  }
+ ]
+}

@@ -1,0 +1,229 @@
+/* Random Play — narrow layout. The desktop stage is a fixed 1440×1080 composition; below 900px of
+   CONTAINER width — 1100px since 09/28: tablets flow, laptops 1100–1440 get the scaled stage — (.rp-root is the query container, so the framework answers to its own box, not the
+   viewport) every view becomes a vertical scrolling flow. Rules:
+   - views keep their mounted/animated shape (docs/03): each scrolls inside its own box under the header;
+   - wide rows (posters, decks, shelf-talkers, history strips) become swipe rows with scroll-snap;
+   - composed art (squad cards, the slant geometry) is ZOOMED as a whole, never re-cut, so measured
+     geometry (the 0.29 slant, the 72px overlap) survives at any size;
+   - nothing on the page scrolls sideways except an explicit swipe row. */
+
+@container rp (max-width: 1099px) {
+  /* ============================================================ shell + header */
+  .rp-app { width: 100%; height: 100dvh; zoom: 1; --rp-hdr: 100px; --rp-gutter: 16px; }
+  .rp-view { top: var(--rp-hdr); height: calc(100% - var(--rp-hdr)); overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; }
+  .rp-header { height: var(--rp-hdr); flex-wrap: wrap; align-content: center; row-gap: 8px; padding: 8px 16px; }
+  .rp-header__logo { width: 28px; height: 28px; }
+  .rp-header__wordmark { font-size: 24px; }
+  .rp-header__brand { flex: none; }
+  .rp-header__right { gap: 0; flex: 1; min-width: 0; justify-content: flex-end; margin-left: 12px; }
+  .rp-status { min-width: 0; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; display: block; text-align: right; }
+  .rp-status__lamp { margin-right: 6px; vertical-align: 1px; }
+  .rp-sections { order: 3; width: 100%; overflow-x: auto; scrollbar-width: none; border-radius: 24px; }
+  .rp-sections::-webkit-scrollbar { display: none; }
+  .rp-sections__pill { display: none; }
+  .rp-sections__btn { width: auto; flex: none; height: 40px; padding: 0 14px; border-radius: 20px; white-space: nowrap; } /* 40px: thumb-sized (was 34) */
+  .rp-sections__btn.is-on { background: var(--rp-accent); }
+  .rp-tracking { display: none; }
+
+  /* shared swipe-row behaviour */
+  .rp-swipe, .rp-posters, .rp-rack, .rp-picks__shelf, .rp-shelf__tapes, .rp-rail__list { scrollbar-width: thin; }
+
+  /* ============================================================ rental wall */
+  .rp-filters { height: auto; padding: 12px 16px; flex-direction: column; align-items: stretch; gap: 10px; }
+  .rp-filters__pills { overflow-x: auto; padding-bottom: 4px; }
+  .rp-pill { flex: none; height: 40px; border-radius: 20px; }
+  .rp-legend { flex-wrap: wrap; gap: 8px 14px; }
+  .rp-shelves { padding: 0 16px 60px; gap: 0; }
+  .rp-shelf__row { flex-direction: column; align-items: stretch; height: auto; gap: 18px; padding-top: 8px; }
+  .rp-shelf__group { min-width: 0; }
+  .rp-shelf__tapes { overflow-x: auto; overflow-y: visible; padding: 18px 0 6px; scroll-snap-type: x proximity; }
+  .rp-tape { scroll-snap-align: start; }
+  .rp-shelf__plank { display: none; }
+  .rp-shelf__tapes { border-bottom: 12px solid var(--rp-ink-2); box-shadow: inset 0 -3px 0 var(--rp-wood); }
+  .rp-clerk { display: none; }
+  .rp-ticker { position: sticky; bottom: 0; }
+
+  /* ============================================================ tape jacket: cover over back */
+  .rp-jacket { display: block; }
+  .rp-cover { width: 100%; height: 640px; transform: none; }
+  .rp-cover__title { height: 210px; padding: 18px 16px 16px 104px; }
+  .rp-cover__art { height: calc(100% - 250px); }
+  .rp-cover__medal { width: 110px; right: 8px; }
+  .rp-cover__cinema { left: 104px; width: 76px; height: 76px; }
+  .rp-cover__cinema b { font-size: 28px; }
+  .rp-cover__name { font-size: 44px !important; }
+  .rp-rating { top: -120px; right: 12px; width: 150px; }
+  .rp-rating__grade { font-size: 48px; }
+  .rp-back { width: 100%; padding: 18px 16px 40px; transform: none; }
+  .rp-back__row { height: auto; flex-wrap: wrap; gap: 12px; }
+  .rp-switcher__view { width: 100px; }
+  .rp-switcher__track { transform: translateX(calc(var(--rp-idx, 0) * -1 * var(--rp-rect-step))); }
+  .rp-back__chips { flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .rp-tabs { height: 48px; position: sticky; top: 0; z-index: 5; background: var(--rp-paper); } /* panels run 1,200–1,900px on a phone: the tabs ride along */
+  .rp-tab { width: 33.333%; height: 46px; padding-top: 8px; gap: 6px; }
+  .rp-tab__label { font-size: 22px; }
+  .rp-tabs__ink { width: 33.333%; transform: translateX(calc(var(--rp-tab, 0) * 100%)); }
+  /* panels: the active one is in flow (the stage grows to fit it); the others stay absolute + invisible */
+  .rp-stage { width: 100%; height: auto; overflow: visible; }
+  .rp-panel.is-on { position: relative; }
+  .rp-panel:not(.is-on) { height: 0; overflow: hidden; } /* else the hidden tabs still stretch the scroll (QA: 2,793px on every tab) */
+  .rp-specs, .rp-chapters { flex-direction: column; gap: 28px; }
+  .rp-sheet, .rp-specs__side, .rp-skills, .rp-chapters__side { width: 100%; }
+  .rp-gauge__track { width: 100%; }
+  .rp-discs { grid-template-columns: 1fr; }
+  .rp-disc { height: auto; }
+  .rp-sub.is-edit { height: 34px; }
+  .rp-sub__step { width: 30px; height: 30px; font-size: 16px; } /* thumb-sized steppers */
+  .rp-select { padding-top: 5px; padding-bottom: 5px; }
+  .rp-segs i { flex: 1; width: auto; }
+  .rp-skill__snooze { right: auto; left: 150px; }
+  .rp-skill__sticker { right: 70px; }
+  .rp-reel { flex-wrap: wrap; }
+  .rp-chapters__eyebrow { width: auto; }
+  .rp-placeholder { padding: 18px; }
+
+  /* ============================================================ triple features */
+  .rp-teams { display: block; }
+  .rp-rail { width: 100%; height: auto; padding: 18px 16px 8px; border-right: 0; border-bottom: 1px solid var(--rp-ink-3); transform: none; }
+  .rp-rail__title { font-size: 30px; }
+  .rp-rail__list { flex-direction: row; overflow-x: auto; gap: 8px; padding-bottom: 8px; scroll-snap-type: x proximity; }
+  .rp-rail__sel { display: none; }
+  .rp-rail__row { flex: none; width: 290px; padding: 0 10px; border-radius: var(--rp-radius-lg); background: var(--rp-ink-2); scroll-snap-align: start; }
+  .rp-rail__row.is-on { background: var(--rp-paper); }
+  .rp-rail__trio { width: 118px; }
+  .rp-rail__trio img { height: 18px; margin-right: -12px; }
+  .rp-rail__name { max-width: 150px; }
+  .rp-rail__row:hover { transform: none; }
+  .rp-feature { height: auto; padding: 18px 16px 40px; overflow: visible; }
+  .rp-feature__title { font-size: 40px; }
+  .rp-lineup { zoom: .37; height: 372px; overflow: visible; } /* 3 cards + Bangboo = 962px → 356px, fits 358 at a 390 phone */
+  /* at zoom .37 the plate captions render at 3.7px: hide them and let the caption row under the art carry the names */
+  .rp-squad__role, .rp-bangboo__label { display: none; }
+  .rp-lineup__cast { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 12px; }
+  .rp-feature__notes { flex-direction: column; gap: 20px; }
+  .rp-feature__col-l, .rp-feature__col-r { width: 100%; }
+
+  /* ============================================================ the register (Shiyu) */
+  .rp-register { overflow-y: auto; }
+  .rp-receipt, .rp-register__main, .rp-register__tape { position: relative; left: auto; right: auto; top: auto; bottom: auto; }
+  .rp-receipt { width: min(384px, calc(100% - 32px)); margin: 16px auto 0; }
+  .rp-stamp { right: 6px; width: 112px; height: 112px; }
+  .rp-stamp b { font-size: 48px; }
+  .rp-register__main { padding: 18px 16px 0; }
+  .rp-register__head { height: auto; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .rp-register__title { font-size: 44px; flex-wrap: wrap; }
+  .rp-register__rank img { width: 64px; }
+  .rp-register__rank b { font-size: 32px; }
+  .rp-slip { height: auto; flex-wrap: wrap; }
+  .rp-slip__art { width: 130px; height: 150px; clip-path: polygon(0 0, calc(100% - 38px) 0, 100% 100%, 0 100%); border-radius: 6px 0 0 0; }
+  .rp-slip__rating { left: 96px; bottom: auto; top: 96px; width: 44px; height: 44px; font-size: 26px; }
+  .rp-slip__info { width: calc(100% - 130px); flex: none; padding: 10px 12px 12px 14px; }
+  .rp-slip__kicker { flex-wrap: wrap; row-gap: 3px; white-space: normal; }
+  .rp-slip__name { font-size: 26px; white-space: normal; }
+  .rp-slip__els { flex-direction: column; gap: 4px; }
+  .rp-slip__score { flex-direction: column; align-items: stretch; gap: 8px; margin-top: 10px; }
+  .rp-slip__total { width: auto; }
+  .rp-slipbar { width: 100%; }
+  .rp-slipbar__legend { flex-wrap: wrap; row-gap: 4px; white-space: normal; }
+  .rp-slipbar__capped { margin-left: 0; }
+  .rp-slip__cast { width: 100%; border-left: 0; border-top: 1px dotted var(--rp-rule); padding: 12px 14px; }
+  .rp-register__tape { height: 212px; margin: 18px 16px 24px; overflow-x: auto; }
+  .rp-register__tape .rp-hist { min-width: 720px; }
+
+  /* ============================================================ now showing (DA) */
+  .rp-cinema { padding: 12px 16px 24px; }
+  .rp-marquee { height: auto; flex-wrap: wrap; gap: 10px 16px; padding: 22px 16px; }
+  .rp-marquee__logo { height: 44px; }
+  .rp-marquee__board { order: 3; flex-basis: 100%; height: auto; min-height: 64px; }
+  .rp-letters { flex-wrap: wrap; }
+  .rp-letters__c { font-size: 28px; }
+  .rp-marquee__gross b { font-size: 34px; }
+  .rp-posters { height: 640px; overflow-x: auto; overflow-y: hidden; gap: 16px; scroll-snap-type: x mandatory; padding-bottom: 6px; }
+  .rp-poster { scroll-snap-align: center; }
+  .rp-cinema__office { overflow-x: auto; }
+  .rp-cinema__office .rp-hist { min-width: 760px; }
+
+  /* ============================================================ channel search (Signal) */
+  .rp-channel__head, .rp-rack, .rp-channel__side, .rp-card-punch { position: relative; left: auto; right: auto; top: auto; bottom: auto; width: auto; }
+  .rp-channel__head { height: auto; margin: 16px 16px 0; flex-direction: column; align-items: flex-start; gap: 12px; }
+  .rp-channel__title { font-size: 44px; }
+  .rp-channel__sync { transform: rotate(1deg); }
+  .rp-rack { margin: 16px 16px 0; }
+  .rp-deck { height: auto; grid-template-columns: 64px 1fr; grid-template-areas: "ch id" "vfd vfd" "stats stats" "lamps lamps"; row-gap: 10px; padding: 12px; }
+  .rp-deck__ch { grid-area: ch; height: 64px; }
+  .rp-deck__ch b { font-size: 34px; }
+  .rp-deck__id { grid-area: id; }
+  .rp-deck__vfd { grid-area: vfd; }
+  .rp-deck__segs { flex-wrap: wrap; }
+  .rp-deck__stats { grid-area: stats; flex-direction: row; gap: 16px; }
+  .rp-deck__stats span { flex: 1; flex-direction: column; justify-content: flex-start; align-items: flex-start; }
+  .rp-deck__lamps { grid-area: lamps; flex-direction: row; gap: 18px; }
+  .rp-rack__archived { white-space: normal; }
+  .rp-channel__side { margin: 16px 16px 0; }
+  .rp-luck__row { grid-template-columns: 1fr 76px; }
+  .rp-luck__bar { grid-column: 1 / -1; grid-row: 2; }
+  .rp-card-punch { margin: 16px 16px 24px; }
+  .rp-card-punch__head { height: auto; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .rp-card-punch__legend { flex-wrap: wrap; gap: 6px 12px; }
+  .rp-card-punch__holes { height: auto; }
+  .rp-card-punch__readout { margin-top: 12px; }
+
+  /* ============================================================ staff picks */
+  .rp-picks__head, .rp-picks__shelf, .rp-pickcard { position: relative; left: auto; right: auto; top: auto; bottom: auto; }
+  .rp-picks__head { height: auto; margin: 16px 16px 0; flex-direction: column; align-items: flex-start; gap: 8px; }
+  .rp-picks__title { font-size: 44px; }
+  .rp-picks__sign { flex-direction: row; align-items: baseline; gap: 10px; }
+  .rp-picks__sign b { font-size: 30px; }
+  .rp-picks__shelf { display: flex; gap: 14px; overflow-x: auto; margin: 16px 0 0; padding: 22px 16px 14px; scroll-snap-type: x proximity; border-top: 12px solid var(--rp-ink-2); }
+  .rp-picks__shelf::before, .rp-picks__shelf::after { display: none; }
+  .rp-talker { flex: none; width: 220px; scroll-snap-align: start; }
+  .rp-pickcard { flex-direction: column; margin: 16px 16px 24px; }
+  .rp-pickcard__side { width: 100%; height: 200px; border-right: 0; border-bottom: 3px solid var(--rp-ink); }
+  .rp-pickcard__faces img { width: 170px; height: 170px; }
+  .rp-pickcard__faces.is-2 img { width: 120px; height: 120px; }
+  .rp-pickcard__faces.is-2 img + img { margin-top: 40px; }
+  .rp-pickcard__rank { font-size: 48px; }
+  .rp-pickcard__body { padding: 16px 16px 48px; }
+  .rp-pickcard__top { flex-wrap: wrap; row-gap: 0; }
+  .rp-pickcard__name { font-size: 38px; }
+  .rp-pickcard__cols { flex-direction: column; gap: 18px; }
+  .rp-pickcard__team { width: 100%; }
+  .rp-pickcard__sig { right: 16px; bottom: 12px; }
+  /* shared text rows wrap instead of running off a phone */
+  .rp-elrow { flex-wrap: wrap; row-gap: 2px; white-space: normal; }
+  .rp-eyebrow { flex-wrap: wrap; gap: 2px 10px; }
+}
+
+/* tablets / small laptops on the flow layout (700–1099px): the lineup gets room to breathe */
+@container rp (min-width: 700px) and (max-width: 1099px) {
+  .rp-lineup { zoom: .6; } /* 962px → 577px in a 668px feature */
+}
+
+/* …and the jacket goes side by side again, so the cover keeps a tape-box shape (full width would crop
+   the art to a face-strip banner) and stays pinned while the back cover scrolls beside it. Gated on
+   viewport HEIGHT too: a landscape phone (844×390) is 700+ wide but only leaves 290px for a sticky cover
+   (QA 09/28: 40px of art, the RATED card under the header), so short viewports keep the stacked jacket */
+@media (min-height: 600px) {
+  @container rp (min-width: 700px) and (max-width: 1099px) {
+    .rp-jacket { display: flex; align-items: flex-start; }
+    .rp-cover { position: sticky; top: 0; width: 420px; flex: none; height: min(720px, calc(100dvh - var(--rp-hdr))); }
+    .rp-back { flex: 1; min-width: 0; padding: 22px 28px 40px; }
+    .rp-discs { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+}
+
+/* short viewports (landscape phones): the two-row header is 26% of a 390px screen, so it folds to one
+   row — brand, then the section row scrolling beside it; the status line goes */
+@media (max-height: 480px) {
+  @container rp (max-width: 1099px) {
+    .rp-app { --rp-hdr: 60px; }
+    .rp-header { flex-wrap: nowrap; gap: 14px; padding: 0 16px; }
+    .rp-header__right { display: none; }
+    .rp-sections { order: 0; width: auto; flex: 1; min-width: 0; }
+  }
+}
+
+/* the smallest phones (<380px): one more step down for the composed squad lineup (962px of art) */
+@container rp (max-width: 379px) {
+  .rp-lineup { zoom: .29; }
+}

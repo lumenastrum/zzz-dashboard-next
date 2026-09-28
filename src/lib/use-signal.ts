@@ -17,11 +17,12 @@ export type SignalStatus = "loading" | "ready" | "empty" | "error";
  * so this fetches once on mount. Deliberately independent of DataProvider: the
  * multi-thousand-record archive must not ride the roster's auto-save.
  */
-export function useSignal() {
+export function useSignal(enabled = true) {
   const [store, setStore] = useState<SignalStore | null>(null);
   const [status, setStatus] = useState<SignalStatus>("loading");
 
   useEffect(() => {
+    if (!enabled) return; // e.g. Cosmea's store: the archive is A.'s, don't even fetch it
     let mounted = true;
     const supa = getSupabase();
     (async () => {
@@ -51,7 +52,7 @@ export function useSignal() {
     return () => {
       mounted = false;
     };
-  }, []);
+  }, [enabled]);
 
   const summary: SignalSummary | null = store ? summarize(store) : null;
   return { store, summary, status };

@@ -1,0 +1,152 @@
+/* Random Play — back-of-store surfaces: CHANNEL SEARCH (A.'s Signal archive) and STAFF PICKS (a
+   profile's pull-priority list). Same grammar as components.css; entrances replay via useTake keys. */
+
+/* ============================================================ CHANNEL SEARCH */
+.rp-channel, .rp-picks { clip-path: inset(0 0 0 100%); transition: clip-path var(--rp-dur-wipe) var(--rp-ease-wipe); pointer-events: none; }
+.rp-channel.is-in, .rp-picks.is-in { clip-path: inset(0 0 0 0); pointer-events: auto; }
+.rp-channel__empty, .rp-picks__empty { position: absolute; left: 48px; top: 40px; width: 560px; }
+
+.rp-channel__head { position: absolute; left: 48px; right: 48px; top: 20px; height: 100px; display: flex; justify-content: space-between; align-items: flex-end; animation: rp-rise .6s var(--rp-ease-out) both; }
+.rp-channel__kicker, .rp-picks__kicker { font-family: var(--rp-font-mono); font-size: var(--rp-size-label); font-weight: 700; letter-spacing: .2em; color: var(--rp-text-2); }
+.rp-channel__title, .rp-picks__title { margin: 4px 0 0; font-family: var(--rp-font-display); text-transform: uppercase; font-size: var(--rp-size-h1); font-weight: 900; line-height: .9; }
+.rp-channel__sub, .rp-picks__sub { font-size: var(--rp-size-small); color: var(--rp-text-2); margin-top: 6px; }
+.rp-channel__sync { display: flex; flex-direction: column; align-items: flex-end; padding: 8px 14px; border: 2px solid var(--rp-ink); background: var(--rp-card); transform: rotate(2deg); }
+.rp-channel__sync small { font-family: var(--rp-font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .16em; color: var(--rp-text-2); }
+.rp-channel__sync b { font-family: var(--rp-font-display); font-size: 40px; font-weight: 900; line-height: 1; }
+.rp-channel__sync.is-stale { background: var(--rp-accent); }
+.rp-channel__sync.is-stale small { color: var(--rp-ink); }
+
+/* the AV rack: one VCR deck per channel */
+.rp-rack { position: absolute; left: 48px; top: 132px; width: 852px; display: flex; flex-direction: column; gap: 10px; }
+.rp-deck { position: relative; height: 116px; display: grid; grid-template-columns: 84px 190px 262px 128px 1fr; align-items: center; gap: 14px; padding: 0 16px 0 12px; background: var(--rp-ink); color: var(--rp-on-ink); border-radius: var(--rp-radius-lg); border-top: 3px solid var(--rp-ink-3); box-shadow: 0 4px 0 rgba(23, 19, 15, .3); text-align: left; transition: transform var(--rp-dur-quick) var(--rp-ease-out), box-shadow var(--rp-dur-quick); animation: rp-slip .6s var(--rp-ease-out) both; }
+.rp-deck:hover { transform: translateY(-3px); }
+.rp-deck.is-on { box-shadow: 0 0 0 3px var(--rp-accent), 0 8px 0 rgba(23, 19, 15, .3); transform: translateY(-3px); }
+.rp-deck__ch { height: 88px; border-radius: var(--rp-radius-md); background: var(--rp-ink-2); box-shadow: inset 0 2px 0 rgba(0, 0, 0, .4); display: flex; flex-direction: column; align-items: center; justify-content: center; }
+.rp-deck__ch small { font-family: var(--rp-font-mono); font-size: 10px; font-weight: 700; letter-spacing: .2em; color: var(--rp-on-ink-3); }
+.rp-deck__ch b { font-family: var(--rp-font-display); font-size: 46px; font-weight: 900; line-height: .9; }
+.rp-deck__id { display: flex; flex-direction: column; gap: 8px; min-width: 0; }
+.rp-deck__name { font-family: var(--rp-font-display); text-transform: uppercase; font-size: 22px; font-weight: 900; letter-spacing: .02em; line-height: 1; white-space: nowrap; }
+.rp-deck__slot { display: block; height: 10px; border-radius: 3px; background: #0b0907; box-shadow: inset 0 2px 2px rgba(0, 0, 0, .8), 0 1px 0 var(--rp-ink-3); }
+.rp-deck__meta { font-family: var(--rp-font-mono); font-size: 9.5px; letter-spacing: .08em; color: var(--rp-on-ink-3); white-space: nowrap; }
+/* the tape counter: amber digits over ghost 888 segments, like a real VFD */
+.rp-deck__vfd { position: relative; height: 88px; border-radius: var(--rp-radius-md); background: #0b0907; border: 2px solid var(--rp-ink-3); padding: 6px 12px 0; display: grid; grid-template-columns: auto auto 1fr; grid-template-rows: 14px 44px 1fr; column-gap: 8px; }
+.rp-deck__label { grid-column: 1 / -1; font-family: var(--rp-font-mono); font-size: 9px; font-weight: 700; letter-spacing: .2em; color: var(--rp-accent); opacity: .8; }
+.rp-deck__count { position: relative; font-family: var(--rp-font-display); font-size: 50px; font-weight: 800; line-height: .9; letter-spacing: .06em; }
+.rp-deck__count i { position: absolute; left: 0; top: 0; font-style: normal; color: var(--rp-ink-3); opacity: .55; }
+.rp-deck__count b { position: relative; color: var(--rp-accent); font-weight: 800; }
+.rp-deck__of { align-self: end; font-family: var(--rp-font-mono); font-size: 13px; font-weight: 700; color: var(--rp-on-ink-3); padding-bottom: 4px; }
+.rp-deck__segs { grid-column: 1 / -1; display: flex; gap: 3px; align-items: center; }
+.rp-deck__segs i { display: block; width: 11px; height: 7px; border-radius: 1px; background: var(--rp-ink-3); }
+.rp-deck__segs i.is-lit { background: var(--rp-accent); animation: rp-pop .3s var(--rp-ease-out) both; }
+.rp-deck__stats { display: flex; flex-direction: column; gap: 4px; }
+.rp-deck__stats span { display: flex; justify-content: space-between; align-items: baseline; font-family: var(--rp-font-display); font-size: 19px; font-weight: 800; line-height: 1.05; }
+.rp-deck__stats small { font-family: var(--rp-font-mono); font-size: 9px; font-weight: 700; letter-spacing: .14em; color: var(--rp-on-ink-3); }
+.rp-deck__flip.is-none { color: var(--rp-on-ink-3); }
+.rp-deck__lamps { display: flex; flex-direction: column; gap: 10px; }
+.rp-lamp { display: flex; align-items: center; gap: 6px; font-family: var(--rp-font-mono); font-size: 9px; font-weight: 700; letter-spacing: .12em; color: var(--rp-on-ink-3); white-space: nowrap; }
+.rp-lamp i { width: 9px; height: 9px; border-radius: 50%; background: var(--rp-ink-3); flex: none; }
+.rp-lamp.is-on { color: var(--rp-on-ink); }
+.rp-lamp.is-on i { background: var(--rp-accent); box-shadow: 0 0 0 2px rgba(232, 80, 28, .25); }
+.rp-deck.is-on .rp-lamp:first-child.is-on i { animation: rp-blink 1.1s steps(2, start) infinite; }
+.rp-rack__archived { font-family: var(--rp-font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .08em; color: var(--rp-text-2); padding: 6px 12px; border: 1.5px dashed var(--rp-rule); border-radius: var(--rp-radius-md); }
+
+/* side column: pity spread + coinflips */
+.rp-channel__side { position: absolute; left: 924px; right: 48px; top: 132px; display: flex; flex-direction: column; gap: 14px; }
+.rp-spread, .rp-luck { background: var(--rp-card); border: 2px solid var(--rp-ink); border-radius: var(--rp-radius-lg); padding: 12px 16px; }
+.rp-spread__title, .rp-luck__title { font-family: var(--rp-font-mono); font-size: var(--rp-size-label); font-weight: 700; letter-spacing: .2em; display: flex; flex-direction: column; gap: 2px; }
+.rp-spread__title span, .rp-luck__title span { font-size: 9.5px; font-weight: 400; letter-spacing: .08em; color: var(--rp-text-2); }
+.rp-spread__plot { display: flex; height: 190px; margin-top: 10px; border-bottom: 1px solid var(--rp-ink); }
+.rp-spread__col { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; position: relative; }
+.rp-spread__n { font-family: var(--rp-font-mono); font-size: 10px; font-weight: 700; margin-bottom: 3px; min-height: 14px; }
+.rp-spread__bar { display: block; width: 22px; border-radius: 4px 4px 0 0; background: var(--rp-ink); transform-origin: bottom; animation: rp-growy .7s var(--rp-ease-out) both; }
+.rp-spread__x { position: absolute; bottom: -18px; font-family: var(--rp-font-mono); font-size: 9.5px; color: var(--rp-text-2); }
+.rp-spread__note { margin-top: 24px; font-size: 11.5px; color: var(--rp-warn); font-weight: 600; }
+.rp-spread__plot + .rp-spread__note { margin-top: 24px; }
+.rp-spread { padding-bottom: 26px; }
+.rp-luck__row { display: grid; grid-template-columns: 150px 1fr 76px; align-items: center; gap: 10px; margin-top: 12px; }
+.rp-luck__name { font-family: var(--rp-font-mono); font-size: 10px; font-weight: 700; letter-spacing: .08em; }
+.rp-luck__bar { position: relative; height: 10px; background: var(--rp-paper-2); border-radius: 3px; }
+.rp-luck__bar span { position: absolute; left: 0; top: 0; bottom: 0; background: var(--rp-ink); border-radius: 3px; transform-origin: left; animation: rp-grow .9s var(--rp-ease-out) .3s both; }
+.rp-luck__bar i { position: absolute; top: -5px; bottom: -5px; width: 2px; margin-left: -1px; background: var(--rp-accent); }
+.rp-luck__val { font-family: var(--rp-font-display); font-size: 20px; font-weight: 900; text-align: right; }
+.rp-luck__val small { font-family: var(--rp-font-mono); font-size: 9.5px; font-weight: 700; color: var(--rp-text-2); }
+.rp-luck__note { font-size: 11.5px; color: var(--rp-text-2); margin-top: 10px; }
+
+/* the member punch card: every S-rank, ringed by coinflip outcome (ring + glyph + legend, never colour alone) */
+.rp-card-punch { position: absolute; left: 48px; right: 48px; top: 688px; bottom: 18px; background: var(--rp-card); border: 2px solid var(--rp-ink); border-radius: var(--rp-radius-lg); padding: 10px 16px; display: flex; flex-direction: column; }
+.rp-card-punch__head { display: flex; justify-content: space-between; align-items: center; height: 20px; }
+.rp-card-punch__title { font-family: var(--rp-font-mono); font-size: var(--rp-size-label); font-weight: 700; letter-spacing: .2em; }
+.rp-card-punch__legend { display: flex; gap: 16px; }
+.rp-legend-dot { display: inline-flex; align-items: center; gap: 6px; font-family: var(--rp-font-mono); font-size: 9.5px; font-weight: 700; letter-spacing: .08em; color: var(--rp-text-2); }
+.rp-legend-dot i { width: 16px; height: 16px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center; font-style: normal; font-size: 10px; color: #fff; background: var(--rp-rule); }
+.rp-card-punch__holes { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; align-content: flex-start; height: 190px; }
+.rp-punch { position: relative; width: 40px; height: 40px; border-radius: 50%; background: var(--rp-paper-2); box-shadow: 0 0 0 3px var(--c, var(--rp-rule)); flex: none; animation: rp-pop .35s var(--rp-ease-out) backwards; /* NOT both: a held opacity:1 overrode .is-dim (QA 09/28) */ transition: transform var(--rp-dur-tick), opacity var(--rp-dur-quick), filter var(--rp-dur-quick); }
+.rp-punch img { width: 100%; height: 100%; border-radius: 50%; object-fit: cover; }
+.rp-punch.is-item img { object-fit: contain; padding: 3px; }
+.rp-punch__none { display: flex; width: 100%; height: 100%; align-items: center; justify-content: center; font-family: var(--rp-font-display); font-size: 20px; font-weight: 900; color: var(--rp-text-2); }
+.rp-punch__glyph { position: absolute; right: -5px; bottom: -5px; width: 16px; height: 16px; border-radius: 50%; background: var(--c); color: #fff; font-size: 10px; font-weight: 700; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 2px var(--rp-card); }
+.rp-punch.is-won, .rp-legend-dot.is-won i { --c: var(--rp-grade-c); background-color: var(--rp-paper-2); }
+.rp-legend-dot.is-won i { background: var(--rp-grade-c); }
+.rp-punch.is-lost { --c: var(--rp-warn); }
+.rp-legend-dot.is-lost i { background: var(--rp-warn); }
+.rp-punch.is-guaranteed { --c: var(--rp-grade-b); }
+.rp-legend-dot.is-guaranteed i { background: var(--rp-grade-b); }
+.rp-punch.is-plain { --c: var(--rp-rule); }
+.rp-punch.is-gap { box-shadow: 0 0 0 3px var(--c, var(--rp-rule)), 0 0 0 6px var(--rp-card), 0 0 0 8px var(--rp-accent); }
+.rp-punch.is-gap::after { content: '!'; position: absolute; left: -6px; top: -6px; width: 16px; height: 16px; border-radius: 50%; background: var(--rp-accent); color: var(--rp-ink); font-size: 11px; font-weight: 900; display: flex; align-items: center; justify-content: center; }
+.rp-legend-dot.is-gap i { background: var(--rp-accent); color: var(--rp-ink); }
+.rp-punch.is-dim { opacity: .18; filter: grayscale(1); }
+.rp-punch.is-hover, .rp-punch:hover { transform: scale(1.18); z-index: 2; }
+.rp-card-punch__readout { margin-top: auto; min-height: 36px; border-top: 1px dotted var(--rp-rule); padding-top: 6px; display: flex; flex-wrap: wrap; gap: 4px 12px; align-items: baseline; font-family: var(--rp-font-mono); font-size: 10px; letter-spacing: .06em; color: var(--rp-text-2); }
+.rp-card-punch__readout b { font-family: var(--rp-font-display); text-transform: uppercase; font-size: 20px; font-weight: 900; color: var(--rp-ink); letter-spacing: .02em; }
+
+/* ============================================================ STAFF PICKS */
+.rp-picks__head { position: absolute; left: 48px; right: 48px; top: 20px; height: 100px; display: flex; justify-content: space-between; align-items: flex-end; animation: rp-rise .6s var(--rp-ease-out) both; }
+.rp-picks__sign { display: flex; flex-direction: column; align-items: flex-end; font-family: var(--rp-font-mono); font-size: 10px; font-weight: 700; letter-spacing: .16em; color: var(--rp-text-2); }
+.rp-picks__sign b { font-family: var(--rp-font-hand); font-size: 44px; font-weight: 400; letter-spacing: 0; color: var(--rp-ink); line-height: 1.1; transform: rotate(-4deg); }
+.rp-picks__shelf { position: absolute; left: 48px; right: 48px; top: 134px; display: grid; grid-template-columns: repeat(5, 1fr); column-gap: 18px; row-gap: 30px; padding-top: 12px; }
+/* each row hangs from a plank */
+.rp-picks__shelf::before, .rp-picks__shelf::after { content: ''; position: absolute; left: -12px; right: -12px; height: 12px; background: var(--rp-ink-2); border-top: 3px solid var(--rp-wood); }
+.rp-picks__shelf::before { top: 0; }
+.rp-picks__shelf::after { top: 180px; }
+.rp-talker { position: relative; height: 138px; margin-top: 4px; background: var(--rp-card); border: 2px solid var(--rp-ink); border-radius: 3px; padding: 10px 12px 8px 18px; text-align: left; display: flex; flex-direction: column; transform: var(--rp-tilt); transform-origin: 50% -6px; box-shadow: 0 6px 10px -6px rgba(23, 19, 15, .45); transition: transform var(--rp-dur-quick) var(--rp-ease-out), box-shadow var(--rp-dur-quick); animation: rp-talk .7s var(--rp-ease-out) both; }
+.rp-talker:hover { transform: translateY(-3px); }
+.rp-talker.is-on { transform: translateY(-4px) rotate(0); box-shadow: 0 0 0 3px var(--rp-accent), 0 10px 14px -8px rgba(23, 19, 15, .5); }
+.rp-talker__tape { position: absolute; left: 50%; top: -9px; width: 56px; height: 16px; margin-left: -28px; background: rgba(228, 217, 194, .85); border: 1px solid rgba(138, 126, 110, .4); transform: rotate(-3deg); }
+.rp-talker__edge { position: absolute; left: 0; top: 0; bottom: 0; width: 7px; }
+.rp-talker__rank { font-family: var(--rp-font-hand); font-size: 30px; line-height: 1; color: var(--rp-accent); -webkit-text-stroke: .6px var(--rp-ink); }
+.rp-talker__faces { position: absolute; right: 8px; top: 8px; display: flex; }
+.rp-talker__faces img { width: 60px; height: 60px; object-fit: contain; margin-left: -18px; }
+.rp-talker__name { font-family: var(--rp-font-hand); font-size: 22px; line-height: 1.05; margin-top: auto; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; max-width: 100%; }
+.rp-talker__meta { font-family: var(--rp-font-mono); font-size: 9px; font-weight: 700; letter-spacing: .12em; color: var(--rp-text-2); margin-top: 3px; }
+.rp-talker .rp-stars { margin-top: 3px; }
+.rp-talker__soon, .rp-talker__rumor { position: absolute; right: -6px; bottom: 34px; background: var(--rp-accent); color: var(--rp-ink); font-family: var(--rp-font-mono); font-size: 9px; font-weight: 700; letter-spacing: .12em; padding: 3px 7px; border: 2px solid var(--rp-ink); transform: rotate(4deg); }
+.rp-talker__rumor { bottom: 8px; background: var(--rp-ink); color: var(--rp-on-ink); }
+.rp-stars { display: inline-flex; gap: 1px; font-size: 14px; line-height: 1; }
+.rp-stars i { font-style: normal; color: var(--rp-peg); }
+.rp-stars i.is-on { color: var(--rp-accent); }
+
+/* the open pick: a big shelf-talker */
+.rp-pickcard { position: absolute; left: 48px; right: 48px; top: 478px; bottom: 18px; display: flex; background: var(--rp-card); border: 3px solid var(--rp-ink); border-radius: var(--rp-radius-lg); overflow: hidden; box-shadow: 0 10px 0 -4px rgba(23, 19, 15, .2); animation: rp-rise .55s var(--rp-ease-out) both; }
+.rp-pickcard__side { position: relative; width: 280px; flex: none; display: flex; flex-direction: column; align-items: center; justify-content: center; border-right: 3px solid var(--rp-ink); }
+.rp-pickcard__rank { position: absolute; left: 16px; top: 8px; font-family: var(--rp-font-hand); font-size: 64px; line-height: 1; color: var(--rp-card); -webkit-text-stroke: 1.5px var(--rp-ink); }
+.rp-pickcard__faces { position: relative; display: flex; }
+.rp-pickcard__faces img { width: 220px; height: 220px; object-fit: contain; animation: rp-pop .6s var(--rp-ease-bounce) .2s both; }
+.rp-pickcard__faces.is-2 img { width: 150px; height: 150px; }
+.rp-pickcard__faces.is-2 img + img { margin-left: -30px; margin-top: 60px; }
+.rp-pickcard__body { position: relative; flex: 1; min-width: 0; padding: 20px 30px 16px; display: flex; flex-direction: column; }
+.rp-pickcard__kicker { font-family: var(--rp-font-mono); font-size: var(--rp-size-label); font-weight: 700; letter-spacing: .18em; color: var(--rp-text-2); }
+.rp-pickcard__top { display: flex; align-items: baseline; gap: 18px; margin-top: 2px; }
+.rp-pickcard__name { margin: 0; font-family: var(--rp-font-hand); font-size: 50px; font-weight: 400; line-height: 1.1; }
+.rp-pickcard__top .rp-stars { font-size: 24px; }
+.rp-pickcard__priority { align-self: flex-start; margin-top: 4px; background: var(--rp-ink); color: var(--rp-on-ink); font-family: var(--rp-font-mono); font-size: var(--rp-size-small); font-weight: 700; letter-spacing: .1em; padding: 5px 12px; border-radius: 14px; text-transform: uppercase; }
+.rp-pickcard__cols { display: flex; gap: 32px; margin-top: 14px; min-height: 0; }
+.rp-pickcard__why { flex: 1; min-width: 0; font-size: 14px; line-height: 1.55; color: var(--rp-ink-2); }
+.rp-pickcard__why p { margin: 0 0 10px; }
+.rp-pickcard__team { width: 300px; flex: none; display: flex; flex-direction: column; gap: 8px; }
+.rp-pickcard__label { font-family: var(--rp-font-mono); font-size: var(--rp-size-micro); font-weight: 700; letter-spacing: .18em; color: var(--rp-accent); }
+.rp-pickcard__line { font-family: var(--rp-font-display); text-transform: uppercase; font-size: 17px; font-weight: 800; line-height: 1.15; letter-spacing: .02em; padding-bottom: 8px; border-bottom: 1px dotted var(--rp-rule); }
+.rp-pickcard__rumor { font-size: 12px; color: var(--rp-warn); font-weight: 600; }
+.rp-pickcard__sig { position: absolute; right: 28px; bottom: 12px; font-family: var(--rp-font-hand); font-size: 22px; transform: rotate(-3deg); }
+
+@keyframes rp-talk { 0% { opacity: 0; transform: translateY(-24px) rotate(-6deg); } 60% { opacity: 1; transform: var(--rp-tilt) translateY(2px); } 100% { opacity: 1; transform: var(--rp-tilt); } }

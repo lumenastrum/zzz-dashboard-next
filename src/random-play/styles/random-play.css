@@ -1,0 +1,9 @@
+/* Random Play — single stylesheet entry. Import once at the app root:
+     import "random-play/styles.css";
+   Tailwind 4 hosts may additionally import "random-play/tailwind.css" for bg-rp-* / font-rp-* utilities. */
+@import "./tokens.css";
+@import "./base.css";
+@import "./components.css";
+@import "./endgame.css";
+@import "./backroom.css";
+@import "./mobile.css";

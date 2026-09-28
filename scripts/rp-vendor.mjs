@@ -1,0 +1,56 @@
+// Vendor the Random Play framework (../random-play) into this repo: src/ → src/random-play/, assets/ →
+// public/rp/. Random Play is the dashboard's design framework (docs in that repo, 07-migration.md); once
+// the dashboard renders it in production that repo retires and THIS copy is the source of truth, so the
+// script exists only for the hand-over window. Re-run after a framework change: `npm run rp:vendor`.
+//
+// Not copied: tests (they read the coach-pack fixtures), the coach/signal/picks fixtures (the dashboard
+// feeds live data), the playground, docs. Copied text is scrubbed of real names (public repo: "A." and
+// "Cosmea" only).
+import { cpSync, existsSync, mkdirSync, readdirSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
+import { execSync } from "node:child_process";
+import { dirname, join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
+
+const here = dirname(fileURLToPath(import.meta.url));
+const dash = join(here, "..");
+const src = join(dash, "..", "random-play");
+if (!existsSync(join(src, "src", "index.ts"))) throw new Error(`random-play not found at ${src}`);
+
+const SKIP = [/\.test\.ts$/, /[\\/]fixtures[\\/]coach($|[\\/])/, /[\\/]fixtures[\\/](signal|picks)\.json$/];
+const SCRUB = [[/Andres's/g, "A.'s"], [/Andres/g, "A."], [/Courtney/g, "Cosmea"]];
+
+function copyTree(from, to) {
+  for (const name of readdirSync(from)) {
+    const f = join(from, name), t = join(to, name);
+    if (SKIP.some((re) => re.test(f))) continue;
+    if (statSync(f).isDirectory()) { mkdirSync(t, { recursive: true }); copyTree(f, t); continue; }
+    if (/\.(ts|tsx|css|md|json)$/.test(name)) {
+      let text = readFileSync(f, "utf8");
+      for (const [re, rep] of SCRUB) text = text.replace(re, rep);
+      mkdirSync(dirname(t), { recursive: true });
+      writeFileSync(t, text);
+    } else cpSync(f, t);
+  }
+}
+
+const outSrc = join(dash, "src", "random-play");
+rmSync(outSrc, { recursive: true, force: true });
+mkdirSync(outSrc, { recursive: true });
+copyTree(join(src, "src"), outSrc);
+mkdirSync(join(outSrc, "tokens"), { recursive: true });
+cpSync(join(src, "tokens", "tokens.json"), join(outSrc, "tokens", "tokens.json"));
+
+const outAssets = join(dash, "public", "rp");
+rmSync(outAssets, { recursive: true, force: true });
+cpSync(join(src, "assets"), outAssets, { recursive: true });
+
+let sha = "unknown";
+try { sha = execSync("git rev-parse --short HEAD", { cwd: src }).toString().trim(); } catch {}
+writeFileSync(join(outSrc, "VENDORED.md"),
+  `# Random Play, vendored\n\nCopied from \`random-play\` @ ${sha} on ${new Date().toISOString().slice(0, 10)} by \`scripts/rp-vendor.mjs\`.\n` +
+  `Do not edit here while that repo is alive: change it there, re-run \`npm run rp:vendor\`.\n` +
+  `Assets live in \`public/rp/\` (served at \`${"${basePath}"}/rp\`). Tokens: \`tokens/tokens.json\` is the source; the generated\n` +
+  `\`styles/tokens.css\`, \`styles/tailwind-theme.css\` and \`tokens.ts\` ship pre-built.\n`);
+
+const count = (d) => readdirSync(d, { withFileTypes: true }).reduce((n, e) => n + (e.isDirectory() ? count(join(d, e.name)) : 1), 0);
+console.log(`random-play @ ${sha} → ${relative(dash, outSrc)} (${count(outSrc)} files) · ${relative(dash, outAssets)} (${count(outAssets)} files)`);
