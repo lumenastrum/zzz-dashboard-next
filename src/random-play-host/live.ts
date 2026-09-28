@@ -27,7 +27,8 @@ const letter = (l: string): Grade => (l.startsWith("S") ? "S" : (l as Grade));
 const fmtVal = (v: number | string) => (typeof v === "number" ? v.toLocaleString("en-US") : v);
 const num = (v: string | number | undefined) => (v == null ? NaN : Number(String(v).replace(/[,%]/g, "")));
 const PCT_STATS = new Set(["CRIT Rate", "CRIT DMG", "PEN Ratio"]);
-const show = (stat: string, v: number) => `${Number.isInteger(v) ? v.toLocaleString("en-US") : v.toFixed(1)}${PCT_STATS.has(stat) ? "%" : ""}`;
+// up to 2 decimals, trimmed: Energy Regen gaps live in hundredths (Dialyn 1.92 is 0.08 short, not "0.1")
+const show = (stat: string, v: number) => `${(+v.toFixed(2)).toLocaleString("en-US")}${PCT_STATS.has(stat) ? "%" : ""}`;
 const WORDS = ["no", "one", "two", "three", "four", "five", "six"];
 
 export function tryGrade(a: BlobAgent | undefined): BuildGrade | null {
@@ -66,26 +67,47 @@ export function liveAgent(entry: RosterEntry, blob: BlobAgent | undefined, profi
   };
 }
 
-function goals(name: string, relevant: string[], sheet: StatRow[]): Goal[] | undefined {
-  const targets = cfg.agentOverrides?.[name]?.targets;
+type Combat = Record<string, { sheet: number; effective: number; sources: { src: string }[] }>;
+/** Where in-combat-only buffs lift a stat: the in-fight value + who lifts it ("Core Passive, Fanged Metal 4pc"). */
+const inFight = (stat: string, sheetValue: number, st?: Combat) => {
+  const s = st?.[stat];
+  if (!s || !(s.effective - s.sheet > 0)) return {};
+  return { combat: sheetValue + (s.effective - s.sheet), combatFrom: [...new Set(s.sources.map((m) => m.src))].join(", ") };
+};
+
+function goals(name: string, relevant: string[], sheet: { stat: string; value: string }[], st?: Combat): Goal[] | undefined {
+  const targets = cfg.agentOverrides?.[name]?.targets as Record<string, { target: number; full: number; cap?: number }> | undefined;
   if (!targets) return undefined;
-  // at most 3 gauges fit the Specs column: stats the agent scales on come first, in her own order
-  const order = Object.keys(targets).sort((a, b) => (relevant.includes(a) ? relevant.indexOf(a) : 99) - (relevant.includes(b) ? relevant.indexOf(b) : 99));
+  const rank = (s: string) => (relevant.includes(s) ? relevant.indexOf(s) : 99);
+  const onSheet = Object.keys(targets)
+    .map((stat) => ({ stat, t: targets[stat], value: num(sheet.find((r) => r.stat === stat)?.value) }))
+    .filter((g) => Number.isFinite(g.value)) // stat not on the sheet → no gauge, never a guess
+    .sort((a, b) => rank(a.stat) - rank(b.stat));
+  // at most 3 gauges fit the Specs column. A capped stat is a real breakpoint, so it always gets a slot;
+  // the rest fill by her own order, and the gauges read in that order.
+  const picked = [...onSheet.filter((g) => g.t.cap != null), ...onSheet.filter((g) => g.t.cap == null)].slice(0, 3)
+    .sort((a, b) => rank(a.stat) - rank(b.stat));
   const out: Goal[] = [];
-  for (const stat of order) {
-    const t = targets[stat];
-    const value = num(sheet.find((r) => r.stat === stat)?.value);
-    if (!Number.isFinite(value)) continue; // stat not on the sheet → no gauge, never a guess
-    const step = t.full < 10 ? 0.1 : 1; // Energy Regen lives in 1–4: integer rounding would flatten the gauge
-    const min = Math.floor(Math.min(t.target * 0.8, value * 0.95) / step) * step;
-    const max = Math.ceil((Math.max(t.full, value) * 1.045) / step) * step;
+  for (const { stat, t, value } of picked) {
+    // a capped stat's end mark IS the cap (grading-config's `full` sits past every cap, in the wasted zone)
+    const end = t.cap ?? t.full;
+    const word = t.cap == null ? "target" : t.target >= t.cap ? "breakpoint" : "target";
+    const fight = inFight(stat, value, st);
+    const step = end < 10 ? 0.1 : 1; // Energy Regen lives in 1–4: integer rounding would flatten the gauge
+    // zero-based, like a real meter: a zoomed axis (it used to start at 0.8×target) drew Alice's AP 300 of a
+    // 400 target as a sliver at 7%. Honest proportion: 300/400 reads three-quarters of the way there.
+    const min = 0;
+    const max = Math.ceil((Math.max(end, value, fight.combat ?? 0) * 1.045) / step) * step;
+    const gap = (to: number) => show(stat, Math.abs(to - value));
     let note: string;
     if (t.cap != null && value >= t.cap) note = `At the ${show(stat, t.cap)} cap: extra ${stat} is wasted, so the grader moves the weight elsewhere.`;
-    else if (value >= t.full) note = `Past full marks by ${show(stat, +(value - t.full).toFixed(1))}.`;
-    else if (value >= t.target) note = `Past the ${show(stat, t.target)} target. ${show(stat, +(t.full - value).toFixed(1))} more to full marks.`;
-    else note = `${show(stat, +(t.target - value).toFixed(1))} short of the ${show(stat, t.target)} target.`;
-    out.push({ stat, value, target: t.target, full: t.full, min, max, targetLabel: `${show(stat, t.target)} TARGET`, fullLabel: `${show(stat, t.full)} FULL`, note });
-    if (out.length === 3) break;
+    else if (t.cap != null && value >= t.target) note = `Past the ${show(stat, t.target)} target. ${gap(t.cap)} more reaches the ${show(stat, t.cap)} cap; past it is wasted.`;
+    else if (t.cap == null && value >= t.full) note = `Past full marks by ${gap(t.full)}.`;
+    else if (value >= t.target) note = `Past the ${show(stat, t.target)} target. ${gap(t.full)} more to full marks.`;
+    else note = `${gap(t.target)} short of the ${show(stat, t.target)} ${word}.`;
+    // target on the cap (Miyabi CRIT 80/80): one breakpoint, one label; two would stack on the same mark
+    const targetLabel = t.cap != null && t.target >= t.cap ? "" : `${show(stat, t.target)} TARGET`;
+    out.push({ stat, value, target: Math.min(t.target, end), full: end, min, max, targetLabel, fullLabel: `${show(stat, end)} ${t.cap != null ? "CAP" : "FULL"}`, note, ...fight });
   }
   return out.length ? out : undefined;
 }
@@ -114,6 +136,7 @@ export function liveDetail(entry: RosterEntry, blob: BlobAgent | undefined): Bui
   if (sheet.length) d.sheet = sheet;
   else if (fx?.sheet) { d.sheet = fx.sheet; d.sheetSource = fx.sheetSource; }
 
+  let fight: Combat | undefined;
   if (g && blob?.discs?.pieces?.length) {
     d.discSource = "DASHBOARD BLOB · LIVE";
     d.discs = blob.discs.pieces
@@ -129,8 +152,11 @@ export function liveDetail(entry: RosterEntry, blob: BlobAgent | undefined): Bui
     d.weakestSlot = d.discs.reduce((w, x) => (x.pct < w.pct ? x : w)).slot;
     d.ratingLine = ratingLine(d.discs);
     try {
-      const opts = blob.mainStats?.length ? { sheet: Object.fromEntries(blob.mainStats.map((r) => [r.stat, r.value])), stats: blob.relevant } : undefined;
+      // every goalposted stat, not just `relevant`: a gauge can land on a targeted stat she doesn't scale on
+      const keys = [...new Set([...(blob.relevant ?? []), ...Object.keys(cfg.agentOverrides?.[entry.name]?.targets ?? {})])];
+      const opts = { sheet: Object.fromEntries((blob.mainStats ?? []).map((r) => [r.stat, r.value])), stats: keys };
       const st = computeStats(blob, GRADING_CONFIG, opts);
+      fight = st.stats;
       const eng = st.buffs.filter((b) => b.src === blob.wengine?.name).map((b) => b.label);
       if (eng.length) d.engineBuffs = eng;
       if (st.sets.active.length) d.setBonus = { sets: st.sets.active.map((s) => ({ name: s.set, pieces: s.count })), note: setNote(st.sets.active) };
@@ -140,7 +166,7 @@ export function liveDetail(entry: RosterEntry, blob: BlobAgent | undefined): Bui
     d.engineBuffs = fx.engineBuffs; d.setBonus = fx.setBonus;
   }
 
-  d.goals = goals(entry.name, blob?.relevant ?? [], d.sheet ?? []) ?? fx?.goals;
+  d.goals = goals(entry.name, blob?.relevant ?? [], d.sheet ?? [], fight) ?? fx?.goals;
   if (fx?.skills) { d.skills = fx.skills; d.skillSource = fx.skillSource; }
   if (fx?.core) d.core = fx.core;
   return d.discs || d.sheet || d.skills ? d : undefined;

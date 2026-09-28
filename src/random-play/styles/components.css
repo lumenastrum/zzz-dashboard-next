@@ -184,14 +184,25 @@
 .rp-sheet__foot { font-family: var(--rp-font-mono); font-size: var(--rp-size-label); color: var(--rp-text-2); margin-top: 14px; letter-spacing: .06em; }
 .rp-specs__side { width: 380px; display: flex; flex-direction: column; gap: 22px; }
 .rp-specs__side.is-dense { gap: 12px; }
-.rp-specs__side.is-dense .rp-gauge__marks { height: 24px; }
-.rp-gauge__top { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
+/* in-combat notes wrap to two lines: 20px marks + a 5px top rhythm buy back the 17px they cost (QA 09/28, all 25 builds fit) */
+.rp-specs__side.is-dense .rp-gauge__marks { height: 20px; }
+.rp-specs__side.is-dense .rp-gauge__top { margin-bottom: 5px; }
+/* wraps on narrow phones (ANOMALY PROFICIENCY + an in-combat chip had 2px to spare at 390): the reading drops to its own line, right-aligned */
+.rp-gauge__top { display: flex; flex-wrap: wrap; column-gap: 10px; justify-content: space-between; align-items: baseline; margin-bottom: 8px; }
 .rp-gauge__label { font-family: var(--rp-font-mono); font-size: var(--rp-size-small); font-weight: 700; letter-spacing: .1em; }
 .rp-gauge__val { font-family: var(--rp-font-display); font-size: 34px; font-weight: 900; }
 .rp-gauge__track { position: relative; width: 380px; height: 18px; border: 2px solid var(--rp-ink); border-radius: 3px; background: var(--rp-card); }
 .rp-gauge__fill { position: absolute; left: 0; top: 0; bottom: 0; background: var(--rp-ink); transform: scaleX(0); transform-origin: left; transition: transform var(--rp-dur-bar) var(--rp-ease-out) .4s; }
 .rp-panel.is-on .rp-gauge__fill { transform: scaleX(1); }
-.rp-gauge__mark { position: absolute; top: -8px; bottom: -8px; width: 3px; background: var(--rp-accent); }
+/* in-combat run: ink hatch (the risograph's own diagonal) past the solid sheet bar; it prints once the sheet
+   bar has landed, like the tape starting to play. The chip carries the same hatch as its own key. */
+.rp-gauge__combat { position: absolute; top: 0; bottom: 0; background: repeating-linear-gradient(-45deg, var(--rp-ink) 0 2px, transparent 2px 5px); transform: scaleX(0); transform-origin: left; transition: transform calc(var(--rp-dur-bar) * .6) var(--rp-ease-out) calc(.4s + var(--rp-dur-bar)); }
+.rp-panel.is-on .rp-gauge__combat { transform: scaleX(1); }
+.rp-gauge__read { display: inline-flex; align-items: baseline; gap: 10px; margin-left: auto; }
+.rp-gauge__play { display: inline-flex; align-items: center; gap: 5px; align-self: center; padding: 2px 7px 2px 3px; border: 1.5px solid var(--rp-ink); border-radius: 3px; font-family: var(--rp-font-mono); font-size: var(--rp-size-micro); font-weight: 700; letter-spacing: .06em; white-space: nowrap; }
+.rp-gauge__swatch { width: 14px; height: 11px; border: 1.5px solid var(--rp-ink); border-radius: 2px; background: repeating-linear-gradient(-45deg, var(--rp-ink) 0 2px, transparent 2px 5px); }
+/* the lower tail stops short of the label row: at -8px it ran 3px into right-anchored labels ("3,3|00 FULL", QA 09/28) */
+.rp-gauge__mark { position: absolute; top: -8px; bottom: -4px; width: 3px; background: var(--rp-accent); }
 .rp-gauge__marks { position: relative; height: 30px; margin-top: 4px; font-family: var(--rp-font-mono); font-size: var(--rp-size-micro); color: var(--rp-ink-2); letter-spacing: .04em; }
 .rp-gauge__marks span { position: absolute; top: 0; white-space: nowrap; }
 .rp-gauge__marks .is-before { transform: translateX(calc(-100% - 6px)); text-align: right; }

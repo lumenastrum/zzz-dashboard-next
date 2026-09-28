@@ -39,7 +39,15 @@ export interface Disc {
   subs: DiscSub[];
 }
 export interface Skill { name: string; level: number; max: number }
-export interface Goal { stat: string; value: number; target: number; full: number; min: number; max: number; targetLabel: string; fullLabel: string; note: string }
+/** One breakpoint gauge. `value` is the character screen (out of combat). `full` is the gauge's end mark:
+ *  the stat's cap when it has one (past it is wasted), else full marks. `combat` is the same stat with the
+ *  in-combat-only buffs on top (W-engine passives, conditional set effects); present only when those buffs
+ *  add something, with `combatFrom` naming them. */
+export interface Goal {
+  stat: string; value: number; target: number; full: number; min: number; max: number;
+  targetLabel: string; fullLabel: string; note: string;
+  combat?: number; combatFrom?: string;
+}
 
 /** Deep build data for one agent (discs, skills, goals). Optional per agent. */
 export interface BuildDetail {

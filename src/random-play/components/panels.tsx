@@ -4,10 +4,14 @@ import { useAssets } from "../context";
 import { HAS_EMOTE } from "../data/meta";
 import type { Agent, BuildDetail, Disc, EditStatus, SceneEditor } from "../data/types";
 import { ELEMENT_COLORS } from "../tokens";
-import { Eyebrow, GradeSticker } from "./primitives";
+import { Eyebrow, GradeSticker, PlayGlyph } from "./primitives";
 
 const pctOf = (v: number, lo: number, hi: number) => Math.round(((v - lo) / (hi - lo)) * 1000) / 10;
 const delay = (ms: number): CSSProperties => ({ transitionDelay: `${ms}ms` });
+// gauge numbers: thousands commas, at most 2 decimals (Energy Regen), float noise trimmed (3.1999… → 3.2)
+const fmtNum = (v: number) => (+v.toFixed(2)).toLocaleString("en-US");
+// width of a gauge mark label: 10px mono + .04em tracking ≈ 6.6px a character (measured 09/28)
+const labelPx = (s: string) => s.length * 6.6;
 
 // ============================================================ 01 SPECS
 export function SpecsPanel({ agent: a, detail }: { agent: Agent; detail?: BuildDetail }) {
@@ -39,22 +43,51 @@ export function SpecsPanel({ agent: a, detail }: { agent: Agent; detail?: BuildD
         {detail?.goals && (
           <>
             <Eyebrow className="rp-stagger" source="GRADING TARGETS">BREAKPOINTS</Eyebrow>
-            {detail.goals.map((g) => (
+            {detail.goals.map((g) => {
+              // the character screen is the paused frame; combat is the tape playing: in-fight-only buffs
+              // print as a hatched run past the solid sheet bar, and the chip (same hatch) keys it
+              const inFight = g.combat != null && g.combat > g.value ? g.combat : undefined;
+              return (
               <div key={g.stat} className="rp-gauge rp-stagger" style={delay(300)}>
-                <div className="rp-gauge__top"><span className="rp-gauge__label">{g.stat.toUpperCase()}</span><span className="rp-gauge__val">{g.value.toLocaleString("en-US")}</span></div>
+                <div className="rp-gauge__top">
+                  <span className="rp-gauge__label">{g.stat.toUpperCase()}</span>
+                  <span className="rp-gauge__read">
+                    {inFight != null && (
+                      <span className="rp-gauge__play" title={g.combatFrom ? `In combat, with ${g.combatFrom}` : "In combat"}>
+                        <i className="rp-gauge__swatch" aria-hidden="true" /><PlayGlyph size={9} />{fmtNum(inFight)} IN COMBAT
+                      </span>
+                    )}
+                    <span className="rp-gauge__val">{g.value.toLocaleString("en-US")}</span>
+                  </span>
+                </div>
                 <div className="rp-gauge__track">
+                  {inFight != null && (
+                    <div className="rp-gauge__combat" style={{ left: `${pctOf(g.value, g.min, g.max)}%`, width: `${pctOf(inFight, g.min, g.max) - pctOf(g.value, g.min, g.max)}%` }} />
+                  )}
                   <div className="rp-gauge__fill" style={{ width: `${pctOf(g.value, g.min, g.max)}%` }} />
                   <div className="rp-gauge__mark" style={{ left: `${pctOf(g.target, g.min, g.max)}%` }} />
                   <div className="rp-gauge__mark" style={{ left: `${pctOf(g.full, g.min, g.max)}%` }} />
                 </div>
                 <div className="rp-gauge__marks">
-                  {/* the target label ends at its mark, unless the mark sits in the left quarter: then it starts there */}
-                  <span className={pctOf(g.target, g.min, g.max) < 25 ? "is-after" : "is-before"} style={{ left: `${pctOf(g.target, g.min, g.max)}%` }}>{g.targetLabel}</span>
-                  <span className="is-end">{g.fullLabel}</span>
+                  {/* the target label ends at its mark (or starts there from the left quarter). On a zero-based
+                      scale the target usually sits near the end mark, so when the two labels would meet on the
+                      narrowest track (290px, a 320 phone) they merge into one end-anchored line, in mark order */}
+                  {g.targetLabel && (100 - pctOf(g.target, g.min, g.max)) * 2.9 < labelPx(g.fullLabel) + 16 ? (
+                    <span className="is-end">{g.targetLabel} · {g.fullLabel}</span>
+                  ) : (
+                    <>
+                      <span className={pctOf(g.target, g.min, g.max) < 25 ? "is-after" : "is-before"} style={{ left: `${pctOf(g.target, g.min, g.max)}%` }}>{g.targetLabel}</span>
+                      <span className="is-end">{g.fullLabel}</span>
+                    </>
+                  )}
                 </div>
-                <div className="rp-note">{g.note}</div>
+                <div className="rp-note">
+                  {g.note}
+                  {inFight != null && <> In combat: <b>+{fmtNum(inFight - g.value)}</b>{g.combatFrom ? ` from ${g.combatFrom}` : ""}.</>}
+                </div>
               </div>
-            ))}
+              );
+            })}
           </>
         )}
         <div className="rp-card rp-stagger" style={delay(360)}>
