@@ -8,6 +8,7 @@ export const ICON_ID: Record<string, number> = {
   yeshunguang: 55, evelyn: 37, ellen: 21, soldier0anby: 40, seed: 48, cissia: 60, jufufu: 43, trigger: 39,
   lighter: 26, dialyn: 54, nangongyu: 59, astra: 36, yuzuha: 47, lucia: 50, sunna: 58, zhao: 56,
   yixuan: 44, yidhari: 52, yanagi: 31,
+  phoenix: 1641, // from 2026-10 the game numbers icons by avatar id
 };
 
 /** Names that don't fit a 70px spine or a squad nameplate. Everything else uses `name`. */
@@ -19,6 +20,7 @@ export const SPINE_NAME: Record<string, string> = {
 /** Agents with a chat-emote sticker in assets/agents/emote/. */
 export const HAS_EMOTE = new Set([
   "burnice", "aria", "velina", "remielledan", "evelyn", "seed", "trigger", "lighter", "dialyn", "nangongyu", "sunna",
+  "phoenix",
 ]);
 
 /** Bangboo slug → display name. `ultrajet` is the asset slug; the in-game name is Ultra Jake. */

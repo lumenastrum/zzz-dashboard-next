@@ -76,6 +76,11 @@ export const PORTRAIT_FRAMES: Record<string, PortraitFrame> = {
     "left": 51.8,
     "height": 294.3
   },
+  "phoenix": {
+    "top": -0.0,
+    "left": 62.3,
+    "height": 293.7
+  },
   "seed": {
     "top": -0.0,
     "left": 37.1,

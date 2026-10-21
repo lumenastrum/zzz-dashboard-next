@@ -1,5 +1,5 @@
 {
- "generated": "2026-09-28T21:16:53.937Z",
+ "generated": "2026-10-21T05:43:21.347Z",
  "by": "scripts/build-details.ts",
  "sources": {
   "discs": "zzz-dashboard-next blob via peek (grading engine)",
@@ -2032,6 +2032,260 @@
     "D",
     "E",
     "F"
+   ]
+  },
+  "phoenix": {
+   "slug": "phoenix",
+   "sheetSource": "DASHBOARD BLOB · SEEDED SHEET",
+   "discSource": "DASHBOARD BLOB · LAST IMPORT",
+   "discs": [
+    {
+     "slot": 1,
+     "set": "Freedom Blues",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "HP",
+      "value": "2,200"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "DEF",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 2,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 53.7,
+     "main": {
+      "stat": "ATK",
+      "value": "316"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "CRIT DMG",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 1,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 3,
+     "set": "Freedom Blues",
+     "grade": "A",
+     "pct": 74.6,
+     "main": {
+      "stat": "DEF",
+      "value": "184"
+     },
+     "subs": [
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 3,
+       "relevant": true
+      }
+     ]
+    },
+    {
+     "slot": 4,
+     "set": "Freedom Blues",
+     "grade": "D",
+     "pct": 42.1,
+     "main": {
+      "stat": "Anomaly Proficiency",
+      "value": "92"
+     },
+     "subs": [
+      {
+       "stat": "DEF",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "ATK%",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 5,
+     "set": "Phaethon's Melody",
+     "grade": "C",
+     "pct": 43.3,
+     "main": {
+      "stat": "Fire DMG",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 2,
+       "relevant": true
+      },
+      {
+       "stat": "DEF%",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "HP%",
+       "rolls": 2,
+       "relevant": false
+      }
+     ]
+    },
+    {
+     "slot": 6,
+     "set": "Freedom Blues",
+     "grade": "B",
+     "pct": 55.2,
+     "main": {
+      "stat": "Anomaly Mastery",
+      "value": "30%"
+     },
+     "subs": [
+      {
+       "stat": "HP",
+       "rolls": 3,
+       "relevant": false
+      },
+      {
+       "stat": "PEN",
+       "rolls": 1,
+       "relevant": false
+      },
+      {
+       "stat": "Anomaly Proficiency",
+       "rolls": 3,
+       "relevant": true
+      },
+      {
+       "stat": "CRIT Rate",
+       "rolls": 1,
+       "relevant": false
+      }
+     ]
+    }
+   ],
+   "weakestSlot": 4,
+   "ratingLine": "Contains three weak discs (Scenes 02, 04, 05).",
+   "engineBuffs": [
+    "Fire DMG +40% on any squad Anomaly crit"
+   ],
+   "setBonus": {
+    "sets": [
+     {
+      "name": "Freedom Blues",
+      "pieces": 4
+     },
+     {
+      "name": "Phaethon's Melody",
+      "pieces": 2
+     }
+    ],
+    "note": "4pc: Target Anomaly Buildup RES -20% (EX hit, 8s)"
+   },
+   "goals": [
+    {
+     "stat": "ATK",
+     "value": 2328,
+     "target": 2700,
+     "full": 3300,
+     "min": 0,
+     "max": 3449,
+     "targetLabel": "2,700 TARGET",
+     "fullLabel": "3,300 FULL",
+     "note": "372 short of the 2,700 target."
+    },
+    {
+     "stat": "Anomaly Proficiency",
+     "value": 339,
+     "target": 375,
+     "full": 450,
+     "min": 0,
+     "max": 471,
+     "targetLabel": "375 TARGET",
+     "fullLabel": "450 FULL",
+     "note": "36 short of the 375 target.",
+     "combat": 429,
+     "combatFrom": "Plume of Rebirth"
+    },
+    {
+     "stat": "Anomaly Mastery",
+     "value": 255,
+     "target": 255,
+     "full": 255,
+     "min": 0,
+     "max": 267,
+     "targetLabel": "",
+     "fullLabel": "255 CAP",
+     "note": "At the 255 cap: extra Anomaly Mastery is wasted, so the grader moves the weight elsewhere."
+    }
    ]
   },
   "yeshunguang": {

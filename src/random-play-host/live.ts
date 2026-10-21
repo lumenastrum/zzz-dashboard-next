@@ -100,7 +100,8 @@ function goals(name: string, relevant: string[], sheet: { stat: string; value: s
     const max = Math.ceil((Math.max(end, value, fight.combat ?? 0) * 1.045) / step) * step;
     const gap = (to: number) => show(stat, Math.abs(to - value));
     let note: string;
-    if (t.cap != null && value >= t.cap) note = `At the ${show(stat, t.cap)} cap: extra ${stat} is wasted, so the grader moves the weight elsewhere.`;
+    // only CRIT Rate has a grader clamp (grading.js); other caps (Phoenix's AM 255) are kit breakpoints
+    if (t.cap != null && value >= t.cap) note = `At the ${show(stat, t.cap)} cap: extra ${stat} is wasted${stat === "CRIT Rate" ? ", so the grader moves the weight elsewhere" : ""}.`;
     else if (t.cap != null && value >= t.target) note = `Past the ${show(stat, t.target)} target. ${gap(t.cap)} more reaches the ${show(stat, t.cap)} cap; past it is wasted.`;
     else if (t.cap == null && value >= t.full) note = `Past full marks by ${gap(t.full)}.`;
     else if (value >= t.target) note = `Past the ${show(stat, t.target)} target. ${gap(t.full)} more to full marks.`;

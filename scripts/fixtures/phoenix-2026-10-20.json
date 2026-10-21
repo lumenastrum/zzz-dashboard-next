@@ -1,0 +1,244 @@
+{
+  "rank": "S",
+  "level": 60,
+  "faction": "Krampus Compliance Authority",
+  "section": "ANOMALY",
+  "attribute": "Fire",
+  "mindscape": "M0",
+  "wengine": {
+    "name": "Plume of Rebirth",
+    "rank": "S",
+    "refine": "R1"
+  },
+  "relevant": [
+    "ATK",
+    "Anomaly Proficiency",
+    "Anomaly Mastery"
+  ],
+  "mainStats": [
+    {
+      "stat": "HP",
+      "value": "12,138"
+    },
+    {
+      "stat": "ATK",
+      "value": "2,328"
+    },
+    {
+      "stat": "DEF",
+      "value": "973"
+    },
+    {
+      "stat": "Impact",
+      "value": "86"
+    },
+    {
+      "stat": "CRIT Rate",
+      "value": "7.4%"
+    },
+    {
+      "stat": "CRIT DMG",
+      "value": "64.4%"
+    },
+    {
+      "stat": "Anomaly Mastery",
+      "value": "255"
+    },
+    {
+      "stat": "Anomaly Proficiency",
+      "value": "339"
+    },
+    {
+      "stat": "PEN Ratio",
+      "value": "0%"
+    },
+    {
+      "stat": "Energy Regen",
+      "value": "1.2"
+    }
+  ],
+  "discs": {
+    "pieces": [
+      {
+        "slot": 1,
+        "set": "Freedom Blues",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "HP",
+          "value": 2200
+        },
+        "subs": [
+          {
+            "stat": "Anomaly Proficiency",
+            "rolls": 3
+          },
+          {
+            "stat": "DEF",
+            "rolls": 1
+          },
+          {
+            "stat": "ATK%",
+            "rolls": 2
+          },
+          {
+            "stat": "DEF%",
+            "rolls": 2
+          }
+        ]
+      },
+      {
+        "slot": 2,
+        "set": "Phaethon's Melody",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "ATK",
+          "value": 316
+        },
+        "subs": [
+          {
+            "stat": "HP",
+            "rolls": 3
+          },
+          {
+            "stat": "CRIT DMG",
+            "rolls": 3
+          },
+          {
+            "stat": "ATK%",
+            "rolls": 2
+          },
+          {
+            "stat": "Anomaly Proficiency",
+            "rolls": 1
+          }
+        ]
+      },
+      {
+        "slot": 3,
+        "set": "Freedom Blues",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "DEF",
+          "value": 184
+        },
+        "subs": [
+          {
+            "stat": "HP%",
+            "rolls": 2
+          },
+          {
+            "stat": "HP",
+            "rolls": 1
+          },
+          {
+            "stat": "Anomaly Proficiency",
+            "rolls": 2
+          },
+          {
+            "stat": "ATK%",
+            "rolls": 3
+          }
+        ]
+      },
+      {
+        "slot": 4,
+        "set": "Freedom Blues",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "Anomaly Proficiency",
+          "value": 92
+        },
+        "subs": [
+          {
+            "stat": "DEF",
+            "rolls": 3
+          },
+          {
+            "stat": "ATK%",
+            "rolls": 2
+          },
+          {
+            "stat": "DEF%",
+            "rolls": 1
+          },
+          {
+            "stat": "HP",
+            "rolls": 2
+          }
+        ]
+      },
+      {
+        "slot": 5,
+        "set": "Phaethon's Melody",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "Fire DMG",
+          "value": "30%"
+        },
+        "subs": [
+          {
+            "stat": "Anomaly Proficiency",
+            "rolls": 2
+          },
+          {
+            "stat": "DEF%",
+            "rolls": 1
+          },
+          {
+            "stat": "HP",
+            "rolls": 3
+          },
+          {
+            "stat": "HP%",
+            "rolls": 2
+          }
+        ]
+      },
+      {
+        "slot": 6,
+        "set": "Freedom Blues",
+        "rank": "S",
+        "level": 15,
+        "main": {
+          "stat": "Anomaly Mastery",
+          "value": "30%"
+        },
+        "subs": [
+          {
+            "stat": "HP",
+            "rolls": 3
+          },
+          {
+            "stat": "Flat PEN",
+            "rolls": 1
+          },
+          {
+            "stat": "Anomaly Proficiency",
+            "rolls": 3
+          },
+          {
+            "stat": "CRIT Rate",
+            "rolls": 1
+          }
+        ]
+      }
+    ]
+  },
+  "base": {
+    "ATK": 1584.252,
+    "HP": 7673.214,
+    "DEF": 611.577,
+    "CRIT Rate": 5,
+    "CRIT DMG": 50,
+    "Anomaly Proficiency": 118,
+    "Anomaly Mastery": 159.375,
+    "Impact": 86,
+    "Energy Regen": 1.2,
+    "PEN Ratio": 0
+  }
+}

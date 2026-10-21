@@ -32,6 +32,7 @@ export const ROSTER: RosterEntry[] = [
   { name: "Velina", slug: "velina", section: "Anomaly", attribute: "Wind", mindscape: 1, el: "#95c9ff", faction: "Roscaelifer External Strategy Department" },
   { name: "Remielle Dan", slug: "remielledan", section: "Anomaly", attribute: "Lumiflux", mindscape: 2, el: "#f5aede",
     faction: "Covenant of Dayat", title: "Void Hunter: Temporal Lumiflux", voidHunter: true, deckArt: "remielledan_deck" }, // pulled M2R1 day one, 2026-07-29 — the fallen angel came HOME; deckArt = uncropped wingspan splash
+  { name: "Phoenix", slug: "phoenix", section: "Anomaly", attribute: "Fire", mindscape: 0, el: "#f74c0f", faction: "Krampus Compliance Authority" }, // pulled M0R1 day one, 2026-10-20 (lost the 50/50, guarantee on the next ten)
   { name: "Yanagi", slug: "yanagi", section: "Anomaly", attribute: "Electric", mindscape: 0, el: "#14b0ff", faction: "Hollow Special Operations Section 6", wifeOnly: true }, // wife-only; mindscape placeholder (she edits)
   // — Attack —
   { name: "Ye Shunguang", slug: "yeshunguang", section: "Attack", attribute: "Honed Edge", mindscape: 1, el: "#9bb4fb",

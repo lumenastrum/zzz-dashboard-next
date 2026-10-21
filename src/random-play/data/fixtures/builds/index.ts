@@ -3,8 +3,10 @@
 import type { BuildDetail } from "../../types";
 import generated from "./generated.json";
 import { remielledan } from "./remielledan";
+import { phoenix } from "./phoenix";
 
 export const BUILD_DETAILS: Record<string, BuildDetail> = {
   ...(generated.details as unknown as Record<string, BuildDetail>),
   remielledan,
+  phoenix,
 };

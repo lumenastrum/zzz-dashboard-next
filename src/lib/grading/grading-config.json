@@ -175,6 +175,12 @@
       "ATK": { "target": 4000, "full": 4300 },
       "Anomaly Proficiency": { "target": 370, "full": 460 }
     } },
+    "_phoenix_note": "Phoenix's Core Passive (Nirvana) lets the WHOLE squad's Anomaly DMG crit on Seared enemies: base 30% CRIT Rate +0.7% per point of initial Anomaly Mastery above 155, maxing at 255 = 100%. So AM 255 is a hard kit breakpoint, reachable only via max Core + D6 AM main + Phaethon 2pc + her signature (A. sits exactly on it, 2026-10-20). AM is never a substat, so the cap only drives the gauge. Her own CRIT DMG stat's role in Sear crits is UNTESTED (base text says 25%); until A.'s training-room ratio test lands, CRIT stays at the anomaly archetype's zero weight. Targets from the game files (text map) + his screen; AP/ATK on the Burnice scale.",
+    "Phoenix": { "archetype": "anomaly", "targets": {
+      "ATK": { "target": 2700, "full": 3300 },
+      "Anomaly Proficiency": { "target": 375, "full": 450 },
+      "Anomaly Mastery": { "target": 255, "cap": 255, "full": 260 }
+    } },
     "_yanagi_note": "Cosmea's roster. Yanagi is a pure AP-scaling Electric anomaly — Disorder CANNOT crit, so she has NO CRIT mechanic (unlike Miyabi's CRIT->buildup conversion); CRIT is a dead stat and gets no goalpost (the anomaly archetype already zeroes CRIT weight). Slots track the anomaly default (4=AP, 5=Electric DMG/PEN, 6=AM or ATK%). Targets PROPOSED from a WebFetch sweep (Game8 + Prydwen-via-proxy) on the Alice/Jane AP-anomaly scale; the one hard in-game number is the 375 AP Disorder-DMG breakpoint on her signature Timeweaver. ⚠️ Pending A.'s Prydwen cross-check.",
     "Yanagi": { "archetype": "anomaly", "targets": {
       "ATK": { "target": 2800, "full": 3300 },
@@ -461,6 +467,15 @@
       "passive": [
         { "label": "+5 Energy on assist (5s cd)", "kind": "buff", "stat": "Energy", "value": 5, "unit": "", "scope": "combat" },
         { "label": "Squad DMG +10%/stk (x2)", "kind": "dmg", "stat": "DMG", "value": 10, "unit": "%", "scope": "combat", "cond": true }
+      ]
+    },
+    "Plume of Rebirth": {
+      "_comment": "Phoenix signature, R1. Anomaly (Fire). Passive 'Hatching Day' verbatim from the game's text map (Weapon_TalentDes_81416411); AP +90 is combat-only (A.'s battle sheet showed +175 = this 90 + Nirvana's 85). Lv60 base/advanced follow the S-rank AM-engine curve (Lv0 48 / 12% on his screen).",
+      "base": { "ATK": 713 },
+      "advanced": { "label": "Anomaly Mastery +30%" },
+      "passive": [
+        { "label": "Anomaly Prof +90", "kind": "stat", "stat": "Anomaly Proficiency", "value": 90, "unit": "", "scope": "combat" },
+        { "label": "Fire DMG +40% on any squad Anomaly crit", "kind": "dmg", "stat": "Fire DMG", "value": 40, "unit": "%", "scope": "combat", "cond": true }
       ]
     },
     "Angel in the Shell": {

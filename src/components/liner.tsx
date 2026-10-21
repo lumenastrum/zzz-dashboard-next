@@ -13,7 +13,7 @@ const AGENTS = [
   "Alice", "Miyabi", "Vivian", "Yuzuha", "Astra", "Nicole", "Zhao", "Ju Fufu", "Norma",
   "Sigrid", "Remielle Dan", "Remielle", "Seed", "Burnice", "Evelyn", "Lighter", "Lucy",
   "Pan Yinhu", "Nangong Yu", "Trigger", "Soldier 0 Anby", "Soldier 0-Anby", "Anby",
-  "Orphie", "Magus", "Lycaon", "Soukaku", "Velina", "Jane Doe", "Jane", "Aria", "Hugo",
+  "Orphie", "Magus", "Lycaon", "Soukaku", "Velina", "Phoenix", "Jane Doe", "Jane", "Aria", "Hugo",
   "Caesar", "Zhu Yuan", "Harumasa", "BanYue", "Ye",
 ];
 const ELEMENTS = [

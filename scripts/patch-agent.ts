@@ -2,6 +2,8 @@
 //
 //   npm run patch-agent -- --agent sunna --profile wife-zzz --file patch.json           # dry run
 //   npm run patch-agent -- --agent sunna --profile wife-zzz --file patch.json --write   # push
+//   npm run patch-agent -- --agent phoenix --profile andres-zzz --file build.json --create --write
+//                                         # brand-new agent: append the whole build (must be in ROSTER)
 //
 // The patch file is a partial Agent object — top-level fields replace wholesale
 // (mainStats, base, level, wengine, ...), everything else on the agent is untouched.
@@ -34,8 +36,9 @@ async function main() {
   const profile = arg("profile");
   const file = arg("file");
   const write = process.argv.includes("--write");
+  const create = process.argv.includes("--create");
   if (!agentArg || !profile || !file) {
-    throw new Error("Usage: --agent <name|slug> --profile <profile> --file <patch.json> [--write]");
+    throw new Error("Usage: --agent <name|slug> --profile <profile> --file <patch.json> [--create] [--write]");
   }
 
   const patch = JSON.parse(readFileSync(file, "utf8")) as Partial<Agent>;
@@ -57,16 +60,19 @@ async function main() {
 
   const blob = row.data as DashboardData;
   const idx = blob.agents.findIndex((a) => a.name === agentName);
-  if (idx === -1) {
-    throw new Error(`"${agentName}" not in ${profile} (names: ${blob.agents.map((a) => a.name).join(", ")})`);
+  if (idx === -1 && !create) {
+    throw new Error(`"${agentName}" not in ${profile} (names: ${blob.agents.map((a) => a.name).join(", ")}) — a brand-new agent needs --create`);
   }
+  if (idx !== -1 && create) throw new Error(`--create refused: "${agentName}" is already in ${profile}. Patch without it.`);
+  if (create && !bySlug) throw new Error(`--create needs the agent in ROSTER first (roster.ts) — "${agentArg}" isn't there.`);
 
-  const before = blob.agents[idx];
+  // --create appends a new agent (APPEND-ONLY, like clone-agent): the patch file is the whole build
+  const before = (idx === -1 ? { name: agentName } : blob.agents[idx]) as Agent;
   const after: Agent = { ...before, ...patch };
   const next: DashboardData = {
     ...blob,
     meta: { ...blob.meta, updated: new Date().toISOString().slice(0, 10) },
-    agents: blob.agents.map((a, i) => (i === idx ? after : a)),
+    agents: idx === -1 ? [...blob.agents, after] : blob.agents.map((a, i) => (i === idx ? after : a)),
   };
 
   console.log(`\n● patch ${agentName} @ ${profile} ← ${file}`);

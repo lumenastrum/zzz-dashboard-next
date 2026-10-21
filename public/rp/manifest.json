@@ -1,6 +1,6 @@
 {
  "generated_by": "scripts/assemble-assets.py",
- "count": 353,
+ "count": 361,
  "files": [
   {
    "path": "agents/circle/alice.webp",
@@ -103,6 +103,12 @@
    "source": "zzz-dashboard-next/public/assets/endgame/nekomata.webp",
    "method": "copy",
    "bytes": 7610
+  },
+  {
+   "path": "agents/circle/phoenix.webp",
+   "source": "zzz-dashboard-next/public/assets/endgame/phoenix.webp",
+   "method": "copy",
+   "bytes": 8142
   },
   {
    "path": "agents/circle/qingyi.webp",
@@ -297,6 +303,12 @@
    "bytes": 222068
   },
   {
+   "path": "agents/cover/phoenix.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/phoenix.webp",
+   "method": "face at 0.34 → 0.54 of the cover, k=0.8, 1040x1436",
+   "bytes": 238122
+  },
+  {
    "path": "agents/cover/remielledan.webp",
    "source": "zzz-dashboard-next/public/assets/tall/remielledan.webp",
    "method": "hand-framed asset: full width from the top, 830x1146",
@@ -435,6 +447,12 @@
    "bytes": 9098
   },
   {
+   "path": "agents/emote/phoenix.webp",
+   "source": "zzz-dashboard-next/public/assets/emotes/phoenix.webp",
+   "method": "trimmed, ≤300px",
+   "bytes": 8540
+  },
+  {
    "path": "agents/emote/remielledan.webp",
    "source": "zzz-asset-rip/tools/emoji_out/Sprite/IconEmoji10117.png",
    "method": "IconEmoji10117 (game IconEmoji series) → trimmed, lossless",
@@ -565,6 +583,12 @@
    "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
    "method": "3:5 crop, face (0.74, 0.22) pinned at (0.5, 0.26), 300x500",
    "bytes": 38190
+  },
+  {
+   "path": "agents/jacket/phoenix.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/phoenix.webp",
+   "method": "3:5 crop, face (0.34, 0.18) pinned at (0.5, 0.26), 300x500",
+   "bytes": 52872
   },
   {
    "path": "agents/jacket/remielledan.webp",
@@ -729,6 +753,12 @@
    "bytes": 11206
   },
   {
+   "path": "agents/rect/phoenix.webp",
+   "source": "zzz-asset-rip/tools/newer_out/Sprite/IconRoleGeneral1641.png",
+   "method": "IconRoleGeneral1641 → lossless webp",
+   "bytes": 10922
+  },
+  {
    "path": "agents/rect/remielledan.webp",
    "source": "zzz-asset-rip/tools/remi_out/Sprite/IconRoleGeneral67.png",
    "method": "IconRoleGeneral67 → lossless webp",
@@ -891,6 +921,12 @@
    "bytes": 75530
   },
   {
+   "path": "agents/squad/phoenix.webp",
+   "source": "zzz-asset-rip/tools/newer_out/Sprite/IconRoleSelect1641.png",
+   "method": "IconRoleSelect1641 → lossless webp",
+   "bytes": 67900
+  },
+  {
    "path": "agents/squad/remielledan.webp",
    "source": "zzz-asset-rip/tools/remi_out2/Sprite/IconRoleSelect67.png",
    "method": "IconRoleSelect67 → lossless webp",
@@ -1051,6 +1087,12 @@
    "source": "zzz-dashboard-next/public/assets/tall/nangongyu.webp",
    "method": "copy",
    "bytes": 406448
+  },
+  {
+   "path": "agents/tall/phoenix.webp",
+   "source": "zzz-dashboard-next/public/assets/tall/phoenix.webp",
+   "method": "copy",
+   "bytes": 393464
   },
   {
    "path": "agents/tall/remielledan.webp",
@@ -1867,6 +1909,12 @@
    "source": "zzz-dashboard-next/public/assets/icons/wengine_original_transmorpher.webp",
    "method": "copy",
    "bytes": 33152
+  },
+  {
+   "path": "icons/wengine/plume_of_rebirth.webp",
+   "source": "zzz-dashboard-next/public/assets/icons/wengine_plume_of_rebirth.webp",
+   "method": "copy",
+   "bytes": 37724
   },
   {
    "path": "icons/wengine/practiced_perfection.webp",
